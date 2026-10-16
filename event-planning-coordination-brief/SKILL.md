@@ -40,10 +40,29 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Use Python for repeatable processing, SHA-256 hashing, validation, and draft
-generation once implemented. Inspect available CLI help before invoking commands;
-the current foundation provides help only. Do not invent stage commands, claim a
-planned check ran, or replace an absent implementation with fabricated outputs.
+Only Stage 1 is implemented. Inspect `event-coordination stage1 --help` before
+running it. When generation is authorized, use the installed environment's CLI:
+
+```bash
+.venv/bin/event-coordination stage1 --project-root /path/to/event-coordination
+```
+
+The project root defaults to the current directory. Optional `--run-id` supplies
+the ID to retain for later stages; otherwise the command generates one. It reads
+the preserved manually completed brief and both stakeholder interviews, verifies
+selected evidence, and creates
+`deliverables/snapshots/01-scope-and-approval-gates.json`. It validates the schema
+with date-time checking and checks provenance/lineage before and after writing.
+Existing snapshots cannot be overwritten; use the read-only validation procedure
+in the root `IMPLEMENTATION.md` to review one already generated.
+
+Stage 1 records the Operations approval deadline `2026-09-04T17:00:00+08:00` from
+the second interview, line 790. It preserves local source hashes, line references,
+and the manually completed brief's provenance limitations. Approvals remain pending;
+status is partial because individual category-owner assignments remain unresolved.
+Do not invent commands for Stages 2–9, claim unexecuted checks passed, or replace
+absent implementation with fabricated outputs. Stage 1 performs no external source
+retrieval or event plan, calendar, comparison CSV, or communication generation.
 
 ## Maintain the planning boundary
 
