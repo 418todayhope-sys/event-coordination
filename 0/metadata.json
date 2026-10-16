@@ -1,0 +1,65 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M53AP85GSECHVD7W43YH2V5C",
+  "session_id": "01a14655-86a1-7f23-b879-7ac4b2f07fc6",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-16T21:43:05.336521196Z",
+  "branch": "main",
+  "checkpoints_count": 9,
+  "save_step_count": 1,
+  "files_touched": [
+    "event-planning-coordination-brief/SKILL.md",
+    "event-planning-coordination-brief/references/approval-boundaries.md",
+    "event-planning-coordination-brief/references/evidence-and-uncertainty.md",
+    "event-planning-coordination-brief/references/workflow.md"
+  ],
+  "agent": "Codex",
+  "model": "gpt-6.1-sol",
+  "turn_id": "65ac4af9df19",
+  "checkpoint_transcript_start": 92,
+  "transcript_lines_at_start": 92,
+  "compact_transcript_start": 11,
+  "token_usage": {
+    "input_tokens": 220386,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 2011904,
+    "output_tokens": 12260,
+    "api_call_count": 29,
+    "subagent_tokens_complete": true
+  },
+  "session_metrics": {
+    "turn_count": 13
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-16T21:43:05.219061452Z",
+    "agent_lines": 307,
+    "agent_removed": 0,
+    "human_added": 837,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 1144,
+    "total_lines_changed": 1144,
+    "agent_percentage": 26.835664335664333,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 837,
+      "user_lines_removed": 0,
+      "agent_lines_added": 307,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "evidence/originals/event-brief-manually-completed.txt": 47,
+        "interviews/project-c-event-coordination-20261016-2056.md": 790
+      }
+    }
+  ]
+}
