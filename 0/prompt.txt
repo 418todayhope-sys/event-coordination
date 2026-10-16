@@ -1,0 +1,92 @@
+We are beginning Project C: Event Planning & Coordination Brief.
+
+Before implementing anything, inspect the existing README.md, snapshot.schema.json, and the original interview Markdown file in interviews/.
+
+Your task for now is ONLY to analyze the project context.
+
+1. Summarize the nine required workflow stages.
+2. Identify the stakeholder's business rules, especially evidence traceability, uncertainty, accessibility, budgets, and human approvals.
+3. Identify the implementation requirements that still need clarification from the formal assignment.
+4. Propose a high-level implementation approach using Python and a reusable Agent Skill.
+
+Do not create, edit, delete, or commit any files yet.
+
+Do not fabricate source data or automate the stakeholder interview.
+
+Keep README.md, snapshot.schema.json, and the original interview unchanged.
+
+Stop after presenting your analysis and wait for my approval before implementation.
+
+---
+
+Continue your Project C analysis using these additional formal assignment requirements.
+
+The required Agent Skill is named event-planning-coordination-brief.
+
+Required deliverables:
+
+    event-planning-coordination-brief/SKILL.md
+
+    Supporting scripts/ and references/ directories
+
+    Nine JSON snapshots under deliverables/snapshots/, numbered 01 through 09, matching the nine stages in snapshot.schema.json
+
+    deliverables/vendor-comparison.csv
+
+    deliverables/event-plan.md
+
+    deliverables/event-calendar.ics
+
+    deliverables/draft-communications.md
+
+    Original source evidence, including retrieved media/PDF bytes and SHA-256 hashes where available
+
+The business clock is fixed at 2026-08-26 12:00 Asia/Taipei. Keep this separate from actual retrieval and execution timestamps.
+
+All snapshots must validate against the unchanged snapshot.schema.json, share one run ID, and form a predecessor chain using SHA-256 hashes.
+
+Use actual disclosed business sources. Never invent unavailable evidence, prices, attendance figures, approvals, or source observations.
+
+All generated communications and planning outputs remain drafts. Booking, spending, invitations, and publishing require human authorization.
+
+Preserve README.md, snapshot.schema.json, and the original interview export unchanged.
+
+For now, revise your proposed implementation plan to incorporate these requirements. Identify any remaining gaps or risks.
+
+Do not create or modify files yet. Stop and wait for my approval.
+
+---
+
+I approve the Python CLI + reusable Agent Skill architecture for Project C.
+
+Use Python for repeatable processing, source tracking, SHA-256 hashing, schema validation, and draft generation. Use the Agent Skill to document the workflow, reasoning requirements, uncertainty handling, and human approval boundaries.
+
+Before implementing the full workflow, propose the exact repository folder structure and explain the responsibility of each folder.
+
+Preserve README.md, snapshot.schema.json, and the original interview unchanged.
+
+Do not create or modify files yet. Stop after presenting the proposed structure and wait for my approval.
+
+---
+
+I approve the proposed Project C repository structure.
+
+One clarification: human decisions and approvals must be supported by genuine evidence. Missing approvals must remain pending, and no approval may be invented to satisfy validation.
+
+Begin implementation with ONLY the project foundation:
+
+    Create pyproject.toml with the Python runtime and dependencies needed for the planned implementation.
+
+    Create src/event_coordination/__init__.py.
+
+    Create src/event_coordination/cli.py with a minimal command-line entry point that displays help but does not run the planning workflow yet.
+
+    Create IMPLEMENTATION.md explaining how to install the project and display CLI help.
+
+Do not implement the nine stages, retrieve external sources, or generate deliverables yet.
+
+Do not modify README.md, snapshot.schema.json, or the original interview export.
+
+After creating these foundation files, run an appropriate CLI help check, report exactly what changed and whether the check passed, and stop for my review.
+
+Do not commit or push yet.
