@@ -1,0 +1,143 @@
+Create the approved Project C evidence and Skill documentation milestone.
+
+Stage exactly the seven files identified in your previous review:
+- event-planning-coordination-brief/SKILL.md
+- event-planning-coordination-brief/references/workflow.md
+- event-planning-coordination-brief/references/evidence-and-uncertainty.md
+- event-planning-coordination-brief/references/approval-boundaries.md
+- evidence/originals/event-brief-manually-completed.txt
+- evidence/originals/Project 3 Event Coordination — Event Brief.pdf
+- interviews/project-c-event-coordination-20261016-2056.md
+
+Before committing, verify that only those seven files are staged and the protected files remain unchanged.
+
+Commit with this message:
+Add reusable event planning Skill and supporting stakeholder evidence
+
+After committing, report the commit hash and Git status.
+
+Do not push yet. Stop for my review.
+
+---
+
+Push the current Project C main branch to origin/main.
+
+Before pushing, verify that the working tree is clean and the latest commit is 5743c338.
+
+Push only the existing commit. Do not create or modify files, amend commits, or force-push.
+
+After pushing, verify that local main and origin/main are synchronized.
+
+Report the result and stop for my review.
+
+---
+
+We are beginning Project C Stage 1: scope-and-approval-gates.
+
+Review snapshot.schema.json, README.md, the Skill documentation, and the preserved event brief and stakeholder interviews.
+
+Propose the smallest implementation needed to produce a schema-valid Stage 1 snapshot.
+
+Explain:
+1. Which source records provide the objective, deadline, owners, and approval gates.
+2. How each value will retain its evidence provenance.
+3. How the snapshot will establish run_id, sequence, predecessor, and record lineage for later stages.
+4. Which Python files and tests you recommend creating first.
+5. How you will validate the result against the unchanged schema.
+
+Use the confirmed Operations approval deadline of 2026-09-04T17:00:00+08:00, citing the second interview.
+
+Do not implement anything yet. Do not modify files, commit, or push.
+
+Present the design in understandable steps and stop for my review.
+
+---
+
+Proceed with the approved Project C Stage 1 design.
+
+Implement only the smallest working Stage 1 pipeline and its tests, using the preserved local evidence.
+
+Requirements:
+
+Keep README.md, snapshot.schema.json, and both original evidence records unchanged.
+
+Use the stakeholder-confirmed Operations approval deadline: 2026-09-04T17:00:00+08:00.
+
+Preserve source hashes, line references, and provenance.
+
+Distinguish pending approvals from granted approvals.
+
+Verify that "partial" is an allowed schema status before using it.
+
+Verify that jsonschema and its FormatChecker are available; declare any necessary dependency appropriately.
+
+Validate the snapshot against the unchanged schema and perform additional provenance checks.
+
+Use actual execution timestamps, separate from the simulated business clock.
+
+Do not overwrite existing snapshots.
+
+Add focused automated tests.
+
+Before generating a real deliverable, run the tests and report their results.
+
+Do not implement Stages 2–9, commit, or push.
+
+Stop after reporting the implementation, test results, and any unresolved issues.
+
+---
+
+Resume the interrupted Project C Stage 1 implementation.
+
+I already successfully installed the dependencies manually in my Ubuntu terminal using:
+
+.venv/bin/python -m pip install -e '.[dev]'
+
+The installation reported success. Do not reinstall dependencies.
+
+First, check whether jsonschema and pytest are available in your execution environment. If they are unavailable there, report that limitation rather than attempting another installation.
+
+Continue the approved Stage 1 implementation and focused tests if possible.
+
+Do not modify protected files, implement Stages 2–9, commit, or push.
+
+Stop and report your results.
+
+---
+
+Perform a read-only review of the generated Project C Stage 1 snapshot.
+
+Inspect deliverables/snapshots/01-scope-and-approval-gates.json and the implementation.
+
+Explain in plain language:
+1. What information Stage 1 captured.
+2. How the snapshot links each requirement to its original evidence.
+3. Whether the predecessor, consumed_record_ids, and produced_record_ids are correct for Stage 1.
+4. Why its status is partial and whether that prevents Stage 2.
+5. Whether any source data, approval status, or deadline was invented.
+6. Whether the generated snapshot and code are ready for a Git milestone.
+
+Also review the untracked egg-info directory and recommend whether it should be ignored or removed from the working tree.
+
+Do not modify files, commit, or push. Stop for my review.
+
+---
+
+Prepare the Project C Stage 1 implementation for its Git milestone.
+
+Make only these housekeeping changes:
+
+1. Update IMPLEMENTATION.md to document the implemented stage1 CLI command, its inputs, output, validation, and limitations.
+2. Update event-planning-coordination-brief/SKILL.md to replace the outdated "help only" description with accurate Stage 1 usage instructions. Do not claim Stages 2–9 are implemented.
+3. Add *.egg-info/ to .gitignore so generated editable-install metadata is excluded from Git. Do not delete the existing egg-info directory.
+
+Preserve README.md, snapshot.schema.json, all interviews, and original evidence unchanged.
+
+After editing:
+- Run all automated tests.
+- Revalidate the existing Stage 1 snapshot without regenerating or overwriting it.
+- Check Git status and identify exactly which files belong in the next commit.
+
+Do not implement Stage 2, stage files, commit, or push.
+
+Report the results and stop for my review.

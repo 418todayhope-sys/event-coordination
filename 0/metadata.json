@@ -1,0 +1,89 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M53B93CD6JBWWD7FZ7JWE9YG",
+  "session_id": "01a14655-86a1-7f23-b879-7ac4b2f07fc6",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-16T21:53:22.801820799Z",
+  "branch": "main",
+  "checkpoints_count": 6,
+  "save_step_count": 3,
+  "files_touched": [
+    ".gitignore",
+    "IMPLEMENTATION.md",
+    "deliverables/snapshots/01-scope-and-approval-gates.json",
+    "event-planning-coordination-brief/SKILL.md",
+    "src/event_coordination/cli.py",
+    "src/event_coordination/sources.py",
+    "src/event_coordination/stages/__init__.py",
+    "src/event_coordination/stages/scope.py",
+    "src/event_coordination/validation.py",
+    "tests/test_scope.py"
+  ],
+  "agent": "Codex",
+  "model": "gpt-6.1-sol",
+  "turn_id": "76102aeb08f8",
+  "checkpoint_transcript_start": 338,
+  "transcript_lines_at_start": 338,
+  "compact_transcript_start": 48,
+  "token_usage": {
+    "input_tokens": 38982,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 3166336,
+    "output_tokens": 12706,
+    "api_call_count": 26,
+    "subagent_tokens_complete": true
+  },
+  "session_metrics": {
+    "turn_count": 19
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-16T21:53:22.706549907Z",
+    "agent_lines": 679,
+    "agent_removed": 25,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 679,
+    "total_lines_changed": 704,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 34,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "src/event_planning_coordination_brief.egg-info/PKG-INFO": 12,
+        "src/event_planning_coordination_brief.egg-info/SOURCES.txt": 10,
+        "src/event_planning_coordination_brief.egg-info/dependency_links.txt": 1,
+        "src/event_planning_coordination_brief.egg-info/entry_points.txt": 2,
+        "src/event_planning_coordination_brief.egg-info/requires.txt": 8,
+        "src/event_planning_coordination_brief.egg-info/top_level.txt": 1
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 611,
+      "agent_lines_removed": 5
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 611,
+      "agent_lines_removed": 5
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 679,
+      "agent_lines_removed": 25
+    }
+  ]
+}
