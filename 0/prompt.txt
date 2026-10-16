@@ -1,29 +1,19 @@
-Continue Project C from commit 54134bc.
+Create the approved Project C evidence and Skill documentation milestone.
 
-Our Python CLI foundation has been tested, committed, and pushed successfully.
+Stage exactly the seven files identified in your previous review:
+- event-planning-coordination-brief/SKILL.md
+- event-planning-coordination-brief/references/workflow.md
+- event-planning-coordination-brief/references/evidence-and-uncertainty.md
+- event-planning-coordination-brief/references/approval-boundaries.md
+- evidence/originals/event-brief-manually-completed.txt
+- evidence/originals/Project 3 Event Coordination — Event Brief.pdf
+- interviews/project-c-event-coordination-20261016-2056.md
 
-Next, implement ONLY the reusable Agent Skill documentation:
+Before committing, verify that only those seven files are staged and the protected files remain unchanged.
 
-Create event-planning-coordination-brief/SKILL.md.
+Commit with this message:
+Add reusable event planning Skill and supporting stakeholder evidence
 
-Create event-planning-coordination-brief/references/workflow.md.
+After committing, report the commit hash and Git status.
 
-Create event-planning-coordination-brief/references/evidence-and-uncertainty.md.
-
-Create event-planning-coordination-brief/references/approval-boundaries.md.
-
-Use the existing README.md, snapshot.schema.json, and original stakeholder interview as authoritative project context.
-
-Document the nine-stage workflow, evidence requirements, fixed business clock, uncertainty handling, dependency propagation, and human approval boundaries.
-
-Make the Skill reusable and operational, not merely a summary of the assignment.
-
-Do not invent source observations, business values, or approvals.
-
-Do not implement Python stages, retrieve sources, or generate deliverables yet.
-
-Do not modify README.md, snapshot.schema.json, or the original interview.
-
-After creating the four documentation files, report what changed and identify any unresolved design questions. Stop for my review.
-
-Do not commit or push yet.
+Do not push yet. Stop for my review.
