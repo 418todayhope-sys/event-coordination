@@ -1,0 +1,5 @@
+Create a file named entire-capture-test.txt in the repository root.
+Write exactly this line inside it:
+Project C Entire capture test.
+
+Do not modify any other files. Do not commit or push anything.
