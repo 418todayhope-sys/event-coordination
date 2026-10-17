@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1–5 are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–6 are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -324,7 +324,86 @@ category/total costs, programme/windows and applicable operational conditions be
 classifying feasibility. Stage 7 records recommendations and genuine decisions or
 approvals; neither approval nor fulfilled conditions may be inferred from arithmetic.
 
-Stages 6–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
+## Run Stage 6 feasibility testing and prepare the handoff
+
+Use `event_coordination.stages.feasibility`; no `stage6` CLI subcommand exists.
+Read root `IMPLEMENTATION.md`, Stage 6 sections, for prerequisites, reproduction,
+checks and the proposed witness. Stage 6 requires the exact saved Stage 5 predecessor
+ID `78805525-4ec3-44dd-b837-7fdb6a3347b4`, path
+`deliverables/snapshots/05-option-generation.json`, SHA-256
+`e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d`.
+It recursively validates earlier snapshots/evidence and retains the existing run ID.
+
+When generation is authorized and the output is absent, run from the project root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.feasibility import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The real output already exists. Verify reproduction only in a temporary input copy
+as described in `IMPLEMENTATION.md`; the writer exclusively creates files and
+refuses overwrites. Use this command from the real root for read-only validation:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/06-feasibility-testing.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 6 schema, types, evidence, checks, schedules, and lineage validation passed")
+PY
+```
+
+Preserve `option_results` and `unresolved_conditions`, 109 candidate checks, two
+witnesses, four retained screening records with separate audits, and five pending
+gates. Independently reconstruct costs with Decimal from quote facts: quoted
+429,000/447,000 plus retained allowances give planning totals 494,000/512,000 TWD.
+Do not double-count allocations. Evaluate availability, scope/exclusions and
+operational readiness separately; source integrity is not live verification.
+
+Applicable technical hard outcomes aggregate `fail > unknown > conditional > pass`
+into `infeasible`, `unverified`, `conditional` or `feasible`. Keep preferences,
+ordinary authorization and out-of-scope live verification separate. Both current
+results are conditional because venue confirmation before the walkthrough remains
+open; neither is selected or approved. Do not generalize that result to revised inputs.
+
+Witnesses preserve 09:30 opening, 10:00–11:00 keynote, twelve ten-minute demos and
+twelve three-minute changeovers, and the source setup/teardown envelopes. Demo
+order, breaks, lunch and flexible allowance are proposed choices. Validate full
+Asia/Taipei timestamps, connected opening/readiness boundaries, durations, resource
+lanes and half-open intervals. Never infer individual vendor durations or an
+approved run of show. Fictional case confirmations and floor-plan observations do
+not prove current elevator/route operation, service provision or bookings.
+
+Keep all 79 inherited issues and nine new conditions (88 total) traceable. Conditions
+identify resolution evidence, related issues and only supported roles/deadlines.
+Preserve the fallback conflict, Q-007 coverage gap and conditional livestream
+alternatives; no replacement offer or successful test is invented.
+
+For Stage 7, hand off check-level findings, blockers, costs, witnesses and evidence
+limitations. A recommendation is separate from a learner decision and human
+approval. Operations, spending, applicable Programme changes, venue confirmation
+and external actions retain their distinct boundaries. Approvals stay pending
+until genuine evidence covers the plan revision and scope.
+
+Changed quotes, attendance, venue conditions or evidence require upstream
+reevaluation and propagation to dependent results/drafts. Preserve historical
+snapshots and Entire checkpoints; do not edit saved JSON or silently repin hashes.
+The current implementation rejects changed pinned inputs and does not automatically
+migrate revised runs. Run the focused Stage 6 tests documented in `IMPLEMENTATION.md`
+when verifying assessment changes; preserve privacy in all general artifacts.
+
+Stages 7–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
 or replace missing implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary

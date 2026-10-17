@@ -16,7 +16,7 @@ For automated tests, install the optional development dependencies:
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-Stages 1–5 use jsonschema with date-time format checking, plus standard-library
+Stages 1–6 use jsonschema with date-time format checking, plus standard-library
 JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
 CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
 icalendar, and tzdata support the planned later workflow. Final event artifact
@@ -38,6 +38,7 @@ not an `event-coordination stage2` subcommand.
 Stage 3 likewise uses a Python API, not a `stage3` CLI subcommand.
 Stage 4 uses a Python API, not a `stage4` CLI subcommand.
 Stage 5 also uses a Python API, not a `stage5` CLI subcommand.
+Stage 6 uses a Python API, not a `stage6` CLI subcommand.
 
 To display help from the source tree using the installed dependencies:
 
@@ -566,17 +567,182 @@ feasibility claims or lost conditions fail validation. The full automated test
 command above includes Stage 5 and Stage 1–4 regressions; tests block network access
 and use temporary project copies for generated outputs and overwrite checks.
 
-## Stage 6 handoff
+## Stage 6 feasibility testing
 
-Stage 6 is not implemented. Before a feasibility conclusion, test each candidate's
-applicable capacities, service scope, accessibility/dietary/safety responses, quote
-validity and date compatibility, category/overall costs and authorization boundaries,
-programme fit, setup/teardown/readiness, and unresolved operational prerequisites.
-Preserve exercise confirmations and real-world verification limitations separately.
-Evaluate screened alternatives in their stated scope when relevant; do not silently
-resolve conditions or treat screening as the full test matrix. Stage 7 handles
-recommendations, genuine learner decisions and evidence-supported approvals. Neither
-stage may invent approvals to make the workflow appear complete.
+Stage 6 uses the implemented Python API `event_coordination.stages.feasibility`;
+there is no `stage6` CLI subcommand. It independently assesses both October 17
+candidates within the fictional exercise scope. It does not retrieve sources,
+recommend a winner, record a learner decision or authorize an external action.
+
+Inputs are the unchanged schema, saved Stage 1–5 snapshots, registered captures,
+preserved original evidence and interviews. The required immediate predecessor is
+Stage 5 ID `78805525-4ec3-44dd-b837-7fdb6a3347b4`, path
+`deliverables/snapshots/05-option-generation.json`, SHA-256
+`e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d`.
+The builder checks those exact bytes, recursively validates the earlier chain and
+source hashes, and retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1`.
+Actual UTC execution time stays separate from the fixed business clock.
+
+The required `option_results` and `unresolved_conditions` arrays are supported by
+109 auditable candidate `checks`, two `schedule_witnesses`, an `assessment_policy`,
+four `retained_early_screening` records, four separate `screening_checks` and five
+pending `approval_requirements`. Stage 6 evidence IDs cite actual Stage 5 produced
+records; nested baseline references retain their parent record and source identity.
+Original source values, locators, hashes and verification limitations remain
+traceable through the saved chain and Stage 5 ancestor references.
+
+Each candidate has its own checks for costs, category limits/variances, attendance,
+service-specific capacities, dates/expiry, service scope, programme/access windows,
+accessibility, dietary/allergy responses, safety and operational prerequisites.
+Quote amounts are reconstructed with Decimal from preserved source facts, not
+accepted from Stage 5 calculated totals. Quoted subtotals are TWD 429,000 and
+447,000; retained communications 25,000 plus contingency 40,000 give planning totals
+494,000 and 512,000. Allocation variances, approval limits, zero recorded commitments
+and pending authority remain distinct. The allocation-transfer policy is unresolved.
+
+Checks use `pass`, `fail`, `conditional`, `unknown`, or `not-applicable`. Applicable
+technical hard checks aggregate in this order:
+
+| First applicable outcome present | Result |
+| --- | --- |
+| `fail` | `infeasible` |
+| Otherwise `unknown` | `unverified` |
+| Otherwise `conditional` | `conditional` |
+| Otherwise all applicable hard checks pass | `feasible` |
+
+Preferences, ordinary approval requirements and explicitly out-of-scope live
+verification do not automatically decide technical feasibility. Record every blocker
+and keep the assessment scope explicit. The saved results for both candidates are
+`conditional` because venue confirmation before the accessibility walkthrough remains
+an operational prerequisite. That is distinct from pending plan/spending approval.
+
+Availability, scope coverage and operational readiness are separate checks. Scope
+assessment evaluates source inclusions, explicit exclusions and evidenced
+prerequisites, rather than treating an available quote as sufficient coverage.
+Mandatory step-free access, wheelchair spaces, captions, hearing loop, quiet-room
+availability/staffing, dietary and safety responses are assessed separately.
+Exercise coordination/readiness confirmations support only their specified case
+bundles. They are not live inspections, real supplier offers or bookings. The floor
+plan does not establish current elevator operation, clear routes or service staffing.
+Date-only quote expiry cutoffs remain unknown when their exact time matters.
+
+### Proposed schedule witnesses
+
+Both witnesses use full timestamps with UTC+08:00 and `Asia/Taipei`:
+
+| Window | Witness element |
+| --- | --- |
+| 07:30–09:30 | Setup/readiness envelope |
+| 09:30–10:00 | Proposed opening/orientation |
+| 10:00–11:00 | Source keynote |
+| 11:00–11:15 | Proposed break |
+| 11:15–12:33 | DEMO-01–06, each ten minutes plus three-minute changeover |
+| 12:33–13:33 | Proposed lunch |
+| 13:33–14:51 | DEMO-07–12, each ten minutes plus three-minute changeover |
+| 14:51–15:06 | Proposed second break |
+| 15:06–17:00 | Flexible programme/closing allowance |
+| 17:00–18:30 | Teardown/clearance envelope |
+
+Ordering, break/lunch durations and flexible content are planning choices, not
+source observations or an approved run of show. Setup/teardown are envelopes;
+individual vendor durations and additional mandatory buffers are not invented.
+Validation requires opening at the source 09:30 time and connects setup completion,
+readiness, opening, keynote and programme/teardown boundaries. All twelve demos and
+twelve separate changeovers are checked for duration and ordering, with half-open
+intervals and distinct programme/access resource lanes. Adjacent intervals may meet
+at the same timestamp without overlap.
+
+### Uncertainty and Stage 7 handoff
+
+The saved snapshot remains `partial` and `draft`, with empty decisions and neither
+candidate selected. All 79 inherited unresolved records remain unchanged. Nine new
+assessment conditions produce 88 unresolved records total, also represented in
+`state.unresolved_conditions` as the same logical records. New conditions specify
+resolution evidence, related inherited issue IDs, and owner roles/deadlines only
+where supported. Venue confirmation is required before the September 25 walkthrough
+at 14:00 Asia/Taipei; an unknown confirming owner is not invented. Five approval
+gates remain pending. The four original early-screening records are unchanged;
+separate audits retain the fallback conflict, Q-007 hearing-loop gap and both
+livestream ceiling violations with unresolved network/venue prerequisites.
+
+Stage 7 is not implemented. Its future recommendation must consume each result's
+check IDs, blocking conditions, cost breakdown, witness and source limitations,
+not merely compare prices or copy the feasibility label. Conditional does not mean
+approved, selected, booked or ready for external action. Keep Operations, category
+spending, applicable Programme changes, venue confirmation and external-action
+authority separate. Only genuine evidence can change approval statuses; software
+implementation permission is not spending authority.
+
+When attendance, quotes, venue conditions or evidence change, identify the earliest
+affected source/basis and reevaluate downstream constraints, baselines, options and
+checks before updating recommendations or drafts. Preserve historical snapshots
+and evidence. The current builders pin approved predecessors and reject changed
+inputs; they do not automatically migrate a revised run. A separately reviewed
+revision must establish its evidence, lineage and approval applicability. Do not
+edit saved JSON, silently replace hashes or reuse stale approval scope to force
+validation to pass. Preserve all Entire checkpoints throughout replanning.
+
+## Reproduce Stage 6 safely
+
+The real `deliverables/snapshots/06-feasibility-testing.json` already exists. For
+reproduction, use a temporary root containing `snapshot.schema.json`, `interviews/`,
+`evidence/originals/`, `evidence/captures/`, and unchanged snapshots 01–05 at their
+original relative paths. Use the installed project environment (or a `.venv` symlink
+to it). Leave Snapshot 06 absent from the temporary copy. Run from that root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.feasibility import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+For a real generation, run only when authorized and the output is absent. The
+exclusive writer checks existence, builds and validates in memory, creates with
+`xb`, verifies saved bytes and revalidates the saved JSON. It refuses overwrites.
+`build_snapshot(root)` provides validated in-memory assessment without writing.
+Reproduction assigns a new UUID and actual creation time, so its file hash differs;
+the stable assessment contents must reproduce. Do not remove or replace the real
+snapshot to test generation.
+
+## Validate saved Stage 6 read-only
+
+Run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/06-feasibility-testing.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 6 schema, types, evidence, checks, schedules, and lineage validation passed")
+PY
+```
+
+Shared validation uses the unchanged schema with date-time checking, then
+reconstructs the Stage 6 assessment and checks its exact inputs and lineage.
+Supplemental recursive type/structure validation rejects numeric 0/1 in Boolean
+fields. Local integrity does not authenticate a remote source or grant approval.
+
+Run the focused Stage 6 validation tests with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests/test_stage6.py -q -p no:cacheprovider
+```
+
+The existing full-suite command also covers Stage 1–5 regressions. Tests include
+aggregation precedence, independent monetary inputs, capacity boundaries, quote
+expiry ambiguity, scope loss despite unchanged availability, Boolean mutations,
+the delayed-opening counterexample, schedule/resource conflicts, actionable
+conditions, inherited-record preservation, tampered inputs and exclusive writes
+in temporary roots. No tests retrieve live sources.
 
 ## Implementation boundaries
 
@@ -591,9 +757,9 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1–5 are implemented; Stages 6–9 and event
+unchanged. Stages 1–6 are implemented; Stages 7–9 and event
 plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
-assembler and Stage 3–5 builders do not call the separately available retrieval utilities. No booking,
+assembler and Stage 3–6 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
 
