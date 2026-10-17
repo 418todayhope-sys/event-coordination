@@ -1,0 +1,73 @@
+{
+  "id": "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4",
+  "summary": "Registered incomplete browser-produced event-brief PDF.",
+  "evidence_ids": [],
+  "source_identity": "event-brief",
+  "source_role": "event-brief",
+  "locator": "https://app.notion.com/p/3ba0b700541e81d0af55dc1a8f49f5af",
+  "retrieved_at": "2026-10-16T22:19:06.965068+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/pdf",
+  "content_hash": "sha256:4d260d30fcf346811cd815235604e0a46720b60c25b63a094f787899f3e4bded",
+  "local_reference": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+  "version_metadata": {
+    "method": "browser-produced-pdf-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User-preserved browser-produced PDF of the event brief; distinct from a provider-native export.",
+    "original_path": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+    "size_bytes": 67427,
+    "registration_at": "2026-10-16T22:19:06.965068+00:00",
+    "timestamp_basis": "actual local registration time; not historical online retrieval",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "unverified; no live Notion access or version comparison performed",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 526
+    },
+    "hash_verification": "SHA-256 computed independently with sha256sum and Python hashlib.",
+    "inspection_method": "Local decompressed PDF content-stream inspection; no live retrieval.",
+    "completeness": "Incomplete: programme heading and clipped opening on page 4; programme body absent. Pages 5–6 contain headers/footers only. Brief version and initial event/date/headcount paragraph present in manual text lines 14–15 are absent from PDF body.",
+    "relationship_to_other_copy": "evidence/originals/event-brief-manually-completed.txt",
+    "limitations": [
+      "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+      "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+    ],
+    "embedded_timestamp_note": "PDF footer displays 10/16/2026, 4:31 PM; this is document metadata, not a verified online retrieval timestamp."
+  },
+  "observations": [
+    {
+      "id": "obs-brief-pdf-objective",
+      "summary": "Objective supports fellow presentations, partner overview, and accessible participation. Operations approves the plan and budget owners approve spending.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 1, main body"
+      }
+    },
+    {
+      "id": "obs-brief-pdf-exercise",
+      "summary": "Source clarification and venue coordination identify fictional exercise facts, distinct from real venue certification.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 2, main body; continuation on page 3"
+      }
+    },
+    {
+      "id": "obs-brief-pdf-approvals",
+      "summary": "No booking or spend has been approved; review-ready drafts do not require obtaining reviewer decisions.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 3, paragraph beginning No booking or spend"
+      }
+    },
+    {
+      "id": "obs-brief-pdf-truncation",
+      "summary": "Programme confirmation heading exists, but its opening sentence is clipped and the programme body is absent; subsequent pages contain only headers/footers.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 4, lower body; pages 5–6"
+      }
+    }
+  ]
+}

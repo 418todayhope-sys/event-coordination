@@ -16,10 +16,11 @@ For automated tests, install the optional development dependencies:
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-Stage 1 uses jsonschema with date-time format checking, plus standard-library CLI
-parsing, JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. HTTPX, Jinja2,
-icalendar, and tzdata are declared for the planned later workflow; external source
-retrieval and event artifact generation are not implemented.
+Stages 1 and 2 use jsonschema with date-time format checking, plus standard-library
+JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
+CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
+icalendar, and tzdata support the planned later workflow. Final event artifact
+generation is not implemented.
 
 ## Display CLI help
 
@@ -29,6 +30,9 @@ retrieval and event artifact generation are not implemented.
 
 Running `event-coordination` without arguments also displays help. Use
 `event-coordination stage1 --help` for Stage 1 options.
+The CLI currently exposes only `stage1`; its help description still says only
+Stage 1 is implemented. Stage 2 is available through the Python commands below,
+not an `event-coordination stage2` subcommand.
 
 To display help from the source tree using the installed dependencies:
 
@@ -98,6 +102,118 @@ print("Stage 1 schema and provenance checks passed")
 PY
 ```
 
+## Stage 2 source-capture workflow
+
+Stage 2 assembles preserved evidence offline. Its inputs are the unchanged schema,
+the saved Stage 1 snapshot, interview disclosure references, all JSON records under
+`evidence/captures/`, and their referenced originals under `evidence/originals/`.
+Keep the complete input package available to reproduce validation and integration
+tests. The current inventory has seven source identities, nine capture attempts,
+eight original files, and 55 observations. The two brief representations and failed
+floor-plan attempt remain separate records, grouped under their source identities.
+
+The capture foundation in `capture.py` provides explicit `retrieve_source()` and
+`import_local()` functions. Retrieval requests only a catalog URL without supplied
+authentication, follows no redirects, and records failures honestly. Local import
+requires explicit method, content type, and publication classification; it does
+not claim online equivalence. Accepted new captures use hash-based exclusive byte
+storage. These functions return metadata; they do not automatically save a capture
+JSON record or perform the reviewed document observations. The current registrations
+preserve user-supplied browser/provider exports with separately saved metadata.
+
+Source retrieval states are:
+
+- `retrieved`: a successful remote capture of accepted bytes, not proof of document
+  identity, completeness, operational conditions, or historical applicability.
+- `unavailable`: an unsuccessful access attempt; no successful retrieval is inferred.
+- `invalid`: unexpected or rejected content.
+- `unverified`: provenance or online equivalence remains unverified, including local
+  copies; can also represent a redirect requiring review.
+- `stale`: an evidenced freshness limitation. The assembler preserves this status;
+  it does not invent an age threshold or automatically assign it.
+
+The present package has eight `unverified` local registrations and one `unavailable`
+automated attempt. Hash verification confirms byte integrity, not remote retrieval.
+Manual text, browser-produced PDF/HTML, official publications, and fictional exercise
+records retain their different provenance. Actual registration/attempt times remain
+separate from unknown original download times and the simulated business clock.
+
+`source_inventory.load_inventory()` checks capture schemas, catalog identities,
+disclosure references, duplicate IDs, paths, sizes, and original-file hashes. It
+also hashes capture JSON bytes into the snapshot's manifest. Editing even the
+whitespace of a capture JSON changes that manifest hash. Original observation IDs
+are preserved in the produced-record lineage. Scope and unresolved owner questions
+are consumed from Stage 1; conditions and limitations remain explicit unresolved
+records rather than approvals or resolutions.
+
+The assembler is pinned to the approved Stage 1 SHA-256:
+`6579a81d06ac405d3e612dbe7ad4d354b9373ff5840168af0981d961186fde7d`.
+It retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1` from that predecessor and
+records its snapshot ID, path, and exact byte hash. A changed predecessor is rejected.
+
+The required spatial evidence copy is
+`deliverables/snapshots/evidence/f1710485827023.pdf`, identical to its preserved
+original. Existing capture references still point to `evidence/originals/`; the
+assembler does not create or separately validate the submission copy. Keep both
+copies unchanged and verify their hashes when packaging.
+
+## Generate Stage 2
+
+From the repository root, use this only for an authorized run where
+`deliverables/snapshots/02-source-capture.json` does not already exist:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.capture import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+This runs the actual Python API, verifies the input evidence and predecessor,
+validates before writing, creates the snapshot exclusively, then rereads and
+validates the saved bytes. It refuses an existing snapshot. It does not retrieve
+sources, select vendors, or generate general planning artifacts. The existing real
+Stage 2 snapshot must be validated rather than regenerated.
+
+## Validate saved Stage 2 without rewriting it
+
+Run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/02-source-capture.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 2 schema, evidence hashes, and lineage checks passed")
+PY
+```
+
+Validation uses the unchanged schema with date-time checking, rechecks Stage 1 and
+capture inputs, and compares the saved Stage 2 state, manifest, grouping, lineage,
+and unresolved records with those inputs. It performs no network requests and no
+writes. Changed/missing inputs cause failure rather than silent source substitution.
+
+Stage 2 legitimately remains `partial` when evidence is available but verification,
+completeness, conditions, or inherited questions remain unresolved. The current
+snapshot contains 73 unresolved records; these include per-capture limitations and
+historical failures, not 73 independent planning blockers. Schema validity does not
+turn local imports into verified remote evidence. Future stages must retain the
+unresolved conditions relevant to their decisions.
+
+The complete test command above covers both stages. Capture tests use synthetic
+fixtures/mocked responses, and Stage 2 integration tests copy preserved project
+inputs into temporary directories. They prohibit live network access. Generation
+and validation commands can be verified in a temporary input copy without replacing
+the real snapshots; test success alone does not establish live-source authenticity.
+
 ## Implementation boundaries
 
 Before further implementation, verify course-required session capture is active.
@@ -111,7 +227,14 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Only Stage 1 is implemented. Stages 2–9, external retrieval, and event
-plan/CSV/ICS/communication generation remain unimplemented. No booking, spending,
-invitation, or publishing action is performed. Generated editable-install
+unchanged. Stages 1 and 2 are implemented; Stages 3–9 and event
+plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
+assembler does not call the separately available retrieval utilities. No booking,
+spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
+
+Stage 2 is an internal evidence inventory containing aggregate accessibility and
+dietary signals. Do not expose private individual medical/contact details or copy
+the inventory wholesale into general artifacts. Public repository inclusion needs
+explicit publication review. Preserve all Entire checkpoint history; do not delete
+or rewrite checkpoints as a documentation or packaging step.

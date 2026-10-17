@@ -1,0 +1,232 @@
+{
+  "id": "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2",
+  "summary": "Registered manually exported Calendar Constraints workbook; all eight constraint rows inspected without resolving scheduling conflicts.",
+  "evidence_ids": [],
+  "source_identity": "calendar-constraints",
+  "source_role": "calendar",
+  "locator": "https://docs.google.com/spreadsheets/d/1f_i6tUCHbJV-Ug_j6U3T4LEZ3yAr2ucdBnID-4C_-8s",
+  "retrieved_at": "2026-10-16T23:38:25.813434+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "content_hash": "sha256:599fb16d7dd87de97cf2ae0a428b4288911803c3218d75f68396dbdc4c6d5a60",
+  "local_reference": "evidence/originals/Project C — Calendar Constraints.xlsx",
+  "version_metadata": {
+    "method": "manual-google-sheets-xlsx-export-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User reports manually downloading the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+    "original_path": "evidence/originals/Project C — Calendar Constraints.xlsx",
+    "size_bytes": 6145,
+    "registration_at": "2026-10-16T23:38:25.813434+00:00",
+    "timestamp_basis": "actual local registration; not historical online retrieval",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "Unverified; no live source comparison or provider version history accessed.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 554
+    },
+    "hash_verification": "SHA-256 independently verified with sha256sum and Python hashlib; matches supplied digest.",
+    "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook, relationships, shared strings, all populated worksheet cells, styles, and empty drawing; ZIP integrity passed. No formulas found.",
+    "worksheets": [
+      {
+        "name": "Calendar Constraints",
+        "state": "visible",
+        "part": "xl/worksheets/sheet1.xml",
+        "populated_range": "A1:H9"
+      }
+    ],
+    "record_versions": [
+      "calendar-2026-08-26"
+    ],
+    "record_version_locator": "'Calendar Constraints'!H2:H9",
+    "business_clock": "2026-08-26T12:00:00+08:00",
+    "business_timezone": "Asia/Taipei",
+    "source_time_representation": "D2:E9 contain literal ISO date-time strings with +08:00 offsets. The cells do not themselves name an IANA timezone; Asia/Taipei is the separate project business context.",
+    "possible_interpretations_not_resolutions": [
+      {
+        "summary": "CAL-002 permits a soft fallback window while CAL-004 notes keynote unavailable on fallback date. This is a potential fallback dependency/conflict to assess later, not a resolved schedule.",
+        "locators": [
+          "'Calendar Constraints'!A3:H3",
+          "'Calendar Constraints'!A5:H5"
+        ]
+      },
+      {
+        "summary": "CAL-001 names a preferred event window but labels its priority hard. Preserve both source values; do not silently reinterpret preferred as soft.",
+        "locators": [
+          "'Calendar Constraints'!C2",
+          "'Calendar Constraints'!F2"
+        ]
+      },
+      {
+        "summary": "CAL-005 plan and budget decision timestamp matches Stage 1 Operations deadline, but its note is broader; it does not grant approval or establish category-owner delegation.",
+        "locators": [
+          "'Calendar Constraints'!A6:H6"
+        ]
+      }
+    ],
+    "limitations": [
+      "Hold expiry in G4 is date-only 2026-09-05; no expiry time or timezone is explicitly supplied for that note.",
+      "Owner cells name organizational parties (Operations, TICC, Programme, Learner Experience), not individual approvers.",
+      "CAL-006 explicitly requires venue confirmation before the walkthrough, but no completed confirmation or actual approvals are supplied.",
+      "No separate blackout rows or explicit all-day fallback keynote-unavailability interval is supplied; do not invent interval boundaries.",
+      "Populated fields are present in all eight rows. Live-source completeness, export fidelity and original download time remain unverified.",
+      "No full spreadsheet renderer/parser dependency used; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "No schedule conflict resolved and no existing Stage 1 record changed."
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs-calendar-headers",
+      "summary": "One visible worksheet Calendar Constraints, headers constraint_id, owner, constraint_type, start_at, end_at, priority, notes, record_version.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A1:H1"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-001",
+      "summary": "constraint_id: CAL-001; owner: Operations; constraint_type: preferred_event_window; start_at: 2026-10-17T09:30:00+08:00; end_at: 2026-10-17T17:00:00+08:00; priority: hard; notes: Preferred event date; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A2:H2"
+      },
+      "original_cell_values": {
+        "A2": "CAL-001",
+        "B2": "Operations",
+        "C2": "preferred_event_window",
+        "D2": "2026-10-17T09:30:00+08:00",
+        "E2": "2026-10-17T17:00:00+08:00",
+        "F2": "hard",
+        "G2": "Preferred event date",
+        "H2": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-002",
+      "summary": "constraint_id: CAL-002; owner: Operations; constraint_type: fallback_event_window; start_at: 2026-10-24T09:30:00+08:00; end_at: 2026-10-24T17:00:00+08:00; priority: soft; notes: Fallback date; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A3:H3"
+      },
+      "original_cell_values": {
+        "A3": "CAL-002",
+        "B3": "Operations",
+        "C3": "fallback_event_window",
+        "D3": "2026-10-24T09:30:00+08:00",
+        "E3": "2026-10-24T17:00:00+08:00",
+        "F3": "soft",
+        "G3": "Fallback date",
+        "H3": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-003",
+      "summary": "constraint_id: CAL-003; owner: TICC; constraint_type: venue_hold; start_at: 2026-10-17T07:30:00+08:00; end_at: 2026-10-17T18:30:00+08:00; priority: hard; notes: Hold expires 2026-09-05; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A4:H4"
+      },
+      "original_cell_values": {
+        "A4": "CAL-003",
+        "B4": "TICC",
+        "C4": "venue_hold",
+        "D4": "2026-10-17T07:30:00+08:00",
+        "E4": "2026-10-17T18:30:00+08:00",
+        "F4": "hard",
+        "G4": "Hold expires 2026-09-05",
+        "H4": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-004",
+      "summary": "constraint_id: CAL-004; owner: Programme; constraint_type: keynote_availability; start_at: 2026-10-17T10:00:00+08:00; end_at: 2026-10-17T11:00:00+08:00; priority: hard; notes: Keynote unavailable on fallback date; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A5:H5"
+      },
+      "original_cell_values": {
+        "A5": "CAL-004",
+        "B5": "Programme",
+        "C5": "keynote_availability",
+        "D5": "2026-10-17T10:00:00+08:00",
+        "E5": "2026-10-17T11:00:00+08:00",
+        "F5": "hard",
+        "G5": "Keynote unavailable on fallback date",
+        "H5": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-005",
+      "summary": "constraint_id: CAL-005; owner: Operations; constraint_type: decision_deadline; start_at: 2026-09-04T17:00:00+08:00; end_at: 2026-09-04T17:00:00+08:00; priority: hard; notes: Plan and budget decision; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A6:H6"
+      },
+      "original_cell_values": {
+        "A6": "CAL-005",
+        "B6": "Operations",
+        "C6": "decision_deadline",
+        "D6": "2026-09-04T17:00:00+08:00",
+        "E6": "2026-09-04T17:00:00+08:00",
+        "F6": "hard",
+        "G6": "Plan and budget decision",
+        "H6": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-006",
+      "summary": "constraint_id: CAL-006; owner: Learner Experience; constraint_type: accessibility_walkthrough; start_at: 2026-09-25T14:00:00+08:00; end_at: 2026-09-25T16:00:00+08:00; priority: hard; notes: Venue confirmation required first; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A7:H7"
+      },
+      "original_cell_values": {
+        "A7": "CAL-006",
+        "B7": "Learner Experience",
+        "C7": "accessibility_walkthrough",
+        "D7": "2026-09-25T14:00:00+08:00",
+        "E7": "2026-09-25T16:00:00+08:00",
+        "F7": "hard",
+        "G7": "Venue confirmation required first",
+        "H7": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-007",
+      "summary": "constraint_id: CAL-007; owner: Programme; constraint_type: rehearsal_window; start_at: 2026-10-16T15:00:00+08:00; end_at: 2026-10-16T18:00:00+08:00; priority: soft; notes: Remote backup acceptable; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A8:H8"
+      },
+      "original_cell_values": {
+        "A8": "CAL-007",
+        "B8": "Programme",
+        "C8": "rehearsal_window",
+        "D8": "2026-10-16T15:00:00+08:00",
+        "E8": "2026-10-16T18:00:00+08:00",
+        "F8": "soft",
+        "G8": "Remote backup acceptable",
+        "H8": "calendar-2026-08-26"
+      }
+    },
+    {
+      "id": "obs-calendar-cal-008",
+      "summary": "constraint_id: CAL-008; owner: TICC; constraint_type: teardown_deadline; start_at: 2026-10-17T17:00:00+08:00; end_at: 2026-10-17T18:30:00+08:00; priority: hard; notes: All vendors clear by 18:30; record_version: calendar-2026-08-26",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Calendar Constraints'!A9:H9"
+      },
+      "original_cell_values": {
+        "A9": "CAL-008",
+        "B9": "TICC",
+        "C9": "teardown_deadline",
+        "D9": "2026-10-17T17:00:00+08:00",
+        "E9": "2026-10-17T18:30:00+08:00",
+        "F9": "hard",
+        "G9": "All vendors clear by 18:30",
+        "H9": "calendar-2026-08-26"
+      }
+    }
+  ]
+}

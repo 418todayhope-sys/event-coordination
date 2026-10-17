@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Only Stage 1 is implemented. Inspect `event-coordination stage1 --help` before
+Stages 1 and 2 are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -60,9 +60,71 @@ Stage 1 records the Operations approval deadline `2026-09-04T17:00:00+08:00` fro
 the second interview, line 790. It preserves local source hashes, line references,
 and the manually completed brief's provenance limitations. Approvals remain pending;
 status is partial because individual category-owner assignments remain unresolved.
-Do not invent commands for Stages 2–9, claim unexecuted checks passed, or replace
-absent implementation with fabricated outputs. Stage 1 performs no external source
-retrieval or event plan, calendar, comparison CSV, or communication generation.
+Stage 1 performs no external source retrieval or event plan, calendar, comparison
+CSV, or communication generation.
+
+## Run Stage 2 from preserved evidence
+
+The CLI exposes only `stage1`; its description has not yet been updated for the
+Stage 2 Python API. Do not invent an `event-coordination stage2` command. Read the
+root `IMPLEMENTATION.md`, Stage 2 sections, for capture preparation and validation
+limits. Stage 2 reads all registered capture JSON files and verifies their source
+identities, interview locators, original-file hashes, and preserved observations.
+It performs no online retrieval while assembling or validating.
+
+When generation is authorized and the Stage 2 output is absent, run from the
+repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.capture import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The output is `deliverables/snapshots/02-source-capture.json`. It retains Stage 1's
+run ID and references the exact approved predecessor bytes by SHA-256. It preserves
+separate attempts/representations under seven source identities, without upgrading
+retrieval states or resolving conditions. An existing snapshot cannot be overwritten.
+
+For a saved snapshot, use this read-only command instead:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/02-source-capture.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 2 schema, evidence hashes, and lineage checks passed")
+PY
+```
+
+Hash verification establishes byte integrity, not verified remote origin. Source
+states `retrieved`, `unavailable`, `invalid`, `unverified`, and `stale` must retain
+their evidence-supported meanings. Accepted remote bytes can be `retrieved` while
+content identity/completeness still requires inspection. Local registrations remain
+`unverified` against the online source; original download times are unknown unless
+supported separately. Keep actual attempt/registration times distinct from the
+business clock, and manual copies distinct from provider exports and real venue
+publications. The current captures include an unsuccessful remote attempt, which
+must remain visible with no invented bytes or observations.
+
+Stage 2 can legitimately be `partial`: unknown retrieval times, incomplete exports,
+online equivalence, privacy limits, and operational conditions remain unresolved.
+Keep the spatial PDF copy in `deliverables/snapshots/evidence/` byte-identical to
+the referenced original; packaging that copy does not change existing lineage.
+Treat the snapshot as internal evidence and do not copy sensitive attendee needs
+into general communications. Preserve all Entire checkpoint history.
+
+Stages 3–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
+or replace missing implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary
 

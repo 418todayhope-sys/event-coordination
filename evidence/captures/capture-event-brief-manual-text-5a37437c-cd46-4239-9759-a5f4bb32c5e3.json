@@ -1,0 +1,73 @@
+{
+  "id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+  "summary": "Registered manually completed event-brief text; not an independently verified Notion export.",
+  "evidence_ids": [],
+  "source_identity": "event-brief",
+  "source_role": "event-brief",
+  "locator": "https://app.notion.com/p/3ba0b700541e81d0af55dc1a8f49f5af",
+  "retrieved_at": "2026-10-16T22:19:06.966220+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "text/plain",
+  "content_hash": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+  "local_reference": "evidence/originals/event-brief-manually-completed.txt",
+  "version_metadata": {
+    "method": "manually-completed-copy-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User-provided manually completed copy of the Notion page, not an untouched or independently verified Notion export.",
+    "original_path": "evidence/originals/event-brief-manually-completed.txt",
+    "size_bytes": 7418,
+    "registration_at": "2026-10-16T22:19:06.966220+00:00",
+    "timestamp_basis": "actual local registration time; not historical online retrieval",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "unverified; no live Notion access or version comparison performed",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 526
+    },
+    "hash_verification": "SHA-256 computed independently with sha256sum and Python hashlib.",
+    "inspection_method": "Read local UTF-8 text with line references and compared against PDF content streams.",
+    "completeness": "Programme section present through closing disclaimer at lines 43–47, including demo roster/durations and Programme ownership. Full equivalence/completeness against live Notion remains unverified.",
+    "relationship_to_other_copy": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+    "limitations": [
+      "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+      "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+    ],
+    "stage1_relationship": "Existing Stage 1 ev-objective, ev-gates, ev-review and ev-programme reference these same bytes; no Stage 1 records were modified."
+  },
+  "observations": [
+    {
+      "id": "obs-brief-text-objective",
+      "summary": "Event objective and success criteria are present.",
+      "locator": {
+        "kind": "section",
+        "value": "Lines 16–18"
+      }
+    },
+    {
+      "id": "obs-brief-text-approvals",
+      "summary": "Operations and budget-owner approval roles, external-action boundaries, and no-booking/no-spend-approval statement are present.",
+      "locator": {
+        "kind": "section",
+        "value": "Lines 19 and 34"
+      }
+    },
+    {
+      "id": "obs-brief-text-fictional",
+      "summary": "Venue coordination explicitly identifies itself as fictional exercise knowledge.",
+      "locator": {
+        "kind": "section",
+        "value": "Lines 29–33"
+      }
+    },
+    {
+      "id": "obs-brief-text-programme",
+      "summary": "Programme section specifies twelve team demos, 10 minutes presentation plus 3 minutes changeover each, existing keynote/event windows, and Programme ownership of roster/duration changes; it explicitly grants no plan approval.",
+      "locator": {
+        "kind": "section",
+        "value": "Lines 43–47"
+      }
+    }
+  ]
+}

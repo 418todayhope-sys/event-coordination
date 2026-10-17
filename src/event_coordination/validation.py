@@ -1,4 +1,4 @@
-"""Schema validation plus Stage 1 evidence and lineage checks."""
+"""Shared schema validation with stage-specific evidence and lineage checks."""
 
 import json
 from pathlib import Path
@@ -13,11 +13,15 @@ def validate_snapshot(snapshot: dict, root: Path) -> None:
     schema = json.loads((root / "snapshot.schema.json").read_text())
     Draft202012Validator.check_schema(schema)
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(snapshot)
+    if snapshot["stage"] == "source-capture":
+        from event_coordination.stages.capture import validate_stage2
+        validate_stage2(snapshot, root)
+        return
     def require(condition, message):
         if not condition:
             raise ValueError(message)
     require(snapshot["stage"] == "scope-and-approval-gates" and snapshot["sequence"] == 1,
-            "Only Stage 1 is implemented")
+            "Only Stages 1 and 2 validation are implemented")
     require(snapshot["predecessor"] is None and snapshot["consumed_record_ids"] == [],
             "Invalid Stage 1 lineage")
     state = snapshot["state"]
