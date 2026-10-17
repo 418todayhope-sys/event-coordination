@@ -403,11 +403,11 @@ The current implementation rejects changed pinned inputs and does not automatica
 migrate revised runs. Run the focused Stage 6 tests documented in `IMPLEMENTATION.md`
 when verifying assessment changes; preserve privacy in all general artifacts.
 
-## Stage 7 initial review model
+## Stage 7 provisional review model
 
 Use `event_coordination.stages.decisions.build_snapshot(root)` to build only in
 memory from the pinned Stage 6 predecessor. `validate_snapshot` checks Stage 7
-schema, exact initial policy, source integrity, strict types and lineage. See
+schema, reconstructed recommendation policy, source integrity, strict types and lineage. See
 `IMPLEMENTATION.md` for the executable inspection and focused-test commands;
 there is no Stage 7 CLI subcommand. Input manifests pin evidence, captures,
 interviews, schema, media copies and earlier snapshots through builder/validation
@@ -419,15 +419,25 @@ without deleting or overwriting it automatically. See `IMPLEMENTATION.md` for
 platform and concurrency limits. The exclusive writer remains reserved for a
 separately authorized generation step; the real Snapshot 07 has not been generated.
 
-Keep recommendation null, learner decisions empty, both candidates conditional and
-unselected, all 88 unresolved records, five pending gates and four early screenings.
-Compare cost/headroom, service-specific catering margins, category budget meanings
-and shared conditions with actual Stage 6 evidence IDs. Preserve historical IDs
-and explicit ancestor ownership for carried evidence. Budget arithmetic never
-confers spending permission. The current model does not ingest decisions or rank
-candidates; stop for human review before recommendation policy, snapshot generation
-or business action. A null recommendation is an intermediate state, not completion
-of the brief's final recommendation requirement.
+Use the versioned planner policy `adequacy-then-headroom/1`; it is a planning
+choice, not a stakeholder ranking rule. Require adequate catering capacity, costs
+within the ceiling, feasible/conditional hard-check outcomes, comparable demand and
+hard dependencies, and no additional unresolved requirement types before using
+lower total and greater headroom to recommend a candidate. Otherwise retain null
+with the policy's evidence-linked deferral rationale. Do not invent capacity buffers
+or treat lowest price alone as sufficient. Current evidence provisionally prefers
+Green Table, with 15 catering places of margin and TWD 26,000 headroom; City Pantry
+retains 55 places and TWD 8,000 headroom. Preserve that trade-off for human review.
+See `IMPLEMENTATION.md` for the criteria, caveats and executable inspection command.
+
+Keep learner decisions empty, both candidates conditional and unselected, all 88
+unresolved records, five pending gates and four early screenings. A provisional
+recommendation is not selection, approval, booking or spending authority. Preserve
+historical IDs and explicit ancestor ownership; source-copy/exercise limitations
+remain unchanged. Reevaluate upstream for changed demand, quotes or conditions.
+Stop for review before snapshot generation, selection, genuine approval ingestion,
+policy changes or business action. A deferral does not establish final assignment
+completion.
 
 Ordinary temporary-fixture development tests suffice; do not enable the isolated
 runner or treat a batch configuration as human authority. Stages 8–9 remain

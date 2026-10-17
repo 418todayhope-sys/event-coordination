@@ -60,7 +60,7 @@ def test_valid_in_memory_model_preserves_scope(basis, model):
     assert model['run_id'] == source['run_id'] == decisions.RUN_ID
     assert model['stage'] == 'decision-and-approval' and model['sequence'] == 7
     assert model['status'] == 'partial' and model['state']['output_status'] == 'draft'
-    assert model['state']['recommendation'] is None
+    assert model['state']['recommendation'] == 'option-oct17-green-table'
     assert model['state']['learner_decisions'] == model['decisions'] == []
     assert model['unresolved'] == source['unresolved'] and len(model['unresolved']) == 88
     assert model['state']['approval_requirements'] == source['state']['approval_requirements']
@@ -123,6 +123,146 @@ def test_stable_ids_and_actual_execution_timestamps(basis, model):
     assert other['state']==model['state'] and other['snapshot_id']!=model['snapshot_id']
     assert start <= datetime.fromisoformat(other['created_at']) <= datetime.now(timezone.utc)
     assert other['created_at']!=other['state']['business_clock']
+
+
+def test_provisional_policy_reconstructs_comparison(basis, model):
+    source = previous(basis)
+    checks = {c['id']: c for c in source['state']['checks']}
+    reviews = model['state']['candidate_reviews']
+    policy = model['state']['review_policy'][0]
+    actual = decisions._recommendation_policy(reviews, checks)
+    assert all(policy[k] == v for k, v in actual.items())
+    assert policy['recommendation_status'] == 'provisional'
+    assert policy['basis'] == 'planner-policy-not-stakeholder-rule'
+    assert policy['recommended_candidate_id'] == model['state']['recommendation']
+    green, city = sorted(policy['evaluations'], key=lambda r: r['planning_total'])
+    assert Decimal(city['planning_total']) - Decimal(green['planning_total']) == Decimal(18000)
+    assert Decimal(city['catering_capacity']) - Decimal(green['catering_capacity']) == Decimal(40)
+    assert green['hard_dependencies'] == city['hard_dependencies'] == ['walkthrough-prerequisite']
+    assert set(green['unresolved_requirements']) < set(city['unresolved_requirements'])
+    assert policy['external_actions_authorized'] is False
+    assert decisions._recommendation_policy(list(reversed(reviews)), checks) == actual
+
+
+@pytest.mark.parametrize('winner_name', ['green-table', 'city-pantry'])
+@pytest.mark.parametrize('capacity_relation', ['less', 'equal', 'more'])
+@pytest.mark.parametrize('feasibility', ['conditional', 'feasible'])
+def test_rationale_tracks_actual_winner_and_capacity(basis, model, winner_name, capacity_relation, feasibility):
+    # Synthetic policy-only scenarios; these do not replace verified source inputs.
+    reviews = deepcopy(model['state']['candidate_reviews'])
+    checks = {c['id']: deepcopy(c) for c in previous(basis)['state']['checks']}
+    winner = next(r for r in reviews if r['candidate_id'] == 'option-oct17-' + winner_name)
+    alternative = next(r for r in reviews if r is not winner)
+    if winner_name == 'city-pantry':
+        winner['costs']['quoted_by_category']['catering'] = '100000.0'
+        winner['costs']['quoted_subtotal'] = '421000.0'
+        winner['costs']['planning_total'] = '486000.0'
+        winner['remaining_ceiling'] = '34000.0'
+        c = checks['check-oct17-city-pantry-allocation-policy-catering']
+        winner['condition_ids'].remove(c['condition_ids'][0])
+        c.update(condition_ids=[], outcome='pass')
+    capacity = Decimal(alternative['catering']['capacity'])
+    capacity += {'less': Decimal(-10), 'equal': Decimal(0), 'more': Decimal(10)}[capacity_relation]
+    winner['catering'].update(capacity=str(capacity), margin=str(capacity - Decimal(245)))
+    if feasibility == 'feasible':
+        for r in reviews:
+            c = checks['check-' + r['candidate_id'].removeprefix('option-') + '-walkthrough-prerequisite']
+            r['condition_ids'].remove(c['condition_ids'][0])
+            c.update(condition_ids=[], outcome='pass')
+            r['feasibility'] = 'feasible'
+    result = decisions._recommendation_policy(reviews, checks)
+    assert result['recommended_candidate_id'] == winner['candidate_id']
+    for r in reviews:
+        assert (f"{r['candidate_id']}: {feasibility}, planning cost TWD {r['costs']['planning_total']}, "
+                f"budget headroom TWD {r['remaining_ceiling']}, catering capacity {r['catering']['capacity']}") in result['rationale']
+    summary = result['tradeoff_summary']
+    assert summary.startswith(winner['candidate_id'] + ' costs TWD ')
+    saving = Decimal(alternative['costs']['planning_total']) - Decimal(winner['costs']['planning_total'])
+    assert f'TWD {saving} less' in summary
+    if capacity_relation == 'equal':
+        assert f"equal at {capacity} people" in summary
+        assert 'more catering places' not in summary
+    else:
+        larger, smaller = (winner, alternative) if capacity_relation == 'more' else (alternative, winner)
+        assert f"{larger['candidate_id']} offers 10" in summary
+        assert f"than {smaller['candidate_id']}" in summary
+    assert decisions._recommendation_policy(list(reversed(reviews)), checks) == result
+
+
+@pytest.mark.parametrize('case', ['capacity', 'ceiling', 'fail', 'unknown', 'extra-condition',
+                                  'different-dependency', 'tie', 'different-demand'])
+def test_policy_defers_when_cost_advantage_is_not_sufficient(basis, model, case):
+    # Synthetic assessments exercise policy branches; never alter preserved inputs.
+    reviews = deepcopy(model['state']['candidate_reviews'])
+    checks = {c['id']: deepcopy(c) for c in previous(basis)['state']['checks']}
+    green, city = reviews
+    if case == 'capacity':
+        green['catering'].update(capacity='244', margin='-1')
+    elif case == 'ceiling':
+        green['costs']['planning_total'] = '520001'
+        green['remaining_ceiling'] = '-1'
+    elif case in ('fail', 'unknown'):
+        checks['check-oct17-green-table-safety']['outcome'] = case
+        green['feasibility'] = 'infeasible' if case == 'fail' else 'unverified'
+    elif case in ('extra-condition', 'different-dependency'):
+        c = checks['check-oct17-green-table-safety']
+        c['condition_ids'] = ['synthetic-safety-condition']
+        c['outcome'] = 'conditional'
+        c['hard_requirement'] = case == 'different-dependency'
+        green['condition_ids'].append('synthetic-safety-condition')
+    elif case == 'tie':
+        city['costs']['planning_total'] = green['costs']['planning_total']
+        city['remaining_ceiling'] = green['remaining_ceiling']
+    else:
+        city['catering'].update(planning_demand='246', margin='54')
+    result = decisions._recommendation_policy(reviews, checks)
+    assert result['recommendation_status'] == 'deferred'
+    assert result['recommended_candidate_id'] is None
+    assert result['rationale'] and all(r['check_ids'] for r in result['evaluations'])
+    for r in reviews:
+        assert r['candidate_id'] + ': ' + r['feasibility'] in result['rationale']
+        assert 'planning cost TWD ' + r['costs']['planning_total'] in result['rationale']
+        assert 'catering capacity ' + r['catering']['capacity'] in result['rationale']
+    assert result['tradeoff_summary'] in result['rationale']
+
+
+@pytest.mark.parametrize('case', ['missing-check', 'wrong-candidate', 'boolean-number',
+                                  'classification', 'missing-condition', 'selected', 'spending', 'arithmetic'])
+def test_policy_rejects_inconsistent_or_authorized_assessments(basis, model, case):
+    reviews = deepcopy(model['state']['candidate_reviews'])
+    checks = {c['id']: deepcopy(c) for c in previous(basis)['state']['checks']}
+    green = reviews[0]
+    c = checks['check-oct17-green-table-safety']
+    if case == 'missing-check': green['check_ids'].remove(c['id'])
+    elif case == 'wrong-candidate': c['candidate_id'] = reviews[1]['candidate_id']
+    elif case == 'boolean-number': c['hard_requirement'] = 1
+    elif case == 'classification': green['feasibility'] = 'feasible'
+    elif case == 'missing-condition': green['condition_ids'].pop()
+    elif case == 'selected': green['selected'] = True
+    elif case == 'spending': green['spending_authorized'] = True
+    else: green['remaining_ceiling'] = '999'
+    with pytest.raises(ValueError):
+        decisions._recommendation_policy(reviews, checks)
+
+
+@pytest.mark.parametrize('case', ['other-candidate', 'invented-candidate', 'erased', 'status',
+                                  'rationale', 'tradeoff-wording', 'evaluation', 'criteria', 'policy-version', 'authority'])
+def test_unsupported_recommendation_mutations_rejected(basis, model, case):
+    snapshot = deepcopy(model)
+    policy = snapshot['state']['review_policy'][0]
+    if case == 'other-candidate':
+        snapshot['state']['recommendation'] = policy['recommended_candidate_id'] = 'option-oct17-city-pantry'
+    elif case == 'invented-candidate': snapshot['state']['recommendation'] = 'invented'
+    elif case == 'erased': snapshot['state']['recommendation'] = None
+    elif case == 'status': policy['recommendation_status'] = 'approved'
+    elif case == 'rationale': policy['rationale'] = 'Lowest price automatically approves spending'
+    elif case == 'tradeoff-wording': policy['tradeoff_summary'] = 'The recommended vendor has 999 extra places'
+    elif case == 'evaluation': policy['evaluations'][0]['eligible'] = 1
+    elif case == 'criteria': policy['criteria'] = ['lowest-cost-only']
+    elif case == 'policy-version': policy['policy_version'] = 'forged'
+    else: policy['external_actions_authorized'] = True
+    with pytest.raises((ValueError, ValidationError)):
+        validate_snapshot(snapshot, basis)
 
 
 @pytest.mark.parametrize('mutation',[

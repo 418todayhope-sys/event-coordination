@@ -745,7 +745,7 @@ the delayed-opening counterexample, schedule/resource conflicts, actionable
 conditions, inherited-record preservation, tampered inputs and exclusive writes
 in temporary roots. No tests retrieve live sources.
 
-## Stage 7 initial decision-and-approval model
+## Stage 7 provisional decision-and-approval model
 
 `event_coordination.stages.decisions` builds and validates an in-memory comparison
 from the exact saved Stage 6 snapshot, recursively checking its evidence and chain.
@@ -767,8 +767,8 @@ print(snapshot['state']['recommendation'])
 PYTHON
 ```
 
-The required `recommendation` is `null`, `learner_decisions` and top-level
-`decisions` are empty, and all five original approval gates remain pending with
+`recommendation` is the provisionally preferred candidate ID or `null` on deferral.
+`learner_decisions` and top-level `decisions` are empty, and all five original approval gates remain pending with
 their original applicability. Four evidence-linked tradeoff records compare costs,
 catering capacity, category allocations and common conditions/screened alternatives.
 Two `candidate_reviews` retain conditional feasibility, check/blocker/condition IDs,
@@ -776,7 +776,30 @@ schedule-witness references, allowances, category limits and zero commitments.
 Green Table remains TWD 494,000 with 15 nominal catering places above the 245-person
 planning demand; City Pantry remains TWD 512,000 with 55. Neither is selected.
 Positive allocation variances are review matters, not automatic approval-limit
-breaches or permission to spend. These comparisons do not establish a ranking policy.
+breaches or permission to spend.
+
+The versioned `adequacy-then-headroom/1` planner policy is recorded in
+`review_policy` with evidence-linked evaluations, criteria, rationale, condition IDs,
+and a provisional/deferred status. It is an implementation planning choice, not a
+stakeholder ranking rule. Both candidates must pass the capacity/ceiling gates,
+have feasible or conditional evidence-derived classifications, and share the same
+demand, ceiling, classification and unresolved hard dependencies. Failed or unknown
+hard checks prevent a recommendation. Among comparable candidates, recommend only
+a unique candidate with lower total, greater headroom and no additional unresolved
+requirement types. Otherwise retain null with an explicit deferral rationale. No
+arbitrary capacity buffer, growth probability, scoring weights or tie-break by
+candidate name is introduced. Input order does not determine the result.
+
+With current evidence this provisionally recommends `option-oct17-green-table`:
+245-person demand fits its 260 catering capacity, versus City Pantry's 300; the
+TWD 494,000 total leaves TWD 26,000, versus TWD 512,000 and TWD 8,000. Both share
+the venue-confirmation dependency; Green Table introduces no additional unresolved
+requirement, while City Pantry also needs catering-allocation review. City Pantry's
+40 additional catering places remain a real trade-off, not proof that its service
+is unnecessary under a changed forecast. Both retain the security-allocation review
+and all original conditions. The recommendation applies to the fixed business
+clock and exercise scope, not live quote verification or permission to commit.
+Changed demand, quote validity, costs or conditions require upstream reevaluation.
 
 All 88 unresolved records and four retained early-screening records are copied
 unchanged. `ancestor_references` identify the actual historical snapshot ownership
@@ -789,8 +812,9 @@ creation timestamp is separate from the fixed business clock. Preserve attendee
 privacy; do not copy the internal unresolved inventory into general communications.
 
 `validate_snapshot(snapshot, root)` now routes Stage 7 to reconstruction-based
-semantic validation, in addition to the unchanged schema and `FormatChecker`.
-Unexpected structures, numeric Boolean substitutes, unsupported decisions/approvals,
+semantic validation, including independent policy reconstruction from verified
+Stage 6 assessments, in addition to the unchanged schema and `FormatChecker`.
+Unexpected structures, numeric Boolean substitutes, unsupported recommendations/decisions/approvals,
 changed totals, lost conditions and broken evidence/lineage are rejected.
 A no-follow input manifest covers all files and directories under `interviews/`,
 `evidence/` and `deliverables/snapshots/evidence/`, plus the schema and snapshots
@@ -828,12 +852,13 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest tests/test_stage7.py -q 
 ```
 
 Implementation/testing permission is not a learner decision or business approval.
-Stop for human review before real snapshot generation, recommendation policy,
-selection, new approval evidence, or external action. Existing ordinary local tests
+Stop for human review before real snapshot generation, selection, new approval
+evidence, policy changes, or external action. Existing ordinary local tests
 are sufficient; neither the dry-run protocol nor the isolated runner is enabled
-for operational execution. Future recommendation/decision ingestion and Stages 8–9
-remain unimplemented. A null recommendation is an initial schema-valid state, not
-completion of the brief's eventual recommended-option requirement.
+for operational execution. Genuine human decision/approval ingestion and Stages 8–9
+remain unimplemented. A deferral is an honest intermediate state when criteria do
+not support a unique provisional recommendation; it does not establish final
+assignment acceptance or permission to release drafts.
 
 ## Level 2 supervised automation foundation (dry-run only)
 

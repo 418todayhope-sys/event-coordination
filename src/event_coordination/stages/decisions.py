@@ -211,7 +211,7 @@ def _strict_equal(actual, expected):
         for a, e in zip(actual, expected, strict=True):
             _strict_equal(a, e)
     elif actual != expected:
-        raise ValueError("Stage 7 value differs from evidence or initial review policy")
+        raise ValueError("Stage 7 value differs from evidence or provisional review policy")
 
 
 def _amount(value):
@@ -221,6 +221,122 @@ def _amount(value):
     if not result.is_finite() or result < 0:
         raise ValueError("Stage 7 quantities must be finite and nonnegative")
     return result
+
+
+def _recommendation_policy(reviews, checks):
+    """Planner policy v1, applied only after upstream evidence validation.
+
+    Capacity is an adequacy gate, not a fabricated forecast or safety buffer.
+    Cost/headroom can break the tradeoff only with comparable hard dependencies
+    and no additional unresolved requirement for the proposed candidate.
+    """
+    evaluations = []
+    if len(reviews) != 2 or len({r['candidate_id'] for r in reviews}) != 2:
+        raise ValueError('Recommendation requires two distinct verified candidates')
+    for review in sorted(reviews, key=lambda r: r['candidate_id']):
+        candidate_checks = [checks[i] for i in review['check_ids']]
+        if not candidate_checks or len({c['requirement'] for c in candidate_checks}) != len(candidate_checks):
+            raise ValueError('Recommendation checks are missing or duplicated')
+        for c in candidate_checks:
+            if (c['candidate_id'] != review['candidate_id'] or type(c['hard_requirement']) is not bool
+                    or c['outcome'] not in ('pass', 'fail', 'conditional', 'unknown', 'not-applicable')):
+                raise ValueError('Recommendation check identity/type/outcome is invalid')
+        required = {'budget-ceiling', 'attendance-basis', 'capacity-catering', 'programme', 'safety'}
+        if not required <= {c['requirement'] for c in candidate_checks}:
+            raise ValueError('Recommendation lacks required assessment evidence')
+        total = _amount(review['costs']['planning_total'])
+        ceiling = _amount(review['budget_ceiling'])
+        capacity = _amount(review['catering']['capacity'])
+        demand = _amount(review['catering']['planning_demand'])
+        headroom = ceiling - total
+        if (headroom != Decimal(review['remaining_ceiling'])
+                or capacity - demand != Decimal(review['catering']['margin'])):
+            raise ValueError('Recommendation arithmetic is inconsistent')
+        hard = [c for c in candidate_checks if c['hard_requirement'] and c['outcome'] != 'not-applicable']
+        if not hard:
+            raise ValueError('Recommendation lacks applicable hard checks')
+        outcomes = {c['outcome'] for c in hard}
+        classification = ('infeasible' if 'fail' in outcomes else 'unverified' if 'unknown' in outcomes
+                          else 'conditional' if 'conditional' in outcomes else 'feasible')
+        if classification != review['feasibility']:
+            raise ValueError('Recommendation classification disagrees with hard checks')
+        if (review['selected'] is not False or review['spending_authorized'] is not False
+                or review['authorization_status'] != 'pending'):
+            raise ValueError('Recommendation cannot ingest or grant authorization')
+        condition_ids = {i for c in candidate_checks for i in c['condition_ids']}
+        if condition_ids != set(review['condition_ids']):
+            raise ValueError('Recommendation condition coverage is incomplete')
+        reasons = []
+        if classification not in ('feasible', 'conditional'):
+            reasons.append('hard-checks-failed-or-unverified')
+        if capacity < demand or demand <= 0:
+            reasons.append('catering-demand-not-supported')
+        if total > ceiling:
+            reasons.append('overall-ceiling-exceeded')
+        evaluations.append({
+            'candidate_id': review['candidate_id'], 'eligible': not reasons,
+            'ineligibility_reasons': reasons, 'feasibility': classification,
+            'planning_total': str(total), 'budget_ceiling': str(ceiling),
+            'remaining_ceiling': str(headroom), 'planning_demand': str(demand),
+            'catering_capacity': str(capacity), 'catering_margin': str(capacity - demand),
+            'hard_dependencies': sorted(c['requirement'] for c in hard if c['outcome'] != 'pass'),
+            'unresolved_requirements': sorted(c['requirement'] for c in candidate_checks if c['condition_ids']),
+            'condition_ids': sorted(condition_ids), 'check_ids': sorted(c['id'] for c in candidate_checks),
+        })
+    a, b = evaluations
+    comparable = (all(r['eligible'] for r in evaluations)
+                  and a['planning_demand'] == b['planning_demand']
+                  and a['budget_ceiling'] == b['budget_ceiling']
+                  and a['feasibility'] == b['feasibility']
+                  and a['hard_dependencies'] == b['hard_dependencies'])
+    preferred = []
+    if comparable:
+        for candidate, other in ((a, b), (b, a)):
+            if (Decimal(candidate['planning_total']) < Decimal(other['planning_total'])
+                    and Decimal(candidate['remaining_ceiling']) > Decimal(other['remaining_ceiling'])
+                    and set(candidate['unresolved_requirements']) <= set(other['unresolved_requirements'])):
+                preferred.append(candidate['candidate_id'])
+    recommendation = preferred[0] if len(preferred) == 1 else None
+    comparison = '; '.join(
+        f"{r['candidate_id']}: {r['feasibility']}, planning cost TWD {r['planning_total']}, "
+        f"budget headroom TWD {r['remaining_ceiling']}, catering capacity {r['catering_capacity']} "
+        f"people for planning demand {r['planning_demand']} (nominal margin {r['catering_margin']})"
+        for r in evaluations)
+    capacity_delta = Decimal(a['catering_capacity']) - Decimal(b['catering_capacity'])
+    if capacity_delta == 0:
+        capacity_comparison = f"Catering capacities are equal at {a['catering_capacity']} people."
+    else:
+        larger, smaller = (a, b) if capacity_delta > 0 else (b, a)
+        capacity_comparison = (f"{larger['candidate_id']} offers {abs(capacity_delta)} more catering places "
+                               f"than {smaller['candidate_id']}.")
+    if recommendation:
+        winner = next(r for r in evaluations if r['candidate_id'] == recommendation)
+        alternative = next(r for r in evaluations if r['candidate_id'] != recommendation)
+        saving = Decimal(alternative['planning_total']) - Decimal(winner['planning_total'])
+        extra_headroom = Decimal(winner['remaining_ceiling']) - Decimal(alternative['remaining_ceiling'])
+        tradeoff = (f"{winner['candidate_id']} costs TWD {saving} less and leaves TWD {extra_headroom} "
+                    f"more budget headroom than {alternative['candidate_id']}. {capacity_comparison}")
+        rationale = (f"Provisionally recommend {recommendation} for human review. {comparison}. "
+                     f"Both cover the stated demand with comparable hard dependencies and no additional "
+                     f"unresolved requirement types for the recommended candidate. {tradeoff} "
+                     "Capacity beyond the stated demand is a disclosed trade-off, not an invented "
+                     "required buffer or attendance probability. This is not selection or authorization.")
+    else:
+        tradeoff = capacity_comparison
+        rationale = (f"Defer: the evidence does not establish a unique candidate under the stated adequacy, "
+                     f"dependency, uncertainty and headroom criteria. {comparison}. {tradeoff} "
+                     "Human review of the tradeoff is required; no selection or authorization is inferred.")
+    return {
+        'policy_version': 'adequacy-then-headroom/1', 'basis': 'planner-policy-not-stakeholder-rule',
+        'recommendation_status': 'provisional' if recommendation else 'deferred',
+        'recommended_candidate_id': recommendation, 'evaluations': evaluations,
+        'criteria': ['verified-hard-checks-and-capacity-adequacy', 'same-demand-ceiling-and-hard-dependencies',
+                     'no-additional-unresolved-requirements', 'lower-cost-and-greater-headroom'],
+        'rationale': rationale, 'tradeoff_summary': tradeoff,
+        'limitations': ['Draft exercise recommendation only; conditional does not mean ready to book.',
+                        'Capacity margin is nominal; forecast growth requires upstream reevaluation.',
+                        'Local source copies and exercise confirmations are not live operational verification.'],
+    }
 
 
 def _inputs(root: Path) -> dict:
@@ -306,7 +422,7 @@ def _inputs(root: Path) -> dict:
         categories = {c["requirement"].removeprefix("category-"): deepcopy(c["inputs"])
                       for c in (checks[i] for i in result["check_ids"]) if c["requirement"].startswith("category-")}
         add("candidate_reviews", "decision-review-oct17-" + name,
-            "Conditional exercise candidate for comparison; no recommendation, selection or authorization.",
+            "Conditional exercise candidate for draft comparison; no selection or authorization.",
             [result["id"], *result["check_ids"], result["schedule_witness_id"],
              *result["applicable_condition_ids"], *result["approval_requirement_ids"]],
             candidate_id=result["candidate_id"], source_result_id=result["id"],
@@ -341,11 +457,11 @@ def _inputs(root: Path) -> dict:
         + [r["id"] for r in state["retained_early_screening"]] + [r["id"] for r in upstream["state"]["screening_checks"]],
         basis="evidence-summary", condition_ids=[r["id"] for r in unresolved],
         early_screening_ids=[r["id"] for r in state["retained_early_screening"]])
-    add("review_policy", "decision-policy-initial-review", "Initial implementation provides comparisons only; no learner decision, recommendation or approval is inferred.",
-        evidence + [r["id"] for r in state["approval_requirements"]] + ["policy-stage6-aggregation"],
-        basis="implementation-boundary", recommendation_policy="awaiting-human-review",
-        approval_evidence_required=True, external_actions_authorized=False)
-    state.update(recommendation=None, learner_decisions=[], business_clock=BUSINESS_CLOCK,
+    policy = _recommendation_policy(values, checks)
+    add("review_policy", "decision-policy-initial-review", "Provisional planner recommendation or explicit deferral; never a learner decision or approval.",
+        evidence + list(checks) + [r["id"] for r in state["approval_requirements"]] + ["policy-stage6-aggregation"],
+        **policy, approval_evidence_required=True, external_actions_authorized=False)
+    state.update(recommendation=policy['recommended_candidate_id'], learner_decisions=[], business_clock=BUSINESS_CLOCK,
                  business_timezone="Asia/Taipei", output_status="draft", audience="internal-evidence-review",
                  inherited_unresolved_ids=[r["id"] for r in unresolved])
     records = [r for key in RECORD_ARRAYS for r in state[key]] + unresolved
@@ -387,7 +503,11 @@ def validate_stage7(snapshot: dict, root: Path) -> None:
 
 
 def _validate_stage7_contents(snapshot: dict, root: Path) -> None:
-    """Reconstruct the exact initial review policy from verified evidence."""
+    """Reconstruct comparisons and provisional policy from verified evidence.
+
+    Approval/decision arrays are checked separately by exact reconstruction; the
+    recommended candidate never changes selection, feasibility or authority.
+    """
     from jsonschema import Draft202012Validator, FormatChecker
     expected = _inputs(root)
     envelope = {"schema_version", "snapshot_id", "stage", "sequence", "created_at"}
