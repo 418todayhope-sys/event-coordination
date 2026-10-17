@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1–4 are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–5 are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -256,7 +256,75 @@ internal, omit individual medical/contact details from general artifacts, and do
 select vendors, finalize a date or authorize spending. Verify generation in a
 temporary input copy when the real output exists; preserve Entire checkpoint history.
 
-Stages 5–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
+## Run Stage 5 option generation
+
+Use the Python API `event_coordination.stages.options`; no `stage5` CLI subcommand
+exists. Read root `IMPLEMENTATION.md`, Stage 5 sections, for exact input-copy and
+reproduction instructions. Preserve the required `options` and `rejected_early`
+arrays and the supporting quote evidence, ancestor references and comparison basis.
+
+The two October 17 proposals share Q-001/Q-005/Q-006/Q-009/Q-010 and differ between
+Green Table Q-003 and City Pantry Q-004. Quoted subtotals are TWD 429,000 and 447,000.
+The explicit allowance policy retains communications 25,000 and contingency 40,000,
+giving planning totals 494,000 and 512,000. Do not add baseline allocations again.
+Catering capacities 260/300 give nominal margins 15/55 over the uncertain 245-person
+planning basis. Preserve category variances and separate approval limits. These
+are proposals, not selected vendors, final feasibility results or authorized spend.
+
+Keep all four screening records: the incomplete October 24 package/keynote conflict,
+Q-007's unsupported hearing-loop coverage, and both conditional Q-008 livestream
+additions. Livestream totals are 549,000/567,000 under this allowance policy, and
+network test/venue confirmation remain open. Keep reasons and reconsideration needs;
+do not invent replacement offers or treat early screening as full feasibility testing.
+
+When authorized and the output is absent, run from the project root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.options import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The real `deliverables/snapshots/05-option-generation.json` already exists. Verify
+reproduction in a temporary input copy using the operator documentation; do not
+regenerate the real output. The writer exclusively creates files and refuses
+overwrites. For the saved snapshot, run this read-only command instead:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/05-option-generation.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 5 schema, arithmetic, ancestor evidence, and lineage checks passed")
+PY
+```
+
+Stage 5 verifies the exact Stage 4 predecessor and recursively checks earlier
+snapshots/evidence. Its 32 ancestor references identify Stage 3 quote facts/rules,
+Stage 2 observations/capture and the alternatives rule by owning snapshot, hash and
+record ID. Never attribute those ancestor IDs to Stage 4. All ten quotes retain
+original cells, locators, hashes, service-specific capacities, dates and exclusions.
+Local integrity does not establish live-source verification or real supplier offers.
+
+Preserve the run ID and Stage 4 predecessor ID/hash, all 79 unresolved records and
+five pending approval gates. Keep status `partial`, decisions empty and options
+unselected, not yet tested and unapproved. Keep actual execution timestamps separate
+from the business clock, retain privacy limitations and preserve Entire checkpoints.
+Stage 6 must test scope/capacity, accessibility/dietary/safety, date/quote validity,
+category/total costs, programme/windows and applicable operational conditions before
+classifying feasibility. Stage 7 records recommendations and genuine decisions or
+approvals; neither approval nor fulfilled conditions may be inferred from arithmetic.
+
+Stages 6–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
 or replace missing implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary

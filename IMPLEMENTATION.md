@@ -16,7 +16,7 @@ For automated tests, install the optional development dependencies:
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-Stages 1–4 use jsonschema with date-time format checking, plus standard-library
+Stages 1–5 use jsonschema with date-time format checking, plus standard-library
 JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
 CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
 icalendar, and tzdata support the planned later workflow. Final event artifact
@@ -37,6 +37,7 @@ Stage 1 is implemented. Stage 2 is available through the Python commands below,
 not an `event-coordination stage2` subcommand.
 Stage 3 likewise uses a Python API, not a `stage3` CLI subcommand.
 Stage 4 uses a Python API, not a `stage4` CLI subcommand.
+Stage 5 also uses a Python API, not a `stage5` CLI subcommand.
 
 To display help from the source tree using the installed dependencies:
 
@@ -443,6 +444,140 @@ records, programme timing, conditional applicability, stable IDs, tamper rejecti
 required arrays and overwrite refusal. Tests use temporary roots and block network
 access. These checks establish local consistency, not independent remote authenticity.
 
+## Stage 5 option generation
+
+Stage 5 uses `event_coordination.stages.options`, not a `stage5` CLI subcommand.
+It assembles proposed alternatives for later testing, without choosing a winner or
+assigning final feasibility. Inputs are the unchanged schema, saved Stage 1–4 chain,
+registered captures, preserved evidence and interviews. Assembly is offline and
+recursively validates the earlier chain and evidence hashes.
+
+The output is `deliverables/snapshots/05-option-generation.json`. Required arrays
+`options` and `rejected_early` contain two candidate packages and four screening
+records. Supporting arrays retain ten `quote_evidence` records, 32
+`ancestor_references`, and three `comparison_basis` records. Every quote preserves
+its source fields, original cell values, worksheet locator, dates, exclusions,
+conditions, capture classification and hash. Date-only expiration cutoffs remain
+unknown. Service capacities retain distinct interpretations; livestream capacity
+is not physical seating and quiet-room capacity is not total event demand.
+
+| Candidate ID | Proposed quotes | Quoted subtotal (TWD) | Planning total (TWD) |
+| --- | --- | ---: | ---: |
+| `option-oct17-green-table` | Q-001, Q-003, Q-005, Q-006, Q-009, Q-010 | 429,000 | 494,000 |
+| `option-oct17-city-pantry` | Q-001, Q-004, Q-005, Q-006, Q-009, Q-010 | 447,000 | 512,000 |
+
+Both propose 17 October 2026 in Asia/Taipei. `option-policy-retained-allowances`
+explicitly records the planning choice to retain TWD 25,000 communications and
+TWD 40,000 contingency allowances. Each total is its quoted subtotal plus those
+allowances. They are not vendor offers, and the TWD 510,000 baseline allocation
+total is not added again. Original amounts, calculated results and planning choices
+remain distinct, with Decimal calculations and recorded formulas/inputs.
+
+Catering capacities of 260 and 300 give nominal margins of 15 and 55 over the
+245-person planning demand. That demand still includes uncertain forecast walk-ins;
+overlapping needs and demo slots add no attendees. The TWD 18,000 price difference
+buys a different recorded catering capacity, not permission to weaken dietary or
+allergy coverage. Catering allocation differences are minus TWD 7,000 and plus
+TWD 11,000; both candidates' security cost is TWD 3,000 above its planned allocation.
+Category approval limits, recorded zero commitments and pending spending authority
+remain separate. Arithmetic below the TWD 520,000 ceiling is not feasibility or
+approval. Both records are `selected: false`, `assessment_status: not-yet-tested`,
+and `authorization_status: pending`; no final feasibility field is assigned.
+
+Early-screening records preserve considered alternatives, reasons and evidence
+needed for reconsideration; they are not universal vendor rejections:
+
+- `screen-oct24-incomplete-package`: Q-002 has a keynote conflict and no complete
+  date-compatible service/programme/readiness basis. Its `missing_service_quotes`
+  list describes absent October 24 coverage; those quotes do exist for October 17.
+- `screen-oct17-q007-no-loop`: Q-007 alone excludes hearing-loop provision; no
+  replacement service or price is invented.
+- `screen-oct17-green-table-stream`: adding conditional Q-008 gives TWD 549,000
+  under the retained-allowance policy, with network test and venue confirmation open.
+- `screen-oct17-city-pantry-stream`: the same addition gives TWD 567,000, retaining
+  both conditions. No reduced reserve, successful test or other remedy is assumed.
+
+Stage 4 does not produce standalone quote-fact IDs. Each ancestor reference records
+its actual owning snapshot's path, ID, SHA-256, run ID, stage and produced record ID.
+The 32 references comprise ten Stage 3 quote facts, ten Stage 3 quote rules, ten
+Stage 2 observations, the Stage 2 vendor capture and the Stage 3 alternatives rule.
+The builder verifies ancestor hashes against the predecessor chain, shared run IDs,
+record ownership, and quote observation/capture hashes and locators. Original-byte
+integrity does not authenticate online origin: local copies remain unverified and
+fictional exercise offers remain distinct from real venue publications.
+
+Stage 5 retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1` and chains to Stage 4
+ID `99fb512f-88e0-4bcd-ab2a-c42eed0b4671`, SHA-256
+`321e45c0ce912ca95223f0ed72f627e19d539c40bf71c4f97a12bc691db25098`.
+Consumed IDs cover actual Stage 4 and explicitly owned ancestor records; newly
+produced records and inherited identities are enumerated separately from nested
+source copies. All 79 unresolved records and five pending gates are preserved
+unchanged. Status remains `partial`, decisions are empty, and actual UTC creation
+time is separate from `2026-08-26T12:00:00+08:00`. Keep this evidence-rich snapshot
+internal; do not copy individual medical/contact details into general artifacts.
+
+## Reproduce Stage 5 without overwriting the saved snapshot
+
+Run the following from a project root only when generation is authorized and
+`deliverables/snapshots/05-option-generation.json` is absent. The real output already
+exists: use a temporary copy for reproduction. Copy `snapshot.schema.json`,
+`interviews/`, `evidence/originals/`, `evidence/captures/`, and snapshots 01–04 into
+that temporary root. Use the installed project environment (or a `.venv` symlink
+to it) there. Do not copy Snapshot 05 into the temporary root.
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.options import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The existing exclusive writer validates before and after writing, verifies saved
+bytes, and refuses an existing output. `build_snapshot(root)` builds and validates
+in memory without writing. Reproduction creates a new snapshot UUID and execution
+timestamp, so its file hash differs; stable records and calculations reproduce.
+Never delete or replace the real snapshot to reproduce the procedure.
+
+## Validate saved Stage 5 read-only
+
+Run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/05-option-generation.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 5 schema, arithmetic, ancestor evidence, and lineage checks passed")
+PY
+```
+
+Validation uses the unchanged schema with date-time checking and reconstructs the
+expected candidate records, arithmetic, ancestor references and inherited issues
+from verified inputs. Unsupported source edits, calculations, selections, approvals,
+feasibility claims or lost conditions fail validation. The full automated test
+command above includes Stage 5 and Stage 1–4 regressions; tests block network access
+and use temporary project copies for generated outputs and overwrite checks.
+
+## Stage 6 handoff
+
+Stage 6 is not implemented. Before a feasibility conclusion, test each candidate's
+applicable capacities, service scope, accessibility/dietary/safety responses, quote
+validity and date compatibility, category/overall costs and authorization boundaries,
+programme fit, setup/teardown/readiness, and unresolved operational prerequisites.
+Preserve exercise confirmations and real-world verification limitations separately.
+Evaluate screened alternatives in their stated scope when relevant; do not silently
+resolve conditions or treat screening as the full test matrix. Stage 7 handles
+recommendations, genuine learner decisions and evidence-supported approvals. Neither
+stage may invent approvals to make the workflow appear complete.
+
 ## Implementation boundaries
 
 Before further implementation, verify course-required session capture is active.
@@ -456,9 +591,9 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1–4 are implemented; Stages 5–9 and event
+unchanged. Stages 1–5 are implemented; Stages 6–9 and event
 plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
-assembler and Stage 3–4 builders do not call the separately available retrieval utilities. No booking,
+assembler and Stage 3–5 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
 
