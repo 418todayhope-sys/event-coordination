@@ -21,11 +21,15 @@ def validate_snapshot(snapshot: dict, root: Path) -> None:
         from event_coordination.stages.constraints import validate_stage3
         validate_stage3(snapshot, root)
         return
+    if snapshot["stage"] == "planning-baseline":
+        from event_coordination.stages.baseline import validate_stage4
+        validate_stage4(snapshot, root)
+        return
     def require(condition, message):
         if not condition:
             raise ValueError(message)
     require(snapshot["stage"] == "scope-and-approval-gates" and snapshot["sequence"] == 1,
-            "Only Stages 1 through 3 validation are implemented")
+            "Only Stages 1 through 4 validation are implemented")
     require(snapshot["predecessor"] is None and snapshot["consumed_record_ids"] == [],
             "Invalid Stage 1 lineage")
     state = snapshot["state"]

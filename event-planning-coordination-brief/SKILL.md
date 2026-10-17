@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1–3 are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–4 are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -180,7 +180,83 @@ authorization. Preserve manual-copy provenance, incomplete exports, unknown orig
 retrieval times, privacy limits and operational conditions. Keep this internal model
 out of general communications and preserve all Entire checkpoint history.
 
-Stages 4–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
+## Run Stage 4 planning baseline
+
+Use `event_coordination.stages.baseline`, not a `stage4` CLI subcommand. Read the
+root `IMPLEMENTATION.md`, Stage 4 sections, for generation inputs and validation
+limits. The builder verifies the exact Stage 3 predecessor and recursively checks
+the earlier chain and original evidence. It performs no source retrieval.
+
+Preserve the four required arrays:
+
+- `headcount_basis`: 180 registered + 30 required onsite + 35 forecast walk-ins
+  reconcile to the declared 245-person planning quantity. Keep forecasts uncertain,
+  confidence qualitative and overlapping needs nonadditive. Neither demo slots nor
+  the 80% check-in target change the capacity basis.
+- `schedule_dependencies`: retain all eight calendar records, source priorities,
+  date alternatives, Asia/Taipei offsets, access windows and prerequisites. Keep
+  Operations' `2026-09-04T17:00:00+08:00` deadline distinct from the business clock.
+  Twelve ten-minute demos plus twelve three-minute changeovers total 156 minutes;
+  this does not finalize the run of show. Preserve venue confirmation before the
+  walkthrough and date/bundle-specific readiness before opening. Do not invent
+  vendor durations or extra mandatory buffers.
+- `budget_baseline`: keep the TWD 520,000 ceiling, TWD 510,000 allocations, category
+  approval limits and zero recorded commitments distinct. TWD 10,000 is unallocated;
+  contingency is already included. Uncommitted amounts do not authorize spending.
+  Category-owner authorization remains pending and reallocation policy unresolved.
+- `accessibility_baseline`: retain mandatory access, dietary and safety responses,
+  overlapping signals, separate space limits and conditional service prerequisites.
+  `fulfillment: not-evaluated` establishes neither provision nor absence of services.
+  Public floor-plan/index observations and fictional exercise confirmations do not
+  certify current operational accessibility.
+
+When generation is authorized and the output is absent, run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.baseline import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The output is `deliverables/snapshots/04-planning-baseline.json`. The writer uses
+exclusive creation and validates before and after writing. For an existing snapshot,
+run this read-only command instead:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/04-planning-baseline.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 4 schema, arithmetic, evidence, dependencies, and lineage checks passed")
+PY
+```
+
+New semantic IDs cite Stage 3 produced IDs and embed supporting `source_records`
+with original values, units, locators, hashes and verification limitations. Keep
+source statements, stakeholder rules and derived formulas distinct. Current
+assumptions and planning choices are empty. Preserve all 79 unresolved records and
+five pending gates with their original IDs and historical evidence links; the
+baseline remains `partial`. Local hash/schema validation does not establish remote
+verification, requirement fulfillment or approval.
+
+Stage 4 retains the run ID and chains to Stage 3 ID
+`c8b2438d-157e-4a55-9065-ae4b32156c2c`, SHA-256
+`0b346b83d170f871b4ad22d13c951baabb9a437ecd1beaf3c9e75bee14f3ea37`.
+Actual execution time stays separate from the fixed business clock. Keep the baseline
+internal, omit individual medical/contact details from general artifacts, and do not
+select vendors, finalize a date or authorize spending. Verify generation in a
+temporary input copy when the real output exists; preserve Entire checkpoint history.
+
+Stages 5–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
 or replace missing implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary

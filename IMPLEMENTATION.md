@@ -16,7 +16,7 @@ For automated tests, install the optional development dependencies:
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-Stages 1–3 use jsonschema with date-time format checking, plus standard-library
+Stages 1–4 use jsonschema with date-time format checking, plus standard-library
 JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
 CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
 icalendar, and tzdata support the planned later workflow. Final event artifact
@@ -36,6 +36,7 @@ The CLI currently exposes only `stage1`; its help description still says only
 Stage 1 is implemented. Stage 2 is available through the Python commands below,
 not an `event-coordination stage2` subcommand.
 Stage 3 likewise uses a Python API, not a `stage3` CLI subcommand.
+Stage 4 uses a Python API, not a `stage4` CLI subcommand.
 
 To display help from the source tree using the installed dependencies:
 
@@ -322,6 +323,126 @@ copy when the real output already exists. Keep the model internal; it contains
 aggregate attendee-needs evidence and must not be copied wholesale into general
 communications.
 
+## Stage 4 planning baseline
+
+Stage 4 uses `event_coordination.stages.baseline`; there is no `stage4` CLI
+subcommand. It reads the saved Stage 3 snapshot and recursively validates the
+Stage 1–3 chain and preserved evidence hashes before building a baseline. It does
+not retrieve sources. The current output contains 54 stable semantic records:
+
+| Required array | Records | Meaning |
+| --- | ---: | --- |
+| `headcount_basis` | 7 | Registered people, required onsite personnel, forecast, reconciled planning demand, overlap and success-target rules. |
+| `schedule_dependencies` | 14 | All eight calendar records, access windows, approval deadline, scoped readiness, programme authority, roster and duration calculations. |
+| `budget_baseline` | 13 | Ceiling, seven category records, allocation/commitment totals, differences from the ceiling and spending authorization requirements. |
+| `accessibility_baseline` | 20 | Mandatory access requirements, eight overlapping needs signals, separate space limits, verification limits, safety, privacy and conditional service prerequisites. |
+
+Each new record cites actual Stage 3 produced IDs in `evidence_ids` and preserves
+supporting records, original values, units, locators, hashes and verification limits
+in `source_records`. `basis` separates source statements, stakeholder rules and
+derived calculations. Derivations retain their inputs and operations. The current
+`assumptions` and `planning_choices` arrays are empty; neither vendor selection nor
+a final event date is established.
+
+Attendance reconciles 180 registered people (148 fellows + 32 partners), 30 required
+onsite personnel (18 staff + 12 speakers), and 35 forecast walk-ins to the declared
+245-person working planning demand. Forecast confidence remains qualitative, and
+245 is not confirmed attendance or a finalized quantity for every service. Mobility,
+captioning, quiet-space, dietary and allergy signals overlap the existing population;
+they add no people. Demo slots add no people either. The 80% registered check-in
+success target is not a capacity discount.
+
+The budget keeps the TWD 520,000 ceiling separate from TWD 510,000 planned
+allocations, category approval limits, and TWD 0 recorded commitments. The TWD
+10,000 unallocated difference is derived; TWD 40,000 contingency is already within
+the allocations. Ceiling less commitments is TWD 520,000, not permission to spend.
+Category limits remain separate thresholds, and reallocation policy is unresolved.
+All spending authority remains pending, including explicit owner authorization for
+exceptions; no category exception can override the overall ceiling.
+
+All calendar values retain their priorities and UTC+08:00 offsets, with
+`Asia/Taipei` named explicitly. The preferred 17 October and fallback 24 October
+remain alternatives; the fallback/keynote conflict is unresolved. Operations'
+approval deadline is `2026-09-04T17:00:00+08:00`, supported by the second interview,
+line 790. Venue confirmation precedes the walkthrough; specified base-bundle
+readiness precedes opening on 17 October. Setup is 07:30–09:30 and teardown is
+17:00–18:30. Missing individual vendor durations and extra mandatory buffers stay
+unknown. Twelve demos each require ten presentation minutes plus a separate
+three-minute changeover: 120 + 36 = 156 minutes. This is an allowance, not a finalized
+run of show; keynote and other calendar requirements remain separate.
+
+Step-free programme/restroom access, wheelchair seating, live captions and a staffed
+quiet room remain mandatory but `fulfillment` is `not-evaluated`. Dietary and safety
+responses remain required. Exercise venue confirmations are not current operational
+certification; registered public floor-plan/index observations do not prove routes
+are unobstructed or services are available. Conditional service requirements remain
+conditional and do not select vendors. Keep individual medical/contact details out
+of general artifacts; this baseline is for internal evidence review.
+
+The predecessor is Stage 3 ID `c8b2438d-157e-4a55-9065-ae4b32156c2c`, SHA-256
+`0b346b83d170f871b4ad22d13c951baabb9a437ecd1beaf3c9e75bee14f3ea37`.
+Stage 4 retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1`.
+Consumed IDs reference Stage 3 records. All 79 unresolved records and five pending
+approval gates retain their identities and historical evidence links unchanged;
+`inherited_record_ids` identifies these carried records. New dependency edges are
+checked with the inherited Stage 3 graph for missing references and cycles.
+
+The saved snapshot remains `partial`, with empty decisions: incomplete exports,
+unverified online equivalence, unknown original retrieval times, operational
+conditions, conflicts and genuine approvals remain unresolved. Validation cannot
+upgrade these to verified facts or authorization. Actual UTC creation time remains
+separate from the fixed business clock `2026-08-26T12:00:00+08:00`.
+
+## Generate Stage 4
+
+Run from the repository root only when generation is authorized and
+`deliverables/snapshots/04-planning-baseline.json` is absent:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.baseline import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The writer builds and validates in memory, exclusively creates the output, checks
+saved bytes, and validates the saved JSON again. It refuses overwrites.
+`build_snapshot(root)` provides validated in-memory generation without writing.
+The real Stage 4 snapshot already exists; validate it rather than regenerating it.
+To verify generation, use a temporary project copy containing the unchanged schema,
+Stage 1–3 snapshots, interviews, original evidence and capture records. Use the
+installed project environment and leave the temporary Stage 4 output absent.
+
+## Validate saved Stage 4 without rewriting it
+
+Run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/04-planning-baseline.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 4 schema, arithmetic, evidence, dependencies, and lineage checks passed")
+PY
+```
+
+Validation applies the unchanged schema with date-time checking and reconstructs
+the expected baseline from the exact predecessor and recursively verified inputs.
+It rejects unsupported calculations, evidence references, dependencies, approvals,
+selections, fulfillment claims or lost uncertainty. The full test command above
+includes Stage 4 arithmetic, original-value/provenance preservation, all calendar
+records, programme timing, conditional applicability, stable IDs, tamper rejection,
+required arrays and overwrite refusal. Tests use temporary roots and block network
+access. These checks establish local consistency, not independent remote authenticity.
+
 ## Implementation boundaries
 
 Before further implementation, verify course-required session capture is active.
@@ -335,9 +456,9 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1–3 are implemented; Stages 4–9 and event
+unchanged. Stages 1–4 are implemented; Stages 5–9 and event
 plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
-assembler and Stage 3 builder do not call the separately available retrieval utilities. No booking,
+assembler and Stage 3–4 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
 
