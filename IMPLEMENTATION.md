@@ -855,10 +855,109 @@ Implementation/testing permission is not a learner decision or business approval
 Stop for human review before real snapshot generation, selection, new approval
 evidence, policy changes, or external action. Existing ordinary local tests
 are sufficient; neither the dry-run protocol nor the isolated runner is enabled
-for operational execution. Genuine human decision/approval ingestion and Stages 8–9
-remain unimplemented. A deferral is an honest intermediate state when criteria do
+for operational execution. Genuine human decision/approval ingestion and Stage 9 remain unimplemented;
+Stage 8 has only the in-memory foundation documented below. A deferral is an honest intermediate state when criteria do
 not support a unique provisional recommendation; it does not establish final
 assignment acceptance or permission to release drafts.
+
+## Stage 8 Part 1 — in-memory draft foundation
+
+`event_coordination.stages.drafts` verifies the exact saved Stage 7 predecessor:
+`deliverables/snapshots/07-decision-and-approval.json`, ID
+`f0109784-d5b8-4f2e-8a5b-cf94f3065c23`, SHA-256
+`ffe4619118b95982c0a53c9d7b1b02e66360a99e4bb402b9e50a1090c0353ad8`.
+It retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1` and validates
+snapshots 01–07, captures and source evidence. It pins the unchanged public schema
+hash and filesystem identities, and rechecks protected inputs and output absence
+through return. No network, messaging, command execution or file writer is provided.
+There is no Stage 8 CLI subcommand.
+
+The following executable API inspection creates only Python objects and prints
+metadata; it does not create the four deliverables or Snapshot 08:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B - <<'PYTHON'
+from pathlib import Path
+from event_coordination.stages.drafts import build_bundle, validate_bundle
+snapshot, artifacts = build_bundle(Path.cwd())
+validate_bundle(snapshot, artifacts, Path.cwd())
+print(snapshot['status'], snapshot['state']['generation_mode'])
+for record in snapshot['state']['artifact_drafts']:
+    print(record['path'], record['sha256'], record['saved_file_verified'])
+PYTHON
+```
+
+`build_snapshot(root)` returns the proposed snapshot alone. `build_bundle(root)`
+returns `(snapshot, {relative_path: bytes})`; `rendered_bytes(snapshot)` extracts
+its planned UTF-8 bytes. Validate source semantics before consuming extracted
+bytes; `validate_bundle` checks both snapshot reconstruction and supplied bytes.
+All output parents must already exist, be canonical and not symlinked. Existing
+files, directories or dangling links at any of the four artifact paths or Snapshot
+08 path stop this foundation. It does not inspect or adopt such outputs as valid.
+
+The four renderers prepare:
+
+- Vendor comparison CSV: all ten original quote offers, two candidate totals and
+  four retained screenings, with distinct row types, capacity meanings, source
+  locators/hashes and unverified source-status qualifications. CSV formula prefixes
+  are escaped without changing original evidence.
+- Event plan Markdown: objective, registered/onsite/forecast planning basis,
+  provisional Green Table recommendation and City Pantry comparison, category
+  allocations and limits, pending authority, proposed schedule, registered PDF
+  observations and source limitations. Forecasts and overlapping needs add no
+  confirmed attendance. Accessibility/dietary/safety requirements remain open.
+- Tentative calendar ICS: Stage 6's verified Green Table schedule witness plus
+  the Operations deadline, conditional walkthrough and rehearsal window. Events
+  use Asia/Taipei, a timezone component, deterministic UIDs, actual UTC DTSTAMP,
+  TENTATIVE status and transparent availability. No METHOD, organizer or attendee
+  addresses are supplied. The point deadline has no invented duration; the
+  conflicting fallback is not emitted as a confirmed event. Witness ordering,
+  breaks and flexible time remain planning choices; setup/teardown are envelopes.
+- Unsent communications: audience-role drafts for Operations, category owners,
+  vendors, staff and attendees. Proposed details and quote references are not
+  recipient identities, orders, approvals or accommodation guarantees.
+
+The required `artifact_drafts`, `affected_dependencies` and `unresolved_items`
+arrays supplement preserved approval/screening records and verified ancestor
+ownership. `artifact_drafts` embeds `rendered_text`; its SHA-256 and byte length
+refer to those actual encoded bytes. `hash_scope=rendered-in-memory-bytes`,
+`storage_state=planned-in-memory-only`, `saved_file_verified=false`, and schema
+`validation_status=not-produced` explicitly distinguish this from a saved-file
+claim. `render_validation_status=valid` describes the in-memory reconstruction.
+A real Snapshot 08 must await a separately implemented, reviewed file-generation
+and saved-byte verification phase; this foundation has no exclusive writer.
+
+The inherited 88 unresolved records, five pending gates and four early screenings
+remain unchanged. Artifact-impact records have distinct IDs and reference those
+issues; they do not manufacture resolutions or duplicate their logical IDs.
+Dependencies map source/ancestor record IDs to artifact sections, quote rows and
+calendar UIDs. Transitive evidence closure supports
+`affected_targets(snapshot, ['obs-quote-q-003'])`, a pure impact report; unknown
+change scope fails closed. It never edits history or automatically migrates runs.
+Changes require reevaluation from the earliest affected stage and human review.
+Stage 6 witnesses and Stage 5 quotes retain their actual ownership, not Stage 7
+ownership. The shared semantic validator reconstructs content, hashes, dependencies,
+lineage and strict Boolean boundaries from verified inputs.
+
+Business conditions use `2026-08-26T12:00:00+08:00`; execution metadata and DTSTAMP
+use actual UTC time. Renderers are deterministic for the same verified context
+and batch timestamp. New builds receive actual timestamps and snapshot IDs, so
+metadata and timestamp-dependent hashes may differ. General artifacts use
+allowlisted business fields and generic coordination language rather than private
+attendee needs/contact records. This is not a general privacy classifier: review
+all drafts and the internal snapshot before public Git submission. Exercise
+confirmations and preserved local copies never become live verification.
+
+Run temporary-fixture tests with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest tests/test_stage8.py -q -p no:cacheprovider
+```
+
+Use the existing full-suite command for regressions. Stop for review before real
+artifact generation, Snapshot 08, decisions, approvals, commits or external actions.
+Stage 9 and operational execution remain unimplemented/disabled. Protected input
+checks detect observed changes but do not lock out host changes after observation.
 
 ## Level 2 supervised automation foundation (dry-run only)
 
@@ -990,8 +1089,8 @@ This is policy validation and change detection, not an OS security sandbox. It
 cannot authenticate a human from free text, prevent changes by concurrent processes,
 or safely execute arbitrary Python just because its command matches an allowlist.
 Operational authorization/execution and artifact generation remain separate future
-milestones. Stage 7 now has the initial review model documented above; Stages 8–9
-remain unimplemented. Changed source evidence still requires upstream reevaluation;
+milestones. Stage 7 has a provisional recommendation model; Stage 8 has only
+the in-memory draft foundation. Stage 9 remains unimplemented. Changed source evidence still requires upstream reevaluation;
 the protocol cannot bypass pinned predecessor hashes.
 
 Run focused tests with:
@@ -1140,8 +1239,8 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1–6 and the initial Stage 7 review model are implemented;
-Stages 8–9 and event plan/CSV/ICS/communication generation remain unimplemented.
+unchanged. Stages 1–7 and the Stage 8 in-memory draft foundation are implemented;
+real artifact/Snapshot 08 writing and Stage 9 remain unimplemented.
 Stage 2's offline assembler and Stage 3–7 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.

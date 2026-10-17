@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1–6 are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–7 and the Stage 8 in-memory foundation are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -440,9 +440,43 @@ policy changes or business action. A deferral does not establish final assignmen
 completion.
 
 Ordinary temporary-fixture development tests suffice; do not enable the isolated
-runner or treat a batch configuration as human authority. Stages 8–9 remain
-unimplemented. Do not claim unexecuted commands or tests passed, or replace missing
+runner or treat a batch configuration as human authority. Stage 8 is limited to
+the in-memory foundation below; Stage 9 remains unimplemented. Do not claim unexecuted commands or tests passed, or replace missing
 implementation with fabricated planning artifacts.
+
+## Stage 8 Part 1 — in-memory draft propagation
+
+Use `event_coordination.stages.drafts.build_bundle(root)` to construct a proposed
+Stage 8 snapshot and four byte payloads only in memory; `validate_bundle` validates
+both. See `IMPLEMENTATION.md` for executable inspection/test commands and exact
+predecessor identity. There is no Stage 8 CLI or writer. Do not save the returned
+objects as real deliverables or Snapshot 08 during this foundation phase.
+
+Carry the provisional Green Table basis and City Pantry alternative into CSV,
+event plan, tentative ICS and unsent audience-role communications. Retain both
+conditional classifications, all 88 unresolved records, five pending gates and
+four screenings. Programme approval applies only to roster/duration changes.
+Reuse Stage 6's schedule witness; do not relabel it as a Stage 7 output or invent
+vendor setup durations. Quote rows and package totals remain separate; allocations
+are not extra costs or spending authority. Keep forecast uncertainty and needs
+overlap explicit. Restrict public drafts to business fields and generic coordination
+responses; do not copy raw private attendee needs/contact data into them.
+
+Artifact hashes cover actual rendered UTF-8 bytes embedded in `rendered_text`.
+They are planned in-memory hashes: `saved_file_verified=false` and
+`validation_status=not-produced`, regardless of successful in-memory validation.
+Never describe them as verified saved artifacts. All real output paths must be
+absent; collisions or changed protected inputs stop the foundation. Saved-file
+verification and exclusive multi-file writing require a separately reviewed phase.
+
+Preserve real ancestor IDs, source locators/hashes and artifact section/row/calendar
+UID dependencies. `affected_targets` reports transitive impacts without editing
+history; unknown scope stops. Changed evidence requires upstream reevaluation and
+human review. Business evaluation uses the fixed Taipei clock; actual UTC execution
+time supplies DTSTAMP. ICS remains tentative/transparent, without invitations,
+organizer/attendee addresses, fabricated deadline durations or confirmed fallback.
+Review privacy, cross-artifact consistency and all unresolved conditions before
+any authorized generation or Git milestone. Keep operational automation disabled.
 
 ## Maintain the planning boundary
 
