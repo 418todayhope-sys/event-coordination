@@ -744,6 +744,155 @@ the delayed-opening counterexample, schedule/resource conflicts, actionable
 conditions, inherited-record preservation, tampered inputs and exclusive writes
 in temporary roots. No tests retrieve live sources.
 
+## Level 2 supervised automation foundation (dry-run only)
+
+`event_coordination.automation` implements configuration validation, input preflight,
+command-policy matching, simulated batch transitions and deterministic reporting.
+It does not execute configured commands, edit development files, grant authorization,
+implement Stage 7 recommendation logic or generate snapshots. The main planning CLI
+is unchanged; this is a separate Python module entry point. No service, API key,
+new dependency or network access is required.
+
+From the repository root, display help and run the built-in proposal:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.automation --help
+```
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.automation --demo --project-root .
+```
+
+Both commands write only to stdout. `--demo` emits a JSON review report, not a
+configuration file or deliverable. To inspect the complete machine-readable
+configuration example, run:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.automation --print-example
+```
+
+For an independently prepared repository-relative JSON configuration such as
+`batch.json`, use the actual supported entry point:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.automation --project-root . --config batch.json
+```
+
+This command requires that input file to exist; no configuration file is installed
+by default. An optional `--expected-config-sha256 sha256:HEX_DIGEST` binds the proposal
+to an externally supplied scope digest. Compute the canonical digest through
+`event_coordination.automation.canonical_hash(config)`, not a raw JSON-file hash.
+An external scope pin detects changed configuration; it is not proof of approval.
+No pin means an unverified proposal only. This foundation has no execution mode.
+
+### Configuration contract
+
+The strict in-code supplemental JSON schema is `CONFIG_SCHEMA`, version
+`event-supervised-local/1`; `example_config()` supplies a complete instance.
+Unknown fields, duplicate JSON keys, malformed hashes, numeric 0/1 for Boolean
+flags, unauthorized stages and weakened checkpoint protections are rejected.
+
+| Field | Contract |
+| --- | --- |
+| `protocol_version`, `mode` | Exact supported version and `dry-run` |
+| `authorization.scope_reference` | Description/reference supplied by the operator; never treated as evidence of authority |
+| `stages` | Ordered unique integer values from 7, 8, 9; describes proposed scope, not implemented stage capabilities |
+| `business_clock`, `business_timezone`, `run_id` | Existing Project C fixed clock, Asia/Taipei and preserved run ID |
+| `inputs` | Exact file paths and SHA-256 hashes, including the pinned Stage 6 snapshot |
+| `paths` | Exact `writable` development files, `exclusive_outputs`, and mandatory `protected` files/directories |
+| `commands` | Unique IDs with exact `argv` arrays, root `cwd` and the single allowed bytecode-disable environment setting |
+| `checkpoint` | Fixed implementation/testing/audit review boundary and review before generation, next stage, decisions, approvals or external actions |
+| `forbidden_actions` | Complete built-in prohibition set, including live execution, Git mutations, checkpoint management and external actions |
+| `execution` | `enabled` and `network_enabled` must both be actual `false` booleans |
+
+Development paths are restricted to Python files under `src/event_coordination/`
+and `tests/`, the operator/Skill documentation, and Markdown Skill references.
+Output declarations are stage-scoped to snapshots 07–09 and, for Stage 8, the four
+specified draft artifact paths. Declarations never write those files. Existing
+exclusive outputs cause a stop, including empty directories. Writable declarations
+cannot overlap each other through equal, ancestor or descendant paths. README, schema, evidence, interviews, snapshots
+01–06, `.git` and `.entire` remain protected and cannot be declared writable.
+Paths must be canonical repository-relative POSIX paths. Absolute paths, traversal,
+globs and symlink paths/aliases are rejected, including escapes through parents.
+
+Command policy permits only exact module-help, full-pytest and scoped-stage-pytest
+argument arrays constructed by `command_policy(stages)`. A future-stage test may be
+planned even when its implementation does not yet exist; it is never reported as
+run or passed. Shell strings, extra arguments and environment overrides are rejected.
+There is no subprocess invocation or command-executor adapter in this module.
+
+### Preflight, reporting and stopping
+
+Preflight verifies the exact Stage 6 input hash
+`57b5be2bde9d3c5a66316b2b1e0239a8c55e39de5ff54b859bf644fe74542fe1`,
+reading a single immutable byte buffer and parsing JSON from those exact hashed
+bytes. It verifies snapshot identity `44873e26-9404-4411-971f-e4f0a0ee0513`,
+run ID and fixed clock, then uses existing semantic validation for the chain and
+preserved evidence. Additional pinned inputs are checked from their own buffers.
+Before returning success it independently rehashes every pinned input, checks that
+protected entries still exist, and rechecks all exclusive outputs.
+The successful simulated history is `authorization` → `preflight` →
+`execution-planning` → `validation` → `reporting` → `awaiting-review`.
+The authorization state is review of a proposal, never a granted authorization.
+The guarded state machine rejects invalid transitions and cannot advance from
+awaiting review. Failures stop the batch and still produce a report where possible.
+
+Reports include canonical configuration hash, proposed scope, input references,
+predecessor, proposed tasks, unresolved conditions, existing approval states and
+monitored before/after file changes. Free-form configuration path locators are
+represented by canonical `path_sha256` digests in scope and input references;
+match these against the local configuration rather than printing untrusted text.
+Known predecessor identity and observed filesystem changes retain their locators.
+Authorization reference text is never echoed. Checks distinguish `passed`, `failed`, `skipped`
+and `not-run`. Proposed commands always remain `not-run`; `commands_executed` and
+`test_results` stay empty. Source preflight validation is not reported as a test-suite
+run. Reports are sorted and omit execution timestamps because no development tasks
+execute; their fixed business clock is not a simulated execution timestamp.
+
+The report remains internal evidence. Configuration cannot record a learner decision,
+approve spending or enable publication. Preserve all existing pending gates and
+unresolved conditions. A structurally valid proposal stops at review without taking
+external action. The report does not claim the Git working tree was initially clean;
+`changed_files` describes observed changes during this dry-run only.
+
+Missing evidence, hash mismatch, altered scope pin, malformed policy, output
+collision or unexpected monitored changes produce `final_state: stopped` and a
+nonzero CLI exit. Even an allowlisted development-file change is unexpected during
+a dry-run. No cleanup, Git reset, commit, push, configuration change or explicit
+Entire checkpoint operation is performed. Before/after inventory includes Git and
+Entire files, directory entries and file types. Generated caches, virtual environments
+and egg-info are normally excluded, but protected paths and manifest inputs always
+override these exclusions, including beneath cache-named directories. Missing
+protected entries, unreadable traversal and unsupported entry types stop the batch.
+A new empty directory or file-to-directory transition is a monitored change.
+Failures use controlled error codes and safe schema field paths; raw exception
+messages, rejected configuration values and unknown keys are never rendered.
+Background environment activity may therefore cause a reported stop; inspect it
+without deleting or rewriting history.
+
+This is policy validation and change detection, not an OS security sandbox. It
+cannot authenticate a human from free text, prevent changes by concurrent processes,
+or safely execute arbitrary Python just because its command matches an allowlist.
+Actual authorization ingestion, live execution isolation, artifact generation and
+Stages 7–9 remain separate, unimplemented milestones. Changed source evidence still
+requires upstream reevaluation; the protocol cannot bypass pinned predecessor hashes.
+
+Run focused tests with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests/test_automation.py -q -p no:cacheprovider
+```
+
+Tests use temporary evidence copies and simulated policy failures. They cover path
+and symlink boundaries, strict configuration types, forged claims, exact commands,
+missing/tampered inputs, collisions, changed scope, multiple planned tasks, state
+transitions, deterministic reports and unexpected changes. Regression probes also
+cover the hash/read race, independent final rehashing, hidden protected evidence,
+traversal failures, empty-directory collisions, writable prefix conflicts and secret
+redaction in CLI failures. Network and subprocess
+launches are blocked inside these tests. The full-suite command above also runs
+all existing stage regressions.
+
 ## Implementation boundaries
 
 Before further implementation, verify course-required session capture is active.
