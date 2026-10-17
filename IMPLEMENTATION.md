@@ -893,6 +893,123 @@ redaction in CLI failures. Network and subprocess
 launches are blocked inside these tests. The full-suite command above also runs
 all existing stage regressions.
 
+## Isolated test-runner backend (operational execution disabled)
+
+The separate `event_coordination.test_runner` module implements strict batch
+proposals and a private, fixture-tested Linux isolation backend. The original
+`event_coordination.automation` dry-run implementation and tests are unchanged.
+**No trusted human-authorization issuer is integrated.** The public runner always
+stops before launching commands, even with a valid proposal. Configuration text,
+Boolean approval claims, tokens, Python objects and implementation permission do
+not establish authenticated authorization for a particular operational batch.
+The private backend is test infrastructure, not an authenticated execution API;
+callers controlling the parent Python process are outside this security boundary.
+
+These executable entry points print help, an example proposal, or a stopped
+preflight report respectively. The last command intentionally returns exit 1:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.test_runner --help
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.test_runner --print-example
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m event_coordination.test_runner --project-root .
+```
+
+`--config` accepts a repository-relative JSON proposal using `isolated-tests/1`.
+Its exact fields are `version`, `business_clock`, `run_id`, `tasks`, and `inputs`.
+Each task has an exact `id`/`argv` pair from the closed `TASKS` table:
+`automation-tests`, `stage6-tests`, or `regression-tests`. No environment, shell,
+authorization, arbitrary executable, source-editing or snapshot-generation field
+is accepted. The fixed Stage 6 identity/hash and preserved evidence are validated
+from immutable pinned bytes. Unknown fields and altered arguments fail closed.
+
+The backend creates private user, mount, PID, network and IPC namespaces and
+verifies each against the parent's namespace identity. Synthetic host SysV shared
+memory, message queues and semaphores must remain inaccessible. It uses
+recursive runtime binds and recursive read-only mount attributes; nonrecursive
+`/usr` binds fail with EINVAL on the tested WSL layout. A selected project copy
+contains source, tests, evidence, interviews, snapshots, schema and project
+metadata, but no real `.git`, `.entire`, credentials or host-home contents.
+The existing virtual environment is mounted read-only at its original virtual
+path so editable-package imports resolve to the isolated source copy. System
+runtime directories are read-only; only private `/tmp` and `/scratch` are writable.
+No host device directory or service socket is mounted. Pytest uses `--capture=sys`
+and `/scratch/pytest.log` because `/dev/null` is absent from the isolated filesystem.
+The only additional inherited descriptor is a supervisor-owned temporary JUnit
+result file, mapped to child descriptor 3 (`--junitxml=/proc/self/fd/3`). Like the
+temporary stdout/stderr artifacts, it is explicitly writable and bounded; no host
+directory descriptor is inherited.
+
+Before exec, all effective/permitted/inheritable/bounding capabilities are dropped
+and no-new-privileges is set. Limits are 300 CPU seconds, 1 GiB address space,
+2 MiB per output file, 128 descriptors, 64 processes and no core dumps. CPU and
+address-space limits apply per process; aggregate cgroup accounting is not
+implemented. The fixed
+per-task wall limit is at most 600 seconds. Tests may use a shorter deadline.
+Every task has a fresh namespace/filesystem. Timeout or failure stops dependent
+tasks; process-group killing and unshare's kill-child behavior terminate the
+namespace. Isolation failures never trigger unrestricted execution.
+
+The batch proposal is pinned as canonical immutable bytes. Preflight receives only
+independent decoded copies; mutations to those copies or the original proposal
+are rejected. Task selection, arguments and input hashes come from the pinned
+proposal. Scope and integrity are revalidated before final `awaiting-review`.
+The fixture batch checks source, pinned inputs, protected entries, copied bytes,
+runtime hashes, file types and modes before and after each task. Changed scope,
+tampered evidence, missing files or unexpected modifications stop the batch.
+Only append-only growth of the exact existing `.entire/logs/entire.log` may be
+classified separately, requiring unchanged inode/device, permissions and original
+byte prefix. Directory and log access use no-follow file descriptors, checking
+descriptor and pathname identity, size and timestamps before and after reading.
+An observation that changes during reading or disagrees with the final snapshot is rejected.
+Its appended length/hash is reported as unattributed activity;
+settings, refs, hooks, checkpoints, replacements and truncation remain protected.
+
+Reports have stable field ordering and explicit launched, passed, failed, skipped
+or not-run outcomes. Private backend reports record actual inner/launcher argument
+arrays, exit codes, output hashes, validated pytest counts and stop reasons. An
+immutable launch record pins task, arguments, PID and actual UTC creation time
+immediately after successful process creation. Launch, execution, cleanup and
+result-reading failures have separate codes; later failures preserve `launched`
+and actual launch details, stop dependent tasks, and prevent success. Missing
+result hashes/counts remain unavailable rather than being fabricated. The
+terminal summary must agree with JUnit suite counters and individual cases. The
+accepted XML has one `testsuites` root, one direct `testsuite`, direct test cases,
+and supported properties/output/result elements; unsupported nesting or elements
+are rejected. Failure/error elements anywhere prevent success. Any
+reported failures/errors, unexpected passes, deselections, contradictory summaries,
+missing or invalid result artifacts, or absence of passing tests prevents success,
+including when a pytest hook forces process exit zero. Actual
+temporary paths, actual UTC start/end timestamps and pytest output hashes can
+differ between executions; reports
+are not claimed to be byte-identical across actual runs. Raw captured output stays
+in restricted temporary storage and is discarded with the fixture. Result validation
+checks consistency, not independent attestation against malicious test code that
+forges every result channel.
+The fixed business clock is never used as an execution timestamp.
+
+Run the focused suite with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests/test_runner.py tests/test_automation.py -q -p no:cacheprovider
+```
+
+Tests use temporary copies and synthetic protected files. Real integration tests
+exercise namespaces, runtime imports, read-only writes, hidden metadata, loopback
+denial, host IPC separation, result consistency, log races and late scope changes.
+Timeout tests require a startup marker, create a descendant that calls `setsid`,
+and explicitly verify that no observed process remains running. If required
+namespaces or the outer loopback control are
+unavailable, those checks are explicitly skipped, never replaced by unrestricted
+tests or reported as demonstrated. A permitted environment is needed to verify
+the loopback control. No external endpoints or dependency installations are used.
+
+Before operational enablement, a separately reviewed trusted supervisor must bind
+genuine learner authorization to the complete scope/code/runtime/input digest,
+single-use batch identity and stopping checkpoint. Further adversarial review is
+required. This milestone does not authenticate humans, defend against a compromised
+kernel/parent supervisor, pin every system-library byte, edit source, implement
+Stage 7, grant business approval, generate real snapshots, or publish anything.
+
 ## Implementation boundaries
 
 Before further implementation, verify course-required session capture is active.
