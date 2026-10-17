@@ -856,7 +856,7 @@ Stop for human review before real snapshot generation, selection, new approval
 evidence, policy changes, or external action. Existing ordinary local tests
 are sufficient; neither the dry-run protocol nor the isolated runner is enabled
 for operational execution. Genuine human decision/approval ingestion and Stage 9 remain unimplemented;
-Stage 8 has only the in-memory foundation documented below. A deferral is an honest intermediate state when criteria do
+Stage 8 has the in-memory foundation and separately authorized controlled writer documented below. A deferral is an honest intermediate state when criteria do
 not support a unique provisional recommendation; it does not establish final
 assignment acceptance or permission to release drafts.
 
@@ -869,7 +869,8 @@ assignment acceptance or permission to release drafts.
 It retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1` and validates
 snapshots 01–07, captures and source evidence. It pins the unchanged public schema
 hash and filesystem identities, and rechecks protected inputs and output absence
-through return. No network, messaging, command execution or file writer is provided.
+through return. No network, messaging or command execution is provided.
+Part 2 adds the separately authorized controlled writer documented below.
 There is no Stage 8 CLI subcommand.
 
 The following executable API inspection creates only Python objects and prints
@@ -924,8 +925,8 @@ refer to those actual encoded bytes. `hash_scope=rendered-in-memory-bytes`,
 `storage_state=planned-in-memory-only`, `saved_file_verified=false`, and schema
 `validation_status=not-produced` explicitly distinguish this from a saved-file
 claim. `render_validation_status=valid` describes the in-memory reconstruction.
-A real Snapshot 08 must await a separately implemented, reviewed file-generation
-and saved-byte verification phase; this foundation has no exclusive writer.
+The Part 2 controlled writer below upgrades these flags only after reopening
+and verifying all four saved artifact payloads. In-memory builds retain the original flags.
 
 The inherited 88 unresolved records, five pending gates and four early screenings
 remain unchanged. Artifact-impact records have distinct IDs and reference those
@@ -958,6 +959,83 @@ Use the existing full-suite command for regressions. Stop for review before real
 artifact generation, Snapshot 08, decisions, approvals, commits or external actions.
 Stage 9 and operational execution remain unimplemented/disabled. Protected input
 checks detect observed changes but do not lock out host changes after observation.
+
+
+## Stage 8 Part 2 — controlled draft and snapshot writer
+
+`event_coordination.stages.drafts.write_snapshot(root)` is the implemented Python
+entry point; there is still no Stage 8 CLI subcommand. It requires existing,
+canonical destination parents, Linux x86_64 and working `openat2` restrictions.
+No weaker filesystem fallback is used. The four artifact paths and Snapshot 08
+must all be absent, including directories and dangling symlinks. The writer
+validates snapshots 01–07, their source evidence and exact Stage 7 lineage before
+writing. Parsed CSV arithmetic/membership, Markdown comparisons and calendar
+intervals/draft boundaries are cross-checked against verified source records.
+
+For authorized reproduction, first prepare a temporary project copy with
+`snapshot.schema.json`, `interviews/`, `evidence/`, and `deliverables/snapshots/`
+containing snapshots 01–07 and their evidence copy. Exclude all four final
+artifacts and Snapshot 08. Run this from that temporary root using the existing
+project virtual environment's absolute Python path (no installation is needed):
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 /home/maxg/event-coordination/.venv/bin/python -B - <<'PY'
+from pathlib import Path
+from event_coordination.stages.drafts import write_snapshot
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+Do not run the command in the real repository until real generation is separately
+authorized. The function writes, in order, `vendor-comparison.csv`, `event-plan.md`,
+`event-calendar.ics`, `draft-communications.md` under `deliverables/`, then
+`deliverables/snapshots/08-draft-propagation.json`. Creation uses root-relative
+exclusive `openat2`, pinned no-follow directory chains and private file mode 0600.
+Complete-write loops handle short writes; zero progress, I/O errors and fsync
+failures stop. Each payload is independently reopened with no-follow flags and
+checked for exact bytes, SHA-256, regular-file type, link count and stable identity.
+Protected inputs, existing output identities and remaining destination collisions
+are rechecked between tasks and at completion.
+
+Only then does the snapshot use `generation_mode=saved-files-verified`,
+`validation_status=valid`, `saved_file_verified=true`,
+`hash_scope=verified-saved-bytes`, and `storage_state=verified-saved-file`.
+This verifies local bytes, not live vendor availability, real-world accessibility,
+or business approval. Status remains partial; 88 unresolved records, five pending
+gates, four screenings and fictional provenance remain unchanged. The saved
+snapshot is reopened and schema/semantically validated; actual execution timestamps
+and UUID change across attempts while business content remains reproducible.
+
+Read-only validation after authorized generation uses the existing shared API:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 /home/maxg/event-coordination/.venv/bin/python -B - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+root = Path.cwd()
+validate_snapshot(json.loads((root / 'deliverables/snapshots/08-draft-propagation.json').read_bytes()), root)
+print('Stage 8 saved artifacts, schema, semantics and lineage validated')
+PY
+```
+
+Failure recovery: this is not an atomic five-file transaction. Any failure raises
+without reporting success and leaves created files, including empty/partial files,
+in place. Do not delete, overwrite, resume or retry over them automatically.
+Record the exception, paths and available hashes; stop for human review. A reviewed
+reproduction can use a new isolated temporary copy. Recovery of the real project
+requires separate authorization and preservation of failed-attempt evidence.
+Snapshot existence alone is not proof that the batch completed; validate all files.
+Concurrent host processes with permission to rename directories or modify files
+cannot be locked out by observation checks. Detected changes fail closed, but no
+claim is made of transactional isolation or immunity to changes after observation.
+The writer performs no Git mutation, retrieval, messaging or production-calendar action.
+
+Temporary-fixture coverage is included in `tests/test_stage8.py`, using the same
+focused command as Part 1. Operational automation remains disabled; Stage 9 is
+not implemented. Stop for human review before real generation or any Git milestone.
 
 ## Level 2 supervised automation foundation (dry-run only)
 
@@ -1089,8 +1167,8 @@ This is policy validation and change detection, not an OS security sandbox. It
 cannot authenticate a human from free text, prevent changes by concurrent processes,
 or safely execute arbitrary Python just because its command matches an allowlist.
 Operational authorization/execution and artifact generation remain separate future
-milestones. Stage 7 has a provisional recommendation model; Stage 8 has only
-the in-memory draft foundation. Stage 9 remains unimplemented. Changed source evidence still requires upstream reevaluation;
+milestones. Stage 7 has a provisional recommendation model; Stage 8 supports
+in-memory drafts and separately authorized controlled writing. Stage 9 remains unimplemented. Changed source evidence still requires upstream reevaluation;
 the protocol cannot bypass pinned predecessor hashes.
 
 Run focused tests with:
@@ -1240,7 +1318,7 @@ human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
 unchanged. Stages 1–7 and the Stage 8 in-memory draft foundation are implemented;
-real artifact/Snapshot 08 writing and Stage 9 remain unimplemented.
+Stage 8 controlled writing is implemented but real generation requires separate authorization; Stage 9 remains unimplemented.
 Stage 2's offline assembler and Stage 3–7 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.

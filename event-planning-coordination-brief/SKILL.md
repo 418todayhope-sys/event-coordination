@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1–7 and the Stage 8 in-memory foundation are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–7 and Stage 8 in-memory rendering/controlled writing are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -440,8 +440,7 @@ policy changes or business action. A deferral does not establish final assignmen
 completion.
 
 Ordinary temporary-fixture development tests suffice; do not enable the isolated
-runner or treat a batch configuration as human authority. Stage 8 is limited to
-the in-memory foundation below; Stage 9 remains unimplemented. Do not claim unexecuted commands or tests passed, or replace missing
+runner or treat a batch configuration as human authority. Stage 8 includes the in-memory foundation and separately authorized controlled writer below; Stage 9 remains unimplemented. Do not claim unexecuted commands or tests passed, or replace missing
 implementation with fabricated planning artifacts.
 
 ## Stage 8 Part 1 — in-memory draft propagation
@@ -449,8 +448,8 @@ implementation with fabricated planning artifacts.
 Use `event_coordination.stages.drafts.build_bundle(root)` to construct a proposed
 Stage 8 snapshot and four byte payloads only in memory; `validate_bundle` validates
 both. See `IMPLEMENTATION.md` for executable inspection/test commands and exact
-predecessor identity. There is no Stage 8 CLI or writer. Do not save the returned
-objects as real deliverables or Snapshot 08 during this foundation phase.
+predecessor identity. There is no Stage 8 CLI. In-memory inspection does not authorize
+saving the returned objects; use the controlled writer only after generation approval.
 
 Carry the provisional Green Table basis and City Pantry alternative into CSV,
 event plan, tentative ICS and unsent audience-role communications. Retain both
@@ -466,8 +465,8 @@ Artifact hashes cover actual rendered UTF-8 bytes embedded in `rendered_text`.
 They are planned in-memory hashes: `saved_file_verified=false` and
 `validation_status=not-produced`, regardless of successful in-memory validation.
 Never describe them as verified saved artifacts. All real output paths must be
-absent; collisions or changed protected inputs stop the foundation. Saved-file
-verification and exclusive multi-file writing require a separately reviewed phase.
+absent for in-memory generation; collisions or changed protected inputs stop the
+foundation. The controlled writer performs saved-file verification as described below.
 
 Preserve real ancestor IDs, source locators/hashes and artifact section/row/calendar
 UID dependencies. `affected_targets` reports transitive impacts without editing
@@ -477,6 +476,32 @@ time supplies DTSTAMP. ICS remains tentative/transparent, without invitations,
 organizer/attendee addresses, fabricated deadline durations or confirmed fallback.
 Review privacy, cross-artifact consistency and all unresolved conditions before
 any authorized generation or Git milestone. Keep operational automation disabled.
+
+
+## Stage 8 controlled writing and recovery
+
+Use `event_coordination.stages.drafts.write_snapshot(root)` only for a separately
+authorized generation scope. See `IMPLEMENTATION.md` for the exact executable
+Python commands and temporary-copy prerequisites. Keep all five destinations
+absent and their parents canonical. The writer creates the four drafts exclusively,
+reopens and hashes them, then writes Snapshot 08 last and validates its saved bytes.
+Linux x86_64 `openat2` confinement is mandatory; unsupported isolation fails without
+an unsafe fallback. Input/parent/output identities are rechecked throughout.
+
+The saved model uses `generation_mode=saved-files-verified` and marks local artifact
+hashes verified only after reopening actual bytes. Shared `validate_snapshot`
+validates either the in-memory proposal (outputs absent) or saved mode (artifacts
+present and exact). Valid saved bytes confer no booking, spending, invitation or
+publishing authority. Keep the provisional recommendation, all pending gates and
+unresolved conditions, and fictional-versus-live source limitations intact.
+
+On any write, readback, integrity or validation failure, stop. Leave partial files
+untouched and report paths, error and available hashes. Never automatically delete,
+replace, retry, or describe an existing snapshot as a completed batch. Human review
+must authorize recovery; use a fresh temporary copy for tests/reproduction.
+This is not a transactional multi-file operation or protection against arbitrary
+concurrent host changes after observation. Do not enable the supervised runner,
+perform external actions or generate real outputs under implementation-only approval.
 
 ## Maintain the planning boundary
 

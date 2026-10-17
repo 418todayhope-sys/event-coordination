@@ -1,6 +1,7 @@
-"""Stage 8 Part 1: verified, deterministic draft bytes in memory only.
+"""Stage 8: deterministic draft bytes and controlled, separately authorized local writing.
 
-No writer, retrieval, messaging, approval ingestion or operational execution.
+Controlled local writing requires separate generation authorization.
+No retrieval, messaging, approval ingestion or operational execution.
 Artifact hashes describe rendered bytes, never purported saved files.
 """
 
@@ -12,6 +13,8 @@ import html
 import io
 import json
 import os
+import stat
+from contextlib import ExitStack
 from pathlib import Path
 from uuid import UUID, uuid4, uuid5, NAMESPACE_URL
 from zoneinfo import ZoneInfo
@@ -410,10 +413,80 @@ def render_artifacts(context, created_at):
         render_event_calendar(context, created_at), render_communications(context)), strict=True))
 
 
-def _expected(root, created_at):
+
+def _validate_content(context, artifacts, created_at):
+    """Independent parsed cross-checks; reconstruction alone is not sufficient."""
+    if set(artifacts) != set(ARTIFACT_PATHS) or any(type(v) is not bytes for v in artifacts.values()):
+        raise ValueError("Stage 8 rendered artifact scope/type mismatch")
+    rows = list(csv.DictReader(io.StringIO(artifacts[ARTIFACT_PATHS[0]].decode("utf-8"))))
+    quote_rows = [r for r in rows if r.get("row_type") == "quote"]
+    candidate_rows = [r for r in rows if r.get("row_type") == "candidate"]
+    quotes = {q["values"]["quote_id"]: q["values"] for q in context["quotes"]}
+    if (len(rows) != 16 or len(quote_rows) != 10 or len(candidate_rows) != 2
+            or {r["quote_ids"] for r in quote_rows} != set(quotes)):
+        raise ValueError("Stage 8 CSV is incomplete")
+    for row in quote_rows:
+        source = quotes[row["quote_ids"]]
+        if (Decimal(row["quoted_amount_twd"]) != Decimal(source["quote_amount_twd"])
+                or row["service_date"] != source["available_date"]
+                or row["conditions"] != _csv_cell(source["notes"])
+                or row["capacity"] != str(source["capacity"]) or row["source_status"] != source["status"]):
+            raise ValueError("Stage 8 CSV quote differs from evidence")
+    plan = artifacts[ARTIFACT_PATHS[1]].decode("utf-8")
+    communications = artifacts[ARTIFACT_PATHS[3]].decode("utf-8")
+    if {r["vendor_or_candidate"] for r in candidate_rows} != set(context["options"]):
+        raise ValueError("Stage 8 candidate comparison is incomplete")
+    for row in candidate_rows:
+        option = context["options"][row["vendor_or_candidate"]]
+        members = row["quote_ids"].split(";")
+        subtotal = sum(Decimal(quotes[q]["quote_amount_twd"]) for q in option["component_quote_ids"])
+        allowances = sum(Decimal(v) for v in option["retained_allowances"].values())
+        total = subtotal + allowances
+        ceiling = Decimal(context["baseline"]["baseline-budget-ceiling"]["values"]["value"])
+        if (members != option["component_quote_ids"] or row["service_date"] != option["proposed_event_date"]
+                or Decimal(row["quoted_amount_twd"]) != subtotal or Decimal(row["allowances_twd"]) != allowances
+                or Decimal(row["planning_total_twd"]) != total or Decimal(row["headroom_twd"]) != ceiling-total):
+            raise ValueError("Stage 8 cross-artifact costs or membership differ from evidence")
+        review = next(r for r in context["upstream"]["state"]["candidate_reviews"] if r["candidate_id"] == option["id"])
+        if (row["capacity"] != review["catering"]["capacity"]
+                or row["source_status"] != review["feasibility"]
+                or row["conditions"] != ";".join(review["condition_ids"])):
+            raise ValueError("Stage 8 candidate capacity, feasibility or conditions are inconsistent")
+        expected_row = "| " + " | ".join(map(_md, [option["id"], str(subtotal), str(total),
+            review["catering"]["capacity"], str(ceiling-total), review["feasibility"]])) + " |"
+        if expected_row not in plan or expected_row not in communications:
+            raise ValueError("Stage 8 plan/communications comparison is inconsistent")
+    if (NOTICE not in plan or NOTICE not in communications or "Proposed quiet room: V.I.P. Room" not in plan
+            or any(r["provenance_classification"] != "fictional exercise evidence" for r in quote_rows+candidate_rows)):
+        raise ValueError("Stage 8 draft/provenance boundary is missing")
+    calendar = Calendar.from_ical(artifacts[ARTIFACT_PATHS[2]])
+    entries = _calendar_entries(context)
+    events = calendar.walk("VEVENT")
+    if calendar.get("METHOD") is not None or len(events) != len(entries):
+        raise ValueError("Stage 8 calendar scope mismatch")
+    for event, (identifier, label, start, end, lane, evidence) in zip(events, entries, strict=True):
+        if (str(event["UID"]) != str(uuid5(NAMESPACE_URL, RUN_ID + ":" + identifier))
+                or event.decoded("DTSTART") != datetime.fromisoformat(start)
+                or (start != end and event.decoded("DTEND") != datetime.fromisoformat(end))
+                or (start == end and (event.get("DTEND") is not None or event.get("DURATION") is not None))
+                or str(event["STATUS"]) != "TENTATIVE" or str(event["TRANSP"]) != "TRANSPARENT"
+                or event.get("ATTENDEE") is not None or event.get("ORGANIZER") is not None or event.subcomponents
+                or str(event["X-RESOURCE-LANE"]) != lane
+                or str(event["X-EVIDENCE-ID"]) != evidence or str(event["SUMMARY"]) != "DRAFT: " + label
+                or NOTICE not in str(event["DESCRIPTION"])
+                or event["DTSTART"].params.get("TZID") != "Asia/Taipei"
+                or event.decoded("DTSTAMP") != _timestamp(created_at).replace(microsecond=0)):
+            raise ValueError("Stage 8 calendar differs from proposed schedule or draft boundary")
+    for interval in context["witness"]["intervals"]:
+        if not all(value in plan for value in (interval["id"], interval["start_at"], interval["end_at"])):
+            raise ValueError("Stage 8 plan omits a calendar schedule interval")
+
+
+def _expected(root, created_at, mode="in-memory-only"):
     context = _context(root)
     upstream = context["upstream"]
     artifacts = render_artifacts(context, created_at)
+    _validate_content(context, artifacts, created_at)
     state = {key: [] for key in RECORD_ARRAYS}
     consumed = set(upstream["produced_record_ids"])
     owners = {}
@@ -506,6 +579,13 @@ def _expected(root, created_at):
                  audience="internal-evidence-review", generation_mode="in-memory-only",
                  recommendation=upstream["state"]["recommendation"], learner_decisions=[],
                  inherited_unresolved_ids=[r["id"] for r in unresolved], external_actions_authorized=False)
+    if mode == "saved-files-verified":
+        state["generation_mode"] = mode
+        for record in state["artifact_drafts"]:
+            record.update(validation_status="valid", saved_file_verified=True,
+                          hash_scope="verified-saved-bytes", storage_state="verified-saved-file")
+    elif mode != "in-memory-only":
+        raise ValueError("Unsupported Stage 8 generation mode")
     records = [r for key in RECORD_ARRAYS for r in state[key]] + unresolved
     produced = [r["id"] for r in records]
     if len(produced) != len(set(produced)) or any(not set(r["evidence_ids"]) <= consumed | set(produced) for r in records):
@@ -554,13 +634,24 @@ def build_bundle(root: Path):
 def validate_stage8(snapshot, root):
     root = Path(root)
     pinned = _PinnedInputs(root)
-    _check_outputs_absent(root)
+    mode = snapshot.get("state", {}).get("generation_mode")
+    if mode not in ("in-memory-only", "saved-files-verified"):
+        raise ValueError("Unsupported Stage 8 generation mode")
+    if mode == "in-memory-only":
+        _check_outputs_absent(root)
+    saved_identities = {}
+    if mode == "saved-files-verified":
+        saved_identities = _verify_saved_artifacts(root, rendered_bytes(snapshot))
+        if os.path.lexists(root / OUTPUT):
+            saved_snapshot, saved_bytes = _read_snapshot(root, OUTPUT)
+            decisions._strict_equal(saved_snapshot, snapshot)
+            saved_identities[OUTPUT] = _read_saved(root, OUTPUT, saved_bytes)
     schema = json.loads((root / "snapshot.schema.json").read_bytes())
     Draft202012Validator.check_schema(schema)
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(snapshot)
     _timestamp(snapshot["created_at"])
     UUID(snapshot["snapshot_id"])
-    expected = _expected(root, snapshot["created_at"])
+    expected = _expected(root, snapshot["created_at"], mode)
     envelope = {"schema_version", "snapshot_id", "created_at"}
     if snapshot.keys() != expected.keys() | envelope or snapshot["snapshot_id"] in {
             json.loads((root/p).read_bytes())["snapshot_id"] for p in (*ANCESTOR_PATHS, PREDECESSOR_PATH)}:
@@ -573,8 +664,13 @@ def validate_stage8(snapshot, root):
         record_schema = "artifactRecord" if category == "artifact_drafts" else "record"
         validator = Draft202012Validator({"$ref": "#/$defs/" + record_schema, "$defs": schema["$defs"]})
         for record in snapshot["state"][category]: validator.validate(record)
+    if mode == "in-memory-only":
+        _check_outputs_absent(root)
+    else:
+        _verify_saved_artifacts(root, rendered_bytes(snapshot), saved_identities)
+        if OUTPUT in saved_identities and decisions._protected_file(root, OUTPUT) != saved_identities[OUTPUT]:
+            raise ValueError("Stage 8 saved snapshot changed during validation")
     pinned.verify()
-    _check_outputs_absent(root)
 
 
 def validate_bundle(snapshot, artifacts, root):
@@ -593,3 +689,128 @@ def affected_targets(snapshot, changed_record_ids):
         raise ValueError("Changed record is outside this verified dependency graph")
     return sorted({(r["target_artifact_id"], r["target_locator"]) for r in dependencies
                    if set(r["evidence_ids"]) & set(changed_record_ids)})
+
+
+
+def _read_saved(root, relative, expected, identity=None):
+    """Reopen through no-follow descriptors; verify bytes, name and stable identity."""
+    parts = decisions._parts(relative)
+    with decisions._Directories(root, parts[:-1]) as directories:
+        fd = os.open(parts[-1], os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC,
+                     dir_fd=directories.fds[-1])
+        try:
+            before = os.fstat(fd)
+            if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1:
+                raise ValueError("Stage 8 output must be a singly linked regular file")
+            remaining = len(expected) + 1
+            chunks = []
+            while remaining:
+                block = os.read(fd, min(65536, remaining))
+                if not block:
+                    break
+                chunks.append(block)
+                remaining -= len(block)
+            saved = b"".join(chunks)
+            after = os.fstat(fd)
+            named = os.stat(parts[-1], dir_fd=directories.fds[-1], follow_symlinks=False)
+            current = ("file", decisions._identity(after), hash_bytes(saved))
+            if (decisions._identity(before) != decisions._identity(after)
+                    or decisions._identity(after) != decisions._identity(named)
+                    or saved != expected or (identity is not None and current != identity)):
+                raise ValueError("Stage 8 saved bytes or output identity changed")
+            directories.verify()
+            return current
+        finally:
+            os.close(fd)
+
+
+def _verify_saved_artifacts(root, artifacts, identities=None):
+    return {path: _read_saved(root, path, payload, (identities or {}).get(path))
+            for path, payload in artifacts.items()}
+
+
+def _write_exclusive(root, relative, payload, directories):
+    """Constrained kernel creation, complete writes, fsync, then independent reopen."""
+    directories.verify()
+    fd = decisions._exclusive_output(directories.fds[0], relative)
+    try:
+        def observe():
+            directories.verify()
+            current = os.fstat(fd)
+            named = os.stat(decisions._parts(relative)[-1], dir_fd=directories.fds[-1], follow_symlinks=False)
+            if (not stat.S_ISREG(current.st_mode) or current.st_nlink != 1
+                    or decisions._identity(current) != decisions._identity(named)):
+                raise ValueError("Stage 8 output identity changed")
+            return decisions._identity(current)
+        observe()
+        pending = memoryview(payload)
+        while pending:
+            count = os.write(fd, pending)
+            if type(count) is not int or count <= 0 or count > len(pending):
+                raise ValueError("Stage 8 output write failed")
+            pending = pending[count:]
+        os.fsync(fd)
+        identity = ("file", observe(), hash_bytes(payload))
+        _read_saved(root, relative, payload, identity)
+        if observe() != identity[1]:
+            raise ValueError("Stage 8 output changed after reopening")
+        os.fsync(directories.fds[-1])
+        return identity
+    finally:
+        os.close(fd)
+
+
+def write_snapshot(root: Path) -> tuple[Path, str]:
+    """Write four drafts, verify saved bytes, then exclusively write Snapshot 08.
+
+    Not a multi-file transaction. Failures leave evidence of partial work intact.
+    Never retry over existing outputs; recovery requires separate human review.
+    """
+    root = Path(root)
+    pinned = _PinnedInputs(root)
+    with ExitStack() as stack:
+        parents = {path: stack.enter_context(decisions._Directories(root, decisions._parts(path)[:-1]))
+                   for path in (*ARTIFACT_PATHS, OUTPUT)}
+        _check_outputs_absent(root)
+        snapshot, artifacts = build_bundle(root)
+        validate_bundle(snapshot, artifacts, root)
+        identities = {}
+        written_bytes = {}
+        def verify_progress():
+            for directories in parents.values():
+                directories.verify()
+            for path in (*ARTIFACT_PATHS, OUTPUT):
+                if path in identities:
+                    _read_saved(root, path, written_bytes[path], identities[path])
+                else:
+                    parts = decisions._parts(path)
+                    try:
+                        os.stat(parts[-1], dir_fd=parents[path].fds[-1], follow_symlinks=False)
+                    except FileNotFoundError:
+                        pass
+                    else:
+                        raise FileExistsError("Stage 8 destination collision")
+            pinned.verify()
+        verify_progress()
+        for path in ARTIFACT_PATHS:
+            identities[path] = _write_exclusive(root, path, artifacts[path], parents[path])
+            written_bytes[path] = artifacts[path]
+            verify_progress()
+        # Only saved-byte verification permits these metadata upgrades.
+        snapshot = deepcopy(snapshot)
+        snapshot["state"]["generation_mode"] = "saved-files-verified"
+        for record in snapshot["state"]["artifact_drafts"]:
+            record.update(validation_status="valid", saved_file_verified=True,
+                          hash_scope="verified-saved-bytes", storage_state="verified-saved-file")
+        validate_stage8(snapshot, root)
+        verify_progress()
+        content = (json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+        identities[OUTPUT] = _write_exclusive(root, OUTPUT, content, parents[OUTPUT])
+        written_bytes[OUTPUT] = content
+        verify_progress()
+        saved, actual = _read_snapshot(root, OUTPUT)
+        if actual != content:
+            raise ValueError("Stage 8 saved snapshot differs from validated bytes")
+        validate_stage8(saved, root)
+        verify_progress()
+        return root / OUTPUT, hash_bytes(actual)

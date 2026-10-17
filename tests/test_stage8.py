@@ -365,3 +365,214 @@ def test_plan_has_evidence_linked_candidate_hard_coverage_without_private_inputs
     # No raw attendee requests, identifiers from their fields, or private inputs are serialized.
     assert 'severe_allergy_follow_up' not in plan and 'relevant_needs' not in plan
     assert 'These are preserved Stage 6 fictional-exercise assessments, not fulfillment or approvals.' in plan
+
+
+@pytest.fixture(scope='module')
+def saved_bundle(basis, tmp_path_factory):
+    root = tmp_path_factory.mktemp('stage8-saved-fixture')
+    shutil.copytree(basis, root, dirs_exist_ok=True)
+    path, digest = drafts.write_snapshot(root)
+    return root, path, digest
+
+
+def test_writer_success_saved_bytes_and_snapshot_last(saved_bundle):
+    root, path, digest = saved_bundle
+    s = json.loads(path.read_bytes())
+    assert path == root / drafts.OUTPUT and hash_bytes(path.read_bytes()) == digest
+    validate_snapshot(s, root)
+    assert s['state']['generation_mode'] == 'saved-files-verified'
+    for record in s['state']['artifact_drafts']:
+        assert record['saved_file_verified'] is True and record['validation_status'] == 'valid'
+        assert record['hash_scope'] == 'verified-saved-bytes'
+        assert (root / record['path']).read_bytes() == record['rendered_text'].encode()
+        assert hash_bytes((root / record['path']).read_bytes()) == record['sha256']
+    upstream = json.loads((root / drafts.PREDECESSOR_PATH).read_bytes())
+    assert s['unresolved'] == upstream['unresolved'] and len(s['unresolved']) == 88
+    for key in ['approval_requirements', 'retained_early_screening']:
+        assert s['state'][key] == upstream['state'][key]
+    assert s['state']['learner_decisions'] == [] and s['decisions'] == []
+
+
+def test_writer_retry_refuses_without_touching_saved_outputs(saved_bundle):
+    root, _, _ = saved_bundle
+    before = file_hashes(root)
+    with pytest.raises(FileExistsError): drafts.write_snapshot(root)
+    assert file_hashes(root) == before
+
+
+@pytest.mark.parametrize('target', [*drafts.ARTIFACT_PATHS, drafts.OUTPUT])
+@pytest.mark.parametrize('kind', ['file', 'directory', 'symlink'])
+def test_writer_preflight_every_destination(project, target, kind):
+    p = project / target
+    if kind == 'file': p.write_bytes(b'preserved')
+    elif kind == 'directory': p.mkdir()
+    else: p.symlink_to(project / 'absent')
+    with pytest.raises((ValueError, OSError)): drafts.write_snapshot(project)
+    if kind == 'file': assert p.read_bytes() == b'preserved'
+    for other in (*drafts.ARTIFACT_PATHS, drafts.OUTPUT):
+        if other != target: assert not (project / other).exists()
+
+
+@pytest.mark.parametrize('target', drafts.ARTIFACT_PATHS)
+def test_saved_validator_rejects_tampered_files(saved_bundle, tmp_path, target):
+    root, _, _ = saved_bundle
+    shutil.copytree(root, tmp_path, dirs_exist_ok=True)
+    (tmp_path / target).write_bytes(b'synthetic tampering')
+    s = json.loads((tmp_path / drafts.OUTPUT).read_bytes())
+    with pytest.raises((ValueError, OSError)): validate_snapshot(s, tmp_path)
+
+
+@pytest.mark.parametrize('fault', ['short-write', 'zero-write', 'write-error', 'reopen-error', 'fsync-error'])
+def test_writer_io_faults_preserve_partial_work(project, monkeypatch, fault):
+    import os
+    original_open = drafts.decisions._exclusive_output
+    original_write = os.write
+    original_read = drafts._read_saved
+    opened = [];writes = []
+    def create(fd, relative):
+        opened.append(relative)
+        assert relative != drafts.OUTPUT or all((project / p).is_file() for p in drafts.ARTIFACT_PATHS)
+        return original_open(fd, relative)
+    def write(fd, payload):
+        writes.append(len(payload))
+        if fault == 'zero-write': return 0
+        if fault == 'write-error':
+            if len(writes) == 1: return original_write(fd, payload[:32])
+            raise OSError('synthetic write failure')
+        return original_write(fd, payload[:8192] if fault == 'short-write' else payload)
+    def read(root, relative, payload, identity=None):
+        if fault == 'reopen-error': raise OSError('synthetic reopening failure')
+        return original_read(root, relative, payload, identity)
+    monkeypatch.setattr(drafts.decisions, '_exclusive_output', create)
+    monkeypatch.setattr(os, 'write', write)
+    monkeypatch.setattr(drafts, '_read_saved', read)
+    if fault == 'fsync-error': monkeypatch.setattr(os, 'fsync', lambda fd: (_ for _ in ()).throw(OSError('synthetic fsync failure')))
+    before = file_hashes(project)
+    if fault == 'short-write':
+        path, digest = drafts.write_snapshot(project)
+        assert hash_bytes(path.read_bytes()) == digest and len(writes) > 5
+        assert opened == [*drafts.ARTIFACT_PATHS, drafts.OUTPUT]
+    else:
+        with pytest.raises((ValueError, OSError)): drafts.write_snapshot(project)
+        assert opened == [drafts.ARTIFACT_PATHS[0]]
+        assert not (project / drafts.OUTPUT).exists()
+        output = project / drafts.ARTIFACT_PATHS[0]
+        assert output.exists()
+        if fault == 'zero-write': assert output.stat().st_size == 0
+        if fault == 'write-error': assert output.stat().st_size == 32
+        for name, digest in before.items(): assert hash_bytes((project / name).read_bytes()) == digest
+        with pytest.raises(FileExistsError): drafts.write_snapshot(project)
+
+
+@pytest.mark.parametrize('fault', ['input-mutation', 'artifact-mutation', 'artifact-replacement', 'late-collision'])
+def test_writer_rechecks_between_tasks(project, monkeypatch, fault):
+    original = drafts._write_exclusive
+    created = []
+    def write(root, relative, payload, directories):
+        result = original(root, relative, payload, directories);created.append(relative)
+        if len(created) == 1:
+            if fault == 'input-mutation':
+                p = root / 'evidence/originals/Project C — Vendor Quotes.xlsx';p.write_bytes(p.read_bytes()+b'changed')
+            elif fault == 'artifact-mutation': (root / relative).write_bytes(b'changed')
+            elif fault == 'artifact-replacement':
+                p = root / relative;data=p.read_bytes();p.unlink();p.write_bytes(data)
+            else: (root / drafts.ARTIFACT_PATHS[2]).mkdir()
+        return result
+    monkeypatch.setattr(drafts, '_write_exclusive', write)
+    with pytest.raises((ValueError, OSError)): drafts.write_snapshot(project)
+    assert created == [drafts.ARTIFACT_PATHS[0]]
+    assert not (project / drafts.OUTPUT).exists()
+
+
+@pytest.mark.parametrize('replacement', ['symlink', 'directory'])
+def test_writer_rejects_parent_swap_before_kernel_open(project, monkeypatch, replacement):
+    original = drafts.decisions._exclusive_output
+    outside = project.parent / ('stage8-moved-'+project.name)
+    def create(fd, relative):
+        parent = project / 'deliverables';parent.rename(outside)
+        if replacement == 'symlink':parent.symlink_to(outside, target_is_directory=True)
+        else:parent.mkdir()
+        return original(fd, relative)
+    monkeypatch.setattr(drafts.decisions, '_exclusive_output', create)
+    with pytest.raises((OSError, ValueError)): drafts.write_snapshot(project)
+    assert not any((outside / Path(p).name).exists() for p in drafts.ARTIFACT_PATHS)
+    assert not (project / drafts.OUTPUT).exists()
+
+
+def test_writer_no_unsupported_kernel_fallback(project, monkeypatch):
+    import errno
+    def unavailable(*args): raise OSError(errno.ENOSYS, 'synthetic unsupported openat2')
+    monkeypatch.setattr(drafts.decisions, '_exclusive_output', unavailable)
+    with pytest.raises(OSError): drafts.write_snapshot(project)
+    assert all(not (project / p).exists() for p in (*drafts.ARTIFACT_PATHS, drafts.OUTPUT))
+
+
+@pytest.mark.parametrize('relative', ['../outside.csv', '/tmp/outside.csv', 'deliverables/../outside.csv'])
+def test_writer_refuses_noncanonical_output_paths(project, monkeypatch, relative):
+    monkeypatch.setattr(drafts, 'ARTIFACT_PATHS', (relative, *drafts.ARTIFACT_PATHS[1:]))
+    with pytest.raises(ValueError): drafts.write_snapshot(project)
+
+
+@pytest.mark.parametrize('artifact', ['csv', 'plan', 'calendar', 'communications'])
+def test_independent_cross_artifact_checks_reject_broken_renderer(context, model, artifact):
+    from copy import deepcopy
+    bundle = drafts.rendered_bytes(model)
+    if artifact == 'csv':bundle[drafts.ARTIFACT_PATHS[0]] = bundle[drafts.ARTIFACT_PATHS[0]].replace(b'494000.0', b'490000.0')
+    if artifact == 'plan':bundle[drafts.ARTIFACT_PATHS[1]] = bundle[drafts.ARTIFACT_PATHS[1]].replace(b'494000.0', b'490000.0')
+    if artifact == 'communications':bundle[drafts.ARTIFACT_PATHS[3]] = bundle[drafts.ARTIFACT_PATHS[3]].replace(b'494000.0', b'490000.0')
+    if artifact == 'calendar':bundle[drafts.ARTIFACT_PATHS[2]] = bundle[drafts.ARTIFACT_PATHS[2]].replace(b'STATUS:TENTATIVE', b'STATUS:CONFIRMED')
+    with pytest.raises(ValueError): drafts._validate_content(context, bundle, model['created_at'])
+
+
+def test_saved_flags_cannot_be_claimed_without_saved_files(project, model):
+    s=deepcopy(model);s['state']['generation_mode']='saved-files-verified'
+    for r in s['state']['artifact_drafts']:
+        r.update(saved_file_verified=True,validation_status='valid',hash_scope='verified-saved-bytes',storage_state='verified-saved-file')
+    with pytest.raises(FileNotFoundError):validate_snapshot(s,project)
+
+
+@pytest.mark.parametrize('fault', ['partial-snapshot', 'snapshot-readback', 'late-artifact'])
+def test_writer_final_failures_never_report_success(project, monkeypatch, fault):
+    import os
+    original_write = drafts._write_exclusive
+    original_read = drafts._read_snapshot
+    original_validate = drafts.validate_stage8
+    def write(root, relative, payload, directories):
+        if relative == drafts.OUTPUT and fault == 'partial-snapshot':
+            original_write(root, relative, payload[:16], directories)
+            raise OSError('synthetic partial snapshot failure')
+        return original_write(root, relative, payload, directories)
+    def read(root, relative):
+        if relative == drafts.OUTPUT: raise OSError('synthetic snapshot readback failure')
+        return original_read(root, relative)
+    def validate(snapshot, root):
+        original_validate(snapshot, root)
+        if fault == 'late-artifact' and (root / drafts.OUTPUT).exists():
+            (root / drafts.ARTIFACT_PATHS[0]).write_bytes(b'late tamper')
+    monkeypatch.setattr(drafts, '_write_exclusive', write)
+    monkeypatch.setattr(drafts, 'validate_stage8', validate)
+    if fault == 'snapshot-readback': monkeypatch.setattr(drafts, '_read_snapshot', read)
+    with pytest.raises((ValueError, OSError)): drafts.write_snapshot(project)
+    assert all((project / p).exists() for p in (*drafts.ARTIFACT_PATHS, drafts.OUTPUT))
+    if fault == 'partial-snapshot': assert (project / drafts.OUTPUT).stat().st_size == 16
+
+
+@pytest.mark.parametrize('field,value', [('capacity','999'),('source_status','feasible'),('conditions','')])
+def test_crosscheck_rejects_candidate_csv_misstatements(context, model, field, value):
+    bundle=drafts.rendered_bytes(model)
+    stream=io.StringIO(bundle[drafts.ARTIFACT_PATHS[0]].decode())
+    reader=csv.DictReader(stream);rows=list(reader)
+    next(r for r in rows if r['row_type']=='candidate')[field]=value
+    output=io.StringIO();writer=csv.DictWriter(output,fieldnames=reader.fieldnames);writer.writeheader();writer.writerows(rows)
+    bundle[drafts.ARTIFACT_PATHS[0]]=output.getvalue().encode()
+    with pytest.raises(ValueError):drafts._validate_content(context,bundle,model['created_at'])
+
+
+@pytest.mark.parametrize('target', [drafts.ARTIFACT_PATHS[0], drafts.OUTPUT])
+def test_saved_validator_rejects_hardlinked_outputs(saved_bundle, tmp_path, target):
+    import os
+    root, _, _ = saved_bundle
+    shutil.copytree(root, tmp_path, dirs_exist_ok=True)
+    os.link(tmp_path / target, tmp_path / 'synthetic-link')
+    s=json.loads((tmp_path / drafts.OUTPUT).read_bytes())
+    with pytest.raises(ValueError):validate_snapshot(s,tmp_path)
