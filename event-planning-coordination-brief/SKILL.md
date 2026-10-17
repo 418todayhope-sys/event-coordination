@@ -40,7 +40,7 @@ their explicit clock and rules before applying this workflow to a new project.
 - Before recording decisions, evaluating exceptions, or preparing review outputs,
   read [approval-boundaries.md](references/approval-boundaries.md).
 
-Stages 1 and 2 are implemented. Inspect `event-coordination stage1 --help` before
+Stages 1–3 are implemented. Inspect `event-coordination stage1 --help` before
 running it. When generation is authorized, use the installed environment's CLI:
 
 ```bash
@@ -123,7 +123,64 @@ the referenced original; packaging that copy does not change existing lineage.
 Treat the snapshot as internal evidence and do not copy sensitive attendee needs
 into general communications. Preserve all Entire checkpoint history.
 
-Stages 3–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
+## Run Stage 3 constraint modeling
+
+Stage 3 is available through `event_coordination.stages.constraints`, not a CLI
+`stage3` subcommand. The CLI still exposes only `stage1`. Read the root
+`IMPLEMENTATION.md`, Stage 3 sections, for input requirements and validation limits.
+
+The builder validates the exact saved Stage 2 predecessor and underlying Stage 1
+chain, reads preserved source records, workbook cells and checked brief/interview
+lines, and creates evidence-linked constraints without retrieving or changing sources.
+Keep `hard_constraints`, `preferences`, `assumptions`, `unknowns` and `conflicts`
+distinct. Preserve observations and original values/units in `source_facts`; planned
+allocations are not approval limits, and attendance forecasts are not guaranteed
+check-ins. The current assumption collection is empty; do not invent defaults.
+
+When generation is authorized and its output is absent, run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.constraints import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+The output is `deliverables/snapshots/03-constraint-model.json`. The writer validates
+before and after exclusive creation and refuses overwrites. To review an existing
+snapshot, use this read-only command instead:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/03-constraint-model.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 3 schema, evidence, dependencies, and lineage checks passed")
+PY
+```
+
+Stage 3 retains the run ID and references Stage 2's exact snapshot ID/path and
+SHA-256. New semantic IDs link to consumed Stage 2 evidence IDs, original locators,
+hashes and checked source values. Dependencies must resolve without cycles; timing
+prerequisites and five pending approval gates remain explicit. Quote conditions
+apply only when proposed; no vendor selection or granted approval is inferred.
+
+The current `partial` status retains 73 unknowns and 6 conflicts, represented by 79
+unresolved records. All Stage 2 issues are carried forward. Hash integrity and a
+schema-valid requirement do not establish remote verification, fulfillment or
+authorization. Preserve manual-copy provenance, incomplete exports, unknown original
+retrieval times, privacy limits and operational conditions. Keep this internal model
+out of general communications and preserve all Entire checkpoint history.
+
+Stages 4–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
 or replace missing implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary

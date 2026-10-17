@@ -16,11 +16,13 @@ For automated tests, install the optional development dependencies:
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-Stages 1 and 2 use jsonschema with date-time format checking, plus standard-library
+Stages 1–3 use jsonschema with date-time format checking, plus standard-library
 JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
 CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
 icalendar, and tzdata support the planned later workflow. Final event artifact
-generation is not implemented.
+generation is not implemented. Stage 3 uses read-only ZIP/XML extraction of XLSX
+cells and preserved text lines; it does not recalculate formulas or require an
+additional spreadsheet dependency.
 
 ## Display CLI help
 
@@ -33,6 +35,7 @@ Running `event-coordination` without arguments also displays help. Use
 The CLI currently exposes only `stage1`; its help description still says only
 Stage 1 is implemented. Stage 2 is available through the Python commands below,
 not an `event-coordination stage2` subcommand.
+Stage 3 likewise uses a Python API, not a `stage3` CLI subcommand.
 
 To display help from the source tree using the installed dependencies:
 
@@ -208,11 +211,116 @@ historical failures, not 73 independent planning blockers. Schema validity does 
 turn local imports into verified remote evidence. Future stages must retain the
 unresolved conditions relevant to their decisions.
 
-The complete test command above covers both stages. Capture tests use synthetic
+The complete test command above covers Stages 1–3. Capture tests use synthetic
 fixtures/mocked responses, and Stage 2 integration tests copy preserved project
 inputs into temporary directories. They prohibit live network access. Generation
 and validation commands can be verified in a temporary input copy without replacing
 the real snapshots; test success alone does not establish live-source authenticity.
+
+## Stage 3 constraint-model workflow
+
+Stage 3 reads `deliverables/snapshots/02-source-capture.json`, validates its saved
+hash and Stage 2 semantics (including the Stage 1 chain), and uses its capture
+records and original observation IDs as upstream evidence. It reads preserved
+workbook cells and checked brief/interview lines without changing sources or
+retrieving anything online. The workbook reader preserves original cell values,
+units and date serials alongside interpreted fields; unsupported formulas or
+formats fail rather than being recalculated or guessed.
+
+The model separates:
+
+| Collection | Meaning |
+|---|---|
+| `hard_constraints` | Requirements that an applicable proposal must satisfy; conditional quote requirements apply only when that quote is proposed. |
+| `preferences` | Source-supported flexible choices, including fallback/rehearsal preferences and familiar suppliers. |
+| `assumptions` | Explicit planning assumptions. Currently empty; missing facts are not converted into assumptions. |
+| `unknowns` | Unverified provenance, missing policies/identities/approvals, incomplete sources, and other unresolved evidence. |
+| `conflicts` | Unresolved tensions and potential conditional conflicts. An allocation variance alone is not an approval-limit breach or vendor rejection. |
+| `source_facts` | Preserved observations and structured source values, separate from enforceable rules. Includes overlapping representations, not independent additional sources. |
+
+Stable semantic record IDs link rules to Stage 2 evidence IDs, source locators,
+hashes and original values. Supplementary checked interview/brief lines retain
+their path, hash and excerpt without modifying Stage 2 observations. Budget ceiling,
+planned allocations, approval limits and committed amounts remain distinct.
+Attendee signals retain their source types, units and qualitative confidence;
+overlapping needs add no people and forecasts are not guaranteed attendance.
+
+`depends_on_record_ids` represents dependencies among Stage 3 records. Missing
+references and cycles are rejected. For example, the walkthrough requires venue
+confirmation first. Five separate approval-gate records remain `pending`; a
+conditional Programme or quote requirement does not establish that a change or
+vendor was selected. No actual approval or final feasibility decision is generated.
+
+The predecessor is Stage 2 snapshot ID `7e223901-57c7-4a24-8ba8-597241feb2ec`,
+with SHA-256
+`abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70`.
+Stage 3 retains run ID `988f5ccf-4aeb-44d7-984d-777b1a2412e1`. Consumed IDs must
+resolve to Stage 2 produced records. Stage 3 produces distinct IDs; its top-level
+`unresolved` repeats the unknown/conflict collections as identical views of the same
+logical records, not new produced IDs. Actual execution time is separate from the
+unchanged business clock.
+
+## Generate Stage 3
+
+Run from the repository root only when generation is authorized and
+`deliverables/snapshots/03-constraint-model.json` is absent:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+from pathlib import Path
+from event_coordination.stages.constraints import write_snapshot
+
+path, digest = write_snapshot(Path.cwd())
+print(path)
+print(digest)
+PY
+```
+
+This invokes the implemented writer, which builds and validates the model in
+memory, exclusively creates the output, verifies saved bytes, and validates again.
+It refuses to overwrite an existing snapshot. `build_snapshot(root)` is the
+read-only in-memory API; it validates but does not write. The existing real Stage 3
+snapshot must be validated rather than regenerated.
+
+## Validate saved Stage 3 without rewriting it
+
+Run from the repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from event_coordination.validation import validate_snapshot
+
+root = Path.cwd()
+path = root / "deliverables/snapshots/03-constraint-model.json"
+validate_snapshot(json.loads(path.read_bytes()), root)
+print("Stage 3 schema, evidence, dependencies, and lineage checks passed")
+PY
+```
+
+Validation uses the unchanged schema with date-time checking and reconstructs the
+expected model from preserved inputs. It checks the exact predecessor, shared run
+ID, supported source values, evidence references, dependency graph, pending gates,
+lineage, and retained uncertainty. A changed source or unsupported model edit fails
+validation; passing checks does not independently authenticate a remote source.
+
+The current snapshot is `partial`: it has 56 hard constraints, 3 preferences,
+0 assumptions, 73 unknowns, 6 conflicts, 105 source-fact records and 5 pending gates.
+Its 79 unresolved records preserve every Stage 2 issue plus additional model gaps
+and conditional conflicts. They include incomplete exports, unknown original
+retrieval times, unverified online equivalence, allocation-policy ambiguity and
+operational prerequisites. Requirements being explicit is not proof they are
+fulfilled. Do not promote these items to verified facts, approvals, selected vendors
+or a finalized attendance/schedule basis.
+
+The test command above includes Stage 3 correctness, provenance, source-value/unit
+preservation, dependency/cycle checks, conditional applicability, uncertainty,
+tamper rejection and overwrite refusal. Integration tests copy inputs into temporary
+project roots and block live network access. Verify generation in a temporary input
+copy when the real output already exists. Keep the model internal; it contains
+aggregate attendee-needs evidence and must not be copied wholesale into general
+communications.
 
 ## Implementation boundaries
 
@@ -227,9 +335,9 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1 and 2 are implemented; Stages 3–9 and event
+unchanged. Stages 1–3 are implemented; Stages 4–9 and event
 plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
-assembler does not call the separately available retrieval utilities. No booking,
+assembler and Stage 3 builder do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
 
