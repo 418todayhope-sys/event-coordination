@@ -403,8 +403,36 @@ The current implementation rejects changed pinned inputs and does not automatica
 migrate revised runs. Run the focused Stage 6 tests documented in `IMPLEMENTATION.md`
 when verifying assessment changes; preserve privacy in all general artifacts.
 
-Stages 7–9 remain unimplemented. Do not claim unexecuted commands or tests passed,
-or replace missing implementation with fabricated planning artifacts.
+## Stage 7 initial review model
+
+Use `event_coordination.stages.decisions.build_snapshot(root)` to build only in
+memory from the pinned Stage 6 predecessor. `validate_snapshot` checks Stage 7
+schema, exact initial policy, source integrity, strict types and lineage. See
+`IMPLEMENTATION.md` for the executable inspection and focused-test commands;
+there is no Stage 7 CLI subcommand. Input manifests pin evidence, captures,
+interviews, schema, media copies and earlier snapshots through builder/validation
+return. The writer requires no-follow canonical parents and supported Linux
+`openat2` exclusive creation; directory swaps, collisions and unsupported kernels
+stop generation. It reads back the original descriptor and rechecks inputs and
+output identity. A failed write may leave an incomplete file: stop for review,
+without deleting or overwriting it automatically. See `IMPLEMENTATION.md` for
+platform and concurrency limits. The exclusive writer remains reserved for a
+separately authorized generation step; the real Snapshot 07 has not been generated.
+
+Keep recommendation null, learner decisions empty, both candidates conditional and
+unselected, all 88 unresolved records, five pending gates and four early screenings.
+Compare cost/headroom, service-specific catering margins, category budget meanings
+and shared conditions with actual Stage 6 evidence IDs. Preserve historical IDs
+and explicit ancestor ownership for carried evidence. Budget arithmetic never
+confers spending permission. The current model does not ingest decisions or rank
+candidates; stop for human review before recommendation policy, snapshot generation
+or business action. A null recommendation is an intermediate state, not completion
+of the brief's final recommendation requirement.
+
+Ordinary temporary-fixture development tests suffice; do not enable the isolated
+runner or treat a batch configuration as human authority. Stages 8–9 remain
+unimplemented. Do not claim unexecuted commands or tests passed, or replace missing
+implementation with fabricated planning artifacts.
 
 ## Maintain the planning boundary
 

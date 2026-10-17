@@ -10,6 +10,12 @@ from event_coordination.stages.scope import BUSINESS_CLOCK, DEADLINE, GATES, OWN
 
 
 def validate_snapshot(snapshot: dict, root: Path) -> None:
+    # Stage 7 must pin its schema before the first schema read, not only after
+    # the shared validator has already inspected potentially changing bytes.
+    if isinstance(snapshot, dict) and snapshot.get("stage") == "decision-and-approval":
+        from event_coordination.stages.decisions import validate_stage7
+        validate_stage7(snapshot, root)
+        return
     schema = json.loads((root / "snapshot.schema.json").read_text())
     Draft202012Validator.check_schema(schema)
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(snapshot)
@@ -37,7 +43,7 @@ def validate_snapshot(snapshot: dict, root: Path) -> None:
         if not condition:
             raise ValueError(message)
     require(snapshot["stage"] == "scope-and-approval-gates" and snapshot["sequence"] == 1,
-            "Only Stages 1 through 6 validation are implemented")
+            "Only Stages 1 through 7 validation are implemented")
     require(snapshot["predecessor"] is None and snapshot["consumed_record_ids"] == [],
             "Invalid Stage 1 lineage")
     state = snapshot["state"]

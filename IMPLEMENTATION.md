@@ -665,7 +665,8 @@ gates remain pending. The four original early-screening records are unchanged;
 separate audits retain the fallback conflict, Q-007 hearing-loop gap and both
 livestream ceiling violations with unresolved network/venue prerequisites.
 
-Stage 7 is not implemented. Its future recommendation must consume each result's
+Stage 7 has an initial review model (documented below). Any future recommendation
+must consume each result's
 check IDs, blocking conditions, cost breakdown, witness and source limitations,
 not merely compare prices or copy the feasibility label. Conditional does not mean
 approved, selected, booked or ready for external action. Keep Operations, category
@@ -743,6 +744,96 @@ expiry ambiguity, scope loss despite unchanged availability, Boolean mutations,
 the delayed-opening counterexample, schedule/resource conflicts, actionable
 conditions, inherited-record preservation, tampered inputs and exclusive writes
 in temporary roots. No tests retrieve live sources.
+
+## Stage 7 initial decision-and-approval model
+
+`event_coordination.stages.decisions` builds and validates an in-memory comparison
+from the exact saved Stage 6 snapshot, recursively checking its evidence and chain.
+There is no `stage7` CLI subcommand. The required predecessor is
+`deliverables/snapshots/06-feasibility-testing.json`, ID
+`44873e26-9404-4411-971f-e4f0a0ee0513`, SHA-256
+`57b5be2bde9d3c5a66316b2b1e0239a8c55e39de5ff54b859bf644fe74542fe1`.
+Run ID remains `988f5ccf-4aeb-44d7-984d-777b1a2412e1`.
+
+To inspect the model without writing a snapshot:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B - <<'PYTHON'
+from pathlib import Path
+from event_coordination.stages.decisions import build_snapshot
+snapshot = build_snapshot(Path.cwd())
+print(snapshot['status'], len(snapshot['unresolved']))
+print(snapshot['state']['recommendation'])
+PYTHON
+```
+
+The required `recommendation` is `null`, `learner_decisions` and top-level
+`decisions` are empty, and all five original approval gates remain pending with
+their original applicability. Four evidence-linked tradeoff records compare costs,
+catering capacity, category allocations and common conditions/screened alternatives.
+Two `candidate_reviews` retain conditional feasibility, check/blocker/condition IDs,
+schedule-witness references, allowances, category limits and zero commitments.
+Green Table remains TWD 494,000 with 15 nominal catering places above the 245-person
+planning demand; City Pantry remains TWD 512,000 with 55. Neither is selected.
+Positive allocation variances are review matters, not automatic approval-limit
+breaches or permission to spend. These comparisons do not establish a ranking policy.
+
+All 88 unresolved records and four retained early-screening records are copied
+unchanged. `ancestor_references` identify the actual historical snapshot ownership
+and hashes for older evidence IDs on carried records. New comparisons cite Stage 6
+produced records; they do not relabel Stage 2 observations or Stage 5 options as
+Stage 6 outputs. Consumed/produced IDs include these links without duplicate logical
+records. Source-copy and exercise-verification limitations remain inherited.
+The model stays `partial`, `draft` and for internal evidence review. Its actual UTC
+creation timestamp is separate from the fixed business clock. Preserve attendee
+privacy; do not copy the internal unresolved inventory into general communications.
+
+`validate_snapshot(snapshot, root)` now routes Stage 7 to reconstruction-based
+semantic validation, in addition to the unchanged schema and `FormatChecker`.
+Unexpected structures, numeric Boolean substitutes, unsupported decisions/approvals,
+changed totals, lost conditions and broken evidence/lineage are rejected.
+A no-follow input manifest covers all files and directories under `interviews/`,
+`evidence/` and `deliverables/snapshots/evidence/`, plus the schema and snapshots
+01–06. It pins SHA-256 hashes and filesystem identities/modes/timestamps, rejects
+unsafe entries or unreadable traversal, and detects additions, removal, replacement
+and edits. Stage 7 pins before its first schema read and rechecks after semantic
+validation, immediately before builder return, and at the writer's final boundary.
+The ordinary upstream chain still establishes the expected historical source hashes.
+
+`write_snapshot(root)` requires existing canonical, non-symlinked destination parents.
+It pins directory descriptors and verifies their identities before and after use.
+On Linux x86_64 it uses `openat2` with `O_EXCL`, `O_NOFOLLOW`, `RESOLVE_BENEATH`,
+`RESOLVE_NO_SYMLINKS` and `RESOLVE_NO_MAGICLINKS`, resolving the entire output path
+relative to the project-root descriptor. It never creates missing parents or falls
+back to weaker creation if the kernel operation is unavailable. File permissions
+start at 0600; readback uses the same regular-file descriptor and checks its named
+identity and stable bytes through final validation. Existing files, directories,
+FIFOs and dangling links are refused. A parent swap is rejected; a regular in-root
+replacement that wins the kernel lookup can leave an empty file, but no snapshot
+bytes are written before the pinned parent identity is checked. Later write or
+validation failure can also leave an incomplete output. Do not automatically delete
+or overwrite such files; stop for human review. These checks do not lock out a
+host actor who can rename or modify project files after an observation.
+
+The writer is reserved for separately authorized generation and has not generated
+the real Snapshot 07. Tests exercise it only in temporary evidence copies. The
+builder/validator require POSIX no-follow descriptor operations; writing additionally
+requires the supported Linux `openat2` implementation. Unsupported environments fail
+closed, without an unrestricted fallback.
+
+Run the focused tests with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest tests/test_stage7.py -q -p no:cacheprovider
+```
+
+Implementation/testing permission is not a learner decision or business approval.
+Stop for human review before real snapshot generation, recommendation policy,
+selection, new approval evidence, or external action. Existing ordinary local tests
+are sufficient; neither the dry-run protocol nor the isolated runner is enabled
+for operational execution. Future recommendation/decision ingestion and Stages 8–9
+remain unimplemented. A null recommendation is an initial schema-valid state, not
+completion of the brief's eventual recommended-option requirement.
 
 ## Level 2 supervised automation foundation (dry-run only)
 
@@ -873,9 +964,10 @@ without deleting or rewriting history.
 This is policy validation and change detection, not an OS security sandbox. It
 cannot authenticate a human from free text, prevent changes by concurrent processes,
 or safely execute arbitrary Python just because its command matches an allowlist.
-Actual authorization ingestion, live execution isolation, artifact generation and
-Stages 7–9 remain separate, unimplemented milestones. Changed source evidence still
-requires upstream reevaluation; the protocol cannot bypass pinned predecessor hashes.
+Operational authorization/execution and artifact generation remain separate future
+milestones. Stage 7 now has the initial review model documented above; Stages 8–9
+remain unimplemented. Changed source evidence still requires upstream reevaluation;
+the protocol cannot bypass pinned predecessor hashes.
 
 Run focused tests with:
 
@@ -1023,9 +1115,9 @@ approvals remain pending. Booking, spending, invitations, and publishing require
 human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
-unchanged. Stages 1–6 are implemented; Stages 7–9 and event
-plan/CSV/ICS/communication generation remain unimplemented. Stage 2's offline
-assembler and Stage 3–6 builders do not call the separately available retrieval utilities. No booking,
+unchanged. Stages 1–6 and the initial Stage 7 review model are implemented;
+Stages 8–9 and event plan/CSV/ICS/communication generation remain unimplemented.
+Stage 2's offline assembler and Stage 3–7 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
 
