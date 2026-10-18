@@ -5,8 +5,9 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
 
-from event_coordination.source_catalog import CATALOG
+from event_coordination.source_catalog import CATALOG, LEGACY_SOURCE_IDS
 from event_coordination.sources import hash_bytes
+from event_coordination.run_contract import _json, LEGACY_HASHES
 
 
 def project_file(root: Path, relative: str, directory: str) -> Path:
@@ -18,7 +19,12 @@ def project_file(root: Path, relative: str, directory: str) -> Path:
     return path
 
 
-def load_inventory(root: Path) -> tuple[list[dict], list[dict]]:
+def load_inventory(root: Path, *, include_all=False) -> tuple[list[dict], list[dict]]:
+    # Only the exact original Stage 01 bytes retain their seven-source scope.
+    # Fresh pipeline preflight explicitly includes every current registered source.
+    scope = root / "deliverables/snapshots/01-scope-and-approval-gates.json"
+    legacy = (not include_all and scope.is_file()
+              and hash_bytes(scope.read_bytes()) == "sha256:" + LEGACY_HASHES[0])
     schema = json.loads((root / "snapshot.schema.json").read_bytes())
     validator = Draft202012Validator(
         {"$ref": "#/$defs/sourceRecord", "$defs": schema["$defs"]},
@@ -28,11 +34,13 @@ def load_inventory(root: Path) -> tuple[list[dict], list[dict]]:
     for path in sorted((root / "evidence/captures").glob("*.json")):
         relative = path.relative_to(root).as_posix()
         content = project_file(root, relative, "evidence/captures").read_bytes()
-        record = json.loads(content)
+        record = _json(content)
         validator.validate(record)
         identity = record.get("source_identity")
         if identity not in CATALOG:
             raise ValueError("Unknown capture source identity")
+        if legacy and identity not in LEGACY_SOURCE_IDS:
+            continue
         source = CATALOG[identity]
         if (record["locator"], record["source_role"]) != (source.url, source.role):
             raise ValueError("Capture source URL or role differs from disclosed catalog")
@@ -64,6 +72,6 @@ def load_inventory(root: Path) -> tuple[list[dict], list[dict]]:
         identifiers.update(new_ids)
         captures.append(record)
         manifest.append({"id": record["id"], "path": relative, "sha256": hash_bytes(content)})
-    if {r["source_identity"] for r in captures} != set(CATALOG):
+    if not LEGACY_SOURCE_IDS <= {r["source_identity"] for r in captures}:
         raise ValueError("Capture inventory must represent all seven disclosed sources")
     return captures, manifest

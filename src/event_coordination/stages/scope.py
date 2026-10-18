@@ -6,6 +6,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from event_coordination.sources import hash_bytes, read_evidence
+from event_coordination.run_contract import current_run
 
 DEADLINE = "2026-09-04T17:00:00+08:00"
 BUSINESS_CLOCK = "2026-08-26T12:00:00+08:00"
@@ -46,6 +47,11 @@ SELECTIONS = [
 
 
 def build_snapshot(root: Path, run_id: str | None = None) -> dict:
+    session = current_run(root)
+    if session is not None:
+        if run_id is not None and run_id != session.run_id:
+            raise ValueError("Stage 1 run ID differs from its active run")
+        run_id = session.run_id
     now = datetime.now(timezone.utc).isoformat()
     evidence = [read_evidence(root, *selection) for selection in SELECTIONS]
     owners = list(OWNERS)
@@ -86,6 +92,15 @@ def build_snapshot(root: Path, run_id: str | None = None) -> dict:
         ],
     }
     records = evidence + scope + approvals + unresolved
+    if session is not None:
+        from copy import deepcopy
+        state["run_metadata"] = deepcopy(session.metadata)
+        from event_coordination.input_changes import request_records, DECISION_PATH
+        requests = request_records(root)
+        if requests:
+            state["decision_requests"] = [dict(r, evidence_ids=["scope-gates"],
+                path=DECISION_PATH, sha256=hash_bytes((root / DECISION_PATH).read_bytes())) for r in requests]
+            records += [dict(r, evidence_ids=["scope-gates"]) for r in requests]
     return {
         "schema_version": "event-coordination-stage-snapshot/2",
         "snapshot_id": str(uuid4()), "run_id": run_id if run_id is not None else str(uuid4()),

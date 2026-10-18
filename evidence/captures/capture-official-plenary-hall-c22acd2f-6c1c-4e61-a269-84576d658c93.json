@@ -1,0 +1,27 @@
+{
+  "id": "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93",
+  "summary": "Capture attempt for official-plenary-hall",
+  "evidence_ids": [],
+  "source_identity": "official-plenary-hall",
+  "source_role": "venue-page",
+  "locator": "https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp",
+  "retrieved_at": "2026-10-18T11:16:04.423957+00:00",
+  "retrieval_status": "unavailable",
+  "content_type": "unknown",
+  "version_metadata": {
+    "method": "http-get",
+    "publication_kind": "real-publication",
+    "disclosure": {
+      "path": "evidence/source-disclosures/project-c-assignment-c724104.md",
+      "line": 85
+    },
+    "response_status": null,
+    "reason": "ConnectError",
+    "completed_at": "2026-10-18T11:16:04.521207+00:00",
+    "timestamp_basis": "Actual HTTP attempt start; not the simulated business clock",
+    "disclosure_basis": "Published assignment c724104:README.md line 85; exact URL absent from both preserved interview exports; repeated by learner in current request"
+  },
+  "content_hash": null,
+  "local_reference": null,
+  "observations": []
+}

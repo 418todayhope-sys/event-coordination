@@ -39,7 +39,7 @@ def mock_response(status=200, content=b"<!doctype html><html>synthetic test</htm
 
 
 def test_catalog_matches_preserved_disclosures():
-    assert len(SOURCES) == len(CATALOG) == 7
+    assert len(SOURCES) == len(CATALOG) == 8
     root = Path(__file__).resolve().parents[1]
     for source in SOURCES:
         lines = (root / source.disclosure_path).read_text().splitlines()

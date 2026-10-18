@@ -1,0 +1,47 @@
+Skip to content
+
+<#main>
+Project 3 Event Coordination — Event Brief
+
+Get Notion free
+
+
+  Project 3 Event Coordination — Event Brief
+
+
+    Event brief
+
+Brief version: EVENT-BRIEF-2026-08-26
+Plan the Quillhaven AI Fellowship Demo Day at Taipei International Convention Center. The preferred date is Saturday 17 October 2026, with Saturday 24 October as a fallback. Plan for 245 people including attendees, speakers, and staff.
+The event should let fellows present work, give partners a useful programme overview, and support accessible participation. The draft must include two feasible options, a recommended option with trade-offs, a cost and risk view, floor-plan observations with page or region references, a run of show, calendar drafts, and unsent attendee and vendor messages.
+Hard requirements are step-free access to the main programme and restrooms, wheelchair seating, live captions, a staffed quiet room, a 09:30 opening, and completion by 17:00. The total approved planning ceiling is TWD 520000. The recommendation must not assume an expired quote or unconfirmed availability.
+Success means at least 80 percent of registered attendees check in, all scheduled fellow demos run, and accessibility requests receive a documented response before the event.
+Operations approves the plan. Budget owners approve spending. Do not send invitations, book a venue, commit to a vendor, make payment, or write to a production calendar automatically.
+
+
+      Exercise source clarification — authored 12 September 2026
+
+Use the simulated business clock 26 August 2026 when evaluating the supplied dated quotes and hold; record actual source retrieval separately. The venue coordination record supplies the fictional room allocation and service basis. Recommend within supported evidence; an option with a remaining hard-constraint dependency is conditional, not feasible. Retain two materially different alternatives when supported; do not fabricate a second feasible option if source failure or a material update makes one unavailable. All original hard requirements and the TWD 520,000 ceiling remain.
+
+
+    Venue coordination record
+
+Record: VEN-2026-08-26; case clock: 26 August 2026, Asia/Taipei.
+This is a newly authored fictional business document for the Quillhaven exercise. It is not a statement from TICC, a real quote, accessibility certification, reservation or permission to use an outside supplier. Public venue rules continue to govern claims about the real venue.
+Operations' exercise record covers 17 October and 24 October 2026, 07:30–18:30. The quoted TWD 155,000 package is a synthetic negotiated all-inclusive venue amount, not an official published tariff. It allocates 500 usable audience places in the 4F Plenary Hall, including six wheelchair spaces; companions use ordinary places. The V.I.P. Room on the same floor is the quiet space, with occupancy up to 20 people. Room 401 is not selected: the official venue description warns about sound interference during Plenary Hall use.
+For this case, venue coordination confirms step-free access between the 4F accessible elevators, audience area, V.I.P. Room and accessible restroom. The public floor plan supplies spatial locators; it does not prove today's elevator operation, unobstructed route, seating configuration or acoustic performance. Those case conditions are supplied by this fictional coordination record, and a real deployment must obtain current confirmation rather than treat this exercise note as evidence about TICC.
+The package includes setup and teardown access, the quiet space and its separation from the programme. QuietWorks supplies staffing under Q-010; ClearText supplies captions under Q-005. Q-003/Q-004 catering and Q-006/Q-007 AV are fictional TICC-coordinated service offers, not permission to bring external food or equipment. StreamNorth Q-008 still requires its stated network test and venue confirmation before use. The exercise record confirms adequate captioning, hearing-loop and allergy coordination for the base plan using Q-004/Q-005/Q-006/Q-010; both catering options include an Operations-coordinated dietary response for the 28 vegetarian meals, 12 halal meals and four severe-allergy requests. Named contacts are held by Operations; the learner records the response state without inventing or publishing personal medical details. The two menus differ in capacity and cost, not in whether safety may be ignored.
+No booking or spend has been approved. Operations receives the versioned plan, selected date/room, headcount policy, per-option hard-constraint results and unresolved issues. Budget owners receive their category cost, remaining ceiling and cited quote validity. They may approve, reject, request changes or defer with reasons and affected scope. In this exercise the completed output is a review-ready draft, not obtaining those decisions. If a later actual response is provided, retain actor, subject, plan revision, timestamp, outcome and reasons; stale or unrelated replies confer no authority.
+
+
+      Exercise readiness confirmation — authored 12 September 2026
+
+Coordination clarification: VEN-2026-08-26-R2; the simulated business clock remains 26 August 2026.
+For the 17 October 2026 exercise plan, Operations' fictional supplier-coordination record confirms that the venue arrangement and the base service bundles using either Q-003 or Q-004 together with Q-005, Q-006, Q-009 and Q-010 can complete setup and all pre-opening readiness checks between 07:30 and the 09:30 opening. The required captioning, hearing-loop, staffed quiet space and security services are ready by 09:30; the catering service covers the planned event window. These base bundles can finish teardown and clear the venue between the 17:00 programme finish and 18:30. This confirms schedule feasibility for the exercise only, not a completed real-world test, booking, spending approval or an optional livestream; Q-008's network-test and venue-confirmation conditions remain unresolved until evidenced.
+The planner may choose a compatible setup and check sequence within 07:30–09:30 and a compatible teardown sequence within 17:00–18:30. No individual vendor duration or additional mandatory buffer is specified. Q-009 is SafeVenue security and first-aid staffing; communications and contingency are budget allowances, not additional vendor services covered by this readiness confirmation.
+
+      Exercise programme confirmation — authored 12 September 2026
+
+Programme clarification: PROG-2026-08-26-R3; the simulated business clock remains 26 August 2026.
+Programme has scheduled twelve team demonstrations for 17 October 2026: DEMO-01, DEMO-02, DEMO-03, DEMO-04, DEMO-05, DEMO-06, DEMO-07, DEMO-08, DEMO-09, DEMO-10, DEMO-11 and DEMO-12. Each demonstration needs 10 minutes of presentation plus a separate 3-minute changeover allowance. Include each demonstration once. These are team slots, not counts inferred from the 148 fellow attendees or 12 speakers; they add no people to the declared attendance.
+Keep the existing 10:00–11:00 keynote and 09:30–17:00 event window. The planner chooses the demonstration order, grouping and compatible meal and break schedule. Programme owns roster or duration changes. This is newly authored fictional planning knowledge, not confirmation that a demonstration has run or that a plan has been approved.

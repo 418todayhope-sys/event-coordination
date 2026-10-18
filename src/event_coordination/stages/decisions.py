@@ -13,6 +13,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from event_coordination.sources import hash_bytes
+from event_coordination.run_contract import read_predecessor, bound_run_id, bound_snapshot_id
 from event_coordination.stages.feasibility import OUTPUT as PREDECESSOR_PATH
 
 PREDECESSOR_ID = "44873e26-9404-4411-971f-e4f0a0ee0513"
@@ -342,11 +343,12 @@ def _recommendation_policy(reviews, checks):
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
 
-    data = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(data) != PREDECESSOR_HASH:
-        raise ValueError("Stage 6 predecessor hash differs from approved snapshot")
+    data = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(data)
+    predecessor_id = bound_snapshot_id(root, PREDECESSOR_PATH, PREDECESSOR_ID)
+    run_id = bound_run_id(root, RUN_ID)
     upstream = json.loads(data)
-    if (upstream["snapshot_id"] != PREDECESSOR_ID or upstream["run_id"] != RUN_ID
+    if (upstream["snapshot_id"] != predecessor_id or upstream["run_id"] != run_id
             or upstream["state"]["business_clock"] != BUSINESS_CLOCK):
         raise ValueError("Stage 6 predecessor identity/run/clock mismatch")
     validate_snapshot(upstream, root)  # Includes original sources and the full chain.
@@ -357,7 +359,7 @@ def _inputs(root: Path) -> dict:
         content = (root / path).read_bytes()
         parent = json.loads(content)
         if (child["predecessor"] != {"snapshot_id": parent["snapshot_id"], "path": path, "sha256": hash_bytes(content)}
-                or parent["run_id"] != RUN_ID or parent["sequence"] != sequence):
+                or parent["run_id"] != run_id or parent["sequence"] != sequence):
             raise ValueError("Stage 7 ancestor ownership/lineage mismatch")
         ancestors.append((parent, path, content))
         buffers[path] = content
@@ -389,7 +391,9 @@ def _inputs(root: Path) -> dict:
 
     checks = {r["id"]: r for r in upstream["state"]["checks"]}
     results = upstream["state"]["option_results"]
-    if len(results) != 2 or len(unresolved) != 88 or len(state["approval_requirements"]) != 5:
+    from event_coordination.run_contract import current_run
+    fresh = current_run(root) is not None
+    if len(results) != 2 or (not fresh and len(unresolved) != 88) or len(state["approval_requirements"]) != 5:
         raise ValueError("Stage 7 requires the approved two-candidate review basis")
     if any(g["status"] != "pending" for g in state["approval_requirements"]):
         raise ValueError("Initial Stage 7 has no evidence granting approval")
@@ -402,7 +406,8 @@ def _inputs(root: Path) -> dict:
         return record
 
     for result in results:
-        if result["feasibility"] != "conditional" or result["selected"] is not False:
+        if (result["selected"] is not False or result["feasibility"] not in (
+                ("feasible", "conditional", "infeasible", "unverified") if fresh else ("conditional",))):
             raise ValueError("Approved Stage 6 candidates must remain conditional and unselected")
         name = result["id"].removeprefix("result-oct17-")
         prefix = "check-oct17-" + name + "-"
@@ -422,7 +427,8 @@ def _inputs(root: Path) -> dict:
         categories = {c["requirement"].removeprefix("category-"): deepcopy(c["inputs"])
                       for c in (checks[i] for i in result["check_ids"]) if c["requirement"].startswith("category-")}
         add("candidate_reviews", "decision-review-oct17-" + name,
-            "Conditional exercise candidate for draft comparison; no selection or authorization.",
+            (f"{result['feasibility'].capitalize()} exercise candidate for draft comparison; no selection or authorization." if fresh else
+             "Conditional exercise candidate for draft comparison; no selection or authorization."),
             [result["id"], *result["check_ids"], result["schedule_witness_id"],
              *result["applicable_condition_ids"], *result["approval_requirement_ids"]],
             candidate_id=result["candidate_id"], source_result_id=result["id"],
@@ -444,11 +450,16 @@ def _inputs(root: Path) -> dict:
         basis="derived", currency="TWD", candidates=[{"candidate_id": r["candidate_id"], "quoted_subtotal": r["costs"]["quoted_subtotal"],
         "planning_total": r["costs"]["planning_total"], "remaining_ceiling": r["remaining_ceiling"]} for r in values],
         calculation="sum quoted categories + retained communications and contingency; ceiling minus planning total")
-    add("tradeoffs", "tradeoff-catering-capacity", "Larger nominal catering margin costs more; both use the same uncertain planning population without adding overlapping needs.",
+    add("tradeoffs", "tradeoff-catering-capacity",
+        ("Compare each evidenced catering margin and cost independently; both use the same uncertain population without adding overlapping needs." if fresh else
+         "Larger nominal catering margin costs more; both use the same uncertain planning population without adding overlapping needs."),
         evidence + [c["id"] for c in checks.values() if c["requirement"] in ("capacity-catering", "attendance-basis")],
         basis="derived", candidates=[{"candidate_id": r["candidate_id"], **r["catering"]} for r in values],
         calculation="catering service capacity minus planning demand; not extra audience seating")
-    add("tradeoffs", "tradeoff-category-allocation-review", "Allocations, approval limits, zero recorded commitments and spending permission remain separate; positive allocation variances require review.",
+    add("tradeoffs", "tradeoff-category-allocation-review",
+        ("Allocations, approval limits, recorded commitments and spending permission remain separate; positive allocation variances require review."
+         if fresh and any(Decimal(c["recorded_commitment"]) != 0 for r in values for c in r["category_budget"].values()) else
+         "Allocations, approval limits, zero recorded commitments and spending permission remain separate; positive allocation variances require review."),
         evidence + [c["id"] for c in checks.values() if c["requirement"].startswith(("category-", "allocation-policy-"))] + ["gate-spending"],
         basis="derived", candidates=[{"candidate_id": r["candidate_id"], "category_budget": r["category_budget"]} for r in values],
         allocation_transfer_policy="unresolved", spending_authorized=False)
@@ -474,7 +485,7 @@ def _inputs(root: Path) -> dict:
     for path, content in buffers.items():
         if (root / path).read_bytes() != content:
             raise ValueError("Stage 7 pinned inputs changed during evaluation")
-    return {"run_id": RUN_ID, "predecessor": {"snapshot_id": PREDECESSOR_ID, "path": PREDECESSOR_PATH, "sha256": PREDECESSOR_HASH},
+    return {"run_id": run_id, "predecessor": {"snapshot_id": predecessor_id, "path": PREDECESSOR_PATH, "sha256": predecessor_hash},
             "consumed_record_ids": sorted(consumed), "produced_record_ids": ids, "state": state,
             "unresolved": unresolved, "status": "partial", "decisions": []}
 

@@ -1,0 +1,24 @@
+{
+  "id": "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+  "summary": "Capture attempt for official-floor-plan",
+  "evidence_ids": [],
+  "source_identity": "official-floor-plan",
+  "source_role": "floor-plan-or-image",
+  "locator": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+  "retrieved_at": "2026-10-16T22:00:55.629743+00:00",
+  "retrieval_status": "unavailable",
+  "content_type": "unknown",
+  "version_metadata": {
+    "method": "http-get",
+    "publication_kind": "real-publication",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 287
+    },
+    "response_status": null,
+    "reason": "ConnectError"
+  },
+  "content_hash": null,
+  "local_reference": null,
+  "observations": []
+}

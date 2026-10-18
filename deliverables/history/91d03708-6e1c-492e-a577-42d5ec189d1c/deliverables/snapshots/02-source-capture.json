@@ -1,0 +1,2382 @@
+{
+  "schema_version": "event-coordination-stage-snapshot/2",
+  "snapshot_id": "b83e208b-b4df-45c6-99fc-871bfcf07e5a",
+  "stage": "source-capture",
+  "sequence": 2,
+  "created_at": "2026-10-18T10:37:02.368403+00:00",
+  "run_id": "91d03708-6e1c-492e-a577-42d5ec189d1c",
+  "predecessor": {
+    "snapshot_id": "01d967d7-3b05-433f-8895-d10d1a921fd3",
+    "path": "deliverables/snapshots/01-scope-and-approval-gates.json",
+    "sha256": "sha256:076022ba1c5a82bfeb03f9099c9a778cb4629d704c68ae5d2c625bea4f6ff240"
+  },
+  "consumed_record_ids": [
+    "scope-objective",
+    "scope-deadline",
+    "scope-owners",
+    "scope-gates",
+    "unknown-category-owner-identities"
+  ],
+  "produced_record_ids": [
+    "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f",
+    "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+    "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2",
+    "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+    "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4",
+    "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d",
+    "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+    "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c",
+    "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
+    "source-group-attendee-signals",
+    "source-group-budget-allocations",
+    "source-group-calendar-constraints",
+    "source-group-event-brief",
+    "source-group-official-accessibility",
+    "source-group-official-floor-plan",
+    "source-group-vendor-register",
+    "stage2-inherited-unknown-category-owner-identities",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-online_equivalence-0",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-0",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-1",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-2",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-3",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-4",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-5",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-6",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-7",
+    "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-privacy-0",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-status",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-historical-time",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-online_equivalence-0",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-0",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-1",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-2",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-3",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-4",
+    "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-parser_limitations-0",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-status",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-historical-time",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-online_equivalence-0",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-0",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-1",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-2",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-3",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-4",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-5",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-6",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-0",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-1",
+    "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-2",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-status",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-historical-time",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-completeness-0",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-online_equivalence-0",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-0",
+    "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-1",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-status",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-historical-time",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-completeness-0",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-online_equivalence-0",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-0",
+    "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-1",
+    "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-status",
+    "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-historical-time",
+    "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-completeness-0",
+    "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-online_equivalence-0",
+    "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-verification_limit-0",
+    "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-status",
+    "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-reason-0",
+    "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
+    "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
+    "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
+    "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-0",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-1",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-2",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-3",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-4",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-5",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-3",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-4",
+    "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-5",
+    "obs-attendee-headers",
+    "obs-attendee-sig-001",
+    "obs-attendee-sig-002",
+    "obs-attendee-sig-003",
+    "obs-attendee-sig-004",
+    "obs-attendee-sig-005",
+    "obs-attendee-sig-006",
+    "obs-attendee-sig-007",
+    "obs-attendee-sig-008",
+    "obs-attendee-sig-009",
+    "obs-attendee-sig-010",
+    "obs-attendee-sig-011",
+    "obs-attendee-sig-012",
+    "obs-attendee-sig-013",
+    "obs-budget-headers",
+    "obs-budget-row-2",
+    "obs-budget-row-3",
+    "obs-budget-row-4",
+    "obs-budget-row-5",
+    "obs-budget-row-6",
+    "obs-budget-row-7",
+    "obs-budget-row-8",
+    "obs-calendar-headers",
+    "obs-calendar-cal-001",
+    "obs-calendar-cal-002",
+    "obs-calendar-cal-003",
+    "obs-calendar-cal-004",
+    "obs-calendar-cal-005",
+    "obs-calendar-cal-006",
+    "obs-calendar-cal-007",
+    "obs-calendar-cal-008",
+    "obs-brief-text-objective",
+    "obs-brief-text-approvals",
+    "obs-brief-text-fictional",
+    "obs-brief-text-programme",
+    "obs-brief-pdf-objective",
+    "obs-brief-pdf-exercise",
+    "obs-brief-pdf-approvals",
+    "obs-brief-pdf-truncation",
+    "obs-accessibility-identity",
+    "obs-accessibility-index",
+    "obs-accessibility-4f-link",
+    "obs-floor-plan-level",
+    "obs-floor-plan-venue",
+    "obs-vendors-headers",
+    "obs-quote-q-001",
+    "obs-quote-q-002",
+    "obs-quote-q-003",
+    "obs-quote-q-004",
+    "obs-quote-q-005",
+    "obs-quote-q-006",
+    "obs-quote-q-007",
+    "obs-quote-q-008",
+    "obs-quote-q-009",
+    "obs-quote-q-010"
+  ],
+  "state": {
+    "sources": [
+      {
+        "id": "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f",
+        "summary": "Registered manually exported aggregate Attendee Signals workbook; all thirteen signal rows inspected without finalizing attendance.",
+        "evidence_ids": [],
+        "source_identity": "attendee-signals",
+        "source_role": "attendee-signals",
+        "locator": "https://docs.google.com/spreadsheets/d/1IXAEAFsZM6Q9IZZ_9pGqbFQ7l2ikr-oThqrEKudHwIU",
+        "retrieved_at": "2026-10-16T23:44:42.999087+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content_hash": "sha256:5d623e5d97f7519a9542ece2271b1fbb748667dc3bcbfefbae2a941f8fcb2e27",
+        "local_reference": "evidence/originals/Project C — Attendee Signals.xlsx",
+        "version_metadata": {
+          "method": "manual-google-sheets-xlsx-export-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User reports manually downloading the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+          "original_path": "evidence/originals/Project C — Attendee Signals.xlsx",
+          "size_bytes": 6303,
+          "registration_at": "2026-10-16T23:44:42.999087+00:00",
+          "timestamp_basis": "actual local registration; not historical browser retrieval time",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "Unverified; no live Google Sheets content or provider version history accessed.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 257
+          },
+          "hash_verification": "Independently calculated with sha256sum and Python hashlib; matches supplied hash.",
+          "worksheets": [
+            {
+              "name": "Attendee Signals",
+              "state": "visible",
+              "part": "xl/worksheets/sheet1.xml",
+              "populated_range": "A1:H14"
+            }
+          ],
+          "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook relationships, shared strings, populated worksheet cells, date styles and empty drawing. ZIP integrity passed; no formulas found.",
+          "date_interpretation": "G2:G14 use style 2, custom number format 164 yyyy-mm-dd, with Excel 1900 date system. Modern serials decoded using 1899-12-30; original serials retained. Dates supply no time or timezone.",
+          "business_clock": "2026-08-26T12:00:00+08:00",
+          "business_timezone": "Asia/Taipei",
+          "privacy": "Inspected worksheet contains aggregate cohort/need counts rather than attendee names, contact information or individual medical narratives. Small accessibility/allergy counts can still be sensitive; restrict unnecessary circulation and do not infer identities. Internal workbook person metadata was not copied into observations.",
+          "limitations": [
+            "Registrations and required-on-site counts are source statements, not confirmed event check-ins or guaranteed attendance. Walk-ins are an estimate.",
+            "Confidence labels are qualitative, not probabilities or independent verification.",
+            "Accessibility/dietary signals concern overlapping existing populations; no additional people or final headcount calculated.",
+            "No person-level overlap/deduplication mapping, named support contacts, fulfilled-request evidence, or actual check-in outcomes supplied in these columns.",
+            "No record_version column or complete methodology/update history supplied; original download time and live-source completeness remain unverified.",
+            "Observed_at dates do not establish exact observation times; the August 26 forecast cannot be proven to predate the 12:00 business clock.",
+            "No spreadsheet parser dependency installed; XML inspection does not reproduce visual layout or recalculate formulas.",
+            "No vendor selection, approval, or final attendance decision performed."
+          ]
+        },
+        "observations": [
+          {
+            "id": "obs-attendee-headers",
+            "summary": "One visible worksheet Attendee Signals with columns signal_id, source, segment, signal, value, unit, observed_at, confidence.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A1:H1"
+            }
+          },
+          {
+            "id": "obs-attendee-sig-001",
+            "summary": "signal_id: SIG-001; source: registration_form; segment: fellows; signal: registered_attendees; value: 148.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A2:H2"
+            },
+            "original_cell_values": {
+              "A2": "SIG-001",
+              "B2": "registration_form",
+              "C2": "fellows",
+              "D2": "registered_attendees",
+              "E2": "148.0",
+              "F2": "people",
+              "G2": "46258.0",
+              "H2": "high"
+            },
+            "interpretation_classification": "source-reported-registration"
+          },
+          {
+            "id": "obs-attendee-sig-002",
+            "summary": "signal_id: SIG-002; source: partner_form; segment: partners; signal: registered_attendees; value: 32.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A3:H3"
+            },
+            "original_cell_values": {
+              "A3": "SIG-002",
+              "B3": "partner_form",
+              "C3": "partners",
+              "D3": "registered_attendees",
+              "E3": "32.0",
+              "F3": "people",
+              "G3": "46258.0",
+              "H3": "high"
+            },
+            "interpretation_classification": "source-reported-registration"
+          },
+          {
+            "id": "obs-attendee-sig-003",
+            "summary": "signal_id: SIG-003; source: operations_plan; segment: staff; signal: required_on_site; value: 18.0; unit: people; observed_at: 2026-08-25; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A4:H4"
+            },
+            "original_cell_values": {
+              "A4": "SIG-003",
+              "B4": "operations_plan",
+              "C4": "staff",
+              "D4": "required_on_site",
+              "E4": "18.0",
+              "F4": "people",
+              "G4": "46259.0",
+              "H4": "high"
+            },
+            "interpretation_classification": "source-reported-required-on-site"
+          },
+          {
+            "id": "obs-attendee-sig-004",
+            "summary": "signal_id: SIG-004; source: programme_plan; segment: speakers; signal: required_on_site; value: 12.0; unit: people; observed_at: 2026-08-25; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A5:H5"
+            },
+            "original_cell_values": {
+              "A5": "SIG-004",
+              "B5": "programme_plan",
+              "C5": "speakers",
+              "D5": "required_on_site",
+              "E5": "12.0",
+              "F5": "people",
+              "G5": "46259.0",
+              "H5": "high"
+            },
+            "interpretation_classification": "source-reported-required-on-site"
+          },
+          {
+            "id": "obs-attendee-sig-005",
+            "summary": "signal_id: SIG-005; source: forecast; segment: walk_ins; signal: expected_attendees; value: 35.0; unit: people; observed_at: 2026-08-26; confidence: medium",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A6:H6"
+            },
+            "original_cell_values": {
+              "A6": "SIG-005",
+              "B6": "forecast",
+              "C6": "walk_ins",
+              "D6": "expected_attendees",
+              "E6": "35.0",
+              "F6": "people",
+              "G6": "46260.0",
+              "H6": "medium"
+            },
+            "interpretation_classification": "forecast-estimate"
+          },
+          {
+            "id": "obs-attendee-sig-006",
+            "summary": "signal_id: SIG-006; source: registration_form; segment: all; signal: wheelchair_spaces; value: 6.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A7:H7"
+            },
+            "original_cell_values": {
+              "A7": "SIG-006",
+              "B7": "registration_form",
+              "C7": "all",
+              "D7": "wheelchair_spaces",
+              "E7": "6.0",
+              "F7": "people",
+              "G7": "46258.0",
+              "H7": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-007",
+            "summary": "signal_id: SIG-007; source: registration_form; segment: all; signal: mobility_companions; value: 4.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A8:H8"
+            },
+            "original_cell_values": {
+              "A8": "SIG-007",
+              "B8": "registration_form",
+              "C8": "all",
+              "D8": "mobility_companions",
+              "E8": "4.0",
+              "F8": "people",
+              "G8": "46258.0",
+              "H8": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-008",
+            "summary": "signal_id: SIG-008; source: registration_form; segment: all; signal: live_caption_requests; value: 23.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A9:H9"
+            },
+            "original_cell_values": {
+              "A9": "SIG-008",
+              "B9": "registration_form",
+              "C9": "all",
+              "D9": "live_caption_requests",
+              "E9": "23.0",
+              "F9": "people",
+              "G9": "46258.0",
+              "H9": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-009",
+            "summary": "signal_id: SIG-009; source: registration_form; segment: all; signal: hearing_loop_requests; value: 7.0; unit: people; observed_at: 2026-08-24; confidence: medium",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A10:H10"
+            },
+            "original_cell_values": {
+              "A10": "SIG-009",
+              "B10": "registration_form",
+              "C10": "all",
+              "D10": "hearing_loop_requests",
+              "E10": "7.0",
+              "F10": "people",
+              "G10": "46258.0",
+              "H10": "medium"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-010",
+            "summary": "signal_id: SIG-010; source: registration_form; segment: all; signal: quiet_room_requests; value: 9.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A11:H11"
+            },
+            "original_cell_values": {
+              "A11": "SIG-010",
+              "B11": "registration_form",
+              "C11": "all",
+              "D11": "quiet_room_requests",
+              "E11": "9.0",
+              "F11": "people",
+              "G11": "46258.0",
+              "H11": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-011",
+            "summary": "signal_id: SIG-011; source: registration_form; segment: all; signal: vegetarian_meals; value: 28.0; unit: meals; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A12:H12"
+            },
+            "original_cell_values": {
+              "A12": "SIG-011",
+              "B12": "registration_form",
+              "C12": "all",
+              "D12": "vegetarian_meals",
+              "E12": "28.0",
+              "F12": "meals",
+              "G12": "46258.0",
+              "H12": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-012",
+            "summary": "signal_id: SIG-012; source: registration_form; segment: all; signal: halal_meals; value: 12.0; unit: meals; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A13:H13"
+            },
+            "original_cell_values": {
+              "A13": "SIG-012",
+              "B13": "registration_form",
+              "C13": "all",
+              "D13": "halal_meals",
+              "E13": "12.0",
+              "F13": "meals",
+              "G13": "46258.0",
+              "H13": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          },
+          {
+            "id": "obs-attendee-sig-013",
+            "summary": "signal_id: SIG-013; source: registration_form; segment: all; signal: severe_allergy_follow_up; value: 4.0; unit: people; observed_at: 2026-08-24; confidence: high",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Attendee Signals'!A14:H14"
+            },
+            "original_cell_values": {
+              "A14": "SIG-013",
+              "B14": "registration_form",
+              "C14": "all",
+              "D14": "severe_allergy_follow_up",
+              "E14": "4.0",
+              "F14": "people",
+              "G14": "46258.0",
+              "H14": "high"
+            },
+            "interpretation_classification": "source-reported-need-or-request"
+          }
+        ]
+      },
+      {
+        "id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+        "summary": "Registered user-provided Google Sheets Excel export; inspected Budget worksheet A1:F8 without rewriting workbook.",
+        "evidence_ids": [],
+        "source_identity": "budget-allocations",
+        "source_role": "budget",
+        "locator": "https://docs.google.com/spreadsheets/d/1Cxo7CvcgImz9HbT8PThZyvaTuyd44ug7w5rBA1z5qlM",
+        "retrieved_at": "2026-10-16T22:24:18.910100+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content_hash": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+        "local_reference": "evidence/originals/Project C — Budget.xlsx",
+        "version_metadata": {
+          "method": "manual-google-sheets-xlsx-export-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User reports Google Sheets > File > Download > Microsoft Excel (.xlsx), then copying through WSL.",
+          "original_path": "evidence/originals/Project C — Budget.xlsx",
+          "size_bytes": 5721,
+          "registration_at": "2026-10-16T22:24:18.910100+00:00",
+          "timestamp_basis": "actual local registration, not original download time",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "Unverified; no live Google Sheets comparison or version history was retrieved.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 540
+          },
+          "record_versions": [
+            "budget-2026-08-26"
+          ],
+          "record_version_locator": "'Budget'!F2:F8",
+          "inspection_method": "Standard-library zipfile and XML inspection, including workbook relationships, shared strings, worksheet cells and empty drawing part; ZIP integrity check passed.",
+          "parser_limitations": "openpyxl and pandas unavailable; no dependencies installed. XML inspection does not reproduce visual spreadsheet layout or recalculate formulas. No formulas found in inspected populated cells.",
+          "populated_range": "'Budget'!A1:F8",
+          "worksheets": [
+            {
+              "name": "Budget",
+              "state": "visible",
+              "part": "xl/worksheets/sheet1.xml"
+            }
+          ],
+          "limitations": [
+            "All six fields are populated for seven categories, but owner entries are organizational roles, not named individual approvers or explicit delegations.",
+            "No overall ceiling, explicit exception-policy text, approval decisions, or approval timestamps appear in the populated worksheet cells. Category limits must not be summed and treated as an overall ceiling.",
+            "Zero committed amounts are explicit source values, not inferred missing values and not evidence of spending approval.",
+            "Completeness against the live workbook and provider export fidelity remain unverified.",
+            "Stage 1 unresolved owner identities remain unchanged; these observations do not prematurely resolve them."
+          ]
+        },
+        "observations": [
+          {
+            "id": "obs-budget-headers",
+            "summary": "One visible worksheet named Budget; headers category, planned_amount_twd, approval_limit_twd, committed_amount_twd, owner, record_version.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A1:F1"
+            }
+          },
+          {
+            "id": "obs-budget-row-2",
+            "summary": "Category venue; planned TWD 155000.0; approval limit TWD 180000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A2:F2"
+            }
+          },
+          {
+            "id": "obs-budget-row-3",
+            "summary": "Category catering; planned TWD 115000.0; approval limit TWD 135000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A3:F3"
+            }
+          },
+          {
+            "id": "obs-budget-row-4",
+            "summary": "Category accessibility; planned TWD 65000.0; approval limit TWD 80000.0; committed TWD 0.0; owner Learner Experience; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A4:F4"
+            }
+          },
+          {
+            "id": "obs-budget-row-5",
+            "summary": "Category production; planned TWD 85000.0; approval limit TWD 100000.0; committed TWD 0.0; owner Programme; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A5:F5"
+            }
+          },
+          {
+            "id": "obs-budget-row-6",
+            "summary": "Category communications; planned TWD 25000.0; approval limit TWD 30000.0; committed TWD 0.0; owner Communications; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A6:F6"
+            }
+          },
+          {
+            "id": "obs-budget-row-7",
+            "summary": "Category security; planned TWD 25000.0; approval limit TWD 35000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A7:F7"
+            }
+          },
+          {
+            "id": "obs-budget-row-8",
+            "summary": "Category contingency; planned TWD 40000.0; approval limit TWD 50000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Budget'!A8:F8"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2",
+        "summary": "Registered manually exported Calendar Constraints workbook; all eight constraint rows inspected without resolving scheduling conflicts.",
+        "evidence_ids": [],
+        "source_identity": "calendar-constraints",
+        "source_role": "calendar",
+        "locator": "https://docs.google.com/spreadsheets/d/1f_i6tUCHbJV-Ug_j6U3T4LEZ3yAr2ucdBnID-4C_-8s",
+        "retrieved_at": "2026-10-16T23:38:25.813434+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content_hash": "sha256:599fb16d7dd87de97cf2ae0a428b4288911803c3218d75f68396dbdc4c6d5a60",
+        "local_reference": "evidence/originals/Project C — Calendar Constraints.xlsx",
+        "version_metadata": {
+          "method": "manual-google-sheets-xlsx-export-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User reports manually downloading the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+          "original_path": "evidence/originals/Project C — Calendar Constraints.xlsx",
+          "size_bytes": 6145,
+          "registration_at": "2026-10-16T23:38:25.813434+00:00",
+          "timestamp_basis": "actual local registration; not historical online retrieval",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "Unverified; no live source comparison or provider version history accessed.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 554
+          },
+          "hash_verification": "SHA-256 independently verified with sha256sum and Python hashlib; matches supplied digest.",
+          "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook, relationships, shared strings, all populated worksheet cells, styles, and empty drawing; ZIP integrity passed. No formulas found.",
+          "worksheets": [
+            {
+              "name": "Calendar Constraints",
+              "state": "visible",
+              "part": "xl/worksheets/sheet1.xml",
+              "populated_range": "A1:H9"
+            }
+          ],
+          "record_versions": [
+            "calendar-2026-08-26"
+          ],
+          "record_version_locator": "'Calendar Constraints'!H2:H9",
+          "business_clock": "2026-08-26T12:00:00+08:00",
+          "business_timezone": "Asia/Taipei",
+          "source_time_representation": "D2:E9 contain literal ISO date-time strings with +08:00 offsets. The cells do not themselves name an IANA timezone; Asia/Taipei is the separate project business context.",
+          "possible_interpretations_not_resolutions": [
+            {
+              "summary": "CAL-002 permits a soft fallback window while CAL-004 notes keynote unavailable on fallback date. This is a potential fallback dependency/conflict to assess later, not a resolved schedule.",
+              "locators": [
+                "'Calendar Constraints'!A3:H3",
+                "'Calendar Constraints'!A5:H5"
+              ]
+            },
+            {
+              "summary": "CAL-001 names a preferred event window but labels its priority hard. Preserve both source values; do not silently reinterpret preferred as soft.",
+              "locators": [
+                "'Calendar Constraints'!C2",
+                "'Calendar Constraints'!F2"
+              ]
+            },
+            {
+              "summary": "CAL-005 plan and budget decision timestamp matches Stage 1 Operations deadline, but its note is broader; it does not grant approval or establish category-owner delegation.",
+              "locators": [
+                "'Calendar Constraints'!A6:H6"
+              ]
+            }
+          ],
+          "limitations": [
+            "Hold expiry in G4 is date-only 2026-09-05; no expiry time or timezone is explicitly supplied for that note.",
+            "Owner cells name organizational parties (Operations, TICC, Programme, Learner Experience), not individual approvers.",
+            "CAL-006 explicitly requires venue confirmation before the walkthrough, but no completed confirmation or actual approvals are supplied.",
+            "No separate blackout rows or explicit all-day fallback keynote-unavailability interval is supplied; do not invent interval boundaries.",
+            "Populated fields are present in all eight rows. Live-source completeness, export fidelity and original download time remain unverified.",
+            "No full spreadsheet renderer/parser dependency used; XML inspection does not reproduce visual layout or recalculate formulas.",
+            "No schedule conflict resolved and no existing Stage 1 record changed."
+          ]
+        },
+        "observations": [
+          {
+            "id": "obs-calendar-headers",
+            "summary": "One visible worksheet Calendar Constraints, headers constraint_id, owner, constraint_type, start_at, end_at, priority, notes, record_version.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A1:H1"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-001",
+            "summary": "constraint_id: CAL-001; owner: Operations; constraint_type: preferred_event_window; start_at: 2026-10-17T09:30:00+08:00; end_at: 2026-10-17T17:00:00+08:00; priority: hard; notes: Preferred event date; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A2:H2"
+            },
+            "original_cell_values": {
+              "A2": "CAL-001",
+              "B2": "Operations",
+              "C2": "preferred_event_window",
+              "D2": "2026-10-17T09:30:00+08:00",
+              "E2": "2026-10-17T17:00:00+08:00",
+              "F2": "hard",
+              "G2": "Preferred event date",
+              "H2": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-002",
+            "summary": "constraint_id: CAL-002; owner: Operations; constraint_type: fallback_event_window; start_at: 2026-10-24T09:30:00+08:00; end_at: 2026-10-24T17:00:00+08:00; priority: soft; notes: Fallback date; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A3:H3"
+            },
+            "original_cell_values": {
+              "A3": "CAL-002",
+              "B3": "Operations",
+              "C3": "fallback_event_window",
+              "D3": "2026-10-24T09:30:00+08:00",
+              "E3": "2026-10-24T17:00:00+08:00",
+              "F3": "soft",
+              "G3": "Fallback date",
+              "H3": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-003",
+            "summary": "constraint_id: CAL-003; owner: TICC; constraint_type: venue_hold; start_at: 2026-10-17T07:30:00+08:00; end_at: 2026-10-17T18:30:00+08:00; priority: hard; notes: Hold expires 2026-09-05; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A4:H4"
+            },
+            "original_cell_values": {
+              "A4": "CAL-003",
+              "B4": "TICC",
+              "C4": "venue_hold",
+              "D4": "2026-10-17T07:30:00+08:00",
+              "E4": "2026-10-17T18:30:00+08:00",
+              "F4": "hard",
+              "G4": "Hold expires 2026-09-05",
+              "H4": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-004",
+            "summary": "constraint_id: CAL-004; owner: Programme; constraint_type: keynote_availability; start_at: 2026-10-17T10:00:00+08:00; end_at: 2026-10-17T11:00:00+08:00; priority: hard; notes: Keynote unavailable on fallback date; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A5:H5"
+            },
+            "original_cell_values": {
+              "A5": "CAL-004",
+              "B5": "Programme",
+              "C5": "keynote_availability",
+              "D5": "2026-10-17T10:00:00+08:00",
+              "E5": "2026-10-17T11:00:00+08:00",
+              "F5": "hard",
+              "G5": "Keynote unavailable on fallback date",
+              "H5": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-005",
+            "summary": "constraint_id: CAL-005; owner: Operations; constraint_type: decision_deadline; start_at: 2026-09-04T17:00:00+08:00; end_at: 2026-09-04T17:00:00+08:00; priority: hard; notes: Plan and budget decision; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A6:H6"
+            },
+            "original_cell_values": {
+              "A6": "CAL-005",
+              "B6": "Operations",
+              "C6": "decision_deadline",
+              "D6": "2026-09-04T17:00:00+08:00",
+              "E6": "2026-09-04T17:00:00+08:00",
+              "F6": "hard",
+              "G6": "Plan and budget decision",
+              "H6": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-006",
+            "summary": "constraint_id: CAL-006; owner: Learner Experience; constraint_type: accessibility_walkthrough; start_at: 2026-09-25T14:00:00+08:00; end_at: 2026-09-25T16:00:00+08:00; priority: hard; notes: Venue confirmation required first; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A7:H7"
+            },
+            "original_cell_values": {
+              "A7": "CAL-006",
+              "B7": "Learner Experience",
+              "C7": "accessibility_walkthrough",
+              "D7": "2026-09-25T14:00:00+08:00",
+              "E7": "2026-09-25T16:00:00+08:00",
+              "F7": "hard",
+              "G7": "Venue confirmation required first",
+              "H7": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-007",
+            "summary": "constraint_id: CAL-007; owner: Programme; constraint_type: rehearsal_window; start_at: 2026-10-16T15:00:00+08:00; end_at: 2026-10-16T18:00:00+08:00; priority: soft; notes: Remote backup acceptable; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A8:H8"
+            },
+            "original_cell_values": {
+              "A8": "CAL-007",
+              "B8": "Programme",
+              "C8": "rehearsal_window",
+              "D8": "2026-10-16T15:00:00+08:00",
+              "E8": "2026-10-16T18:00:00+08:00",
+              "F8": "soft",
+              "G8": "Remote backup acceptable",
+              "H8": "calendar-2026-08-26"
+            }
+          },
+          {
+            "id": "obs-calendar-cal-008",
+            "summary": "constraint_id: CAL-008; owner: TICC; constraint_type: teardown_deadline; start_at: 2026-10-17T17:00:00+08:00; end_at: 2026-10-17T18:30:00+08:00; priority: hard; notes: All vendors clear by 18:30; record_version: calendar-2026-08-26",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Calendar Constraints'!A9:H9"
+            },
+            "original_cell_values": {
+              "A9": "CAL-008",
+              "B9": "TICC",
+              "C9": "teardown_deadline",
+              "D9": "2026-10-17T17:00:00+08:00",
+              "E9": "2026-10-17T18:30:00+08:00",
+              "F9": "hard",
+              "G9": "All vendors clear by 18:30",
+              "H9": "calendar-2026-08-26"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+        "summary": "Registered manually completed event-brief text; not an independently verified Notion export.",
+        "evidence_ids": [],
+        "source_identity": "event-brief",
+        "source_role": "event-brief",
+        "locator": "https://app.notion.com/p/3ba0b700541e81d0af55dc1a8f49f5af",
+        "retrieved_at": "2026-10-16T22:19:06.966220+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "text/plain",
+        "content_hash": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+        "local_reference": "evidence/originals/event-brief-manually-completed.txt",
+        "version_metadata": {
+          "method": "manually-completed-copy-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User-provided manually completed copy of the Notion page, not an untouched or independently verified Notion export.",
+          "original_path": "evidence/originals/event-brief-manually-completed.txt",
+          "size_bytes": 7418,
+          "registration_at": "2026-10-16T22:19:06.966220+00:00",
+          "timestamp_basis": "actual local registration time; not historical online retrieval",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "unverified; no live Notion access or version comparison performed",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 526
+          },
+          "hash_verification": "SHA-256 computed independently with sha256sum and Python hashlib.",
+          "inspection_method": "Read local UTF-8 text with line references and compared against PDF content streams.",
+          "completeness": "Programme section present through closing disclaimer at lines 43–47, including demo roster/durations and Programme ownership. Full equivalence/completeness against live Notion remains unverified.",
+          "relationship_to_other_copy": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+          "limitations": [
+            "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+            "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+          ],
+          "stage1_relationship": "Existing Stage 1 ev-objective, ev-gates, ev-review and ev-programme reference these same bytes; no Stage 1 records were modified."
+        },
+        "observations": [
+          {
+            "id": "obs-brief-text-objective",
+            "summary": "Event objective and success criteria are present.",
+            "locator": {
+              "kind": "section",
+              "value": "Lines 16–18"
+            }
+          },
+          {
+            "id": "obs-brief-text-approvals",
+            "summary": "Operations and budget-owner approval roles, external-action boundaries, and no-booking/no-spend-approval statement are present.",
+            "locator": {
+              "kind": "section",
+              "value": "Lines 19 and 34"
+            }
+          },
+          {
+            "id": "obs-brief-text-fictional",
+            "summary": "Venue coordination explicitly identifies itself as fictional exercise knowledge.",
+            "locator": {
+              "kind": "section",
+              "value": "Lines 29–33"
+            }
+          },
+          {
+            "id": "obs-brief-text-programme",
+            "summary": "Programme section specifies twelve team demos, 10 minutes presentation plus 3 minutes changeover each, existing keynote/event windows, and Programme ownership of roster/duration changes; it explicitly grants no plan approval.",
+            "locator": {
+              "kind": "section",
+              "value": "Lines 43–47"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4",
+        "summary": "Registered incomplete browser-produced event-brief PDF.",
+        "evidence_ids": [],
+        "source_identity": "event-brief",
+        "source_role": "event-brief",
+        "locator": "https://app.notion.com/p/3ba0b700541e81d0af55dc1a8f49f5af",
+        "retrieved_at": "2026-10-16T22:19:06.965068+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/pdf",
+        "content_hash": "sha256:4d260d30fcf346811cd815235604e0a46720b60c25b63a094f787899f3e4bded",
+        "local_reference": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+        "version_metadata": {
+          "method": "browser-produced-pdf-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User-preserved browser-produced PDF of the event brief; distinct from a provider-native export.",
+          "original_path": "evidence/originals/Project 3 Event Coordination — Event Brief.pdf",
+          "size_bytes": 67427,
+          "registration_at": "2026-10-16T22:19:06.965068+00:00",
+          "timestamp_basis": "actual local registration time; not historical online retrieval",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "unverified; no live Notion access or version comparison performed",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 526
+          },
+          "hash_verification": "SHA-256 computed independently with sha256sum and Python hashlib.",
+          "inspection_method": "Local decompressed PDF content-stream inspection; no live retrieval.",
+          "completeness": "Incomplete: programme heading and clipped opening on page 4; programme body absent. Pages 5–6 contain headers/footers only. Brief version and initial event/date/headcount paragraph present in manual text lines 14–15 are absent from PDF body.",
+          "relationship_to_other_copy": "evidence/originals/event-brief-manually-completed.txt",
+          "limitations": [
+            "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+            "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+          ],
+          "embedded_timestamp_note": "PDF footer displays 10/16/2026, 4:31 PM; this is document metadata, not a verified online retrieval timestamp."
+        },
+        "observations": [
+          {
+            "id": "obs-brief-pdf-objective",
+            "summary": "Objective supports fellow presentations, partner overview, and accessible participation. Operations approves the plan and budget owners approve spending.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 1, main body"
+            }
+          },
+          {
+            "id": "obs-brief-pdf-exercise",
+            "summary": "Source clarification and venue coordination identify fictional exercise facts, distinct from real venue certification.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 2, main body; continuation on page 3"
+            }
+          },
+          {
+            "id": "obs-brief-pdf-approvals",
+            "summary": "No booking or spend has been approved; review-ready drafts do not require obtaining reviewer decisions.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 3, paragraph beginning No booking or spend"
+            }
+          },
+          {
+            "id": "obs-brief-pdf-truncation",
+            "summary": "Programme confirmation heading exists, but its opening sentence is clipped and the programme body is absent; subsequent pages contain only headers/footers.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 4, lower body; pages 5–6"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d",
+        "summary": "Registered browser-saved TICC accessibility floor-plan index; hash and fourth-floor PDF link inspected locally.",
+        "evidence_ids": [],
+        "source_identity": "official-accessibility",
+        "source_role": "venue-page",
+        "locator": "https://www.ticc.com.tw/wSite/lp?ctNode=398&mp=2&xq_xCat=6",
+        "retrieved_at": "2026-10-16T22:17:39.487947+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "text/html",
+        "content_hash": "sha256:b6281894f11657f10bf0b591b5b4bbe230712f23a29c994e45bfcc0c28ccd80d",
+        "local_reference": "evidence/originals/ticc-accessibility-index.html",
+        "version_metadata": {
+          "method": "manual-firefox-html-only-local-registration",
+          "publication_kind": "real-publication",
+          "provenance": "User reports saving the disclosed TICC webpage using Firefox Web Page, HTML only.",
+          "original_path": "evidence/originals/ticc-accessibility-index.html",
+          "size_bytes": 19148,
+          "registration_at": "2026-10-16T22:17:39.487947+00:00",
+          "timestamp_basis": "actual local registration, not original browser retrieval time",
+          "original_browser_download_at": null,
+          "original_browser_download_time_status": "unverified",
+          "response_status": null,
+          "response_status_basis": "No original HTTP response was observed during local registration.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 288
+          },
+          "hash_verification": "SHA-256 independently computed with sha256sum and Python hashlib; matches supplied digest.",
+          "inspection_method": "Read HTML source and parsed anchor URLs locally without executing scripts or fetching linked resources.",
+          "online_equivalence": "Unverified. Browser-saved HTML may differ from original HTTP response bytes and omit dynamically loaded content and external assets.",
+          "completeness": "Saved main list contains eight floor-plan links; completeness of the live site is not independently verified.",
+          "credential_inspection": "Line 489 references the access_token sessionStorage key in generic JavaScript; this reference is not a captured token value. No browser storage or cookies were imported.",
+          "linked_floor_plan": {
+            "url": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+            "local_reference": "evidence/originals/f1710485827023.pdf",
+            "sha256": "sha256:8805ab527b7bb202a70534120ed4037dbde633301f1935e80bd04f12a7c70367",
+            "relationship": "HTML anchor target matches disclosed URL; this does not verify live linked bytes."
+          },
+          "verification_limit": "This is a floor-plan index, not independent certification of all event accessibility requirements, present operation, captions, quiet-room staffing, or route clearance."
+        },
+        "observations": [
+          {
+            "id": "obs-accessibility-identity",
+            "summary": "HTML title identifies TAITRA-Taipei International Convention Center (TICC), Details and Rental Regulations.",
+            "locator": {
+              "kind": "section",
+              "value": "HTML lines 7–8, title element"
+            }
+          },
+          {
+            "id": "obs-accessibility-index",
+            "summary": "Main heading is Accessible Facilities Floor Plan. Eight listed PDF links cover 6F, 5F, 4F, 3F, 2F, 1M+2M, 1F, and B1.",
+            "locator": {
+              "kind": "section",
+              "value": "HTML lines 274–307, main download list"
+            }
+          },
+          {
+            "id": "obs-accessibility-4f-link",
+            "summary": "Anchor labeled TICC 4F Accessible Facilities Floor Plan has href public/Attachment/f1710485827023.pdf; resolved against the disclosed page URL, it matches the previously registered fourth-floor PDF URL.",
+            "locator": {
+              "kind": "section",
+              "value": "HTML lines 286–287, third download-list entry"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+        "summary": "Capture attempt for official-floor-plan",
+        "evidence_ids": [],
+        "source_identity": "official-floor-plan",
+        "source_role": "floor-plan-or-image",
+        "locator": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+        "retrieved_at": "2026-10-16T22:00:55.629743+00:00",
+        "retrieval_status": "unavailable",
+        "content_type": "unknown",
+        "version_metadata": {
+          "method": "http-get",
+          "publication_kind": "real-publication",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 287
+          },
+          "response_status": null,
+          "reason": "ConnectError"
+        },
+        "content_hash": null,
+        "local_reference": null,
+        "observations": []
+      },
+      {
+        "id": "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c",
+        "summary": "Registered user-supplied browser-downloaded TICC fourth-floor plan; local hash and depicted identity verified.",
+        "evidence_ids": [],
+        "source_identity": "official-floor-plan",
+        "source_role": "floor-plan-or-image",
+        "locator": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+        "retrieved_at": "2026-10-16T22:09:06.205350+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/pdf",
+        "content_hash": "sha256:8805ab527b7bb202a70534120ed4037dbde633301f1935e80bd04f12a7c70367",
+        "local_reference": "evidence/originals/f1710485827023.pdf",
+        "version_metadata": {
+          "method": "manual-browser-download-local-registration",
+          "publication_kind": "real-publication",
+          "provenance": "User reports downloading from the disclosed official TICC URL in a browser, then copying into the repository through WSL.",
+          "original_path": "evidence/originals/f1710485827023.pdf",
+          "size_bytes": 522512,
+          "registration_at": "2026-10-16T22:09:06.205350+00:00",
+          "timestamp_basis": "actual local registration time, not browser retrieval time",
+          "original_browser_download_at": null,
+          "original_browser_download_time_status": "unverified",
+          "response_status": null,
+          "response_status_basis": "No HTTP response was observed during local registration.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 287
+          },
+          "hash_verification": "Matches independently supplied SHA-256; calculated with sha256sum and Python hashlib.",
+          "document_identity_verification": "Page 1 visibly identifies 4F Floor Plan and Taipei International Convention Center / T.I.C.C.",
+          "online_equivalence": "Browser origin is user-reported; no independent live retrieval performed.",
+          "inspection_method": "Inspected one-page PDF structure and temporary Cairo rendering of vector paths. Standard PDF tools unavailable; embedded raster images and some graphics-state details were omitted. Identity labels were readable vector outlines.",
+          "verification_limit": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval.",
+          "prior_attempt_id": "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7"
+        },
+        "observations": [
+          {
+            "id": "obs-floor-plan-level",
+            "summary": "Page title reads 4F Floor Plan.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 1, lower centre in upright landscape orientation"
+            }
+          },
+          {
+            "id": "obs-floor-plan-venue",
+            "summary": "Title block identifies TICC / Taipei International Convention Center / T.I.C.C.",
+            "locator": {
+              "kind": "page-region",
+              "value": "Page 1, right-side title block in upright landscape orientation"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
+        "summary": "Registered local Vendor Quotes Excel export; all ten quote rows inspected with cell references.",
+        "evidence_ids": [],
+        "source_identity": "vendor-register",
+        "source_role": "vendor-record",
+        "locator": "https://docs.google.com/spreadsheets/d/1cULbGrOQS-vuj862nV2EWND4oe0H5kf-smJ85VZegko",
+        "retrieved_at": "2026-10-16T23:33:57.687718+00:00",
+        "retrieval_status": "unverified",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content_hash": "sha256:726d1a7a9f77d5e9aaeafc09fab91ee9e45ebd2cb6ef33503014183164302cf0",
+        "local_reference": "evidence/originals/Project C — Vendor Quotes.xlsx",
+        "version_metadata": {
+          "method": "manual-google-sheets-xlsx-export-local-registration",
+          "publication_kind": "fictional-exercise-record",
+          "provenance": "User reports manually exporting the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+          "original_path": "evidence/originals/Project C — Vendor Quotes.xlsx",
+          "size_bytes": 6628,
+          "registration_at": "2026-10-16T23:33:57.687718+00:00",
+          "timestamp_basis": "actual local registration, not historical browser download time",
+          "original_retrieved_at": null,
+          "original_retrieval_time_status": "unverified",
+          "response_status": null,
+          "online_equivalence": "Unverified; no live workbook or provider version history accessed.",
+          "disclosure": {
+            "path": "interviews/project-c-event-coordination-20261016-1954.md",
+            "line": 203
+          },
+          "hash_verification": "Independently calculated with sha256sum and Python hashlib; matches supplied SHA-256.",
+          "worksheets": [
+            {
+              "name": "Vendor Quotes",
+              "state": "visible",
+              "part": "xl/worksheets/sheet1.xml",
+              "populated_range": "A1:J11"
+            }
+          ],
+          "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook, relationships, shared strings, all worksheet cells, styles and empty drawing. ZIP integrity passed; no formulas found in populated cells.",
+          "date_interpretation": "G2:H11 use style 2, custom number format 164 yyyy-mm-dd. Workbook does not enable date1904. Excel 1900-system serials decoded using 1899-12-30 for these modern dates; raw serials retained per observation.",
+          "business_clock": "2026-08-26T12:00:00+08:00",
+          "business_timezone": "Asia/Taipei",
+          "expiry_inspection": "All valid_until dates fall September 5–15, 2026; none precedes the fixed August 26 business clock. This is not confirmation of present-day validity or complete feasibility.",
+          "conditions": [
+            "Q-001 status held; venue package is synthetic and explicitly no real reservation.",
+            "Q-002 status available for 2026-10-24; keynote unavailable on that date; synthetic package is no real reservation.",
+            "Q-004 allergy process requires named contacts; contacts not provided in this workbook.",
+            "Q-007 basic AV explicitly excludes hearing loop.",
+            "Q-008 status conditional; network test required; no test result provided.",
+            "Q-010 room supplied by venue; capacity 20 applies to the quiet-room offer rather than overall event capacity."
+          ],
+          "limitations": [
+            "No quote issue timestamps, expiry times/timezones, record_version column, named approval actors, or approvals supplied. A date-only valid_until does not establish an exact time cutoff.",
+            "All ten rows contain the listed ten fields; provider completeness and export fidelity remain unverified.",
+            "No independently itemized tax/fee/payment/cancellation terms or comprehensive capacity-unit definitions supplied by these columns; do not invent them.",
+            "openpyxl/pandas unavailable; XML inspection does not reproduce visual layout or recalculate formulas.",
+            "Source statuses are preserved as source statements, not independently confirmed availability or authorization.",
+            "No vendors selected and no final event cost or feasibility calculation performed."
+          ]
+        },
+        "observations": [
+          {
+            "id": "obs-vendors-headers",
+            "summary": "One visible worksheet Vendor Quotes; ten columns quote_id, vendor, category, option, quote_amount_twd, capacity, available_date, valid_until, status, notes.",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A1:J1"
+            }
+          },
+          {
+            "id": "obs-quote-q-001",
+            "summary": "quote_id: Q-001; vendor: TICC; category: venue; option: 4F Plenary Hall front-500 allocation plus V.I.P. Room; quote_amount_twd: 155000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-05; status: held; notes: Synthetic full-day package; see venue coordination note; no real reservation",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A2:J2"
+            },
+            "raw_cell_values": {
+              "A2": "Q-001",
+              "B2": "TICC",
+              "C2": "venue",
+              "D2": "4F Plenary Hall front-500 allocation plus V.I.P. Room",
+              "E2": "155000.0",
+              "F2": "500.0",
+              "G2": "46312.0",
+              "H2": "46270.0",
+              "I2": "held",
+              "J2": "Synthetic full-day package; see venue coordination note; no real reservation"
+            }
+          },
+          {
+            "id": "obs-quote-q-002",
+            "summary": "quote_id: Q-002; vendor: TICC; category: venue; option: 4F Plenary Hall front-500 allocation plus V.I.P. Room; quote_amount_twd: 155000.0; capacity: 500.0; available_date: 2026-10-24; valid_until: 2026-09-05; status: available; notes: Keynote is unavailable on this date; Synthetic full-day package; see venue coordination note; no real reservation",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A3:J3"
+            },
+            "raw_cell_values": {
+              "A3": "Q-002",
+              "B3": "TICC",
+              "C3": "venue",
+              "D3": "4F Plenary Hall front-500 allocation plus V.I.P. Room",
+              "E3": "155000.0",
+              "F3": "500.0",
+              "G3": "46319.0",
+              "H3": "46270.0",
+              "I3": "available",
+              "J3": "Keynote is unavailable on this date; Synthetic full-day package; see venue coordination note; no real reservation"
+            }
+          },
+          {
+            "id": "obs-quote-q-003",
+            "summary": "quote_id: Q-003; vendor: Green Table; category: catering; option: lunch and two breaks; quote_amount_twd: 108000.0; capacity: 260.0; available_date: 2026-10-17; valid_until: 2026-09-07; status: available; notes: Supports listed vegetarian and halal meals; supplied through TICC coordination in this synthetic case",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A4:J4"
+            },
+            "raw_cell_values": {
+              "A4": "Q-003",
+              "B4": "Green Table",
+              "C4": "catering",
+              "D4": "lunch and two breaks",
+              "E4": "108000.0",
+              "F4": "260.0",
+              "G4": "46312.0",
+              "H4": "46272.0",
+              "I4": "available",
+              "J4": "Supports listed vegetarian and halal meals; supplied through TICC coordination in this synthetic case"
+            }
+          },
+          {
+            "id": "obs-quote-q-004",
+            "summary": "quote_id: Q-004; vendor: City Pantry; category: catering; option: lunch and two breaks; quote_amount_twd: 126000.0; capacity: 300.0; available_date: 2026-10-17; valid_until: 2026-09-12; status: available; notes: Allergy process requires named contacts; supplied through TICC coordination in this synthetic case",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A5:J5"
+            },
+            "raw_cell_values": {
+              "A5": "Q-004",
+              "B5": "City Pantry",
+              "C5": "catering",
+              "D5": "lunch and two breaks",
+              "E5": "126000.0",
+              "F5": "300.0",
+              "G5": "46312.0",
+              "H5": "46277.0",
+              "I5": "available",
+              "J5": "Allergy process requires named contacts; supplied through TICC coordination in this synthetic case"
+            }
+          },
+          {
+            "id": "obs-quote-q-005",
+            "summary": "quote_id: Q-005; vendor: ClearText; category: accessibility; option: live captions and transcript; quote_amount_twd: 42000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-10; status: available; notes: Two captioners included",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A6:J6"
+            },
+            "raw_cell_values": {
+              "A6": "Q-005",
+              "B6": "ClearText",
+              "C6": "accessibility",
+              "D6": "live captions and transcript",
+              "E6": "42000.0",
+              "F6": "500.0",
+              "G6": "46312.0",
+              "H6": "46275.0",
+              "I6": "available",
+              "J6": "Two captioners included"
+            }
+          },
+          {
+            "id": "obs-quote-q-006",
+            "summary": "quote_id: Q-006; vendor: SoundArc; category: production; option: AV package with hearing loop; quote_amount_twd: 78000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-08; status: available; notes: Setup starts at 07:30; supplied through TICC coordination in this synthetic case",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A7:J7"
+            },
+            "raw_cell_values": {
+              "A7": "Q-006",
+              "B7": "SoundArc",
+              "C7": "production",
+              "D7": "AV package with hearing loop",
+              "E7": "78000.0",
+              "F7": "500.0",
+              "G7": "46312.0",
+              "H7": "46273.0",
+              "I7": "available",
+              "J7": "Setup starts at 07:30; supplied through TICC coordination in this synthetic case"
+            }
+          },
+          {
+            "id": "obs-quote-q-007",
+            "summary": "quote_id: Q-007; vendor: LiteStage; category: production; option: basic AV package; quote_amount_twd: 52000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-08; status: available; notes: No hearing loop included; supplied through TICC coordination in this synthetic case",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A8:J8"
+            },
+            "raw_cell_values": {
+              "A8": "Q-007",
+              "B8": "LiteStage",
+              "C8": "production",
+              "D8": "basic AV package",
+              "E8": "52000.0",
+              "F8": "500.0",
+              "G8": "46312.0",
+              "H8": "46273.0",
+              "I8": "available",
+              "J8": "No hearing loop included; supplied through TICC coordination in this synthetic case"
+            }
+          },
+          {
+            "id": "obs-quote-q-008",
+            "summary": "quote_id: Q-008; vendor: StreamNorth; category: production; option: livestream add-on; quote_amount_twd: 55000.0; capacity: 1000.0; available_date: 2026-10-17; valid_until: 2026-09-11; status: conditional; notes: Network test required; supplied through TICC coordination in this synthetic case",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A9:J9"
+            },
+            "raw_cell_values": {
+              "A9": "Q-008",
+              "B9": "StreamNorth",
+              "C9": "production",
+              "D9": "livestream add-on",
+              "E9": "55000.0",
+              "F9": "1000.0",
+              "G9": "46312.0",
+              "H9": "46276.0",
+              "I9": "conditional",
+              "J9": "Network test required; supplied through TICC coordination in this synthetic case"
+            }
+          },
+          {
+            "id": "obs-quote-q-009",
+            "summary": "quote_id: Q-009; vendor: SafeVenue; category: security; option: four staff; quote_amount_twd: 28000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-15; status: available; notes: Includes first aid lead",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A10:J10"
+            },
+            "raw_cell_values": {
+              "A10": "Q-009",
+              "B10": "SafeVenue",
+              "C10": "security",
+              "D10": "four staff",
+              "E10": "28000.0",
+              "F10": "500.0",
+              "G10": "46312.0",
+              "H10": "46280.0",
+              "I10": "available",
+              "J10": "Includes first aid lead"
+            }
+          },
+          {
+            "id": "obs-quote-q-010",
+            "summary": "quote_id: Q-010; vendor: QuietWorks; category: accessibility; option: quiet room staffing; quote_amount_twd: 18000.0; capacity: 20.0; available_date: 2026-10-17; valid_until: 2026-09-10; status: available; notes: Room itself supplied by venue",
+            "locator": {
+              "kind": "cell-range",
+              "value": "'Vendor Quotes'!A11:J11"
+            },
+            "raw_cell_values": {
+              "A11": "Q-010",
+              "B11": "QuietWorks",
+              "C11": "accessibility",
+              "D11": "quiet room staffing",
+              "E11": "18000.0",
+              "F11": "20.0",
+              "G11": "46312.0",
+              "H11": "46275.0",
+              "I11": "available",
+              "J11": "Room itself supplied by venue"
+            }
+          }
+        ]
+      }
+    ],
+    "source_inventory": [
+      {
+        "id": "source-group-attendee-signals",
+        "summary": "Disclosed source attendee-signals; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+        ],
+        "source_identity": "attendee-signals",
+        "capture_ids": [
+          "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+        ]
+      },
+      {
+        "id": "source-group-budget-allocations",
+        "summary": "Disclosed source budget-allocations; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+        ],
+        "source_identity": "budget-allocations",
+        "capture_ids": [
+          "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+        ]
+      },
+      {
+        "id": "source-group-calendar-constraints",
+        "summary": "Disclosed source calendar-constraints; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+        ],
+        "source_identity": "calendar-constraints",
+        "capture_ids": [
+          "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+        ]
+      },
+      {
+        "id": "source-group-event-brief",
+        "summary": "Disclosed source event-brief; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+          "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+        ],
+        "source_identity": "event-brief",
+        "capture_ids": [
+          "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+          "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+        ]
+      },
+      {
+        "id": "source-group-official-accessibility",
+        "summary": "Disclosed source official-accessibility; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+        ],
+        "source_identity": "official-accessibility",
+        "capture_ids": [
+          "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+        ]
+      },
+      {
+        "id": "source-group-official-floor-plan",
+        "summary": "Disclosed source official-floor-plan; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+          "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+        ],
+        "source_identity": "official-floor-plan",
+        "capture_ids": [
+          "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+          "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+        ]
+      },
+      {
+        "id": "source-group-vendor-register",
+        "summary": "Disclosed source vendor-register; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+        ],
+        "source_identity": "vendor-register",
+        "capture_ids": [
+          "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+        ]
+      }
+    ],
+    "capture_manifest": [
+      {
+        "id": "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f",
+        "path": "evidence/captures/capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f.json",
+        "sha256": "sha256:52f59726e75b6a54ff8ca96b6020d661b904c2b41475b3cca24bd1aece810275"
+      },
+      {
+        "id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+        "path": "evidence/captures/capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88.json",
+        "sha256": "sha256:5f0918cff81c2e9a5e94cfbfd364d4e0788f779ed1bc99aafca8b9bb187b5bae"
+      },
+      {
+        "id": "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2",
+        "path": "evidence/captures/capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2.json",
+        "sha256": "sha256:99e717aaadaa6139ca17ddfe3d02cbefd2e1a18b14c89ad760095c688b7b43c6"
+      },
+      {
+        "id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+        "path": "evidence/captures/capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3.json",
+        "sha256": "sha256:ec58d5f0cd5914dc4427a3d09adec1e1890d62f4c9e7c2e29627430eed5b3f69"
+      },
+      {
+        "id": "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4",
+        "path": "evidence/captures/capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4.json",
+        "sha256": "sha256:1ee3deeb987ee9126203b337c06dc7ee604516be29cd067c17fde8075d5bbd56"
+      },
+      {
+        "id": "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d",
+        "path": "evidence/captures/capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d.json",
+        "sha256": "sha256:1214e5d5b29a7514e8f20c85a1f62805030d7ecd7d4c611f232ccfe256d92945"
+      },
+      {
+        "id": "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
+        "path": "evidence/captures/capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7.json",
+        "sha256": "sha256:7a68b6eb6554f804f2ce2ac94cc3699838ac8296f86be67ebd17d97e7beab38d"
+      },
+      {
+        "id": "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c",
+        "path": "evidence/captures/capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c.json",
+        "sha256": "sha256:19d4a03b40e1dda06ab4029d2f39b4c8e2aebbd9d129fd2739caa5dfdfb2ec60"
+      },
+      {
+        "id": "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
+        "path": "evidence/captures/capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259.json",
+        "sha256": "sha256:ce1972aa4ae1baab65618751c12b3d1c7a448b1d05b102de71b3dff68f5f8a2b"
+      }
+    ],
+    "inventory_counts": {
+      "source_identities": 7,
+      "capture_attempts": 9,
+      "evidence_files": 8,
+      "observations": 55
+    },
+    "scope_basis": [
+      {
+        "id": "scope-objective",
+        "summary": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation.",
+        "evidence_ids": [
+          "ev-objective"
+        ],
+        "field": "objective",
+        "value": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation."
+      },
+      {
+        "id": "scope-deadline",
+        "summary": "2026-09-04T17:00:00+08:00",
+        "evidence_ids": [
+          "ev-deadline"
+        ],
+        "field": "decision_deadline",
+        "value": "2026-09-04T17:00:00+08:00"
+      },
+      {
+        "id": "scope-owners",
+        "summary": "['Operations', 'Category budget owners', 'Programme']",
+        "evidence_ids": [
+          "ev-owners",
+          "ev-programme"
+        ],
+        "field": "owners",
+        "value": [
+          "Operations",
+          "Category budget owners",
+          "Programme"
+        ]
+      },
+      {
+        "id": "scope-gates",
+        "summary": "['Operations approval of the overall event plan, date, and venue.', 'Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.', 'Programme authorization of roster or duration changes when proposed.', 'Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes.']",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "field": "approval_gates",
+        "value": [
+          "Operations approval of the overall event plan, date, and venue.",
+          "Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.",
+          "Programme authorization of roster or duration changes when proposed.",
+          "Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes."
+        ]
+      }
+    ],
+    "business_clock": "2026-08-26T12:00:00+08:00",
+    "business_timezone": "Asia/Taipei",
+    "output_status": "draft",
+    "audience": "internal-evidence-review",
+    "privacy_boundary": "Contains aggregate accessibility/dietary evidence. Do not copy this inventory wholesale into public communications; no public artifact is generated here."
+  },
+  "unresolved": [
+    {
+      "id": "stage2-inherited-unknown-category-owner-identities",
+      "summary": "Individual category budget owner identities and assignments have not been established from the selected evidence; confirm during source capture.",
+      "category": "inherited",
+      "evidence_ids": [
+        "unknown-category-owner-identities"
+      ],
+      "owner": null,
+      "origin_record_id": "unknown-category-owner-identities"
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-online_equivalence-0",
+      "summary": "Unverified; no live Google Sheets content or provider version history accessed.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Unverified; no live Google Sheets content or provider version history accessed."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-0",
+      "summary": "Registrations and required-on-site counts are source statements, not confirmed event check-ins or guaranteed attendance. Walk-ins are an estimate.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Registrations and required-on-site counts are source statements, not confirmed event check-ins or guaranteed attendance. Walk-ins are an estimate."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-1",
+      "summary": "Confidence labels are qualitative, not probabilities or independent verification.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Confidence labels are qualitative, not probabilities or independent verification."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-2",
+      "summary": "Accessibility/dietary signals concern overlapping existing populations; no additional people or final headcount calculated.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Accessibility/dietary signals concern overlapping existing populations; no additional people or final headcount calculated."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-3",
+      "summary": "No person-level overlap/deduplication mapping, named support contacts, fulfilled-request evidence, or actual check-in outcomes supplied in these columns.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No person-level overlap/deduplication mapping, named support contacts, fulfilled-request evidence, or actual check-in outcomes supplied in these columns."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-4",
+      "summary": "No record_version column or complete methodology/update history supplied; original download time and live-source completeness remain unverified.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No record_version column or complete methodology/update history supplied; original download time and live-source completeness remain unverified."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-5",
+      "summary": "Observed_at dates do not establish exact observation times; the August 26 forecast cannot be proven to predate the 12:00 business clock.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Observed_at dates do not establish exact observation times; the August 26 forecast cannot be proven to predate the 12:00 business clock."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-6",
+      "summary": "No spreadsheet parser dependency installed; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No spreadsheet parser dependency installed; XML inspection does not reproduce visual layout or recalculate formulas."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-7",
+      "summary": "No vendor selection, approval, or final attendance decision performed.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No vendor selection, approval, or final attendance decision performed."
+    },
+    {
+      "id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-privacy-0",
+      "summary": "Inspected worksheet contains aggregate cohort/need counts rather than attendee names, contact information or individual medical narratives. Small accessibility/allergy counts can still be sensitive; restrict unnecessary circulation and do not infer identities. Internal workbook person metadata was not copied into observations.",
+      "category": "privacy",
+      "evidence_ids": [
+        "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f"
+      ],
+      "owner": null,
+      "metadata_field": "privacy",
+      "original_detail": "Inspected worksheet contains aggregate cohort/need counts rather than attendee names, contact information or individual medical narratives. Small accessibility/allergy counts can still be sensitive; restrict unnecessary circulation and do not infer identities. Internal workbook person metadata was not copied into observations."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-online_equivalence-0",
+      "summary": "Unverified; no live Google Sheets comparison or version history was retrieved.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Unverified; no live Google Sheets comparison or version history was retrieved."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-0",
+      "summary": "All six fields are populated for seven categories, but owner entries are organizational roles, not named individual approvers or explicit delegations.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "All six fields are populated for seven categories, but owner entries are organizational roles, not named individual approvers or explicit delegations."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-1",
+      "summary": "No overall ceiling, explicit exception-policy text, approval decisions, or approval timestamps appear in the populated worksheet cells. Category limits must not be summed and treated as an overall ceiling.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No overall ceiling, explicit exception-policy text, approval decisions, or approval timestamps appear in the populated worksheet cells. Category limits must not be summed and treated as an overall ceiling."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-2",
+      "summary": "Zero committed amounts are explicit source values, not inferred missing values and not evidence of spending approval.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Zero committed amounts are explicit source values, not inferred missing values and not evidence of spending approval."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-3",
+      "summary": "Completeness against the live workbook and provider export fidelity remain unverified.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Completeness against the live workbook and provider export fidelity remain unverified."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-4",
+      "summary": "Stage 1 unresolved owner identities remain unchanged; these observations do not prematurely resolve them.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Stage 1 unresolved owner identities remain unchanged; these observations do not prematurely resolve them."
+    },
+    {
+      "id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-parser_limitations-0",
+      "summary": "openpyxl and pandas unavailable; no dependencies installed. XML inspection does not reproduce visual spreadsheet layout or recalculate formulas. No formulas found in inspected populated cells.",
+      "category": "parser_limitations",
+      "evidence_ids": [
+        "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88"
+      ],
+      "owner": null,
+      "metadata_field": "parser_limitations",
+      "original_detail": "openpyxl and pandas unavailable; no dependencies installed. XML inspection does not reproduce visual spreadsheet layout or recalculate formulas. No formulas found in inspected populated cells."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-online_equivalence-0",
+      "summary": "Unverified; no live source comparison or provider version history accessed.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Unverified; no live source comparison or provider version history accessed."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-0",
+      "summary": "Hold expiry in G4 is date-only 2026-09-05; no expiry time or timezone is explicitly supplied for that note.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Hold expiry in G4 is date-only 2026-09-05; no expiry time or timezone is explicitly supplied for that note."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-1",
+      "summary": "Owner cells name organizational parties (Operations, TICC, Programme, Learner Experience), not individual approvers.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Owner cells name organizational parties (Operations, TICC, Programme, Learner Experience), not individual approvers."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-2",
+      "summary": "CAL-006 explicitly requires venue confirmation before the walkthrough, but no completed confirmation or actual approvals are supplied.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "CAL-006 explicitly requires venue confirmation before the walkthrough, but no completed confirmation or actual approvals are supplied."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-3",
+      "summary": "No separate blackout rows or explicit all-day fallback keynote-unavailability interval is supplied; do not invent interval boundaries.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No separate blackout rows or explicit all-day fallback keynote-unavailability interval is supplied; do not invent interval boundaries."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-4",
+      "summary": "Populated fields are present in all eight rows. Live-source completeness, export fidelity and original download time remain unverified.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Populated fields are present in all eight rows. Live-source completeness, export fidelity and original download time remain unverified."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-5",
+      "summary": "No full spreadsheet renderer/parser dependency used; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No full spreadsheet renderer/parser dependency used; XML inspection does not reproduce visual layout or recalculate formulas."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-6",
+      "summary": "No schedule conflict resolved and no existing Stage 1 record changed.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No schedule conflict resolved and no existing Stage 1 record changed."
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-0",
+      "summary": "CAL-002 permits a soft fallback window while CAL-004 notes keynote unavailable on fallback date. This is a potential fallback dependency/conflict to assess later, not a resolved schedule.",
+      "category": "possible_interpretations_not_resolutions",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "possible_interpretations_not_resolutions",
+      "original_detail": {
+        "summary": "CAL-002 permits a soft fallback window while CAL-004 notes keynote unavailable on fallback date. This is a potential fallback dependency/conflict to assess later, not a resolved schedule.",
+        "locators": [
+          "'Calendar Constraints'!A3:H3",
+          "'Calendar Constraints'!A5:H5"
+        ]
+      }
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-1",
+      "summary": "CAL-001 names a preferred event window but labels its priority hard. Preserve both source values; do not silently reinterpret preferred as soft.",
+      "category": "possible_interpretations_not_resolutions",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "possible_interpretations_not_resolutions",
+      "original_detail": {
+        "summary": "CAL-001 names a preferred event window but labels its priority hard. Preserve both source values; do not silently reinterpret preferred as soft.",
+        "locators": [
+          "'Calendar Constraints'!C2",
+          "'Calendar Constraints'!F2"
+        ]
+      }
+    },
+    {
+      "id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-2",
+      "summary": "CAL-005 plan and budget decision timestamp matches Stage 1 Operations deadline, but its note is broader; it does not grant approval or establish category-owner delegation.",
+      "category": "possible_interpretations_not_resolutions",
+      "evidence_ids": [
+        "capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2"
+      ],
+      "owner": null,
+      "metadata_field": "possible_interpretations_not_resolutions",
+      "original_detail": {
+        "summary": "CAL-005 plan and budget decision timestamp matches Stage 1 Operations deadline, but its note is broader; it does not grant approval or establish category-owner delegation.",
+        "locators": [
+          "'Calendar Constraints'!A6:H6"
+        ]
+      }
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-completeness-0",
+      "summary": "Programme section present through closing disclaimer at lines 43–47, including demo roster/durations and Programme ownership. Full equivalence/completeness against live Notion remains unverified.",
+      "category": "completeness",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null,
+      "metadata_field": "completeness",
+      "original_detail": "Programme section present through closing disclaimer at lines 43–47, including demo roster/durations and Programme ownership. Full equivalence/completeness against live Notion remains unverified."
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-online_equivalence-0",
+      "summary": "unverified; no live Notion access or version comparison performed",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "unverified; no live Notion access or version comparison performed"
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-0",
+      "summary": "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Exercise venue/service statements do not certify the real venue or grant booking/spending authority."
+    },
+    {
+      "id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-1",
+      "summary": "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-completeness-0",
+      "summary": "Incomplete: programme heading and clipped opening on page 4; programme body absent. Pages 5–6 contain headers/footers only. Brief version and initial event/date/headcount paragraph present in manual text lines 14–15 are absent from PDF body.",
+      "category": "completeness",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null,
+      "metadata_field": "completeness",
+      "original_detail": "Incomplete: programme heading and clipped opening on page 4; programme body absent. Pages 5–6 contain headers/footers only. Brief version and initial event/date/headcount paragraph present in manual text lines 14–15 are absent from PDF body."
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-online_equivalence-0",
+      "summary": "unverified; no live Notion access or version comparison performed",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "unverified; no live Notion access or version comparison performed"
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-0",
+      "summary": "Exercise venue/service statements do not certify the real venue or grant booking/spending authority.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Exercise venue/service statements do not certify the real venue or grant booking/spending authority."
+    },
+    {
+      "id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-1",
+      "summary": "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No decision deadline appears in either copy; Stage 1 deadline remains sourced from the second interview."
+    },
+    {
+      "id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-completeness-0",
+      "summary": "Saved main list contains eight floor-plan links; completeness of the live site is not independently verified.",
+      "category": "completeness",
+      "evidence_ids": [
+        "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+      ],
+      "owner": null,
+      "metadata_field": "completeness",
+      "original_detail": "Saved main list contains eight floor-plan links; completeness of the live site is not independently verified."
+    },
+    {
+      "id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-online_equivalence-0",
+      "summary": "Unverified. Browser-saved HTML may differ from original HTTP response bytes and omit dynamically loaded content and external assets.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Unverified. Browser-saved HTML may differ from original HTTP response bytes and omit dynamically loaded content and external assets."
+    },
+    {
+      "id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-verification_limit-0",
+      "summary": "This is a floor-plan index, not independent certification of all event accessibility requirements, present operation, captions, quiet-room staffing, or route clearance.",
+      "category": "verification_limit",
+      "evidence_ids": [
+        "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d"
+      ],
+      "owner": null,
+      "metadata_field": "verification_limit",
+      "original_detail": "This is a floor-plan index, not independent certification of all event accessibility requirements, present operation, captions, quiet-room staffing, or route clearance."
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-status",
+      "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7"
+      ],
+      "owner": null,
+      "original_status": "unavailable"
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-reason-0",
+      "summary": "ConnectError",
+      "category": "reason",
+      "evidence_ids": [
+        "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7"
+      ],
+      "owner": null,
+      "metadata_field": "reason",
+      "original_detail": "ConnectError"
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
+      "summary": "Browser origin is user-reported; no independent live retrieval performed.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Browser origin is user-reported; no independent live retrieval performed."
+    },
+    {
+      "id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+      "summary": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval.",
+      "category": "verification_limit",
+      "evidence_ids": [
+        "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c"
+      ],
+      "owner": null,
+      "metadata_field": "verification_limit",
+      "original_detail": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
+      "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "original_status": "unverified"
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
+      "summary": "Local registration is not a verified original online retrieval time.",
+      "category": "historical-retrieval-time",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
+      "summary": "Unverified; no live workbook or provider version history accessed.",
+      "category": "online_equivalence",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "online_equivalence",
+      "original_detail": "Unverified; no live workbook or provider version history accessed."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-0",
+      "summary": "No quote issue timestamps, expiry times/timezones, record_version column, named approval actors, or approvals supplied. A date-only valid_until does not establish an exact time cutoff.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No quote issue timestamps, expiry times/timezones, record_version column, named approval actors, or approvals supplied. A date-only valid_until does not establish an exact time cutoff."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-1",
+      "summary": "All ten rows contain the listed ten fields; provider completeness and export fidelity remain unverified.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "All ten rows contain the listed ten fields; provider completeness and export fidelity remain unverified."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-2",
+      "summary": "No independently itemized tax/fee/payment/cancellation terms or comprehensive capacity-unit definitions supplied by these columns; do not invent them.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No independently itemized tax/fee/payment/cancellation terms or comprehensive capacity-unit definitions supplied by these columns; do not invent them."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-3",
+      "summary": "openpyxl/pandas unavailable; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "openpyxl/pandas unavailable; XML inspection does not reproduce visual layout or recalculate formulas."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-4",
+      "summary": "Source statuses are preserved as source statements, not independently confirmed availability or authorization.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Source statuses are preserved as source statements, not independently confirmed availability or authorization."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-5",
+      "summary": "No vendors selected and no final event cost or feasibility calculation performed.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "No vendors selected and no final event cost or feasibility calculation performed."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
+      "summary": "Q-001 status held; venue package is synthetic and explicitly no real reservation.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-001 status held; venue package is synthetic and explicitly no real reservation."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
+      "summary": "Q-002 status available for 2026-10-24; keynote unavailable on that date; synthetic package is no real reservation.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-002 status available for 2026-10-24; keynote unavailable on that date; synthetic package is no real reservation."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
+      "summary": "Q-004 allergy process requires named contacts; contacts not provided in this workbook.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-004 allergy process requires named contacts; contacts not provided in this workbook."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-3",
+      "summary": "Q-007 basic AV explicitly excludes hearing loop.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-007 basic AV explicitly excludes hearing loop."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-4",
+      "summary": "Q-008 status conditional; network test required; no test result provided.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-008 status conditional; network test required; no test result provided."
+    },
+    {
+      "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-5",
+      "summary": "Q-010 room supplied by venue; capacity 20 applies to the quiet-room offer rather than overall event capacity.",
+      "category": "conditions",
+      "evidence_ids": [
+        "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259"
+      ],
+      "owner": null,
+      "metadata_field": "conditions",
+      "original_detail": "Q-010 room supplied by venue; capacity 20 applies to the quiet-room offer rather than overall event capacity."
+    }
+  ],
+  "decisions": [],
+  "status": "partial"
+}

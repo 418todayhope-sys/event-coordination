@@ -1,6 +1,7 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Project C//In-memory draft foundation//EN
+METHOD:PUBLISH
 X-DRAFT-NOTICE:DRAFT — fictional exercise. All approval gates remain pen
  ding. No vendor selection\, booking\, spending\, invitation\, publication 
  or production-calendar action is authorized.
@@ -18,8 +19,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: setup-envelope
 DTSTART;TZID=Asia/Taipei:20261017T073000
 DTEND;TZID=Asia/Taipei:20261017T093000
-DTSTAMP:20261017T210520Z
-UID:ca73c77e-3672-578b-9f26-20fec9002c8c
+DTSTAMP:20261018T112234Z
+UID:b53b24a0-e54c-57da-851f-5b0b027de998
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -33,8 +34,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: opening
 DTSTART;TZID=Asia/Taipei:20261017T093000
 DTEND;TZID=Asia/Taipei:20261017T100000
-DTSTAMP:20261017T210520Z
-UID:218304a7-c8a3-524e-aecf-a27b0ad34468
+DTSTAMP:20261018T112234Z
+UID:ae3220ef-d09a-5e26-9aa4-13eeaef096cc
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -48,8 +49,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: keynote
 DTSTART;TZID=Asia/Taipei:20261017T100000
 DTEND;TZID=Asia/Taipei:20261017T110000
-DTSTAMP:20261017T210520Z
-UID:6879f7ac-949a-53f8-99ca-53212ec44646
+DTSTAMP:20261018T112234Z
+UID:36ac1cce-117e-5216-9915-c1027a601755
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -63,8 +64,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: break
 DTSTART;TZID=Asia/Taipei:20261017T110000
 DTEND;TZID=Asia/Taipei:20261017T111500
-DTSTAMP:20261017T210520Z
-UID:92654c6b-6480-5dc5-820e-131c5e5180ef
+DTSTAMP:20261018T112234Z
+UID:f512840f-38aa-58df-be84-646e0f00c8b3
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -78,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T111500
 DTEND;TZID=Asia/Taipei:20261017T112500
-DTSTAMP:20261017T210520Z
-UID:4a1b7422-da37-5c20-8a88-1dff749b2ba4
+DTSTAMP:20261018T112234Z
+UID:f9801e2c-ef47-51db-8fa3-f754cdc93953
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -93,8 +94,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T112500
 DTEND;TZID=Asia/Taipei:20261017T112800
-DTSTAMP:20261017T210520Z
-UID:cee16406-5532-5390-83ab-da5d0fc62a4e
+DTSTAMP:20261018T112234Z
+UID:59d4506b-7326-5e45-bf48-16639c606ed2
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -108,8 +109,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T112800
 DTEND;TZID=Asia/Taipei:20261017T113800
-DTSTAMP:20261017T210520Z
-UID:2b41f3e1-d8d1-5dec-80fe-876770f717dc
+DTSTAMP:20261018T112234Z
+UID:9a073aca-5c0a-5f79-81b4-ad55561c4c86
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -123,8 +124,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T113800
 DTEND;TZID=Asia/Taipei:20261017T114100
-DTSTAMP:20261017T210520Z
-UID:748e204b-9b0c-593f-b5d5-eab2aff763f0
+DTSTAMP:20261018T112234Z
+UID:bc329cf1-8f41-51a9-a3fa-11c243758a9b
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -138,8 +139,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T114100
 DTEND;TZID=Asia/Taipei:20261017T115100
-DTSTAMP:20261017T210520Z
-UID:8ec92fe6-09cb-577e-b8ee-2ca73ce72f48
+DTSTAMP:20261018T112234Z
+UID:d297e747-3ade-5255-ac9c-8bae151b4757
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -153,8 +154,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T115100
 DTEND;TZID=Asia/Taipei:20261017T115400
-DTSTAMP:20261017T210520Z
-UID:7b614409-8956-55a7-ac08-4770b2a4e1bf
+DTSTAMP:20261018T112234Z
+UID:880c1fa3-7165-5f73-ab53-837a5ade6cea
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -168,8 +169,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T115400
 DTEND;TZID=Asia/Taipei:20261017T120400
-DTSTAMP:20261017T210520Z
-UID:60f7fec3-5782-50c4-9e9b-9676906b6803
+DTSTAMP:20261018T112234Z
+UID:1d0bd059-b3e1-58ec-b657-d0a69bcafdb3
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -183,8 +184,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T120400
 DTEND;TZID=Asia/Taipei:20261017T120700
-DTSTAMP:20261017T210520Z
-UID:97c5d46e-8dcb-50b0-b7c8-9db34d3b6948
+DTSTAMP:20261018T112234Z
+UID:83bec978-afc2-5a58-b7e5-93f2387fe36b
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -198,8 +199,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T120700
 DTEND;TZID=Asia/Taipei:20261017T121700
-DTSTAMP:20261017T210520Z
-UID:d89d60be-545c-527d-a94e-874e00b502bc
+DTSTAMP:20261018T112234Z
+UID:9d6fb412-1a65-5c5c-b611-41dcbcea41d1
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -213,8 +214,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T121700
 DTEND;TZID=Asia/Taipei:20261017T122000
-DTSTAMP:20261017T210520Z
-UID:ba327173-dfc5-5e36-930f-3d0b17a6eadd
+DTSTAMP:20261018T112234Z
+UID:7956506e-72c3-597d-9988-c86f5b70c580
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -228,8 +229,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T122000
 DTEND;TZID=Asia/Taipei:20261017T123000
-DTSTAMP:20261017T210520Z
-UID:efb4dc45-dd65-54d0-b7f2-6e3aa5c89d59
+DTSTAMP:20261018T112234Z
+UID:c7feacff-bf9b-5165-a3f2-904c7d7a69f9
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -243,8 +244,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T123000
 DTEND;TZID=Asia/Taipei:20261017T123300
-DTSTAMP:20261017T210520Z
-UID:8cc24f3a-ac80-5046-95a6-1f5c23f282f3
+DTSTAMP:20261018T112234Z
+UID:98939053-7ff4-5d87-9516-8ad8d0caec3d
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -258,8 +259,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: lunch
 DTSTART;TZID=Asia/Taipei:20261017T123300
 DTEND;TZID=Asia/Taipei:20261017T133300
-DTSTAMP:20261017T210520Z
-UID:7eeb962c-4351-5da0-9e9d-17da1c248ad1
+DTSTAMP:20261018T112234Z
+UID:88c85a13-85f1-5375-bc57-3f3019bd487d
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -273,8 +274,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T133300
 DTEND;TZID=Asia/Taipei:20261017T134300
-DTSTAMP:20261017T210520Z
-UID:6563c0cb-f961-5ae7-a215-e5c3141dfcc2
+DTSTAMP:20261018T112234Z
+UID:1a3678f6-a8a1-5dee-a7d8-99267b43e798
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -288,8 +289,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T134300
 DTEND;TZID=Asia/Taipei:20261017T134600
-DTSTAMP:20261017T210520Z
-UID:00f7ca54-b2b3-5b2e-8af9-db86362ed9d0
+DTSTAMP:20261018T112234Z
+UID:f6338351-ba46-5eba-8341-3a56fcf0ac3c
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -303,8 +304,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T134600
 DTEND;TZID=Asia/Taipei:20261017T135600
-DTSTAMP:20261017T210520Z
-UID:4f6fab95-146a-5ea3-8961-a314c693e788
+DTSTAMP:20261018T112234Z
+UID:abfba7d3-f8e6-5c57-9b67-43ae56393319
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -318,8 +319,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T135600
 DTEND;TZID=Asia/Taipei:20261017T135900
-DTSTAMP:20261017T210520Z
-UID:a609efa3-3292-519e-88b9-2a3243ed6d26
+DTSTAMP:20261018T112234Z
+UID:aabdf76b-110d-5a08-9ef4-ed47aa2a1d85
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -333,8 +334,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T135900
 DTEND;TZID=Asia/Taipei:20261017T140900
-DTSTAMP:20261017T210520Z
-UID:315a9cbd-e6af-599d-8631-fb7815237a33
+DTSTAMP:20261018T112234Z
+UID:bef3ddf8-9ecf-5a72-9d1e-7ead3d77e3ae
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -348,8 +349,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T140900
 DTEND;TZID=Asia/Taipei:20261017T141200
-DTSTAMP:20261017T210520Z
-UID:3a91a93c-fa7d-5033-ba09-d61509d04a22
+DTSTAMP:20261018T112234Z
+UID:4d2bc2d5-254d-5567-8b71-4f201d487071
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -363,8 +364,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T141200
 DTEND;TZID=Asia/Taipei:20261017T142200
-DTSTAMP:20261017T210520Z
-UID:88233ffc-da39-5fad-a3dd-38b468f6447b
+DTSTAMP:20261018T112234Z
+UID:8b6e4068-2482-53c6-8ccb-b3eb5324a3e9
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -378,8 +379,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T142200
 DTEND;TZID=Asia/Taipei:20261017T142500
-DTSTAMP:20261017T210520Z
-UID:62d840fd-1011-539d-99f8-019da52c8fc7
+DTSTAMP:20261018T112234Z
+UID:5e1bfa8a-dae0-5f1f-ab85-38b3151ace6e
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -393,8 +394,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T142500
 DTEND;TZID=Asia/Taipei:20261017T143500
-DTSTAMP:20261017T210520Z
-UID:1913262c-88ed-563b-91c6-ec4e96c013a0
+DTSTAMP:20261018T112234Z
+UID:e9e7f980-433a-5046-a75a-709a9d337813
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -408,8 +409,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T143500
 DTEND;TZID=Asia/Taipei:20261017T143800
-DTSTAMP:20261017T210520Z
-UID:31d969fe-3bf8-5045-a5d5-d034d66b92a6
+DTSTAMP:20261018T112234Z
+UID:d69ba495-3078-53de-81f2-ffcaec772ece
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -423,8 +424,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: demo
 DTSTART;TZID=Asia/Taipei:20261017T143800
 DTEND;TZID=Asia/Taipei:20261017T144800
-DTSTAMP:20261017T210520Z
-UID:bc2feb13-0fb3-5fcc-ad6a-0767ec827880
+DTSTAMP:20261018T112234Z
+UID:e03fa9fa-5029-54c2-8a20-e4d6bb7c7f7d
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -438,8 +439,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: changeover
 DTSTART;TZID=Asia/Taipei:20261017T144800
 DTEND;TZID=Asia/Taipei:20261017T145100
-DTSTAMP:20261017T210520Z
-UID:32223e8d-16f3-5393-b60e-8fdda2ccb853
+DTSTAMP:20261018T112234Z
+UID:2a79c496-19bb-5729-a97c-23ebdfb78afd
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -453,8 +454,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: break
 DTSTART;TZID=Asia/Taipei:20261017T145100
 DTEND;TZID=Asia/Taipei:20261017T150600
-DTSTAMP:20261017T210520Z
-UID:2e2dd814-a926-5fca-81dc-a8685c4e1029
+DTSTAMP:20261018T112234Z
+UID:36ce1e71-5aeb-536f-b8d7-2ae4840ca1a0
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -468,8 +469,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: flexible-programme-closing-allowance
 DTSTART;TZID=Asia/Taipei:20261017T150600
 DTEND;TZID=Asia/Taipei:20261017T170000
-DTSTAMP:20261017T210520Z
-UID:94c03239-1312-5eab-b156-6005d4a2ff13
+DTSTAMP:20261018T112234Z
+UID:964c3fa4-5201-51ef-96cb-3324dc0e74b1
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -483,8 +484,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: teardown-envelope
 DTSTART;TZID=Asia/Taipei:20261017T170000
 DTEND;TZID=Asia/Taipei:20261017T183000
-DTSTAMP:20261017T210520Z
-UID:b4e7ef2d-8508-588f-9ee1-570c747cfc67
+DTSTAMP:20261018T112234Z
+UID:47233696-5f2e-5235-95d0-df46e486d5e4
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -497,8 +498,8 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:DRAFT: decision_deadline
 DTSTART;TZID=Asia/Taipei:20260904T170000
-DTSTAMP:20261017T210520Z
-UID:46d94376-6986-5ba4-bca7-48e93bda61e6
+DTSTAMP:20261018T112234Z
+UID:8a826e2f-edca-5529-b967-e3791ff2bf6c
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -512,8 +513,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: accessibility_walkthrough
 DTSTART;TZID=Asia/Taipei:20260925T140000
 DTEND;TZID=Asia/Taipei:20260925T160000
-DTSTAMP:20261017T210520Z
-UID:dd6baeee-5bd0-5b72-bc29-de505f4e34d8
+DTSTAMP:20261018T112234Z
+UID:33c4d6fc-9de3-5c2f-9f55-54f7001c4a9f
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu
@@ -527,8 +528,8 @@ BEGIN:VEVENT
 SUMMARY:DRAFT: rehearsal_window
 DTSTART;TZID=Asia/Taipei:20261016T150000
 DTEND;TZID=Asia/Taipei:20261016T180000
-DTSTAMP:20261017T210520Z
-UID:e57f1d95-3fef-5d28-b1a8-6055fb13a680
+DTSTAMP:20261018T112234Z
+UID:50e9d31c-1b8f-5d11-8749-5a8a35fb288d
 DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
  g. No vendor selection\, booking\, spending\, invitation\, publication or 
  production-calendar action is authorized. Proposed exercise schedule. Venu

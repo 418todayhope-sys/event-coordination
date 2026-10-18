@@ -5,6 +5,7 @@ from pathlib import Path
 import posixpath
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
+import re
 
 from event_coordination.sources import read_evidence
 
@@ -12,7 +13,7 @@ NS = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 REL = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
 
 
-def workbook_rows(root: Path, capture: dict, sheet_name: str) -> list[dict]:
+def workbook_rows(root: Path, capture: dict, sheet_name: str, *, selected_headers=None) -> list[dict]:
     """Decode stored cells, preserving original values and explicit date formats.
 
     Inputs have already been hash-verified through Stage 2. Formulas and unexpected
@@ -23,9 +24,13 @@ def workbook_rows(root: Path, capture: dict, sheet_name: str) -> list[dict]:
             raise ValueError("Invalid workbook ZIP")
         workbook = ET.fromstring(archive.read("xl/workbook.xml"))
         sheets = workbook.findall("s:sheets/s:sheet", NS)
-        sheet = next(s for s in sheets if s.get("name") == sheet_name)
+        matches = [s for s in sheets if s.get("name") == sheet_name]
+        if len(matches)!=1: raise ValueError("Ambiguous or missing worksheet identity")
+        sheet = matches[0]
         relationships = ET.fromstring(archive.read("xl/_rels/workbook.xml.rels"))
-        target = next(r.get("Target") for r in relationships if r.get("Id") == sheet.get(REL))
+        targets = [r.get("Target") for r in relationships if r.get("Id") == sheet.get(REL)]
+        if len(targets)!=1: raise ValueError("Ambiguous worksheet relationship")
+        target = targets[0]
         part = posixpath.normpath(posixpath.join("xl", target))
         if not part.startswith("xl/worksheets/"):
             raise ValueError("Unexpected worksheet relationship")
@@ -40,9 +45,15 @@ def workbook_rows(root: Path, capture: dict, sheet_name: str) -> list[dict]:
         properties = workbook.find("s:workbookPr", NS)
         date1904 = properties is not None and properties.get("date1904") in ("1", "true")
         rows = []
+        selected_columns = None
         for row in ET.fromstring(archive.read(part)).findall("s:sheetData/s:row", NS):
-            raw, values = {}, {}
+            raw, values, seen_cells = {}, {}, set()
             for cell in row.findall("s:c", NS):
+                if cell.get("r") is None or cell.get("r") in seen_cells:
+                    raise ValueError("Duplicate or missing cell identity")
+                seen_cells.add(cell.get("r"))
+                if selected_columns is not None and re.sub(r"\d+$", "", cell.get("r")) not in selected_columns:
+                    continue
                 if cell.find("s:f", NS) is not None:
                     raise ValueError("Formula interpretation is not supported")
                 node = cell.find("s:v", NS)
@@ -53,7 +64,7 @@ def workbook_rows(root: Path, capture: dict, sheet_name: str) -> list[dict]:
                     value = "".join(t.text or "" for t in cell.findall(".//s:t", NS))
                 raw[cell.get("r")] = value
                 fmt = int(xfs[int(cell.get("s", "0"))].get("numFmtId", "0"))
-                if fmt >= 164:
+                if fmt >= 164 and cell.get("t") not in ("s", "inlineStr"):
                     if formats.get(fmt) != "yyyy-mm-dd":
                         raise ValueError("Unsupported custom cell format")
                     epoch = datetime(1904, 1, 1) if date1904 else datetime(1899, 12, 30)
@@ -61,6 +72,8 @@ def workbook_rows(root: Path, capture: dict, sheet_name: str) -> list[dict]:
                 values[cell.get("r")] = value
             if any(v is not None for v in raw.values()):
                 rows.append({"raw": raw, "values": values})
+                if selected_headers is not None and selected_columns is None:
+                    selected_columns = {re.sub(r"\d+$", "", c) for c,v in values.items() if v in selected_headers}
         return rows
 
 

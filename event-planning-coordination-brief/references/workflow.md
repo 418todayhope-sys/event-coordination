@@ -80,9 +80,53 @@ For each changed source:
 5. Cross-check against current evidence and route revisions to the affected owners.
 
 Preserve completed chains. Create a new run ID for revised runs and retain prior
-packages under `runs/<run-id>/`; never overwrite a predecessor in a preserved
+packages under `deliverables/history/<run_id>/`; never overwrite a predecessor in a preserved
 chain. Reused records must still resolve to retained evidence and be rechecked for
-applicability. Archiving mechanics remain to be implemented.
+applicability. Managed `execute` now implements bounded archive/recovery mechanics; see the operator instructions.
+
+### Read-only run-contract foundation
+
+`event_coordination.run_contract` implements inspection, planning and scoped
+new-run bindings. The separate `pipeline` coordinator executes Stages 01–09 in a
+new external workspace; it does not archive evidence or write `failure.json`; Stage 09 performs technical validation only. See the root `IMPLEMENTATION.md` for the executable command.
+
+The coordinator creates a new run UUID and new snapshot UUIDs. Keep original
+observation IDs and scope semantic record IDs by run. The proposed Stage 01
+`state.run_metadata` contains version 1, run ID, fixed business clock,
+`supersedes_run_id`, sorted unique `changed_source_ids` and `changed_decision_ids`,
+and evidence-linked `change_reasons`. Stage 01 still has a null predecessor and
+empty consumed IDs. Existing snapshots are not retrofitted with this metadata.
+
+Strict metadata validation is structural. Supply both previous and current pinned
+manifests to verify changed IDs against actual local byte/path differences.
+Several evidence files can share a catalog `source_id`; do not count the event
+brief's representations as different disclosed sources. File identity changes
+invalidate an active pin even when bytes are identical; comparing two separate
+manifests treats unchanged bytes at the same path as the same source version.
+Reason evidence IDs must be resolved by the later stage integration: this helper
+checks their syntax and presence, not the truth or authority of their assertions.
+
+Hash and parse a predecessor from the same immutable bytes. Check schema with
+format validation, run/stage/sequence identity, fixed clock, and the supplied
+verified parent, then revalidate pins before returning. This is envelope and
+lineage inspection; new-run stage-specific semantic integration remains pending.
+`inspect_legacy_run` explicitly pins the historical eight snapshots and schema
+and invokes their existing semantic validators. It does not declare Stage 09
+complete or grant approval.
+
+Archive planning mirrors selected repository-relative paths beneath
+`deliverables/history/<run_id>/`, preserving existing relative evidence links.
+It rejects existing destinations, symlinked parents, unsafe paths, recursive
+history inclusion, and unrelated files. The plan is non-binding: any future
+archive writer must repeat collision, input-integrity, and confinement checks.
+Explicit input enumeration is required; the helper does not discover a complete
+archive or certify that a caller supplied every required evidence file.
+
+Failure descriptions use controlled codes, actual timezone-aware execution time,
+last validated stage, affected paths, and optional expected/observed hashes. A
+missing file has no observed hash. Preserve partial outputs for review; do not
+overwrite, delete, retry writers, or claim successful recovery. Failure-file
+storage and interruption detection are implemented by managed `execute`; incomplete history repair still requires review. Bounded local Stage 01–09 orchestration is implemented separately. Configuration and metadata never authorize business actions.
 
 ## Validation and handoff
 
@@ -94,3 +138,17 @@ and access windows. Distinguish structural validity, business feasibility, appro
 status, and publication readiness. A package can have valid files while release
 remains blocked. Report those outcomes separately and never report an unexecuted
 check as passed.
+
+### Managed execution boundary
+
+The Skill `scripts/run.py` delegates to CLI `execute`. It runs all nine stages in
+a private candidate, archives prior active evidence/output before promotion and
+records semantic source/decision differences in Stage 01. Layout-only changes do
+not supersede a run. New paths, actual saved hashes and explicit lineage remain
+mandatory. A source revision must already have truthful local registration.
+
+For technical recovery use the documented `--recover` option after examining
+`deliverables/failure.json`. The previous run, damaged views and receipts are
+preserved; no approvals are copied as granted. Unknown business requirements,
+unsupported recommendation deferrals and incomplete/conflicting archive contents
+stop for human review rather than being silently resolved.

@@ -1,0 +1,311 @@
+{
+  "id": "capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f",
+  "summary": "Registered manually exported aggregate Attendee Signals workbook; all thirteen signal rows inspected without finalizing attendance.",
+  "evidence_ids": [],
+  "source_identity": "attendee-signals",
+  "source_role": "attendee-signals",
+  "locator": "https://docs.google.com/spreadsheets/d/1IXAEAFsZM6Q9IZZ_9pGqbFQ7l2ikr-oThqrEKudHwIU",
+  "retrieved_at": "2026-10-16T23:44:42.999087+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "content_hash": "sha256:5d623e5d97f7519a9542ece2271b1fbb748667dc3bcbfefbae2a941f8fcb2e27",
+  "local_reference": "evidence/originals/Project C — Attendee Signals.xlsx",
+  "version_metadata": {
+    "method": "manual-google-sheets-xlsx-export-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User reports manually downloading the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+    "original_path": "evidence/originals/Project C — Attendee Signals.xlsx",
+    "size_bytes": 6303,
+    "registration_at": "2026-10-16T23:44:42.999087+00:00",
+    "timestamp_basis": "actual local registration; not historical browser retrieval time",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "Unverified; no live Google Sheets content or provider version history accessed.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 257
+    },
+    "hash_verification": "Independently calculated with sha256sum and Python hashlib; matches supplied hash.",
+    "worksheets": [
+      {
+        "name": "Attendee Signals",
+        "state": "visible",
+        "part": "xl/worksheets/sheet1.xml",
+        "populated_range": "A1:H14"
+      }
+    ],
+    "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook relationships, shared strings, populated worksheet cells, date styles and empty drawing. ZIP integrity passed; no formulas found.",
+    "date_interpretation": "G2:G14 use style 2, custom number format 164 yyyy-mm-dd, with Excel 1900 date system. Modern serials decoded using 1899-12-30; original serials retained. Dates supply no time or timezone.",
+    "business_clock": "2026-08-26T12:00:00+08:00",
+    "business_timezone": "Asia/Taipei",
+    "privacy": "Inspected worksheet contains aggregate cohort/need counts rather than attendee names, contact information or individual medical narratives. Small accessibility/allergy counts can still be sensitive; restrict unnecessary circulation and do not infer identities. Internal workbook person metadata was not copied into observations.",
+    "limitations": [
+      "Registrations and required-on-site counts are source statements, not confirmed event check-ins or guaranteed attendance. Walk-ins are an estimate.",
+      "Confidence labels are qualitative, not probabilities or independent verification.",
+      "Accessibility/dietary signals concern overlapping existing populations; no additional people or final headcount calculated.",
+      "No person-level overlap/deduplication mapping, named support contacts, fulfilled-request evidence, or actual check-in outcomes supplied in these columns.",
+      "No record_version column or complete methodology/update history supplied; original download time and live-source completeness remain unverified.",
+      "Observed_at dates do not establish exact observation times; the August 26 forecast cannot be proven to predate the 12:00 business clock.",
+      "No spreadsheet parser dependency installed; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "No vendor selection, approval, or final attendance decision performed."
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs-attendee-headers",
+      "summary": "One visible worksheet Attendee Signals with columns signal_id, source, segment, signal, value, unit, observed_at, confidence.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A1:H1"
+      }
+    },
+    {
+      "id": "obs-attendee-sig-001",
+      "summary": "signal_id: SIG-001; source: registration_form; segment: fellows; signal: registered_attendees; value: 148.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A2:H2"
+      },
+      "original_cell_values": {
+        "A2": "SIG-001",
+        "B2": "registration_form",
+        "C2": "fellows",
+        "D2": "registered_attendees",
+        "E2": "148.0",
+        "F2": "people",
+        "G2": "46258.0",
+        "H2": "high"
+      },
+      "interpretation_classification": "source-reported-registration"
+    },
+    {
+      "id": "obs-attendee-sig-002",
+      "summary": "signal_id: SIG-002; source: partner_form; segment: partners; signal: registered_attendees; value: 32.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A3:H3"
+      },
+      "original_cell_values": {
+        "A3": "SIG-002",
+        "B3": "partner_form",
+        "C3": "partners",
+        "D3": "registered_attendees",
+        "E3": "32.0",
+        "F3": "people",
+        "G3": "46258.0",
+        "H3": "high"
+      },
+      "interpretation_classification": "source-reported-registration"
+    },
+    {
+      "id": "obs-attendee-sig-003",
+      "summary": "signal_id: SIG-003; source: operations_plan; segment: staff; signal: required_on_site; value: 18.0; unit: people; observed_at: 2026-08-25; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A4:H4"
+      },
+      "original_cell_values": {
+        "A4": "SIG-003",
+        "B4": "operations_plan",
+        "C4": "staff",
+        "D4": "required_on_site",
+        "E4": "18.0",
+        "F4": "people",
+        "G4": "46259.0",
+        "H4": "high"
+      },
+      "interpretation_classification": "source-reported-required-on-site"
+    },
+    {
+      "id": "obs-attendee-sig-004",
+      "summary": "signal_id: SIG-004; source: programme_plan; segment: speakers; signal: required_on_site; value: 12.0; unit: people; observed_at: 2026-08-25; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A5:H5"
+      },
+      "original_cell_values": {
+        "A5": "SIG-004",
+        "B5": "programme_plan",
+        "C5": "speakers",
+        "D5": "required_on_site",
+        "E5": "12.0",
+        "F5": "people",
+        "G5": "46259.0",
+        "H5": "high"
+      },
+      "interpretation_classification": "source-reported-required-on-site"
+    },
+    {
+      "id": "obs-attendee-sig-005",
+      "summary": "signal_id: SIG-005; source: forecast; segment: walk_ins; signal: expected_attendees; value: 35.0; unit: people; observed_at: 2026-08-26; confidence: medium",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A6:H6"
+      },
+      "original_cell_values": {
+        "A6": "SIG-005",
+        "B6": "forecast",
+        "C6": "walk_ins",
+        "D6": "expected_attendees",
+        "E6": "35.0",
+        "F6": "people",
+        "G6": "46260.0",
+        "H6": "medium"
+      },
+      "interpretation_classification": "forecast-estimate"
+    },
+    {
+      "id": "obs-attendee-sig-006",
+      "summary": "signal_id: SIG-006; source: registration_form; segment: all; signal: wheelchair_spaces; value: 6.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A7:H7"
+      },
+      "original_cell_values": {
+        "A7": "SIG-006",
+        "B7": "registration_form",
+        "C7": "all",
+        "D7": "wheelchair_spaces",
+        "E7": "6.0",
+        "F7": "people",
+        "G7": "46258.0",
+        "H7": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-007",
+      "summary": "signal_id: SIG-007; source: registration_form; segment: all; signal: mobility_companions; value: 4.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A8:H8"
+      },
+      "original_cell_values": {
+        "A8": "SIG-007",
+        "B8": "registration_form",
+        "C8": "all",
+        "D8": "mobility_companions",
+        "E8": "4.0",
+        "F8": "people",
+        "G8": "46258.0",
+        "H8": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-008",
+      "summary": "signal_id: SIG-008; source: registration_form; segment: all; signal: live_caption_requests; value: 23.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A9:H9"
+      },
+      "original_cell_values": {
+        "A9": "SIG-008",
+        "B9": "registration_form",
+        "C9": "all",
+        "D9": "live_caption_requests",
+        "E9": "23.0",
+        "F9": "people",
+        "G9": "46258.0",
+        "H9": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-009",
+      "summary": "signal_id: SIG-009; source: registration_form; segment: all; signal: hearing_loop_requests; value: 7.0; unit: people; observed_at: 2026-08-24; confidence: medium",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A10:H10"
+      },
+      "original_cell_values": {
+        "A10": "SIG-009",
+        "B10": "registration_form",
+        "C10": "all",
+        "D10": "hearing_loop_requests",
+        "E10": "7.0",
+        "F10": "people",
+        "G10": "46258.0",
+        "H10": "medium"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-010",
+      "summary": "signal_id: SIG-010; source: registration_form; segment: all; signal: quiet_room_requests; value: 9.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A11:H11"
+      },
+      "original_cell_values": {
+        "A11": "SIG-010",
+        "B11": "registration_form",
+        "C11": "all",
+        "D11": "quiet_room_requests",
+        "E11": "9.0",
+        "F11": "people",
+        "G11": "46258.0",
+        "H11": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-011",
+      "summary": "signal_id: SIG-011; source: registration_form; segment: all; signal: vegetarian_meals; value: 28.0; unit: meals; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A12:H12"
+      },
+      "original_cell_values": {
+        "A12": "SIG-011",
+        "B12": "registration_form",
+        "C12": "all",
+        "D12": "vegetarian_meals",
+        "E12": "28.0",
+        "F12": "meals",
+        "G12": "46258.0",
+        "H12": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-012",
+      "summary": "signal_id: SIG-012; source: registration_form; segment: all; signal: halal_meals; value: 12.0; unit: meals; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A13:H13"
+      },
+      "original_cell_values": {
+        "A13": "SIG-012",
+        "B13": "registration_form",
+        "C13": "all",
+        "D13": "halal_meals",
+        "E13": "12.0",
+        "F13": "meals",
+        "G13": "46258.0",
+        "H13": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    },
+    {
+      "id": "obs-attendee-sig-013",
+      "summary": "signal_id: SIG-013; source: registration_form; segment: all; signal: severe_allergy_follow_up; value: 4.0; unit: people; observed_at: 2026-08-24; confidence: high",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Attendee Signals'!A14:H14"
+      },
+      "original_cell_values": {
+        "A14": "SIG-013",
+        "B14": "registration_form",
+        "C14": "all",
+        "D14": "severe_allergy_follow_up",
+        "E14": "4.0",
+        "F14": "people",
+        "G14": "46258.0",
+        "H14": "high"
+      },
+      "interpretation_classification": "source-reported-need-or-request"
+    }
+  ]
+}

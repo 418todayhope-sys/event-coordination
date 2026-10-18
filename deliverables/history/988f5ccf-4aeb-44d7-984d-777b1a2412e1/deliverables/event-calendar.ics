@@ -1,0 +1,541 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Project C//In-memory draft foundation//EN
+X-DRAFT-NOTICE:DRAFT — fictional exercise. All approval gates remain pen
+ ding. No vendor selection\, booking\, spending\, invitation\, publication 
+ or production-calendar action is authorized.
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+COMMENT:This timezone only works from 2026-09-04 to 2026-10-17.
+BEGIN:STANDARD
+DTSTART:20260904T000000
+TZNAME:CST
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:DRAFT: setup-envelope
+DTSTART;TZID=Asia/Taipei:20261017T073000
+DTEND;TZID=Asia/Taipei:20261017T093000
+DTSTAMP:20261017T210520Z
+UID:ca73c77e-3672-578b-9f26-20fec9002c8c
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:venue-access
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: opening
+DTSTART;TZID=Asia/Taipei:20261017T093000
+DTEND;TZID=Asia/Taipei:20261017T100000
+DTSTAMP:20261017T210520Z
+UID:218304a7-c8a3-524e-aecf-a27b0ad34468
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: keynote
+DTSTART;TZID=Asia/Taipei:20261017T100000
+DTEND;TZID=Asia/Taipei:20261017T110000
+DTSTAMP:20261017T210520Z
+UID:6879f7ac-949a-53f8-99ca-53212ec44646
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: break
+DTSTART;TZID=Asia/Taipei:20261017T110000
+DTEND;TZID=Asia/Taipei:20261017T111500
+DTSTAMP:20261017T210520Z
+UID:92654c6b-6480-5dc5-820e-131c5e5180ef
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T111500
+DTEND;TZID=Asia/Taipei:20261017T112500
+DTSTAMP:20261017T210520Z
+UID:4a1b7422-da37-5c20-8a88-1dff749b2ba4
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T112500
+DTEND;TZID=Asia/Taipei:20261017T112800
+DTSTAMP:20261017T210520Z
+UID:cee16406-5532-5390-83ab-da5d0fc62a4e
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T112800
+DTEND;TZID=Asia/Taipei:20261017T113800
+DTSTAMP:20261017T210520Z
+UID:2b41f3e1-d8d1-5dec-80fe-876770f717dc
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T113800
+DTEND;TZID=Asia/Taipei:20261017T114100
+DTSTAMP:20261017T210520Z
+UID:748e204b-9b0c-593f-b5d5-eab2aff763f0
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T114100
+DTEND;TZID=Asia/Taipei:20261017T115100
+DTSTAMP:20261017T210520Z
+UID:8ec92fe6-09cb-577e-b8ee-2ca73ce72f48
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T115100
+DTEND;TZID=Asia/Taipei:20261017T115400
+DTSTAMP:20261017T210520Z
+UID:7b614409-8956-55a7-ac08-4770b2a4e1bf
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T115400
+DTEND;TZID=Asia/Taipei:20261017T120400
+DTSTAMP:20261017T210520Z
+UID:60f7fec3-5782-50c4-9e9b-9676906b6803
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T120400
+DTEND;TZID=Asia/Taipei:20261017T120700
+DTSTAMP:20261017T210520Z
+UID:97c5d46e-8dcb-50b0-b7c8-9db34d3b6948
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T120700
+DTEND;TZID=Asia/Taipei:20261017T121700
+DTSTAMP:20261017T210520Z
+UID:d89d60be-545c-527d-a94e-874e00b502bc
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T121700
+DTEND;TZID=Asia/Taipei:20261017T122000
+DTSTAMP:20261017T210520Z
+UID:ba327173-dfc5-5e36-930f-3d0b17a6eadd
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T122000
+DTEND;TZID=Asia/Taipei:20261017T123000
+DTSTAMP:20261017T210520Z
+UID:efb4dc45-dd65-54d0-b7f2-6e3aa5c89d59
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T123000
+DTEND;TZID=Asia/Taipei:20261017T123300
+DTSTAMP:20261017T210520Z
+UID:8cc24f3a-ac80-5046-95a6-1f5c23f282f3
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: lunch
+DTSTART;TZID=Asia/Taipei:20261017T123300
+DTEND;TZID=Asia/Taipei:20261017T133300
+DTSTAMP:20261017T210520Z
+UID:7eeb962c-4351-5da0-9e9d-17da1c248ad1
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T133300
+DTEND;TZID=Asia/Taipei:20261017T134300
+DTSTAMP:20261017T210520Z
+UID:6563c0cb-f961-5ae7-a215-e5c3141dfcc2
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T134300
+DTEND;TZID=Asia/Taipei:20261017T134600
+DTSTAMP:20261017T210520Z
+UID:00f7ca54-b2b3-5b2e-8af9-db86362ed9d0
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T134600
+DTEND;TZID=Asia/Taipei:20261017T135600
+DTSTAMP:20261017T210520Z
+UID:4f6fab95-146a-5ea3-8961-a314c693e788
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T135600
+DTEND;TZID=Asia/Taipei:20261017T135900
+DTSTAMP:20261017T210520Z
+UID:a609efa3-3292-519e-88b9-2a3243ed6d26
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T135900
+DTEND;TZID=Asia/Taipei:20261017T140900
+DTSTAMP:20261017T210520Z
+UID:315a9cbd-e6af-599d-8631-fb7815237a33
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T140900
+DTEND;TZID=Asia/Taipei:20261017T141200
+DTSTAMP:20261017T210520Z
+UID:3a91a93c-fa7d-5033-ba09-d61509d04a22
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T141200
+DTEND;TZID=Asia/Taipei:20261017T142200
+DTSTAMP:20261017T210520Z
+UID:88233ffc-da39-5fad-a3dd-38b468f6447b
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T142200
+DTEND;TZID=Asia/Taipei:20261017T142500
+DTSTAMP:20261017T210520Z
+UID:62d840fd-1011-539d-99f8-019da52c8fc7
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T142500
+DTEND;TZID=Asia/Taipei:20261017T143500
+DTSTAMP:20261017T210520Z
+UID:1913262c-88ed-563b-91c6-ec4e96c013a0
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T143500
+DTEND;TZID=Asia/Taipei:20261017T143800
+DTSTAMP:20261017T210520Z
+UID:31d969fe-3bf8-5045-a5d5-d034d66b92a6
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: demo
+DTSTART;TZID=Asia/Taipei:20261017T143800
+DTEND;TZID=Asia/Taipei:20261017T144800
+DTSTAMP:20261017T210520Z
+UID:bc2feb13-0fb3-5fcc-ad6a-0767ec827880
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: changeover
+DTSTART;TZID=Asia/Taipei:20261017T144800
+DTEND;TZID=Asia/Taipei:20261017T145100
+DTSTAMP:20261017T210520Z
+UID:32223e8d-16f3-5393-b60e-8fdda2ccb853
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: break
+DTSTART;TZID=Asia/Taipei:20261017T145100
+DTEND;TZID=Asia/Taipei:20261017T150600
+DTSTAMP:20261017T210520Z
+UID:2e2dd814-a926-5fca-81dc-a8685c4e1029
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: flexible-programme-closing-allowance
+DTSTART;TZID=Asia/Taipei:20261017T150600
+DTEND;TZID=Asia/Taipei:20261017T170000
+DTSTAMP:20261017T210520Z
+UID:94c03239-1312-5eab-b156-6005d4a2ff13
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:programme
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: teardown-envelope
+DTSTART;TZID=Asia/Taipei:20261017T170000
+DTEND;TZID=Asia/Taipei:20261017T183000
+DTSTAMP:20261017T210520Z
+UID:b4e7ef2d-8508-588f-9ee1-570c747cfc67
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:witness-oct17-green-table
+X-RESOURCE-LANE:venue-access
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: decision_deadline
+DTSTART;TZID=Asia/Taipei:20260904T170000
+DTSTAMP:20261017T210520Z
+UID:46d94376-6986-5ba4-bca7-48e93bda61e6
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:baseline-schedule-CAL-005
+X-RESOURCE-LANE:review-and-preparation
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: accessibility_walkthrough
+DTSTART;TZID=Asia/Taipei:20260925T140000
+DTEND;TZID=Asia/Taipei:20260925T160000
+DTSTAMP:20261017T210520Z
+UID:dd6baeee-5bd0-5b72-bc29-de505f4e34d8
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:baseline-schedule-CAL-006
+X-RESOURCE-LANE:review-and-preparation
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DRAFT: rehearsal_window
+DTSTART;TZID=Asia/Taipei:20261016T150000
+DTEND;TZID=Asia/Taipei:20261016T180000
+DTSTAMP:20261017T210520Z
+UID:e57f1d95-3fef-5d28-b1a8-6055fb13a680
+DESCRIPTION:DRAFT — fictional exercise. All approval gates remain pendin
+ g. No vendor selection\, booking\, spending\, invitation\, publication or 
+ production-calendar action is authorized. Proposed exercise schedule. Venu
+ e confirmation and all authorizations remain pending.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+X-EVIDENCE-ID:baseline-schedule-CAL-007
+X-RESOURCE-LANE:review-and-preparation
+END:VEVENT
+END:VCALENDAR

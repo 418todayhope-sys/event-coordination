@@ -1,0 +1,117 @@
+{
+  "id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+  "summary": "Registered user-provided Google Sheets Excel export; inspected Budget worksheet A1:F8 without rewriting workbook.",
+  "evidence_ids": [],
+  "source_identity": "budget-allocations",
+  "source_role": "budget",
+  "locator": "https://docs.google.com/spreadsheets/d/1Cxo7CvcgImz9HbT8PThZyvaTuyd44ug7w5rBA1z5qlM",
+  "retrieved_at": "2026-10-16T22:24:18.910100+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "content_hash": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+  "local_reference": "evidence/originals/Project C — Budget.xlsx",
+  "version_metadata": {
+    "method": "manual-google-sheets-xlsx-export-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User reports Google Sheets > File > Download > Microsoft Excel (.xlsx), then copying through WSL.",
+    "original_path": "evidence/originals/Project C — Budget.xlsx",
+    "size_bytes": 5721,
+    "registration_at": "2026-10-16T22:24:18.910100+00:00",
+    "timestamp_basis": "actual local registration, not original download time",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "Unverified; no live Google Sheets comparison or version history was retrieved.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 540
+    },
+    "record_versions": [
+      "budget-2026-08-26"
+    ],
+    "record_version_locator": "'Budget'!F2:F8",
+    "inspection_method": "Standard-library zipfile and XML inspection, including workbook relationships, shared strings, worksheet cells and empty drawing part; ZIP integrity check passed.",
+    "parser_limitations": "openpyxl and pandas unavailable; no dependencies installed. XML inspection does not reproduce visual spreadsheet layout or recalculate formulas. No formulas found in inspected populated cells.",
+    "populated_range": "'Budget'!A1:F8",
+    "worksheets": [
+      {
+        "name": "Budget",
+        "state": "visible",
+        "part": "xl/worksheets/sheet1.xml"
+      }
+    ],
+    "limitations": [
+      "All six fields are populated for seven categories, but owner entries are organizational roles, not named individual approvers or explicit delegations.",
+      "No overall ceiling, explicit exception-policy text, approval decisions, or approval timestamps appear in the populated worksheet cells. Category limits must not be summed and treated as an overall ceiling.",
+      "Zero committed amounts are explicit source values, not inferred missing values and not evidence of spending approval.",
+      "Completeness against the live workbook and provider export fidelity remain unverified.",
+      "Stage 1 unresolved owner identities remain unchanged; these observations do not prematurely resolve them."
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs-budget-headers",
+      "summary": "One visible worksheet named Budget; headers category, planned_amount_twd, approval_limit_twd, committed_amount_twd, owner, record_version.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A1:F1"
+      }
+    },
+    {
+      "id": "obs-budget-row-2",
+      "summary": "Category venue; planned TWD 155000.0; approval limit TWD 180000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A2:F2"
+      }
+    },
+    {
+      "id": "obs-budget-row-3",
+      "summary": "Category catering; planned TWD 115000.0; approval limit TWD 135000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A3:F3"
+      }
+    },
+    {
+      "id": "obs-budget-row-4",
+      "summary": "Category accessibility; planned TWD 65000.0; approval limit TWD 80000.0; committed TWD 0.0; owner Learner Experience; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A4:F4"
+      }
+    },
+    {
+      "id": "obs-budget-row-5",
+      "summary": "Category production; planned TWD 85000.0; approval limit TWD 100000.0; committed TWD 0.0; owner Programme; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A5:F5"
+      }
+    },
+    {
+      "id": "obs-budget-row-6",
+      "summary": "Category communications; planned TWD 25000.0; approval limit TWD 30000.0; committed TWD 0.0; owner Communications; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A6:F6"
+      }
+    },
+    {
+      "id": "obs-budget-row-7",
+      "summary": "Category security; planned TWD 25000.0; approval limit TWD 35000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A7:F7"
+      }
+    },
+    {
+      "id": "obs-budget-row-8",
+      "summary": "Category contingency; planned TWD 40000.0; approval limit TWD 50000.0; committed TWD 0.0; owner Operations; record version budget-2026-08-26.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Budget'!A8:F8"
+      }
+    }
+  ]
+}

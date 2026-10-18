@@ -1,0 +1,68 @@
+{
+  "id": "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d",
+  "summary": "Registered browser-saved TICC accessibility floor-plan index; hash and fourth-floor PDF link inspected locally.",
+  "evidence_ids": [],
+  "source_identity": "official-accessibility",
+  "source_role": "venue-page",
+  "locator": "https://www.ticc.com.tw/wSite/lp?ctNode=398&mp=2&xq_xCat=6",
+  "retrieved_at": "2026-10-16T22:17:39.487947+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "text/html",
+  "content_hash": "sha256:b6281894f11657f10bf0b591b5b4bbe230712f23a29c994e45bfcc0c28ccd80d",
+  "local_reference": "evidence/originals/ticc-accessibility-index.html",
+  "version_metadata": {
+    "method": "manual-firefox-html-only-local-registration",
+    "publication_kind": "real-publication",
+    "provenance": "User reports saving the disclosed TICC webpage using Firefox Web Page, HTML only.",
+    "original_path": "evidence/originals/ticc-accessibility-index.html",
+    "size_bytes": 19148,
+    "registration_at": "2026-10-16T22:17:39.487947+00:00",
+    "timestamp_basis": "actual local registration, not original browser retrieval time",
+    "original_browser_download_at": null,
+    "original_browser_download_time_status": "unverified",
+    "response_status": null,
+    "response_status_basis": "No original HTTP response was observed during local registration.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 288
+    },
+    "hash_verification": "SHA-256 independently computed with sha256sum and Python hashlib; matches supplied digest.",
+    "inspection_method": "Read HTML source and parsed anchor URLs locally without executing scripts or fetching linked resources.",
+    "online_equivalence": "Unverified. Browser-saved HTML may differ from original HTTP response bytes and omit dynamically loaded content and external assets.",
+    "completeness": "Saved main list contains eight floor-plan links; completeness of the live site is not independently verified.",
+    "credential_inspection": "Line 489 references the access_token sessionStorage key in generic JavaScript; this reference is not a captured token value. No browser storage or cookies were imported.",
+    "linked_floor_plan": {
+      "url": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+      "local_reference": "evidence/originals/f1710485827023.pdf",
+      "sha256": "sha256:8805ab527b7bb202a70534120ed4037dbde633301f1935e80bd04f12a7c70367",
+      "relationship": "HTML anchor target matches disclosed URL; this does not verify live linked bytes."
+    },
+    "verification_limit": "This is a floor-plan index, not independent certification of all event accessibility requirements, present operation, captions, quiet-room staffing, or route clearance."
+  },
+  "observations": [
+    {
+      "id": "obs-accessibility-identity",
+      "summary": "HTML title identifies TAITRA-Taipei International Convention Center (TICC), Details and Rental Regulations.",
+      "locator": {
+        "kind": "section",
+        "value": "HTML lines 7–8, title element"
+      }
+    },
+    {
+      "id": "obs-accessibility-index",
+      "summary": "Main heading is Accessible Facilities Floor Plan. Eight listed PDF links cover 6F, 5F, 4F, 3F, 2F, 1M+2M, 1F, and B1.",
+      "locator": {
+        "kind": "section",
+        "value": "HTML lines 274–307, main download list"
+      }
+    },
+    {
+      "id": "obs-accessibility-4f-link",
+      "summary": "Anchor labeled TICC 4F Accessible Facilities Floor Plan has href public/Attachment/f1710485827023.pdf; resolved against the disclosed page URL, it matches the previously registered fourth-floor PDF URL.",
+      "locator": {
+        "kind": "section",
+        "value": "HTML lines 286–287, third download-list entry"
+      }
+    }
+  ]
+}

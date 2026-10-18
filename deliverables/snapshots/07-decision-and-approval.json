@@ -1,14 +1,14 @@
 {
   "schema_version": "event-coordination-stage-snapshot/2",
-  "snapshot_id": "f0109784-d5b8-4f2e-8a5b-cf94f3065c23",
+  "snapshot_id": "c4faa57d-0b79-46a6-9e8e-d4546d605db2",
   "stage": "decision-and-approval",
   "sequence": 7,
-  "created_at": "2026-10-17T17:55:48.762482+00:00",
-  "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+  "created_at": "2026-10-18T11:22:28.633284+00:00",
+  "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
   "predecessor": {
-    "snapshot_id": "44873e26-9404-4411-971f-e4f0a0ee0513",
+    "snapshot_id": "0867715f-d5f4-41af-9931-7752090212c0",
     "path": "deliverables/snapshots/06-feasibility-testing.json",
-    "sha256": "sha256:57b5be2bde9d3c5a66316b2b1e0239a8c55e39de5ff54b859bf644fe74542fe1"
+    "sha256": "sha256:08ccad17d78a24a2cc3d1a39cf2fba6bbc8eb8bda2aa9b47ae8f552b8cb87aa3"
   },
   "consumed_record_ids": [
     "assessment-screen-oct17-city-pantry-stream",
@@ -51,6 +51,7 @@
     "check-oct17-city-pantry-dietary-SIG-013",
     "check-oct17-city-pantry-live-verification",
     "check-oct17-city-pantry-livestream-prerequisites",
+    "check-oct17-city-pantry-official-plenary-policy",
     "check-oct17-city-pantry-planning-total",
     "check-oct17-city-pantry-programme",
     "check-oct17-city-pantry-provenance-integrity",
@@ -105,6 +106,7 @@
     "check-oct17-green-table-dietary-SIG-013",
     "check-oct17-green-table-live-verification",
     "check-oct17-green-table-livestream-prerequisites",
+    "check-oct17-green-table-official-plenary-policy",
     "check-oct17-green-table-planning-total",
     "check-oct17-green-table-programme",
     "check-oct17-green-table-provenance-integrity",
@@ -128,10 +130,12 @@
     "condition-check-oct17-city-pantry-allocation-policy-security",
     "condition-check-oct17-city-pantry-authorization",
     "condition-check-oct17-city-pantry-live-verification",
+    "condition-check-oct17-city-pantry-official-plenary-policy",
     "condition-check-oct17-city-pantry-walkthrough-prerequisite",
     "condition-check-oct17-green-table-allocation-policy-security",
     "condition-check-oct17-green-table-authorization",
     "condition-check-oct17-green-table-live-verification",
+    "condition-check-oct17-green-table-official-plenary-policy",
     "condition-check-oct17-green-table-walkthrough-prerequisite",
     "conflict-Q007-hearing-loop",
     "conflict-allocation-Q-004",
@@ -151,6 +155,9 @@
     "obs-calendar-cal-006",
     "obs-floor-plan-level",
     "obs-floor-plan-venue",
+    "obs-plenary-food-av",
+    "obs-plenary-livestream",
+    "obs-plenary-safety",
     "obs-quote-q-004",
     "obs-quote-q-007",
     "obs-quote-q-009",
@@ -233,6 +240,12 @@
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+    "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
@@ -308,6 +321,12 @@
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
@@ -325,6 +344,7 @@
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
     "unknown-live-accessibility",
+    "unknown-official-plenary-policy-review",
     "witness-oct17-city-pantry",
     "witness-oct17-green-table"
   ],
@@ -354,6 +374,9 @@
     "decision-ancestor-obs-calendar-cal-006",
     "decision-ancestor-obs-floor-plan-level",
     "decision-ancestor-obs-floor-plan-venue",
+    "decision-ancestor-obs-plenary-food-av",
+    "decision-ancestor-obs-plenary-livestream",
+    "decision-ancestor-obs-plenary-safety",
     "decision-ancestor-obs-quote-q-004",
     "decision-ancestor-obs-quote-q-007",
     "decision-ancestor-obs-quote-q-009",
@@ -429,6 +452,12 @@
     "decision-ancestor-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "decision-ancestor-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
     "decision-ancestor-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "decision-ancestor-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+    "decision-ancestor-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
     "decision-ancestor-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
     "decision-ancestor-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
     "decision-ancestor-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
@@ -446,6 +475,7 @@
     "decision-ancestor-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "decision-ancestor-stage2-inherited-unknown-category-owner-identities",
     "decision-policy-initial-review",
+    "unknown-official-plenary-policy-review",
     "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
     "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
     "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -501,6 +531,12 @@
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -528,11 +564,13 @@
     "condition-check-oct17-green-table-allocation-policy-security",
     "condition-check-oct17-green-table-walkthrough-prerequisite",
     "condition-check-oct17-green-table-live-verification",
+    "condition-check-oct17-green-table-official-plenary-policy",
     "condition-check-oct17-green-table-authorization",
     "condition-check-oct17-city-pantry-allocation-policy-catering",
     "condition-check-oct17-city-pantry-allocation-policy-security",
     "condition-check-oct17-city-pantry-walkthrough-prerequisite",
     "condition-check-oct17-city-pantry-live-verification",
+    "condition-check-oct17-city-pantry-official-plenary-policy",
     "condition-check-oct17-city-pantry-authorization"
   ],
   "state": {
@@ -595,11 +633,13 @@
           "check-oct17-green-table-provenance-integrity",
           "check-oct17-green-table-live-verification",
           "check-oct17-green-table-livestream-prerequisites",
+          "check-oct17-green-table-official-plenary-policy",
           "check-oct17-green-table-authorization",
           "witness-oct17-green-table",
           "condition-check-oct17-green-table-allocation-policy-security",
           "condition-check-oct17-green-table-walkthrough-prerequisite",
           "condition-check-oct17-green-table-live-verification",
+          "condition-check-oct17-green-table-official-plenary-policy",
           "condition-check-oct17-green-table-authorization",
           "gate-operations",
           "gate-spending",
@@ -665,15 +705,18 @@
           "check-oct17-green-table-provenance-integrity",
           "check-oct17-green-table-live-verification",
           "check-oct17-green-table-livestream-prerequisites",
+          "check-oct17-green-table-official-plenary-policy",
           "check-oct17-green-table-authorization"
         ],
         "blocking_check_ids": [
-          "check-oct17-green-table-walkthrough-prerequisite"
+          "check-oct17-green-table-walkthrough-prerequisite",
+          "check-oct17-green-table-official-plenary-policy"
         ],
         "condition_ids": [
           "condition-check-oct17-green-table-allocation-policy-security",
           "condition-check-oct17-green-table-walkthrough-prerequisite",
           "condition-check-oct17-green-table-live-verification",
+          "condition-check-oct17-green-table-official-plenary-policy",
           "condition-check-oct17-green-table-authorization"
         ],
         "schedule_witness_id": "witness-oct17-green-table",
@@ -838,12 +881,14 @@
           "check-oct17-city-pantry-provenance-integrity",
           "check-oct17-city-pantry-live-verification",
           "check-oct17-city-pantry-livestream-prerequisites",
+          "check-oct17-city-pantry-official-plenary-policy",
           "check-oct17-city-pantry-authorization",
           "witness-oct17-city-pantry",
           "condition-check-oct17-city-pantry-allocation-policy-catering",
           "condition-check-oct17-city-pantry-allocation-policy-security",
           "condition-check-oct17-city-pantry-walkthrough-prerequisite",
           "condition-check-oct17-city-pantry-live-verification",
+          "condition-check-oct17-city-pantry-official-plenary-policy",
           "condition-check-oct17-city-pantry-authorization",
           "gate-operations",
           "gate-spending",
@@ -910,16 +955,19 @@
           "check-oct17-city-pantry-provenance-integrity",
           "check-oct17-city-pantry-live-verification",
           "check-oct17-city-pantry-livestream-prerequisites",
+          "check-oct17-city-pantry-official-plenary-policy",
           "check-oct17-city-pantry-authorization"
         ],
         "blocking_check_ids": [
-          "check-oct17-city-pantry-walkthrough-prerequisite"
+          "check-oct17-city-pantry-walkthrough-prerequisite",
+          "check-oct17-city-pantry-official-plenary-policy"
         ],
         "condition_ids": [
           "condition-check-oct17-city-pantry-allocation-policy-catering",
           "condition-check-oct17-city-pantry-allocation-policy-security",
           "condition-check-oct17-city-pantry-walkthrough-prerequisite",
           "condition-check-oct17-city-pantry-live-verification",
+          "condition-check-oct17-city-pantry-official-plenary-policy",
           "condition-check-oct17-city-pantry-authorization"
         ],
         "schedule_witness_id": "witness-oct17-city-pantry",
@@ -1060,7 +1108,7 @@
       },
       {
         "id": "tradeoff-catering-capacity",
-        "summary": "Larger nominal catering margin costs more; both use the same uncertain planning population without adding overlapping needs.",
+        "summary": "Compare each evidenced catering margin and cost independently; both use the same uncertain population without adding overlapping needs.",
         "evidence_ids": [
           "result-oct17-green-table",
           "result-oct17-city-pantry",
@@ -1263,6 +1311,7 @@
         "evidence_ids": [
           "result-oct17-green-table",
           "result-oct17-city-pantry",
+          "unknown-official-plenary-policy-review",
           "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
           "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
           "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -1318,6 +1367,12 @@
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+          "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -1345,11 +1400,13 @@
           "condition-check-oct17-green-table-allocation-policy-security",
           "condition-check-oct17-green-table-walkthrough-prerequisite",
           "condition-check-oct17-green-table-live-verification",
+          "condition-check-oct17-green-table-official-plenary-policy",
           "condition-check-oct17-green-table-authorization",
           "condition-check-oct17-city-pantry-allocation-policy-catering",
           "condition-check-oct17-city-pantry-allocation-policy-security",
           "condition-check-oct17-city-pantry-walkthrough-prerequisite",
           "condition-check-oct17-city-pantry-live-verification",
+          "condition-check-oct17-city-pantry-official-plenary-policy",
           "condition-check-oct17-city-pantry-authorization",
           "screen-oct24-incomplete-package",
           "screen-oct17-q007-no-loop",
@@ -1362,6 +1419,7 @@
         ],
         "basis": "evidence-summary",
         "condition_ids": [
+          "unknown-official-plenary-policy-review",
           "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
           "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
           "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -1417,6 +1475,12 @@
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
           "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+          "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+          "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+          "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
           "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -1444,11 +1508,13 @@
           "condition-check-oct17-green-table-allocation-policy-security",
           "condition-check-oct17-green-table-walkthrough-prerequisite",
           "condition-check-oct17-green-table-live-verification",
+          "condition-check-oct17-green-table-official-plenary-policy",
           "condition-check-oct17-green-table-authorization",
           "condition-check-oct17-city-pantry-allocation-policy-catering",
           "condition-check-oct17-city-pantry-allocation-policy-security",
           "condition-check-oct17-city-pantry-walkthrough-prerequisite",
           "condition-check-oct17-city-pantry-live-verification",
+          "condition-check-oct17-city-pantry-official-plenary-policy",
           "condition-check-oct17-city-pantry-authorization"
         ],
         "early_screening_ids": [
@@ -1926,11 +1992,11 @@
           "obs-accessibility-index"
         ],
         "record_id": "obs-accessibility-index",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -1940,11 +2006,11 @@
           "obs-attendee-sig-009"
         ],
         "record_id": "obs-attendee-sig-009",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -1954,11 +2020,11 @@
           "obs-brief-text-approvals"
         ],
         "record_id": "obs-brief-text-approvals",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -1968,11 +2034,11 @@
           "obs-brief-text-programme"
         ],
         "record_id": "obs-brief-text-programme",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -1982,11 +2048,11 @@
           "obs-budget-row-3"
         ],
         "record_id": "obs-budget-row-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -1996,11 +2062,11 @@
           "obs-budget-row-7"
         ],
         "record_id": "obs-budget-row-7",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2010,11 +2076,11 @@
           "obs-calendar-cal-005"
         ],
         "record_id": "obs-calendar-cal-005",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2024,11 +2090,11 @@
           "obs-calendar-cal-006"
         ],
         "record_id": "obs-calendar-cal-006",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2038,11 +2104,11 @@
           "obs-floor-plan-level"
         ],
         "record_id": "obs-floor-plan-level",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2052,11 +2118,53 @@
           "obs-floor-plan-venue"
         ],
         "record_id": "obs-floor-plan-venue",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-obs-plenary-food-av",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "obs-plenary-food-av"
+        ],
+        "record_id": "obs-plenary-food-av",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-obs-plenary-livestream",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "obs-plenary-livestream"
+        ],
+        "record_id": "obs-plenary-livestream",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-obs-plenary-safety",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "obs-plenary-safety"
+        ],
+        "record_id": "obs-plenary-safety",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2066,11 +2174,11 @@
           "obs-quote-q-004"
         ],
         "record_id": "obs-quote-q-004",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2080,11 +2188,11 @@
           "obs-quote-q-007"
         ],
         "record_id": "obs-quote-q-007",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2094,11 +2202,11 @@
           "obs-quote-q-009"
         ],
         "record_id": "obs-quote-q-009",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2108,11 +2216,11 @@
           "option-baseline-context"
         ],
         "record_id": "option-baseline-context",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2122,11 +2230,11 @@
           "option-oct17-city-pantry"
         ],
         "record_id": "option-oct17-city-pantry",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2136,11 +2244,11 @@
           "option-oct17-green-table"
         ],
         "record_id": "option-oct17-green-table",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2150,11 +2258,11 @@
           "option-policy-retained-allowances"
         ],
         "record_id": "option-policy-retained-allowances",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2164,11 +2272,11 @@
           "option-source-Q-001"
         ],
         "record_id": "option-source-Q-001",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2178,11 +2286,11 @@
           "option-source-Q-002"
         ],
         "record_id": "option-source-Q-002",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2192,11 +2300,11 @@
           "option-source-Q-003"
         ],
         "record_id": "option-source-Q-003",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2206,11 +2314,11 @@
           "option-source-Q-004"
         ],
         "record_id": "option-source-Q-004",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2220,11 +2328,11 @@
           "option-source-Q-005"
         ],
         "record_id": "option-source-Q-005",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2234,11 +2342,11 @@
           "option-source-Q-006"
         ],
         "record_id": "option-source-Q-006",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2248,11 +2356,11 @@
           "option-source-Q-007"
         ],
         "record_id": "option-source-Q-007",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2262,11 +2370,11 @@
           "option-source-Q-008"
         ],
         "record_id": "option-source-Q-008",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2276,11 +2384,11 @@
           "option-source-Q-009"
         ],
         "record_id": "option-source-Q-009",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2290,11 +2398,11 @@
           "option-source-Q-010"
         ],
         "record_id": "option-source-Q-010",
-        "snapshot_id": "78805525-4ec3-44dd-b837-7fdb6a3347b4",
+        "snapshot_id": "6b5a7cdd-2edd-430a-a182-ccc471e5d4a9",
         "snapshot_path": "deliverables/snapshots/05-option-generation.json",
-        "snapshot_sha256": "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d",
+        "snapshot_sha256": "sha256:de9562aa0600901231c594618cc7f41abca85d4c07d587466fec4b1bfe90e86e",
         "stage": "option-generation",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2304,11 +2412,11 @@
           "source-group-budget-allocations"
         ],
         "record_id": "source-group-budget-allocations",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2318,11 +2426,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2332,11 +2440,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-0"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2346,11 +2454,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-1"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2360,11 +2468,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-2"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2374,11 +2482,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-3"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2388,11 +2496,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-4"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-4",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2402,11 +2510,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-5"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-5",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2416,11 +2524,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-6"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-6",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2430,11 +2538,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-7"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-limitations-7",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2444,11 +2552,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-online_equivalence-0"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2458,11 +2566,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-privacy-0"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-privacy-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2472,11 +2580,11 @@
           "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status"
         ],
         "record_id": "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2486,11 +2594,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-historical-time"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2500,11 +2608,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-0"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2514,11 +2622,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-1"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2528,11 +2636,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-2"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2542,11 +2650,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-3"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2556,11 +2664,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-4"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-limitations-4",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2570,11 +2678,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-online_equivalence-0"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2584,11 +2692,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-parser_limitations-0"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-parser_limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2598,11 +2706,11 @@
           "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-status"
         ],
         "record_id": "stage2-capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2612,11 +2720,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-historical-time"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2626,11 +2734,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-0"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2640,11 +2748,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-1"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2654,11 +2762,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-2"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2668,11 +2776,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-3"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2682,11 +2790,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-4"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-4",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2696,11 +2804,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-5"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-5",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2710,11 +2818,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-6"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-limitations-6",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2724,11 +2832,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-online_equivalence-0"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2738,11 +2846,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-0"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2752,11 +2860,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-1"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2766,11 +2874,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-2"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-possible_interpretations_not_resolutions-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2780,11 +2888,11 @@
           "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-status"
         ],
         "record_id": "stage2-capture-calendar-constraints-local-5e572b9e-0bd4-486f-919a-3cb014036ac2-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2794,11 +2902,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-completeness-0"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-completeness-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2808,11 +2916,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-historical-time"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2822,11 +2930,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-0"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2836,11 +2944,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-1"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2850,11 +2958,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-online_equivalence-0"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2864,11 +2972,11 @@
           "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-status"
         ],
         "record_id": "stage2-capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2878,11 +2986,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-completeness-0"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-completeness-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2892,11 +3000,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-historical-time"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2906,11 +3014,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-0"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2920,11 +3028,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-1"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2934,11 +3042,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-online_equivalence-0"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2948,11 +3056,11 @@
           "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-status"
         ],
         "record_id": "stage2-capture-event-brief-pdf-92839590-6f5c-40ce-a966-87487bd45dd4-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2962,11 +3070,11 @@
           "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-completeness-0"
         ],
         "record_id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-completeness-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2976,11 +3084,11 @@
           "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-historical-time"
         ],
         "record_id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -2990,11 +3098,11 @@
           "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-online_equivalence-0"
         ],
         "record_id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3004,11 +3112,11 @@
           "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-status"
         ],
         "record_id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3018,11 +3126,11 @@
           "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-verification_limit-0"
         ],
         "record_id": "stage2-capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d-verification_limit-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3032,11 +3140,11 @@
           "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-reason-0"
         ],
         "record_id": "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-reason-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3046,11 +3154,11 @@
           "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-status"
         ],
         "record_id": "stage2-capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3060,11 +3168,11 @@
           "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time"
         ],
         "record_id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3074,11 +3182,11 @@
           "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0"
         ],
         "record_id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3088,11 +3196,11 @@
           "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status"
         ],
         "record_id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3102,11 +3210,95 @@
           "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0"
         ],
         "record_id": "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+        "verification": "inherits-upstream-limitations"
+      },
+      {
+        "id": "decision-ancestor-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+        "summary": "Verified historical record ownership; source verification is not upgraded.",
+        "evidence_ids": [
+          "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status"
+        ],
+        "record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
+        "snapshot_path": "deliverables/snapshots/02-source-capture.json",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
+        "stage": "source-capture",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3116,11 +3308,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3130,11 +3322,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3144,11 +3336,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3158,11 +3350,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-3"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3172,11 +3364,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-4"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-4",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3186,11 +3378,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-5"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-5",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3200,11 +3392,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3214,11 +3406,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-0"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3228,11 +3420,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-1"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-1",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3242,11 +3434,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-2"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-2",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3256,11 +3448,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-3"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-3",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3270,11 +3462,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-4"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-4",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3284,11 +3476,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-5"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-limitations-5",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3298,11 +3490,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3312,11 +3504,11 @@
           "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status"
         ],
         "record_id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       },
       {
@@ -3326,11 +3518,11 @@
           "stage2-inherited-unknown-category-owner-identities"
         ],
         "record_id": "stage2-inherited-unknown-category-owner-identities",
-        "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+        "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
         "snapshot_path": "deliverables/snapshots/02-source-capture.json",
-        "snapshot_sha256": "sha256:abe8ff40d45da1e8ba8c45f35b715db99b17bd40fe66d5e5adc331334d00fe70",
+        "snapshot_sha256": "sha256:d8f82d222e576f0681443cc1f751b01b44894154a0d18e399696d22f2b1d4f90",
         "stage": "source-capture",
-        "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+        "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
         "verification": "inherits-upstream-limitations"
       }
     ],
@@ -3394,6 +3586,7 @@
           "check-oct17-green-table-provenance-integrity",
           "check-oct17-green-table-live-verification",
           "check-oct17-green-table-livestream-prerequisites",
+          "check-oct17-green-table-official-plenary-policy",
           "check-oct17-green-table-authorization",
           "check-oct17-city-pantry-quote-subtotal",
           "check-oct17-city-pantry-planning-total",
@@ -3449,6 +3642,7 @@
           "check-oct17-city-pantry-provenance-integrity",
           "check-oct17-city-pantry-live-verification",
           "check-oct17-city-pantry-livestream-prerequisites",
+          "check-oct17-city-pantry-official-plenary-policy",
           "check-oct17-city-pantry-authorization",
           "gate-operations",
           "gate-spending",
@@ -3474,6 +3668,7 @@
             "catering_capacity": "300.0",
             "catering_margin": "55.0",
             "hard_dependencies": [
+              "official-plenary-policy",
               "walkthrough-prerequisite"
             ],
             "unresolved_requirements": [
@@ -3481,6 +3676,7 @@
               "allocation-policy-security",
               "authorization",
               "live-verification",
+              "official-plenary-policy",
               "walkthrough-prerequisite"
             ],
             "condition_ids": [
@@ -3488,6 +3684,7 @@
               "condition-check-oct17-city-pantry-allocation-policy-security",
               "condition-check-oct17-city-pantry-authorization",
               "condition-check-oct17-city-pantry-live-verification",
+              "condition-check-oct17-city-pantry-official-plenary-policy",
               "condition-check-oct17-city-pantry-walkthrough-prerequisite"
             ],
             "check_ids": [
@@ -3527,6 +3724,7 @@
               "check-oct17-city-pantry-dietary-SIG-013",
               "check-oct17-city-pantry-live-verification",
               "check-oct17-city-pantry-livestream-prerequisites",
+              "check-oct17-city-pantry-official-plenary-policy",
               "check-oct17-city-pantry-planning-total",
               "check-oct17-city-pantry-programme",
               "check-oct17-city-pantry-provenance-integrity",
@@ -3560,18 +3758,21 @@
             "catering_capacity": "260.0",
             "catering_margin": "15.0",
             "hard_dependencies": [
+              "official-plenary-policy",
               "walkthrough-prerequisite"
             ],
             "unresolved_requirements": [
               "allocation-policy-security",
               "authorization",
               "live-verification",
+              "official-plenary-policy",
               "walkthrough-prerequisite"
             ],
             "condition_ids": [
               "condition-check-oct17-green-table-allocation-policy-security",
               "condition-check-oct17-green-table-authorization",
               "condition-check-oct17-green-table-live-verification",
+              "condition-check-oct17-green-table-official-plenary-policy",
               "condition-check-oct17-green-table-walkthrough-prerequisite"
             ],
             "check_ids": [
@@ -3610,6 +3811,7 @@
               "check-oct17-green-table-dietary-SIG-013",
               "check-oct17-green-table-live-verification",
               "check-oct17-green-table-livestream-prerequisites",
+              "check-oct17-green-table-official-plenary-policy",
               "check-oct17-green-table-planning-total",
               "check-oct17-green-table-programme",
               "check-oct17-green-table-provenance-integrity",
@@ -3656,6 +3858,7 @@
     "output_status": "draft",
     "audience": "internal-evidence-review",
     "inherited_unresolved_ids": [
+      "unknown-official-plenary-policy-review",
       "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
       "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
       "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -3711,6 +3914,12 @@
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -3738,15 +3947,69 @@
       "condition-check-oct17-green-table-allocation-policy-security",
       "condition-check-oct17-green-table-walkthrough-prerequisite",
       "condition-check-oct17-green-table-live-verification",
+      "condition-check-oct17-green-table-official-plenary-policy",
       "condition-check-oct17-green-table-authorization",
       "condition-check-oct17-city-pantry-allocation-policy-catering",
       "condition-check-oct17-city-pantry-allocation-policy-security",
       "condition-check-oct17-city-pantry-walkthrough-prerequisite",
       "condition-check-oct17-city-pantry-live-verification",
+      "condition-check-oct17-city-pantry-official-plenary-policy",
       "condition-check-oct17-city-pantry-authorization"
     ]
   },
   "unresolved": [
+    {
+      "id": "unknown-official-plenary-policy-review",
+      "summary": "Confirm real venue supplier permissions, livestream eligibility and technical/evacuation briefing arrangements before operational use; no completion or timing is evidenced.",
+      "evidence_ids": [
+        "obs-plenary-food-av",
+        "obs-plenary-livestream",
+        "obs-plenary-safety"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [
+        {
+          "evidence_id": "obs-plenary-food-av",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 items 1 and 5"
+          },
+          "retrieval_status": "retrieved"
+        },
+        {
+          "evidence_id": "obs-plenary-livestream",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 item 9"
+          },
+          "retrieval_status": "retrieved"
+        },
+        {
+          "evidence_id": "obs-plenary-safety",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 item 10"
+          },
+          "retrieval_status": "retrieved"
+        }
+      ],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [
+        "hc-official-plenary-policy"
+      ],
+      "resolution": "unresolved"
+    },
     {
       "id": "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
       "summary": "Individual category budget owner identities and assignments have not been established from the selected evidence; confirm during source capture.",
@@ -5210,6 +5473,167 @@
       "conflict_kind": null
     },
     {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "summary": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+        "summary": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "summary": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+        "summary": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "summary": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+        "summary": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "summary": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+        "summary": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+        "category": "verification_limit",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "verification_limit",
+        "original_detail": "Retrieved bytes only; source completeness, observations and historical applicability require review"
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+        "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+        "category": "capture-status",
+        "evidence_ids": [
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ],
+        "owner": null,
+        "original_status": "unavailable"
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+      "summary": "ConnectError",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+        "summary": "ConnectError",
+        "category": "reason",
+        "evidence_ids": [
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ],
+        "owner": null,
+        "metadata_field": "reason",
+        "original_detail": "ConnectError"
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
       "id": "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
       "summary": "Capture status remains unverified; no upgrade in verification is inferred.",
       "evidence_ids": [
@@ -6032,6 +6456,36 @@
       ]
     },
     {
+      "id": "condition-check-oct17-green-table-official-plenary-policy",
+      "summary": "Real venue supplier permissions and required pre-event technical/evacuation briefing remain unverified; fictional service coordination is not operational permission.",
+      "evidence_ids": [
+        "option-oct17-green-table",
+        "option-baseline-context"
+      ],
+      "affected_candidate_ids": [
+        "option-oct17-green-table"
+      ],
+      "affected_check_ids": [
+        "check-oct17-green-table-official-plenary-policy"
+      ],
+      "kind": "technical-prerequisite",
+      "resolution_state": "unresolved",
+      "blocks_technical_assessment": true,
+      "required_evidence": "Provide dated venue confirmation of catering/AV supplier permission, livestream provider eligibility if proposed, and the required technical-coordination/safety-evacuation briefing arrangements and completion before real event use; bind to the plan/date. No time or owner is inferred.",
+      "related_inherited_unresolved_ids": [
+        "unknown-official-plenary-policy-review"
+      ],
+      "owner": null,
+      "owner_roles": [],
+      "resolution_deadline": null,
+      "resolution_basis": [
+        {
+          "parent_record_id": "option-baseline-context",
+          "nested_record_id": "baseline-official-plenary-policy"
+        }
+      ]
+    },
+    {
       "id": "condition-check-oct17-green-table-authorization",
       "summary": "Operations, spending and external-action authorizations remain pending; Programme gate applies only to roster/duration changes.",
       "evidence_ids": [
@@ -6214,6 +6668,36 @@
         {
           "parent_record_id": "option-baseline-context",
           "nested_record_id": "baseline-accessibility-verification"
+        }
+      ]
+    },
+    {
+      "id": "condition-check-oct17-city-pantry-official-plenary-policy",
+      "summary": "Real venue supplier permissions and required pre-event technical/evacuation briefing remain unverified; fictional service coordination is not operational permission.",
+      "evidence_ids": [
+        "option-oct17-city-pantry",
+        "option-baseline-context"
+      ],
+      "affected_candidate_ids": [
+        "option-oct17-city-pantry"
+      ],
+      "affected_check_ids": [
+        "check-oct17-city-pantry-official-plenary-policy"
+      ],
+      "kind": "technical-prerequisite",
+      "resolution_state": "unresolved",
+      "blocks_technical_assessment": true,
+      "required_evidence": "Provide dated venue confirmation of catering/AV supplier permission, livestream provider eligibility if proposed, and the required technical-coordination/safety-evacuation briefing arrangements and completion before real event use; bind to the plan/date. No time or owner is inferred.",
+      "related_inherited_unresolved_ids": [
+        "unknown-official-plenary-policy-review"
+      ],
+      "owner": null,
+      "owner_roles": [],
+      "resolution_deadline": null,
+      "resolution_basis": [
+        {
+          "parent_record_id": "option-baseline-context",
+          "nested_record_id": "baseline-official-plenary-policy"
         }
       ]
     },

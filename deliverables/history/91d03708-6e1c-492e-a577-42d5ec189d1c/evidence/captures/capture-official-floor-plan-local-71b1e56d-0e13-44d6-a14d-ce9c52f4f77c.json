@@ -1,0 +1,54 @@
+{
+  "id": "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c",
+  "summary": "Registered user-supplied browser-downloaded TICC fourth-floor plan; local hash and depicted identity verified.",
+  "evidence_ids": [],
+  "source_identity": "official-floor-plan",
+  "source_role": "floor-plan-or-image",
+  "locator": "https://www.ticc.com.tw/wSite/public/Attachment/f1710485827023.pdf",
+  "retrieved_at": "2026-10-16T22:09:06.205350+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/pdf",
+  "content_hash": "sha256:8805ab527b7bb202a70534120ed4037dbde633301f1935e80bd04f12a7c70367",
+  "local_reference": "evidence/originals/f1710485827023.pdf",
+  "version_metadata": {
+    "method": "manual-browser-download-local-registration",
+    "publication_kind": "real-publication",
+    "provenance": "User reports downloading from the disclosed official TICC URL in a browser, then copying into the repository through WSL.",
+    "original_path": "evidence/originals/f1710485827023.pdf",
+    "size_bytes": 522512,
+    "registration_at": "2026-10-16T22:09:06.205350+00:00",
+    "timestamp_basis": "actual local registration time, not browser retrieval time",
+    "original_browser_download_at": null,
+    "original_browser_download_time_status": "unverified",
+    "response_status": null,
+    "response_status_basis": "No HTTP response was observed during local registration.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 287
+    },
+    "hash_verification": "Matches independently supplied SHA-256; calculated with sha256sum and Python hashlib.",
+    "document_identity_verification": "Page 1 visibly identifies 4F Floor Plan and Taipei International Convention Center / T.I.C.C.",
+    "online_equivalence": "Browser origin is user-reported; no independent live retrieval performed.",
+    "inspection_method": "Inspected one-page PDF structure and temporary Cairo rendering of vector paths. Standard PDF tools unavailable; embedded raster images and some graphics-state details were omitted. Identity labels were readable vector outlines.",
+    "verification_limit": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval.",
+    "prior_attempt_id": "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7"
+  },
+  "observations": [
+    {
+      "id": "obs-floor-plan-level",
+      "summary": "Page title reads 4F Floor Plan.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 1, lower centre in upright landscape orientation"
+      }
+    },
+    {
+      "id": "obs-floor-plan-venue",
+      "summary": "Title block identifies TICC / Taipei International Convention Center / T.I.C.C.",
+      "locator": {
+        "kind": "page-region",
+        "value": "Page 1, right-side title block in upright landscape orientation"
+      }
+    }
+  ]
+}

@@ -1,5 +1,88 @@
 # Project C implementation
 
+## Read-only run and recovery contract foundation
+
+`src/event_coordination/run_contract.py` provides read-only metadata and inspection
+APIs plus scoped new-run bindings used by the Stage 01–09 coordinator below. It
+does not write or archive files itself. Historical outputs remain unchanged; the
+existing builders now also accept verified predecessors from an active new run.
+
+The available APIs are:
+
+- `new_run_metadata(...)`, `new_snapshot_id()`, and `validate_run_metadata(...)`:
+  fresh UUIDs and strict version-1 metadata. New Stage 01 inspection expects this
+  metadata under `state.run_metadata`; Stage 01 predecessor/consumed-ID rules remain
+  unchanged. Supersession requires reasons with evidence IDs. Exact integer types
+  reject Boolean versions. Unknown fields, including invented authorization
+  fields, are rejected. These helpers do not authenticate a human decision.
+- `InputSpec`, `pin_inputs(root, specs)`, `verify_inputs(root, pins)`, and
+  `compare_manifests(previous, current)`: explicit immutable local file pins,
+  SHA-256, filesystem identity, and deterministic added/removed/changed results.
+  Specs are supplied as a tuple, with unique file IDs and paths. Optional expected
+  hashes must match. Optional `source_id` associates several representations or
+  capture/media files with one disclosed source. Without it, a `source` input's
+  file ID is its source identity. Non-source roles do not silently become sources.
+- `SnapshotExpectation`, `inspect_predecessor(...)`: use a trusted pin and expected
+  run/snapshot/sequence plus a schema pin. For stages after 01, pass the previous
+  `InspectedSnapshot` as `predecessor`. Hashing and JSON parsing use the same exact
+  bytes. Duplicate JSON keys, malformed JSON, schema/format violations, changed
+  identities, and broken immediate predecessor links fail closed. Final rechecks
+  cover the schema, current file, and immediate predecessor. Callers must also
+  revalidate their complete protected-input manifest across a future batch.
+- `inspect_legacy_run(root)`: explicit compatibility for run
+  `988f5ccf-4aeb-44d7-984d-777b1a2412e1`, its eight saved snapshot hashes, and the
+  unchanged schema hash. It invokes existing stage semantic validators without
+  changing their historical pins. It does not generate Snapshot 09.
+- `plan_archive(root, run_id, pins)`: read-only copy plan targeting
+  `deliverables/history/<run_id>/`. Mirroring original relative paths preserves
+  references. Existing destinations, unsafe parents, recursive history copies,
+  and files outside evidence/interviews/deliverables/schema scope are rejected.
+  It is a plan, not a reservation or a completeness certificate.
+- `describe_failure(...)`: returns a structured failure description with safe
+  error codes and actual execution time, separate from the fixed business clock.
+  Missing hashes remain `None`. It never creates `failure.json` or claims recovery.
+
+Roots must be absolute, with no symlinked prefixes. Input reads use directory
+file descriptors, no-follow opens, regular-file checks, and named identity
+rechecks. Pins detect byte changes and same-byte file replacement. They are local
+integrity observations, not proof of online equivalence or authority. Trusted
+expected hashes and complete input selection remain the caller's responsibility.
+No read-only check can reserve a future output or prevent host changes after its
+final observation; a future writer must repeat the checks during execution.
+
+For example, this inspects only the explicitly selected schema file:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B - <<'PY'
+from pathlib import Path
+from event_coordination.run_contract import InputSpec, pin_inputs, verify_inputs
+root = Path.cwd()
+pins = pin_inputs(root, (InputSpec("schema", "snapshot.schema.json", "schema"),))
+verify_inputs(root, pins)
+print("Selected local input unchanged; no files written")
+PY
+```
+
+Run focused temporary-fixture contract tests:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_run_contract.py
+```
+
+Run regression tests with the existing environment:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider
+```
+
+These commands suppress repository bytecode and pytest cache writes. Tests that
+exercise writers use temporary project copies, never real deliverables.
+The read-only APIs below do not write archives or failures. Managed execution,
+persisted manifests and bounded recovery are now implemented by `execute`,
+documented at the end of this file. The older `run-stages` command remains a
+one-off new-workspace runner. Preserve partial outputs and request review
+on failure. Do not treat a proposed supersession or recommendation as authorization.
+
 ## Install
 
 Use Python 3.12 or newer. From the repository root, create an isolated environment
@@ -20,7 +103,7 @@ Stages 1–6 use jsonschema with date-time format checking, plus standard-librar
 JSON, SHA-256 hashing, UUIDs, and timezone-aware timestamps. Stage 1 has an argparse
 CLI. Stage 2 exposes Python functions, including HTTPX capture utilities; Jinja2,
 icalendar, and tzdata support the planned later workflow. Final event artifact
-generation is not implemented. Stage 3 uses read-only ZIP/XML extraction of XLSX
+generation is implemented in Stage 8. Stage 3 uses read-only ZIP/XML extraction of XLSX
 cells and preserved text lines; it does not recalculate formulas or require an
 additional spreadsheet dependency.
 
@@ -32,9 +115,8 @@ additional spreadsheet dependency.
 
 Running `event-coordination` without arguments also displays help. Use
 `event-coordination stage1 --help` for Stage 1 options.
-The CLI currently exposes only `stage1`; its help description still says only
-Stage 1 is implemented. Stage 2 is available through the Python commands below,
-not an `event-coordination stage2` subcommand.
+The CLI exposes `stage1` and `run-stages`. Individual Stage 2 execution remains
+available through the Python commands below, not a `stage2` subcommand.
 Stage 3 likewise uses a Python API, not a `stage3` CLI subcommand.
 Stage 4 uses a Python API, not a `stage4` CLI subcommand.
 Stage 5 also uses a Python API, not a `stage5` CLI subcommand.
@@ -855,7 +937,7 @@ Implementation/testing permission is not a learner decision or business approval
 Stop for human review before real snapshot generation, selection, new approval
 evidence, policy changes, or external action. Existing ordinary local tests
 are sufficient; neither the dry-run protocol nor the isolated runner is enabled
-for operational execution. Genuine human decision/approval ingestion and Stage 9 remain unimplemented;
+for operational execution. Genuine human decision/approval ingestion remains unimplemented; Stage 9 validates drafts locally;
 Stage 8 has the in-memory foundation and separately authorized controlled writer documented below. A deferral is an honest intermediate state when criteria do
 not support a unique provisional recommendation; it does not establish final
 assignment acceptance or permission to release drafts.
@@ -910,7 +992,8 @@ The four renderers prepare:
 - Tentative calendar ICS: Stage 6's verified Green Table schedule witness plus
   the Operations deadline, conditional walkthrough and rehearsal window. Events
   use Asia/Taipei, a timezone component, deterministic UIDs, actual UTC DTSTAMP,
-  TENTATIVE status and transparent availability. No METHOD, organizer or attendee
+  TENTATIVE status and transparent availability. METHOD:PUBLISH is draft file
+  metadata only; no organizer or attendee
   addresses are supplied. The point deadline has no invented duration; the
   conflicting fallback is not emitted as a confirmed event. Witness ordering,
   breaks and flexible time remain planning choices; setup/teardown are envelopes.
@@ -957,11 +1040,68 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest tests/test_stage8.py -q 
 
 Use the existing full-suite command for regressions. Stop for review before real
 artifact generation, Snapshot 08, decisions, approvals, commits or external actions.
-Stage 9 and operational execution remain unimplemented/disabled. Protected input
+Stage 9 technical validation is implemented; operational execution remains disabled. Protected input
 checks detect observed changes but do not lock out host changes after observation.
 
 
 ## Stage 8 Part 2 — controlled draft and snapshot writer
+
+### Published draft contract correction
+
+New rendering and builds use `state.draft_contract_version=assignment-drafts/1`.
+`event_coordination.draft_contract` checks the published starter assignment
+(`c724104:README.md`, lines 104–110), in addition to existing Stage 8 evidence,
+arithmetic, schedule, privacy and integrity validation. No new dependency or CLI
+subcommand is added. The existing `render_artifacts(context, created_at)` and
+`build_bundle(root)` APIs default to this corrected contract; these render/build
+in memory. The separately authorized exclusive writer also uses the new default.
+
+- CSV retains all ten quotes, two candidates, four screenings and original source
+  notes, and adds `option_id`, `planning_people`, `cost_twd`, `currency`,
+  `feasibility`, `availability_status`, `tradeoffs`, `unresolved`, `approval_status`.
+  Together with existing `quote_ids` and `evidence_ids`, these satisfy the published
+  minimum columns. `quote_ids` uses semicolon-separated IDs; evidence IDs retain
+  their existing identifiers; tradeoffs and unresolved entries are JSON arrays.
+  Candidate costs are full planning totals, including the retained allowances;
+  quote costs cover quoted services only. Early screenings without evidenced
+  complete totals have blank cost and a reason. Quote/screening planning quantities
+  remain blank rather than borrowing a service capacity as event attendance.
+  Fictional source states remain in `source_status`; `availability_status` is
+  explicitly unverified real-world availability. Candidate feasibility remains
+  conditional; quotes and screenings do not claim a full feasibility assessment.
+- Monetary CSV fields, budget/comparison tables and derived TWD policy prose use
+  exact integer text (494000/512000 totals). Fractions, unknown values, NaN,
+  Booleans and floating-point inputs are rejected rather than rounded or made zero.
+  Source facts and original quote notes retain their captured lexical values.
+- ICS includes `VERSION:2.0` and `METHOD:PUBLISH`, with tentative events and no
+  attendees or organizer. This is local calendar metadata, not a send/publish
+  action. Witness timing, evidence references and stable event UIDs are preserved.
+- Every message is labelled `UNSENT DRAFT` and includes audience, purpose,
+  conditions and approval owner. Operations/category review roles come from their
+  pending gates. The external-release gate has no established owner, so vendor,
+  staff and attendee messages explicitly retain an unresolved release owner.
+  No recipient, approval or external commitment is inferred.
+
+Historical compatibility is limited to saved Snapshot 08
+`0ae9725f-8f59-4fa9-994f-9cd18c376e70`, SHA-256
+`a96c01eb2fdcfbad709445918142a888c0b018ef1b6b6e6df9e748f36413d0a6`,
+with its exact stored JSON and verified artifact bytes. Its older CSV layout,
+decimal displays and METHOD absence remain auditable. This verifies historical
+integrity, not compliance with the corrected draft contract. Missing/unknown
+version tags on a new snapshot cannot request that exception. All new builds
+require the new version and validation. Private legacy rendering helpers are
+used solely to reconstruct the pinned historical snapshot during validation.
+
+Temporary-fixture checks (no real artifact generation):
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_draft_contract.py tests/test_stage8.py
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_run_contract.py tests/test_stage7.py
+```
+
+The existing run remains unchanged. Fresh runs are supported only in a separate
+new workspace using the command below; material-change handling uses the managed `execute` entrypoint below; Stage 9 validates saved drafts locally. This does not authorize replacement of the real outputs. Historical compatibility must never count as new-contract
+acceptance. Replacement of audited outputs requires separate review and authorization; keep all pending approvals and uncertainty intact.
 
 `event_coordination.stages.drafts.write_snapshot(root)` is the implemented Python
 entry point; there is still no Stage 8 CLI subcommand. It requires existing,
@@ -1034,8 +1174,7 @@ claim is made of transactional isolation or immunity to changes after observatio
 The writer performs no Git mutation, retrieval, messaging or production-calendar action.
 
 Temporary-fixture coverage is included in `tests/test_stage8.py`, using the same
-focused command as Part 1. Operational automation remains disabled; Stage 9 is
-not implemented. Stop for human review before real generation or any Git milestone.
+focused command as Part 1. Operational automation remains disabled; Stage 9 validates saved drafts locally. Stop for human review before real generation or any Git milestone.
 
 ## Level 2 supervised automation foundation (dry-run only)
 
@@ -1168,7 +1307,7 @@ cannot authenticate a human from free text, prevent changes by concurrent proces
 or safely execute arbitrary Python just because its command matches an allowlist.
 Operational authorization/execution and artifact generation remain separate future
 milestones. Stage 7 has a provisional recommendation model; Stage 8 supports
-in-memory drafts and separately authorized controlled writing. Stage 9 remains unimplemented. Changed source evidence still requires upstream reevaluation;
+in-memory drafts and separately authorized controlled writing. Stage 9 technical validation is available through the coordinator below. Changed source evidence still requires upstream reevaluation;
 the protocol cannot bypass pinned predecessor hashes.
 
 Run focused tests with:
@@ -1318,7 +1457,7 @@ human authorization.
 
 Preserve `README.md`, `snapshot.schema.json`, all interviews, and original evidence
 unchanged. Stages 1–7 and the Stage 8 in-memory draft foundation are implemented;
-Stage 8 controlled writing is implemented but real generation requires separate authorization; Stage 9 remains unimplemented.
+Stage 8 controlled writing is implemented but real generation requires separate authorization; Stage 9 technical validation is available through the coordinator below.
 Stage 2's offline assembler and Stage 3–7 builders do not call the separately available retrieval utilities. No booking,
 spending, invitation, or publishing action is performed. Generated editable-install
 `*.egg-info/` metadata is ignored by Git and can remain locally.
@@ -1328,3 +1467,261 @@ dietary signals. Do not expose private individual medical/contact details or cop
 the inventory wholesale into general artifacts. Public repository inclusion needs
 explicit publication review. Preserve all Entire checkpoint history; do not delete
 or rewrite checkpoints as a documentation or packaging step.
+
+## Run Stages 01–09 from registered local evidence
+
+This one command executes the existing nine builders and exclusive writers in
+order, producing a new run and four `assignment-drafts/1` drafts. It reuses the
+registered sources, not the historical snapshots or artifacts. It performs no
+remote retrieval and validates nine stages without claiming material-change recovery or external publication.
+
+Prerequisites: the installed project environment described above, Linux x86_64
+with working `openat2` restrictions, the unchanged schema, all registered capture
+records and original evidence, and both preserved interviews. Use absolute,
+canonical paths. The workspace must be absent, outside the source repository,
+with an existing safe parent directory; symlinks and existing destinations fail.
+No dependency installation is performed by this command.
+
+From the source repository, choose a new destination for each execution:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m event_coordination.cli run-stages --source-root /home/maxg/event-coordination --workspace /tmp/project-c-new-run
+```
+
+Do not reuse that destination if it already exists. `run-stages --help` lists the
+implemented options. A zero exit status and the JSON stdout report identify the
+actual run/snapshot UUIDs, saved SHA-256 hashes, draft paths and validation status.
+Execution timestamps are actual times; business evaluation remains fixed at
+2026-08-26 12:00 Asia/Taipei. Original capture attempt/retrieval metadata is copied
+unchanged, including failed retrievals, unknown browser download times, fictional
+exercise records and manually completed copies. A local copy is not a new verified
+remote retrieval.
+
+The coordinator copies only schema, evidence and interviews into private new
+workspace directories; it does not copy `.git`, `.entire`, old snapshots or old
+artifacts. This is filesystem separation for trusted local processing, **not an
+OS sandbox**. The supervised execution runner remains disabled. The copied
+evidence can contain restricted attendee information: keep the workspace local
+and restricted; do not publish it as a package.
+
+Stage 01 records new-run metadata. Each subsequent stage accepts only a predecessor
+already written, reopened, schema/semantically validated and registered in the
+active run. Hashes come from the exact saved bytes parsed for inspection. Run
+bindings are scoped to this workspace; historical constant pins still apply
+outside that scope. Source and copied input identities/hashes, schema, media copy
+and saved predecessors are rechecked around every stage. New IDs also scope
+calendar UIDs; source observations retain their original IDs and provenance.
+
+Outputs are nine numbered JSON files under `WORKSPACE/deliverables/snapshots/`,
+the verified floor-plan PDF under its `evidence/` subdirectory, and
+`vendor-comparison.csv`, `event-plan.md`, `event-calendar.ics`, and
+`draft-communications.md` under `WORKSPACE/deliverables/`. The current evidence
+produces partial snapshots, 88 unresolved records, five pending gates and four
+retained screening records. The Green Table recommendation remains provisional;
+no selection, spending authority, invitations, calendar publication or external
+communication occurs. `METHOD:PUBLISH` is file metadata only.
+
+On failure, the command exits unsuccessfully and preserves partial workspace
+contents for review. Do not delete, overwrite or retry into that directory. The one-off `run-stages` command does not archive or recover outputs; use
+`execute` below for managed execution and failure receipts. Changes
+to business source values may still be rejected by the existing evidence-bound
+stage logic; the coordinator does not silently repin or reinterpret them.
+
+The orchestration tests execute this CLI with actual builders in separate temporary
+workspaces, then independently inspect saved schema, lineage, artifact bytes and
+approval boundaries. They also test collisions and changed inputs:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_pipeline.py
+```
+
+## Stage 09 — publication validation of saved drafts
+
+The `run-stages` command above now defaults to all nine stages. Use
+`--through-stage 8` only to stop before final validation. Stage 09 is implemented
+in `event_coordination.stages.publication`; the shared validator routes
+`publication-validation` snapshots to its semantic checks. No separate `stage9`
+CLI subcommand exists. Existing runtime prerequisites are unchanged.
+
+Stage 09 reopens all four saved `assignment-drafts/1` artifacts, checks hashes
+against saved Stage 08, parses their assignment fields independently of rendering,
+and revalidates source-backed content and the full upstream chain. Snapshot
+`deliverables/snapshots/09-publication-validation.json` records actual relative
+artifact paths, SHA-256 hashes and evidence-linked validation checks. Its own
+predecessor ID/hash come from the saved Stage 08 bytes. It uses the shared run ID,
+a fresh snapshot UUID and actual UTC execution time. Source retrieval states and
+all 88 unresolved records, five pending gates and four screening records persist.
+
+`technical_validation_status: valid` and passed checks apply only to local draft
+files. `publication_status: blocked`, `external_publication_status: not-published`
+and overall `status: partial` retain pending business approvals and operational
+verification. No sending, spending, booking or external publication occurs.
+Invalid or missing inputs raise an error without claiming successful validation;
+the CLI exits unsuccessfully and retains partial outputs. Stage 09 uses the same
+secure exclusive writer and refuses existing output. The managed `execute` entrypoint below adds history, recovery and persisted
+failure receipts; the one-off writer itself never replaces prior output.
+
+Focused checks use temporary fixtures (a supplied completed workspace is copied,
+never modified):
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_stage9.py
+```
+
+For a recently completed real run, set `PROJECT_C_STAGE9_BASIS` to its workspace
+to reuse a copied fixture instead of executing Stages 01–08 again.
+
+## Managed execution, semantic changes and bounded recovery
+
+Use a **dedicated external workspace**, not the repository or the audited
+deliverables directory. The source root remains read-only. Existing runtime/setup
+requirements above apply; no dependencies or external services are added.
+
+The reusable Skill has an executable Python entrypoint. From the installed source
+project, this is the managed end-to-end command:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B event-planning-coordination-brief/scripts/run.py --source-root /home/maxg/event-coordination --workspace /tmp/project-c-managed-run
+```
+
+Equivalent CLI: `python -m event_coordination.cli execute --source-root SOURCE
+--workspace WORKSPACE`. The workspace must have a safe existing parent, be outside
+the source root and initially be absent or empty. Existing unrelated workspaces,
+Git repositories, symlinked paths and unsafe destinations are refused.
+`run-stages` still provides one-off execution into an absent directory; it does
+not replace outputs. Neither command enables the isolated supervised runner.
+
+Input changes:
+
+- `input_changes.py` reads actual registered XLSX bytes by header label and primary
+  key: budget `category`, attendance `signal_id`, vendor `quote_id`, calendar
+  `constraint_id`. It sorts semantic records and compares canonical values.
+  Reordered rows/headers and unrelated extra columns, including combined changes,
+  do not become business changes. Raw bytes and actual cell locators are preserved.
+- Required headers/values, unique identities, whole nonnegative numeric values,
+  explicit dates/timezones, supported statuses and priorities are checked.
+  Duplicate headers, cells, JSON keys and ambiguous worksheets are rejected.
+  Formulas in required fields and unsupported required-cell formats fail. Unrelated
+  extra-column formulas are ignored without evaluation; no recalculation or guess
+  substitutes for evidence. Unmodeled approval/authorization columns require review. Newly meaningful extra columns need a reviewed
+  mapping rather than being silently interpreted as a requirement.
+- Supply revised **registered** source/capture pairs, including accurate hashes,
+  observations and current locators. The executor does not edit registrations,
+  invent source observations, or reinterpret a local import as remote retrieval.
+  Revision attempts must preserve original bytes/records; the archive also retains
+  the previous active run's complete evidence.
+- Source identities come from the disclosed catalog. Capture IDs, registration
+  timestamps and coordinate changes alone do not establish a material business
+  change. Content values, retrieval states and substantive limitations do. Interview
+  and schema hashes are separately checked so layout equivalence cannot hide them.
+- Optional `evidence/decision-requests.json` is a JSON array of exact objects
+  `{ "id": "request-...", "summary": "...", "status": "proposed" }`. These
+  are advisory requests, preserved in Stage 01 and compared by stable ID. They are
+  not proof of a learner decision or approval. Approved/rejected status claims,
+  additional authority fields and duplicate IDs are refused.
+
+Execution and preservation:
+
+1. A private lock and atomic attempt journal identify the executing process, new
+   attempt/run ID and affected stage. Existing valid runs are checked using saved
+   hashes, all nine schemas/semantics and source evidence, not existence alone.
+2. Equivalent registered inputs retain the validated run. Incoming layout-only
+   representations are preserved under `.attempts/ATTEMPT/equivalent-inputs/`.
+3. For changed or recovered runs, all nine real builders run in a new private
+   `.attempts/ATTEMPT/candidate/`. Stage 01 records `supersedes_run_id`, changed
+   source/decision IDs and reasons; subsequent predecessor hashes come from actual
+   serialized bytes. All checks, recommendations, approvals and drafts are rebuilt.
+4. After complete candidate validation and **before replacing active files**, the
+   old run is copied and hash-verified under `deliverables/history/RUN_ID/`. This
+   retains schema, interviews, source originals, capture attempts, snapshots,
+   artifacts and prior execution manifest. An `archive.json` records observed
+   hashes and missing/corrupt files; an incomplete copy is never labelled valid.
+5. Active files are installed using safe temporary files and atomic replacements.
+   Superseded active inputs are preserved in the failed-attempt area, not silently
+   deleted. The new `deliverables/run-manifest.json` pins inputs and outputs; all
+   nine stages and saved artifacts are validated again after promotion.
+
+Recovery is explicit:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B event-planning-coordination-brief/scripts/run.py --source-root /home/maxg/event-coordination --workspace /tmp/project-c-managed-run --recover
+```
+
+Missing, corrupt or stale outputs fail normal execution. After review, `--recover`
+rebuilds from registered evidence with fresh IDs and preserves the damaged view
+with honest archive-integrity findings. Interrupted attempts stay in `.attempts/`.
+A dead same-host lock can be retired only with `--recover`; live, unverifiable or
+PID-reused locks fail closed. A crash journal prevents an interrupted promotion
+from being accepted as a completed run.
+
+Failures persist `deliverables/failure.json` and a separate immutable receipt under
+`deliverables/failures/`. Fields include run/attempt IDs, actual UTC `observed_at`,
+controlled `error`, `affected_stage` (0 means preflight), observed available-evidence
+paths/hashes, affected artifacts, technical `next_owner` and a recovery action.
+These observed bytes are not claims of remote retrieval. Previous receipts are
+retained even after recovery. Unsafe/unmanaged paths or an active lock may prevent
+writing a receipt; refusing writes there takes precedence over producing a file.
+
+Boundaries and remaining blockers:
+
+- Completed history is never overwritten. A partial/conflicting history archive
+  or failed archive verification stops for human review; this batch does not
+  automatically repair historical archive contents.
+- The reviewed planning case still has a 245-person brief and named/date-scoped
+  programme/service rules. Changes requiring a new brief interpretation, missing
+  core records or an unsupported programme cannot be invented by normalization.
+- If the deterministic policy defers without a supported recommendation, Stage 8
+  currently stops rather than choosing a calendar/vendor basis on the learner's
+  behalf. Actual business approval ingestion is not implemented.
+- All successful draft runs retain pending business authorization and blocked
+  publication. `failure.json`, source copies, internal snapshots and request text
+  may be internal evidence; keep the workspace restricted. This is trusted local
+  processing in separate storage, not an OS sandbox or a transaction over the
+  entire directory. Concurrent hostile host mutations and post-validation edits
+  are not prevented; detected changes fail closed. No Git/Entire operations occur.
+
+Focused checks (temporary fixtures and actual changed-input/recovery execution):
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_execution.py tests/test_run_contract.py
+```
+
+Set `PROJECT_C_EXECUTION_BASIS` to an already completed managed workspace to reuse
+a copied baseline fixture. The original supplied workspace is never modified.
+The changed quote in these tests is explicitly synthetic, not a new real offer.
+
+## Official Plenary Hall source addition
+
+The current catalog includes `official-plenary-hall` separately from the required
+floor-plan PDF. The exact URL is absent from both preserved interview exports;
+its disclosure is evidenced by the unchanged published assignment copied from Git
+commit `c724104` to `evidence/source-disclosures/project-c-assignment-c724104.md`,
+line 85, and the learner's explicit source request. No interview was rewritten.
+
+The sandbox `ConnectError` and successful HTTP 200 retry are separate capture
+records. Original successful HTTP bytes are preserved by SHA-256. The successful
+record adds inspected, located public-policy observations; its pre-inspection HTTP
+receipt is retained separately. Retrieval is actual UTC, not the business clock.
+
+New pipeline runs require all eight source identities. Only the exact original
+Stage 01 hash retains the historical seven-source inventory view; fresh preflight
+explicitly inspects all current captures. Historical snapshots are not rewritten.
+
+The current public page describes 3,122 full-hall seats and a weekend per-period
+tariff; neither replaces the fictional 500-place allocation or negotiated
+all-inclusive TWD 155000 amount. Catering/AV restrictions, livestream-provider
+eligibility and required technical/safety-evacuation briefing introduce explicit
+real-use verification conditions. No supplier permission, briefing completion,
+reservation or historical as-of-August website content is inferred. These conditions
+flow through the baseline, feasibility checks, draft comparison and event plan.
+The original 88 unresolved records remain a subset of the expanded current list.
+
+The registered-source command still performs offline planning from captured inputs.
+This addition demonstrates a real HTTP retrieval, not automatic refresh of the
+Notion/Google Sheets sources inside the end-to-end command.
+
+Focused checks:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_plenary_source.py tests/test_capture.py tests/test_stage2.py
+```

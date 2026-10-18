@@ -1,14 +1,14 @@
 {
   "schema_version": "event-coordination-stage-snapshot/2",
-  "snapshot_id": "7e223901-57c7-4a24-8ba8-597241feb2ec",
+  "snapshot_id": "176bde9d-65d0-4252-a886-017fdbbb7b8c",
   "stage": "source-capture",
   "sequence": 2,
-  "created_at": "2026-10-16T23:50:05.289647+00:00",
-  "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+  "created_at": "2026-10-18T11:22:14.091414+00:00",
+  "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
   "predecessor": {
-    "snapshot_id": "9a9c632d-dc6e-475c-b207-581e8725ebbf",
+    "snapshot_id": "12192361-f1c3-41b8-9397-4622fc0b9cd2",
     "path": "deliverables/snapshots/01-scope-and-approval-gates.json",
-    "sha256": "sha256:6579a81d06ac405d3e612dbe7ad4d354b9373ff5840168af0981d961186fde7d"
+    "sha256": "sha256:f36cff24a64e05da05173be7825070082a75469c5d4d6eaf29ff53f193cbc227"
   },
   "consumed_record_ids": [
     "scope-objective",
@@ -26,6 +26,8 @@
     "capture-official-accessibility-local-59727172-55db-4f6f-8aab-9e1148d5cf6d",
     "capture-official-floor-plan-3a35bce4-690a-4d88-99b5-10990aafbfa7",
     "capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c",
+    "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+    "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93",
     "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
     "source-group-attendee-signals",
     "source-group-budget-allocations",
@@ -33,6 +35,7 @@
     "source-group-event-brief",
     "source-group-official-accessibility",
     "source-group-official-floor-plan",
+    "source-group-official-plenary-hall",
     "source-group-vendor-register",
     "stage2-inherited-unknown-category-owner-identities",
     "stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
@@ -92,6 +95,12 @@
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+    "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
     "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -151,6 +160,11 @@
     "obs-accessibility-4f-link",
     "obs-floor-plan-level",
     "obs-floor-plan-venue",
+    "obs-plenary-identity",
+    "obs-plenary-tariff",
+    "obs-plenary-food-av",
+    "obs-plenary-livestream",
+    "obs-plenary-safety",
     "obs-vendors-headers",
     "obs-quote-q-001",
     "obs-quote-q-002",
@@ -1118,6 +1132,121 @@
         ]
       },
       {
+        "id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+        "summary": "Capture attempt for official-plenary-hall",
+        "evidence_ids": [],
+        "source_identity": "official-plenary-hall",
+        "source_role": "venue-page",
+        "locator": "https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp",
+        "retrieved_at": "2026-10-18T11:17:51.955691+00:00",
+        "retrieval_status": "retrieved",
+        "content_type": "text/html",
+        "version_metadata": {
+          "method": "http-get",
+          "publication_kind": "real-publication",
+          "disclosure": {
+            "path": "evidence/source-disclosures/project-c-assignment-c724104.md",
+            "line": 85
+          },
+          "response_status": 200,
+          "byte_representation": "HTTP body without content encoding; transfer framing removed",
+          "verification_limit": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+          "completed_at": "2026-10-18T11:17:53.941863+00:00",
+          "timestamp_basis": "Actual HTTP attempt start; not the simulated business clock",
+          "execution_environment": "Approved retry outside sandbox after sandbox ConnectError",
+          "disclosure_basis": "Published assignment c724104:README.md line 85; exact URL absent from preserved interview exports; repeated by learner in current request",
+          "inspection_at": "2026-10-18T11:20:44.217412+00:00",
+          "request_receipt_path": "evidence/capture-attempts/capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-http-receipt.json",
+          "request_receipt_sha256": "sha256:7fd77a95e395230d0f4e41c9108ff3607272db8c156f1129c06673da1f9bdd3f",
+          "limitations": [
+            "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+            "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+            "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced."
+          ]
+        },
+        "content_hash": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+        "local_reference": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+        "observations": [
+          {
+            "id": "obs-plenary-identity",
+            "summary": "Official page describes the full Plenary Hall with 3,122 fixed seats; this is not the fictional front-500 allocation.",
+            "locator": {
+              "kind": "section",
+              "value": "空間簡介 / fixed seating"
+            },
+            "source_excerpt": "大會堂為國內少數擁有固定座位的大型展演場所，專為大型集會及演藝活動所設計，固定座位共3,122席(每張座椅均附抽取式側桌)，除舞台上設有貫穿2-6樓的860吋超大型天幕外，舞臺兩側及會場中段皆設有300吋升降式投影幕。此外，為配合重要貴賓蒞臨特設有貴賓休息室及直通舞台的電梯。",
+            "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+          },
+          {
+            "id": "obs-plenary-tariff",
+            "summary": "Public weekend tariff is TWD 170000 per stated rental period; it is not the synthetic TWD 155000 negotiated all-inclusive package.",
+            "locator": {
+              "kind": "section",
+              "value": "每時段租金 / 週六～週日"
+            },
+            "source_excerpt": "週六～週日 / 170000 元",
+            "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+          },
+          {
+            "id": "obs-plenary-food-av",
+            "summary": "Public rules prohibit self-supplied AV equipment and outside meeting refreshments/meal boxes. Fictional TICC-coordinated offers do not establish real supplier permission.",
+            "locator": {
+              "kind": "section",
+              "value": "注意事項 items 1 and 5"
+            },
+            "source_excerpt": "*所有視聽設備均不得自備。 / 5. 本中心會議茶點及餐盒(含攤位贈送點心)禁止自帶。",
+            "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+          },
+          {
+            "id": "obs-plenary-livestream",
+            "summary": "Public livestream rules require informing the venue and restrict providers to its contracted suppliers; Q-008 is not permission.",
+            "locator": {
+              "kind": "section",
+              "value": "注意事項 item 9"
+            },
+            "source_excerpt": "9.本中心自111年起活動若有直播需求，請主動告知承辦人，恕不開放非本中心合約廠商提供服務。",
+            "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+          },
+          {
+            "id": "obs-plenary-safety",
+            "summary": "Plenary Hall clients must attend a technical-coordination meeting and safety/evacuation briefing before the event; no completion or scheduled time is evidenced.",
+            "locator": {
+              "kind": "section",
+              "value": "注意事項 item 10"
+            },
+            "source_excerpt": "10.凡租用大會堂之客戶需於活動前出席技術協調會及安全逃生講習，詳情請洽承辦人。",
+            "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+          }
+        ]
+      },
+      {
+        "id": "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93",
+        "summary": "Capture attempt for official-plenary-hall",
+        "evidence_ids": [],
+        "source_identity": "official-plenary-hall",
+        "source_role": "venue-page",
+        "locator": "https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp",
+        "retrieved_at": "2026-10-18T11:16:04.423957+00:00",
+        "retrieval_status": "unavailable",
+        "content_type": "unknown",
+        "version_metadata": {
+          "method": "http-get",
+          "publication_kind": "real-publication",
+          "disclosure": {
+            "path": "evidence/source-disclosures/project-c-assignment-c724104.md",
+            "line": 85
+          },
+          "response_status": null,
+          "reason": "ConnectError",
+          "completed_at": "2026-10-18T11:16:04.521207+00:00",
+          "timestamp_basis": "Actual HTTP attempt start; not the simulated business clock",
+          "disclosure_basis": "Published assignment c724104:README.md line 85; exact URL absent from both preserved interview exports; repeated by learner in current request"
+        },
+        "content_hash": null,
+        "local_reference": null,
+        "observations": []
+      },
+      {
         "id": "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
         "summary": "Registered local Vendor Quotes Excel export; all ten quote rows inspected with cell references.",
         "evidence_ids": [],
@@ -1460,6 +1589,19 @@
         ]
       },
       {
+        "id": "source-group-official-plenary-hall",
+        "summary": "Disclosed source official-plenary-hall; attempts/representations are not additional sources.",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ],
+        "source_identity": "official-plenary-hall",
+        "capture_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ]
+      },
+      {
         "id": "source-group-vendor-register",
         "summary": "Disclosed source vendor-register; attempts/representations are not additional sources.",
         "evidence_ids": [
@@ -1513,16 +1655,26 @@
         "sha256": "sha256:19d4a03b40e1dda06ab4029d2f39b4c8e2aebbd9d129fd2739caa5dfdfb2ec60"
       },
       {
+        "id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+        "path": "evidence/captures/capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3.json",
+        "sha256": "sha256:f622e9c91c3724d9451d0d9634c73731aa7a8ef56caf27c945b3245e0512dec1"
+      },
+      {
+        "id": "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93",
+        "path": "evidence/captures/capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93.json",
+        "sha256": "sha256:de828924dad0d323510b8c50afabfe68c677d4efe030e7aeb5443df59a3e8a95"
+      },
+      {
         "id": "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
         "path": "evidence/captures/capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259.json",
         "sha256": "sha256:ce1972aa4ae1baab65618751c12b3d1c7a448b1d05b102de71b3dff68f5f8a2b"
       }
     ],
     "inventory_counts": {
-      "source_identities": 7,
-      "capture_attempts": 9,
-      "evidence_files": 8,
-      "observations": 55
+      "source_identities": 8,
+      "capture_attempts": 11,
+      "evidence_files": 9,
+      "observations": 60
     },
     "scope_basis": [
       {
@@ -2213,6 +2365,71 @@
       "owner": null,
       "metadata_field": "verification_limit",
       "original_detail": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval."
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "summary": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock."
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "summary": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price."
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "summary": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced.",
+      "category": "limitations",
+      "evidence_ids": [
+        "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+      ],
+      "owner": null,
+      "metadata_field": "limitations",
+      "original_detail": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced."
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "summary": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+      "category": "verification_limit",
+      "evidence_ids": [
+        "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+      ],
+      "owner": null,
+      "metadata_field": "verification_limit",
+      "original_detail": "Retrieved bytes only; source completeness, observations and historical applicability require review"
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+      "category": "capture-status",
+      "evidence_ids": [
+        "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+      ],
+      "owner": null,
+      "original_status": "unavailable"
+    },
+    {
+      "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+      "summary": "ConnectError",
+      "category": "reason",
+      "evidence_ids": [
+        "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+      ],
+      "owner": null,
+      "metadata_field": "reason",
+      "original_detail": "ConnectError"
     },
     {
       "id": "stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",

@@ -121,7 +121,7 @@ def test_plan_budget_headcount_and_privacy(model, context):
     plan = drafts.rendered_bytes(model)[drafts.ARTIFACT_PATHS[1]].decode()
     assert 'Registered people: 180.0' in plan and 'Required onsite personnel: 30.0' in plan
     assert 'Forecast walk-ins (uncertain): 35.0' in plan and '245.0' in plan
-    assert 'planned allocations: TWD 510000.0' in plan and 'Overall ceiling: TWD 520000' in plan
+    assert 'planned allocations: TWD 510000.' in plan and 'Overall ceiling: TWD 520000' in plan
     assert 'spending authorization' in plan and 'security variance' in plan and 'catering variance' in plan
     # Private attendee source fields are deliberately outside all renderer selections.
     modified = deepcopy(context)
@@ -135,7 +135,7 @@ def test_plan_budget_headcount_and_privacy(model, context):
 
 def test_calendar_exact_witness_times_and_tentative_behavior(model, context):
     calendar = Calendar.from_ical(drafts.rendered_bytes(model)[drafts.ARTIFACT_PATHS[2]])
-    assert calendar.get('METHOD') is None and len(calendar.walk('VTIMEZONE')) == 1
+    assert str(calendar.get('METHOD')) == 'PUBLISH' and len(calendar.walk('VTIMEZONE')) == 1
     events = calendar.walk('VEVENT')
     expected = drafts._calendar_entries(context)
     assert len(events) == len(expected)
@@ -517,9 +517,9 @@ def test_writer_refuses_noncanonical_output_paths(project, monkeypatch, relative
 def test_independent_cross_artifact_checks_reject_broken_renderer(context, model, artifact):
     from copy import deepcopy
     bundle = drafts.rendered_bytes(model)
-    if artifact == 'csv':bundle[drafts.ARTIFACT_PATHS[0]] = bundle[drafts.ARTIFACT_PATHS[0]].replace(b'494000.0', b'490000.0')
-    if artifact == 'plan':bundle[drafts.ARTIFACT_PATHS[1]] = bundle[drafts.ARTIFACT_PATHS[1]].replace(b'494000.0', b'490000.0')
-    if artifact == 'communications':bundle[drafts.ARTIFACT_PATHS[3]] = bundle[drafts.ARTIFACT_PATHS[3]].replace(b'494000.0', b'490000.0')
+    if artifact == 'csv':bundle[drafts.ARTIFACT_PATHS[0]] = bundle[drafts.ARTIFACT_PATHS[0]].replace(b'494000', b'490000')
+    if artifact == 'plan':bundle[drafts.ARTIFACT_PATHS[1]] = bundle[drafts.ARTIFACT_PATHS[1]].replace(b'494000', b'490000')
+    if artifact == 'communications':bundle[drafts.ARTIFACT_PATHS[3]] = bundle[drafts.ARTIFACT_PATHS[3]].replace(b'494000', b'490000')
     if artifact == 'calendar':bundle[drafts.ARTIFACT_PATHS[2]] = bundle[drafts.ARTIFACT_PATHS[2]].replace(b'STATUS:TENTATIVE', b'STATUS:CONFIRMED')
     with pytest.raises(ValueError): drafts._validate_content(context, bundle, model['created_at'])
 

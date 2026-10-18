@@ -1,0 +1,88 @@
+{
+  "id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+  "summary": "Capture attempt for official-plenary-hall",
+  "evidence_ids": [],
+  "source_identity": "official-plenary-hall",
+  "source_role": "venue-page",
+  "locator": "https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp",
+  "retrieved_at": "2026-10-18T11:17:51.955691+00:00",
+  "retrieval_status": "retrieved",
+  "content_type": "text/html",
+  "version_metadata": {
+    "method": "http-get",
+    "publication_kind": "real-publication",
+    "disclosure": {
+      "path": "evidence/source-disclosures/project-c-assignment-c724104.md",
+      "line": 85
+    },
+    "response_status": 200,
+    "byte_representation": "HTTP body without content encoding; transfer framing removed",
+    "verification_limit": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+    "completed_at": "2026-10-18T11:17:53.941863+00:00",
+    "timestamp_basis": "Actual HTTP attempt start; not the simulated business clock",
+    "execution_environment": "Approved retry outside sandbox after sandbox ConnectError",
+    "disclosure_basis": "Published assignment c724104:README.md line 85; exact URL absent from preserved interview exports; repeated by learner in current request",
+    "inspection_at": "2026-10-18T11:20:44.217412+00:00",
+    "request_receipt_path": "evidence/capture-attempts/capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-http-receipt.json",
+    "request_receipt_sha256": "sha256:7fd77a95e395230d0f4e41c9108ff3607272db8c156f1129c06673da1f9bdd3f",
+    "limitations": [
+      "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+      "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+      "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced."
+    ]
+  },
+  "content_hash": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+  "local_reference": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+  "observations": [
+    {
+      "id": "obs-plenary-identity",
+      "summary": "Official page describes the full Plenary Hall with 3,122 fixed seats; this is not the fictional front-500 allocation.",
+      "locator": {
+        "kind": "section",
+        "value": "空間簡介 / fixed seating"
+      },
+      "source_excerpt": "大會堂為國內少數擁有固定座位的大型展演場所，專為大型集會及演藝活動所設計，固定座位共3,122席(每張座椅均附抽取式側桌)，除舞台上設有貫穿2-6樓的860吋超大型天幕外，舞臺兩側及會場中段皆設有300吋升降式投影幕。此外，為配合重要貴賓蒞臨特設有貴賓休息室及直通舞台的電梯。",
+      "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+    },
+    {
+      "id": "obs-plenary-tariff",
+      "summary": "Public weekend tariff is TWD 170000 per stated rental period; it is not the synthetic TWD 155000 negotiated all-inclusive package.",
+      "locator": {
+        "kind": "section",
+        "value": "每時段租金 / 週六～週日"
+      },
+      "source_excerpt": "週六～週日 / 170000 元",
+      "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+    },
+    {
+      "id": "obs-plenary-food-av",
+      "summary": "Public rules prohibit self-supplied AV equipment and outside meeting refreshments/meal boxes. Fictional TICC-coordinated offers do not establish real supplier permission.",
+      "locator": {
+        "kind": "section",
+        "value": "注意事項 items 1 and 5"
+      },
+      "source_excerpt": "*所有視聽設備均不得自備。 / 5. 本中心會議茶點及餐盒(含攤位贈送點心)禁止自帶。",
+      "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+    },
+    {
+      "id": "obs-plenary-livestream",
+      "summary": "Public livestream rules require informing the venue and restrict providers to its contracted suppliers; Q-008 is not permission.",
+      "locator": {
+        "kind": "section",
+        "value": "注意事項 item 9"
+      },
+      "source_excerpt": "9.本中心自111年起活動若有直播需求，請主動告知承辦人，恕不開放非本中心合約廠商提供服務。",
+      "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+    },
+    {
+      "id": "obs-plenary-safety",
+      "summary": "Plenary Hall clients must attend a technical-coordination meeting and safety/evacuation briefing before the event; no completion or scheduled time is evidenced.",
+      "locator": {
+        "kind": "section",
+        "value": "注意事項 item 10"
+      },
+      "source_excerpt": "10.凡租用大會堂之客戶需於活動前出席技術協調會及安全逃生講習，詳情請洽承辦人。",
+      "inspection_basis": "Visible text from saved HTTP body; not a venue inspection"
+    }
+  ]
+}

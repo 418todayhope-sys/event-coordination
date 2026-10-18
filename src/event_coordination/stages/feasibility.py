@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 
 from event_coordination.sources import hash_bytes
 from event_coordination.stages.options import OUTPUT as PREDECESSOR_PATH
+from event_coordination.run_contract import read_predecessor
 
 PREDECESSOR_HASH = "sha256:e0454834f384615926edbf2cc8130ea4c0f0a3ae1e8c942a8010f9fad92dc65d"
 OUTPUT = "deliverables/snapshots/06-feasibility-testing.json"
@@ -302,9 +303,8 @@ def validate_witness(witness: dict, roster: dict, calendar: dict, windows: dict)
 
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
-    content = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(content) != PREDECESSOR_HASH:
-        raise ValueError("Stage 5 predecessor hash differs from approved snapshot")
+    content = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(content)
     upstream = json.loads(content)
     validate_snapshot(upstream, root)
     state = {key: [] for key in RECORD_ARRAYS}
@@ -346,6 +346,10 @@ def _inputs(root: Path) -> dict:
             required = "For real deployment, obtain current venue confirmation or inspection of elevator operation, unobstructed step-free routes, accessible restrooms/seating and room configuration, plus service-provider confirmation of captions, loop and quiet-room staffing. Preserve dates, scope and source locators."
             links = ["unknown-live-accessibility"]
             evidence = [{"parent_record_id": "option-baseline-context", "nested_record_id": "baseline-accessibility-verification"}]
+        elif suffix == "official-plenary-policy":
+            required = "Provide dated venue confirmation of catering/AV supplier permission, livestream provider eligibility if proposed, and the required technical-coordination/safety-evacuation briefing arrangements and completion before real event use; bind to the plan/date. No time or owner is inferred."
+            links = ["unknown-official-plenary-policy-review"]
+            evidence = [{"parent_record_id":"option-baseline-context", "nested_record_id":"baseline-official-plenary-policy"}]
         elif suffix == "authorization":
             required = "Record genuine decisions for the applicable gates, identifying authorized actor/role, plan revision, date/room or category amount, timestamp, outcome and conditions. Programme review is required only for roster/duration changes; external-action permission must cover the specific action."
             links = ["unknown-approvals"]
@@ -529,6 +533,9 @@ def _inputs(root: Path) -> dict:
               hard=False, basis="source-statement", nested=["baseline-accessibility-verification"])
         check("livestream-prerequisites", "not-applicable" if "Q-008" not in qids else "conditional",
               "Livestream is absent from this base package; its unresolved tests remain on retained alternatives.", inputs={"quote_proposed": "Q-008" in qids})
+        if "baseline-official-plenary-policy" in baseline:
+            check("official-plenary-policy", "conditional", "Real venue supplier permissions and required pre-event technical/evacuation briefing remain unverified; fictional service coordination is not operational permission.",
+                basis="official-publication", inputs=values("baseline-official-plenary-policy"), nested=["baseline-official-plenary-policy"])
         check("authorization", "conditional", "Operations, spending and external-action authorizations remain pending; Programme gate applies only to roster/duration changes.",
               hard=False, basis="stakeholder-rule", inputs={"gate_statuses": {k: g["status"] for k, g in gates.items()}}, evidence=list(gates))
         result = aggregate(checks)
@@ -550,7 +557,8 @@ def _inputs(root: Path) -> dict:
             evidence += ["option-source-" + q for q in screen["candidate_composition"]]
         elif screen["id"] == "screen-oct17-q007-no-loop":
             outcome = "fail" if "No hearing loop included" in quotes["Q-007"]["values"]["notes"] else "unknown"
-            details["coverage_gap"] = "Q-007 alone excludes loop; adequate replacement response is not evidenced."
+            details["coverage_gap"] = ("Q-007 alone excludes loop; adequate replacement response is not evidenced."
+                if outcome == "fail" else "Q-007 scope changed or is unclear; live loop provision is unverified.")
             evidence += ["option-source-Q-007"]
         else:
             outcome = "fail" if "Keynote unavailable on fallback date" in calendar["CAL-004"]["notes"] else "unknown"
@@ -568,7 +576,7 @@ def _inputs(root: Path) -> dict:
         raise ValueError("Duplicate feasibility record IDs")
     state.update(business_clock=clock, business_timezone=upstream["state"]["business_timezone"], output_status="draft", audience="internal-evidence-review",
                  inherited_unresolved_ids=[r["id"] for r in inherited], source_snapshot=deepcopy(upstream["predecessor"]))
-    return {"run_id": upstream["run_id"], "predecessor": {"snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": PREDECESSOR_HASH},
+    return {"run_id": upstream["run_id"], "predecessor": {"snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": predecessor_hash},
             "consumed_record_ids": sorted(consumed), "produced_record_ids": ids, "state": state,
             "status": "partial", "unresolved": deepcopy(state["unresolved_conditions"]), "decisions": []}
 

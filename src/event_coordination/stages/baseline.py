@@ -8,6 +8,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from event_coordination.constraint_sources import validate_dependencies
+from event_coordination.run_contract import read_predecessor
 from event_coordination.sources import hash_bytes
 from event_coordination.stages.constraints import OUTPUT as PREDECESSOR_PATH
 
@@ -21,9 +22,8 @@ UPSTREAM_CATEGORIES = ("source_facts", "hard_constraints", "preferences", "assum
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
 
-    content = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(content) != PREDECESSOR_HASH:
-        raise ValueError("Stage 3 predecessor hash differs from approved snapshot")
+    content = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(content)
     upstream = json.loads(content)
     validate_snapshot(upstream, root)  # Recursively verifies preserved evidence bytes.
     index = {r["id"]: r for category in UPSTREAM_CATEGORIES for r in upstream["state"][category]}
@@ -168,6 +168,11 @@ def _inputs(root: Path) -> dict:
         add(ac, "baseline-service-condition-" + qid, index[i]["summary"], [i],
             basis="stakeholder-rule", values=index[i]["rule"])
 
+    if "hc-official-plenary-policy" in index:
+        add(ac, "baseline-official-plenary-policy", "Official supplier restrictions and pre-event technical/safety briefing need operational verification; public tariffs and full-hall capacity are different source quantities.",
+            ["hc-official-plenary-policy", "unknown-official-plenary-policy-review"],
+            basis="official-publication", values=index["hc-official-plenary-policy"]["rule"])
+
     # Inherited identities and their historical evidence links remain untouched.
     # Their IDs are consumed directly; source_records above retain full provenance.
     state["approval_requirements"] = deepcopy(upstream["state"]["approval_requirements"])
@@ -190,7 +195,7 @@ def _inputs(root: Path) -> dict:
                  output_status="draft", audience="internal-evidence-review", assumptions=[], planning_choices=[],
                  inherited_record_ids=[r["id"] for r in inherited])
     return {"run_id": upstream["run_id"], "predecessor": {"snapshot_id": upstream["snapshot_id"],
-            "path": PREDECESSOR_PATH, "sha256": PREDECESSOR_HASH},
+            "path": PREDECESSOR_PATH, "sha256": predecessor_hash},
             "consumed_record_ids": sorted(consumed), "produced_record_ids": identifiers,
             "status": "partial", "state": state, "unresolved": unresolved, "decisions": []}
 

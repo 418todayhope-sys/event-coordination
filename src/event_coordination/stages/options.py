@@ -10,6 +10,7 @@ from uuid import uuid4
 from event_coordination.sources import hash_bytes
 from event_coordination.stages.baseline import CATEGORIES as BASELINE_CATEGORIES
 from event_coordination.stages.baseline import OUTPUT as PREDECESSOR_PATH
+from event_coordination.run_contract import read_predecessor
 from event_coordination.stages.constraints import OUTPUT as STAGE3_PATH
 from event_coordination.stages.capture import OUTPUT as STAGE2_PATH
 
@@ -25,9 +26,8 @@ PACKAGES = {
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
 
-    content = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(content) != PREDECESSOR_HASH:
-        raise ValueError("Stage 4 predecessor hash differs from approved snapshot")
+    content = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(content)
     upstream = json.loads(content)
     validate_snapshot(upstream, root)  # Recursively validates schemas, hashes and original evidence.
     stage3_bytes = (root / STAGE3_PATH).read_bytes()
@@ -180,16 +180,20 @@ def _inputs(root: Path) -> dict:
            ["Keynote unavailable on October 24.", "Other supplied service offers and demo/readiness confirmation apply to October 17, not October 24."],
            ["Evidenced resolution of programme conflict and date-compatible service offers/readiness."],
            proposed_event_date="2026-10-24", missing_service_quotes=[f"Q-{n:03}" for n in range(3, 11)])
+    loop_excluded = "no hearing loop" in source_quotes["Q-007"]["values"]["notes"].casefold()
     screen("screen-oct17-q007-no-loop", "Q-007 alone does not evidence the required hearing-loop response.", ["Q-007"],
-           ["Quote excludes hearing loop; no replacement service or price is evidenced."],
+           (["Quote excludes hearing loop; no replacement service or price is evidenced."] if loop_excluded else
+            ["Current Q-007 scope requires review; live loop provision and applicability of exercise readiness are unverified."]),
            ["Evidence of adequate hearing-loop response and its service scope/cost."],
            proposed_event_date="2026-10-17", source_condition=deepcopy(source_quotes["Q-007"]["values"]))
     for name, base in options.items():
         add_on = number(source_quotes["Q-008"]["values"]["quote_amount_twd"])
         total = number(base["planning_total"]) + add_on
-        screen("screen-oct17-" + name + "-stream", "Livestream addition exceeds the ceiling under this allowance policy and retains unmet prerequisites.",
+        screen("screen-oct17-" + name + "-stream",
+               ("Livestream addition exceeds the ceiling under this allowance policy and retains unmet prerequisites." if total>ceiling else
+                "Livestream addition fits the calculated ceiling but retains unmet operational prerequisites; not selected."),
                [*base["component_quote_ids"], "Q-008"],
-               ["Planning total exceeds the overall ceiling under the retained allowances.", "Network-test evidence and venue confirmation remain unresolved."],
+               [("Planning total exceeds the overall ceiling under the retained allowances." if total>ceiling else "Planning total is within the overall ceiling under the retained allowances; this is not spending authority."), "Network-test evidence and venue confirmation remain unresolved."],
                ["Evidence-backed package within the ceiling and evidenced network test/venue confirmation; no assumed remedy."],
                proposed_event_date="2026-10-17", base_option_id=base["id"], planning_total=str(total),
                difference_above_ceiling=str(total-ceiling), currency="TWD",
@@ -210,7 +214,7 @@ def _inputs(root: Path) -> dict:
         raise ValueError("Unresolved option evidence reference")
     state.update(business_clock=upstream["state"]["business_clock"], business_timezone=upstream["state"]["business_timezone"],
                  output_status="draft", audience="internal-evidence-review", inherited_record_ids=[r["id"] for r in inherited])
-    return {"run_id": upstream["run_id"], "predecessor": {"snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": PREDECESSOR_HASH},
+    return {"run_id": upstream["run_id"], "predecessor": {"snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": predecessor_hash},
             "consumed_record_ids": sorted(consumed), "produced_record_ids": ids,
             "status": "partial", "state": state, "unresolved": unresolved, "decisions": []}
 

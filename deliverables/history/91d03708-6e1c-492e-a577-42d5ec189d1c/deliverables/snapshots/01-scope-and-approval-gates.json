@@ -1,0 +1,250 @@
+{
+  "schema_version": "event-coordination-stage-snapshot/2",
+  "snapshot_id": "01d967d7-3b05-433f-8895-d10d1a921fd3",
+  "run_id": "91d03708-6e1c-492e-a577-42d5ec189d1c",
+  "stage": "scope-and-approval-gates",
+  "sequence": 1,
+  "created_at": "2026-10-18T10:37:02.073302+00:00",
+  "status": "partial",
+  "predecessor": null,
+  "consumed_record_ids": [],
+  "produced_record_ids": [
+    "ev-objective",
+    "ev-gates",
+    "ev-review",
+    "ev-programme",
+    "ev-owners",
+    "ev-exceptions",
+    "ev-deadline",
+    "scope-objective",
+    "scope-deadline",
+    "scope-owners",
+    "scope-gates",
+    "approval-1",
+    "approval-2",
+    "approval-3",
+    "approval-4",
+    "unknown-category-owner-identities"
+  ],
+  "state": {
+    "objective": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation.",
+    "decision_deadline": "2026-09-04T17:00:00+08:00",
+    "owners": [
+      "Operations",
+      "Category budget owners",
+      "Programme"
+    ],
+    "approval_gates": [
+      "Operations approval of the overall event plan, date, and venue.",
+      "Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.",
+      "Programme authorization of roster or duration changes when proposed.",
+      "Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes."
+    ],
+    "decision_deadline_scope": "Operations approval of the event plan",
+    "decision_deadline_timezone": "Asia/Taipei",
+    "business_clock": "2026-08-26T12:00:00+08:00",
+    "business_timezone": "Asia/Taipei",
+    "local_evidence_inspected_at": "2026-10-18T10:37:02.073302+00:00",
+    "evidence_records": [
+      {
+        "id": "ev-objective",
+        "summary": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation.",
+        "evidence_ids": [],
+        "path": "evidence/originals/event-brief-manually-completed.txt",
+        "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+        "line_start": 16,
+        "line_end": 16,
+        "excerpt": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation. The draft must include two feasible options, a recommended option with trade-offs, a cost and risk view, floor-plan observations with page or region references, a run of show, calendar drafts, and unsent attendee and vendor messages.",
+        "provenance": "Manually completed Notion copy; not an untouched export."
+      },
+      {
+        "id": "ev-gates",
+        "summary": "Operations approves the plan. Budget owners approve spending.",
+        "evidence_ids": [],
+        "path": "evidence/originals/event-brief-manually-completed.txt",
+        "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+        "line_start": 19,
+        "line_end": 19,
+        "excerpt": "Operations approves the plan. Budget owners approve spending. Do not send invitations, book a venue, commit to a vendor, make payment, or write to a production calendar automatically.",
+        "provenance": "Manually completed Notion copy; not an untouched export."
+      },
+      {
+        "id": "ev-review",
+        "summary": "No booking or spend has been approved.",
+        "evidence_ids": [],
+        "path": "evidence/originals/event-brief-manually-completed.txt",
+        "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+        "line_start": 34,
+        "line_end": 34,
+        "excerpt": "No booking or spend has been approved. Operations receives the versioned plan, selected date/room, headcount policy, per-option hard-constraint results and unresolved issues. Budget owners receive their category cost, remaining ceiling and cited quote validity. They may approve, reject, request changes or defer with reasons and affected scope. In this exercise the completed output is a review-ready draft, not obtaining those decisions. If a later actual response is provided, retain actor, subject, plan revision, timestamp, outcome and reasons; stale or unrelated replies confer no authority.",
+        "provenance": "Manually completed Notion copy; not an untouched export."
+      },
+      {
+        "id": "ev-programme",
+        "summary": "Programme owns roster or duration changes.",
+        "evidence_ids": [],
+        "path": "evidence/originals/event-brief-manually-completed.txt",
+        "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+        "line_start": 47,
+        "line_end": 47,
+        "excerpt": "Keep the existing 10:00–11:00 keynote and 09:30–17:00 event window. The planner chooses the demonstration order, grouping and compatible meal and break schedule. Programme owns roster or duration changes. This is newly authored fictional planning knowledge, not confirmation that a demonstration has run or that a plan has been approved.",
+        "provenance": "Manually completed Notion copy; programme section missing from preserved PDF."
+      },
+      {
+        "id": "ev-owners",
+        "summary": "Operations owns the overall event plan, date, and venue approval.",
+        "evidence_ids": [],
+        "path": "interviews/project-c-event-coordination-20261016-1954.md",
+        "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+        "line_start": 636,
+        "line_end": 636,
+        "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
+        "provenance": "Original stakeholder interview export."
+      },
+      {
+        "id": "ev-exceptions",
+        "summary": "However, this cannot exceed the overall budget ceiling.",
+        "evidence_ids": [],
+        "path": "interviews/project-c-event-coordination-20261016-1954.md",
+        "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+        "line_start": 644,
+        "line_end": 644,
+        "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
+        "provenance": "Original stakeholder interview export."
+      },
+      {
+        "id": "ev-deadline",
+        "summary": "The exact deadline for Operations to approve the event plan is September 4, 2026, at 17:00, Asia/Taipei time (+08:00).",
+        "evidence_ids": [],
+        "path": "interviews/project-c-event-coordination-20261016-2056.md",
+        "sha256": "sha256:d545950888a5b53d7689caa10d841721b5fe9a1ea6cafbe9cad639e7202707e3",
+        "line_start": 790,
+        "line_end": 790,
+        "excerpt": "The exact deadline for Operations to approve the event plan is September 4, 2026, at 17:00, Asia/Taipei time (+08:00). What part of the planning would you like to explore next?",
+        "provenance": "Second preserved stakeholder interview export; explicit deadline clarification."
+      }
+    ],
+    "scope_records": [
+      {
+        "id": "scope-objective",
+        "summary": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation.",
+        "evidence_ids": [
+          "ev-objective"
+        ],
+        "field": "objective",
+        "value": "The event should let fellows present work, give partners a useful programme overview, and support accessible participation."
+      },
+      {
+        "id": "scope-deadline",
+        "summary": "2026-09-04T17:00:00+08:00",
+        "evidence_ids": [
+          "ev-deadline"
+        ],
+        "field": "decision_deadline",
+        "value": "2026-09-04T17:00:00+08:00"
+      },
+      {
+        "id": "scope-owners",
+        "summary": "['Operations', 'Category budget owners', 'Programme']",
+        "evidence_ids": [
+          "ev-owners",
+          "ev-programme"
+        ],
+        "field": "owners",
+        "value": [
+          "Operations",
+          "Category budget owners",
+          "Programme"
+        ]
+      },
+      {
+        "id": "scope-gates",
+        "summary": "['Operations approval of the overall event plan, date, and venue.', 'Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.', 'Programme authorization of roster or duration changes when proposed.', 'Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes.']",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "field": "approval_gates",
+        "value": [
+          "Operations approval of the overall event plan, date, and venue.",
+          "Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.",
+          "Programme authorization of roster or duration changes when proposed.",
+          "Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes."
+        ]
+      }
+    ],
+    "approval_requirements": [
+      {
+        "id": "approval-1",
+        "summary": "Operations approval of the overall event plan, date, and venue.",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "status": "pending"
+      },
+      {
+        "id": "approval-2",
+        "summary": "Category budget owner authorization of spending and category exceptions; the overall ceiling cannot be exceeded.",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "status": "pending"
+      },
+      {
+        "id": "approval-3",
+        "summary": "Programme authorization of roster or duration changes when proposed.",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "status": "pending"
+      },
+      {
+        "id": "approval-4",
+        "summary": "Human authorization before invitations, booking, vendor commitments, payment, or production-calendar writes.",
+        "evidence_ids": [
+          "ev-gates",
+          "ev-owners",
+          "ev-exceptions",
+          "ev-programme"
+        ],
+        "status": "pending"
+      }
+    ],
+    "output_status": "draft",
+    "provenance_limitations": [
+      "Local inspection timestamps are not original online retrieval times.",
+      "The manually completed brief is distinct from the preserved incomplete PDF; no online equivalence is asserted."
+    ],
+    "run_metadata": {
+      "run_contract_version": 1,
+      "run_id": "91d03708-6e1c-492e-a577-42d5ec189d1c",
+      "business_clock": "2026-08-26T12:00:00+08:00",
+      "supersedes_run_id": null,
+      "changed_source_ids": [],
+      "changed_decision_ids": [],
+      "change_reasons": []
+    }
+  },
+  "unresolved": [
+    {
+      "id": "unknown-category-owner-identities",
+      "summary": "Individual category budget owner identities and assignments have not been established from the selected evidence; confirm during source capture.",
+      "evidence_ids": [
+        "ev-owners"
+      ],
+      "owner": null
+    }
+  ],
+  "decisions": []
+}

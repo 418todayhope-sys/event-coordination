@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gitroll.dev/curriculum/challenges/event-coordination/snapshot.schema.json",
+  "title": "Event Coordination Stage Snapshot",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "snapshot_id", "run_id", "stage", "sequence", "created_at", "status", "predecessor", "consumed_record_ids", "produced_record_ids", "state", "unresolved", "decisions"],
+  "properties": {
+    "schema_version": {"const": "event-coordination-stage-snapshot/2"},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "stage": {"enum": ["scope-and-approval-gates", "source-capture", "constraint-model", "planning-baseline", "option-generation", "feasibility-testing", "decision-and-approval", "draft-propagation", "publication-validation"]},
+    "sequence": {"type": "integer", "minimum": 1, "maximum": 9},
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["complete", "partial", "blocked", "failed"]},
+    "predecessor": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/predecessor"}]},
+    "consumed_record_ids": {"$ref": "#/$defs/recordIds"},
+    "produced_record_ids": {"$ref": "#/$defs/recordIds"},
+    "state": {"type": "object", "additionalProperties": true},
+    "unresolved": {"$ref": "#/$defs/records"},
+    "decisions": {"type": "array", "items": {"$ref": "#/$defs/decisionRecord"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"sequence": {"const": 1}}, "required": ["sequence"]},
+      "then": {"properties": {"predecessor": {"type": "null"}, "consumed_record_ids": {"maxItems": 0}}},
+      "else": {"properties": {"predecessor": {"$ref": "#/$defs/predecessor"}, "consumed_record_ids": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "scope-and-approval-gates"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 1}, "state": {"required": ["objective", "decision_deadline", "owners", "approval_gates"], "properties": {"objective": {"type": "string", "minLength": 1}, "decision_deadline": {"type": "string", "format": "date-time"}, "owners": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "approval_gates": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "source-capture"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 2}, "state": {"required": ["sources"], "properties": {"sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/sourceRecord"}}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "constraint-model"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 3}, "state": {"required": ["hard_constraints", "preferences", "assumptions", "unknowns", "conflicts"], "properties": {"hard_constraints": {"$ref": "#/$defs/records"}, "preferences": {"$ref": "#/$defs/records"}, "assumptions": {"$ref": "#/$defs/records"}, "unknowns": {"$ref": "#/$defs/records"}, "conflicts": {"$ref": "#/$defs/records"}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "planning-baseline"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 4}, "state": {"required": ["headcount_basis", "schedule_dependencies", "budget_baseline", "accessibility_baseline"], "properties": {"headcount_basis": {"$ref": "#/$defs/records"}, "schedule_dependencies": {"$ref": "#/$defs/records"}, "budget_baseline": {"$ref": "#/$defs/records"}, "accessibility_baseline": {"$ref": "#/$defs/records"}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "option-generation"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 5}, "state": {"required": ["options", "rejected_early"], "properties": {"options": {"$ref": "#/$defs/records"}, "rejected_early": {"$ref": "#/$defs/records"}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "feasibility-testing"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 6}, "state": {"required": ["option_results", "unresolved_conditions"], "properties": {"option_results": {"type": "array", "items": {"$ref": "#/$defs/optionRecord"}}, "unresolved_conditions": {"$ref": "#/$defs/records"}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "decision-and-approval"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 7}, "state": {"required": ["recommendation", "tradeoffs", "learner_decisions", "approval_requirements"], "properties": {"recommendation": {"type": ["string", "null"]}, "tradeoffs": {"$ref": "#/$defs/records"}, "learner_decisions": {"type": "array", "items": {"$ref": "#/$defs/decisionRecord"}}, "approval_requirements": {"type": "array", "items": {"$ref": "#/$defs/approvalRecord"}}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "draft-propagation"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 8}, "state": {"required": ["artifact_drafts", "affected_dependencies", "unresolved_items"], "properties": {"artifact_drafts": {"type": "array", "items": {"$ref": "#/$defs/artifactRecord"}}, "affected_dependencies": {"$ref": "#/$defs/records"}, "unresolved_items": {"$ref": "#/$defs/records"}}}}}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "publication-validation"}}, "required": ["stage"]},
+      "then": {"properties": {"sequence": {"const": 9}, "state": {"required": ["artifacts", "validation_checks", "publication_status"], "properties": {"artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifactRecord"}}, "validation_checks": {"$ref": "#/$defs/records"}, "publication_status": {"enum": ["validated", "blocked", "failed"]}}}}}
+    }
+  ],
+  "$defs": {
+    "recordIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "predecessor": {"type": "object", "additionalProperties": false, "required": ["snapshot_id", "path", "sha256"], "properties": {"snapshot_id": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}}},
+    "record": {"type": "object", "additionalProperties": true, "required": ["id", "summary", "evidence_ids"], "properties": {"id": {"type": "string", "minLength": 1}, "summary": {"type": "string", "minLength": 1}, "evidence_ids": {"$ref": "#/$defs/recordIds"}, "owner": {"type": ["string", "null"]}, "rationale": {"type": ["string", "null"]}}},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}},
+    "mediaLocator": {"type": "object", "additionalProperties": true, "required": ["kind", "value"], "properties": {"kind": {"enum": ["page-region", "timestamp", "section", "cell-range", "other"]}, "value": {"type": "string", "minLength": 1}}},
+    "observation": {"type": "object", "additionalProperties": true, "required": ["id", "summary", "locator"], "properties": {"id": {"type": "string", "minLength": 1}, "summary": {"type": "string", "minLength": 1}, "locator": {"$ref": "#/$defs/mediaLocator"}}},
+    "sourceRecord": {"allOf": [{"$ref": "#/$defs/record"}, {"type": "object", "required": ["source_role", "locator", "retrieved_at", "retrieval_status", "content_type", "version_metadata", "content_hash", "local_reference", "observations"], "properties": {"source_role": {"enum": ["event-brief", "attendee-signals", "budget", "vendor-record", "venue-page", "floor-plan-or-image", "calendar", "video", "other"]}, "locator": {"type": "string", "minLength": 1}, "retrieved_at": {"type": "string", "format": "date-time"}, "retrieval_status": {"enum": ["retrieved", "unavailable", "invalid", "unverified", "stale"]}, "content_type": {"type": "string", "minLength": 1}, "version_metadata": {"type": ["object", "null"]}, "content_hash": {"anyOf": [{"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, {"type": "null"}]}, "local_reference": {"type": ["string", "null"]}, "observations": {"type": "array", "items": {"$ref": "#/$defs/observation"}}}}]},
+    "optionRecord": {"allOf": [{"$ref": "#/$defs/record"}, {"type": "object", "required": ["feasibility"], "properties": {"feasibility": {"enum": ["feasible", "infeasible", "conditional", "unverified"]}}}]},
+    "approvalRecord": {"allOf": [{"$ref": "#/$defs/record"}, {"type": "object", "required": ["status"], "properties": {"status": {"enum": ["pending", "approved", "rejected", "not-required"]}}}]},
+    "decisionRecord": {"allOf": [{"$ref": "#/$defs/record"}, {"type": "object", "required": ["rationale", "tradeoffs"], "properties": {"rationale": {"type": "string", "minLength": 1}, "tradeoffs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}}}]},
+    "artifactRecord": {"type": "object", "additionalProperties": true, "required": ["id", "path", "sha256", "validation_status"], "properties": {"id": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "validation_status": {"enum": ["valid", "invalid", "not-produced"]}}}
+  }
+}

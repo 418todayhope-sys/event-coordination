@@ -8,6 +8,7 @@ from uuid import uuid4
 from event_coordination.source_catalog import CATALOG
 from event_coordination.source_inventory import load_inventory
 from event_coordination.sources import hash_bytes
+from event_coordination.run_contract import read_predecessor
 from event_coordination.stages.scope import OUTPUT as PREDECESSOR_PATH
 
 PREDECESSOR_HASH = "sha256:6579a81d06ac405d3e612dbe7ad4d354b9373ff5840168af0981d961186fde7d"
@@ -17,9 +18,8 @@ OUTPUT = "deliverables/snapshots/02-source-capture.json"
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
 
-    predecessor_bytes = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(predecessor_bytes) != PREDECESSOR_HASH:
-        raise ValueError("Stage 1 predecessor hash differs from approved saved snapshot")
+    predecessor_bytes = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(predecessor_bytes)
     predecessor = json.loads(predecessor_bytes)
     validate_snapshot(predecessor, root)
     captures, manifest = load_inventory(root)
@@ -59,7 +59,7 @@ def _inputs(root: Path) -> dict:
                     metadata_field=key, original_detail=item)
 
     groups = []
-    for identity in sorted(CATALOG):
+    for identity in sorted({r["source_identity"] for r in captures}):
         group = [r for r in captures if r["source_identity"] == identity]
         groups.append({"id": "source-group-" + identity,
                        "summary": f"Disclosed source {identity}; attempts/representations are not additional sources.",
@@ -86,7 +86,7 @@ def _inputs(root: Path) -> dict:
     }
     return {"run_id": predecessor["run_id"],
             "predecessor": {"snapshot_id": predecessor["snapshot_id"], "path": PREDECESSOR_PATH,
-                            "sha256": PREDECESSOR_HASH},
+                            "sha256": predecessor_hash},
             "consumed_record_ids": consumed, "produced_record_ids": produced, "state": state,
             "unresolved": unresolved, "decisions": [],
             "status": "partial" if unresolved else "complete"}

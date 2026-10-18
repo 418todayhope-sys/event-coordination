@@ -1,14 +1,14 @@
 {
   "schema_version": "event-coordination-stage-snapshot/2",
-  "snapshot_id": "99fb512f-88e0-4bcd-ab2a-c42eed0b4671",
+  "snapshot_id": "c4b482b1-c356-47d4-89aa-ca28f48371a9",
   "stage": "planning-baseline",
   "sequence": 4,
-  "created_at": "2026-10-17T01:55:54.267391+00:00",
-  "run_id": "988f5ccf-4aeb-44d7-984d-777b1a2412e1",
+  "created_at": "2026-10-18T11:22:17.417441+00:00",
+  "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
   "predecessor": {
-    "snapshot_id": "c8b2438d-157e-4a55-9065-ae4b32156c2c",
+    "snapshot_id": "4e57b76d-b833-46f5-9294-9a49ed3c04f9",
     "path": "deliverables/snapshots/03-constraint-model.json",
-    "sha256": "sha256:0b346b83d170f871b4ad22d13c951baabb9a437ecd1beaf3c9e75bee14f3ea37"
+    "sha256": "sha256:a3dbd0ff08a233e0da104c1327226b2b0f4d53c5712eaf8988b52e9017889434"
   },
   "consumed_record_ids": [
     "conflict-Q007-hearing-loop",
@@ -81,6 +81,7 @@
     "hc-capacity-coverage",
     "hc-draft-boundary",
     "hc-nonadditive-needs",
+    "hc-official-plenary-policy",
     "hc-privacy",
     "hc-programme-demos",
     "hc-qualitative-confidence",
@@ -161,6 +162,12 @@
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-status",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-0",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-1",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-conditions-2",
@@ -177,7 +184,8 @@
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
-    "unknown-live-accessibility"
+    "unknown-live-accessibility",
+    "unknown-official-plenary-policy-review"
   ],
   "produced_record_ids": [
     "baseline-headcount-registered",
@@ -202,13 +210,13 @@
     "baseline-programme-demos",
     "baseline-programme-duration",
     "baseline-budget-ceiling",
-    "baseline-budget-category-venue",
-    "baseline-budget-category-catering",
     "baseline-budget-category-accessibility",
-    "baseline-budget-category-production",
+    "baseline-budget-category-catering",
     "baseline-budget-category-communications",
-    "baseline-budget-category-security",
     "baseline-budget-category-contingency",
+    "baseline-budget-category-production",
+    "baseline-budget-category-security",
+    "baseline-budget-category-venue",
     "baseline-budget-planned-total",
     "baseline-budget-committed-total",
     "baseline-budget-unallocated",
@@ -234,6 +242,8 @@
     "baseline-service-condition-Q-004",
     "baseline-service-condition-Q-008",
     "baseline-service-condition-Q-010",
+    "baseline-official-plenary-policy",
+    "unknown-official-plenary-policy-review",
     "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
     "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
     "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -289,6 +299,12 @@
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
     "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+    "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+    "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
     "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -388,7 +404,7 @@
                   "G2": "46258.0",
                   "H2": "high"
                 },
-                "locator": "'Attendee Signals'!A2:H2"
+                "locator": "'Attendee Signals'!A2,B2,C2,D2,E2,F2,G2,H2"
               }
             ]
           },
@@ -443,7 +459,7 @@
                   "G3": "46258.0",
                   "H3": "high"
                 },
-                "locator": "'Attendee Signals'!A3:H3"
+                "locator": "'Attendee Signals'!A3,B3,C3,D3,E3,F3,G3,H3"
               }
             ]
           }
@@ -533,7 +549,7 @@
                   "G4": "46259.0",
                   "H4": "high"
                 },
-                "locator": "'Attendee Signals'!A4:H4"
+                "locator": "'Attendee Signals'!A4,B4,C4,D4,E4,F4,G4,H4"
               }
             ]
           },
@@ -588,7 +604,7 @@
                   "G5": "46259.0",
                   "H5": "high"
                 },
-                "locator": "'Attendee Signals'!A5:H5"
+                "locator": "'Attendee Signals'!A5,B5,C5,D5,E5,F5,G5,H5"
               }
             ]
           }
@@ -680,7 +696,7 @@
                   "G2": "46258.0",
                   "H2": "high"
                 },
-                "locator": "'Attendee Signals'!A2:H2"
+                "locator": "'Attendee Signals'!A2,B2,C2,D2,E2,F2,G2,H2"
               }
             ]
           },
@@ -735,7 +751,7 @@
                   "G3": "46258.0",
                   "H3": "high"
                 },
-                "locator": "'Attendee Signals'!A3:H3"
+                "locator": "'Attendee Signals'!A3,B3,C3,D3,E3,F3,G3,H3"
               }
             ]
           },
@@ -790,7 +806,7 @@
                   "G4": "46259.0",
                   "H4": "high"
                 },
-                "locator": "'Attendee Signals'!A4:H4"
+                "locator": "'Attendee Signals'!A4,B4,C4,D4,E4,F4,G4,H4"
               }
             ]
           },
@@ -845,7 +861,7 @@
                   "G5": "46259.0",
                   "H5": "high"
                 },
-                "locator": "'Attendee Signals'!A5:H5"
+                "locator": "'Attendee Signals'!A5,B5,C5,D5,E5,F5,G5,H5"
               }
             ]
           }
@@ -952,7 +968,7 @@
                   "G6": "46260.0",
                   "H6": "medium"
                 },
-                "locator": "'Attendee Signals'!A6:H6"
+                "locator": "'Attendee Signals'!A6,B6,C6,D6,E6,F6,G6,H6"
               }
             ]
           },
@@ -1059,7 +1075,7 @@
                   "G2": "46258.0",
                   "H2": "high"
                 },
-                "locator": "'Attendee Signals'!A2:H2"
+                "locator": "'Attendee Signals'!A2,B2,C2,D2,E2,F2,G2,H2"
               }
             ]
           },
@@ -1114,7 +1130,7 @@
                   "G3": "46258.0",
                   "H3": "high"
                 },
-                "locator": "'Attendee Signals'!A3:H3"
+                "locator": "'Attendee Signals'!A3,B3,C3,D3,E3,F3,G3,H3"
               }
             ]
           },
@@ -1169,7 +1185,7 @@
                   "G4": "46259.0",
                   "H4": "high"
                 },
-                "locator": "'Attendee Signals'!A4:H4"
+                "locator": "'Attendee Signals'!A4,B4,C4,D4,E4,F4,G4,H4"
               }
             ]
           },
@@ -1224,7 +1240,7 @@
                   "G5": "46259.0",
                   "H5": "high"
                 },
-                "locator": "'Attendee Signals'!A5:H5"
+                "locator": "'Attendee Signals'!A5,B5,C5,D5,E5,F5,G5,H5"
               }
             ]
           },
@@ -1279,7 +1295,7 @@
                   "G6": "46260.0",
                   "H6": "medium"
                 },
-                "locator": "'Attendee Signals'!A6:H6"
+                "locator": "'Attendee Signals'!A6,B6,C6,D6,E6,F6,G6,H6"
               }
             ]
           },
@@ -1704,7 +1720,7 @@
                   "G2": "Preferred event date",
                   "H2": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A2:H2"
+                "locator": "'Calendar Constraints'!A2,B2,C2,D2,E2,F2,G2,H2"
               }
             ]
           },
@@ -1824,7 +1840,7 @@
                   "G3": "Fallback date",
                   "H3": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A3:H3"
+                "locator": "'Calendar Constraints'!A3,B3,C3,D3,E3,F3,G3,H3"
               }
             ]
           },
@@ -1940,7 +1956,7 @@
                   "G4": "Hold expires 2026-09-05",
                   "H4": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A4:H4"
+                "locator": "'Calendar Constraints'!A4,B4,C4,D4,E4,F4,G4,H4"
               }
             ]
           },
@@ -2056,7 +2072,7 @@
                   "G5": "Keynote unavailable on fallback date",
                   "H5": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A5:H5"
+                "locator": "'Calendar Constraints'!A5,B5,C5,D5,E5,F5,G5,H5"
               }
             ]
           },
@@ -2172,7 +2188,7 @@
                   "G6": "Plan and budget decision",
                   "H6": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A6:H6"
+                "locator": "'Calendar Constraints'!A6,B6,C6,D6,E6,F6,G6,H6"
               }
             ]
           },
@@ -2291,7 +2307,7 @@
                   "G7": "Venue confirmation required first",
                   "H7": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A7:H7"
+                "locator": "'Calendar Constraints'!A7,B7,C7,D7,E7,F7,G7,H7"
               }
             ]
           },
@@ -2415,7 +2431,7 @@
                   "G8": "Remote backup acceptable",
                   "H8": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A8:H8"
+                "locator": "'Calendar Constraints'!A8,B8,C8,D8,E8,F8,G8,H8"
               }
             ]
           },
@@ -2533,7 +2549,7 @@
                   "G9": "All vendors clear by 18:30",
                   "H9": "calendar-2026-08-26"
                 },
-                "locator": "'Calendar Constraints'!A9:H9"
+                "locator": "'Calendar Constraints'!A9,B9,C9,D9,E9,F9,G9,H9"
               }
             ]
           },
@@ -3420,20 +3436,20 @@
         }
       },
       {
-        "id": "baseline-budget-category-venue",
+        "id": "baseline-budget-category-accessibility",
         "summary": "Separate source allocation, approval limit and recorded commitment.",
         "evidence_ids": [
-          "fact-budget-venue",
-          "hc-budget-authorization-venue",
+          "fact-budget-accessibility",
+          "hc-budget-authorization-accessibility",
           "unknown-budget-reallocation"
         ],
         "basis": "source-statement",
         "values": {
-          "category": "venue",
-          "planned_amount_twd": "155000.0",
-          "approval_limit_twd": "180000.0",
+          "category": "accessibility",
+          "planned_amount_twd": "65000.0",
+          "approval_limit_twd": "80000.0",
           "committed_amount_twd": "0.0",
-          "owner": "Operations",
+          "owner": "Learner Experience",
           "record_version": "budget-2026-08-26"
         },
         "depends_on_record_ids": [],
@@ -3441,22 +3457,22 @@
         "fulfillment": "not-evaluated",
         "source_records": [
           {
-            "id": "fact-budget-venue",
-            "summary": "Source fields for venue.",
+            "id": "fact-budget-accessibility",
+            "summary": "Source fields for accessibility.",
             "evidence_ids": [
-              "obs-budget-row-2"
+              "obs-budget-row-4"
             ],
             "basis": "source-fact",
             "owner": null,
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               }
@@ -3465,11 +3481,11 @@
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [],
             "values": {
-              "category": "venue",
-              "planned_amount_twd": "155000.0",
-              "approval_limit_twd": "180000.0",
+              "category": "accessibility",
+              "planned_amount_twd": "65000.0",
+              "approval_limit_twd": "80000.0",
               "committed_amount_twd": "0.0",
-              "owner": "Operations",
+              "owner": "Learner Experience",
               "record_version": "budget-2026-08-26"
             },
             "units": {
@@ -3480,37 +3496,37 @@
             "interpretation": "source-statement",
             "source_values": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "original_cell_values": {
-                  "A2": "venue",
-                  "B2": "155000.0",
-                  "C2": "180000.0",
-                  "D2": "0.0",
-                  "E2": "Operations",
-                  "F2": "budget-2026-08-26"
+                  "A4": "accessibility",
+                  "B4": "65000.0",
+                  "C4": "80000.0",
+                  "D4": "0.0",
+                  "E4": "Learner Experience",
+                  "F4": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A2:F2"
+                "locator": "'Budget'!A4,B4,C4,D4,E4,F4"
               }
             ]
           },
           {
-            "id": "hc-budget-authorization-venue",
+            "id": "hc-budget-authorization-accessibility",
             "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
             "evidence_ids": [
-              "obs-budget-row-2",
+              "obs-budget-row-4",
               "obs-brief-text-approvals"
             ],
             "basis": "stakeholder-rule",
-            "owner": "Operations",
+            "owner": "Learner Experience",
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               },
@@ -3529,13 +3545,13 @@
             "verification": "inherits-upstream-limitations",
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [
-              "fact-budget-venue",
+              "fact-budget-accessibility",
               "hc-budget-total"
             ],
             "rule": {
-              "subject": "venue",
-              "planned_allocation": "155000.0",
-              "approval_limit": "180000.0",
+              "subject": "accessibility",
+              "planned_allocation": "65000.0",
+              "approval_limit": "80000.0",
               "committed": "0.0",
               "unit": "TWD",
               "authorization": "required-for-all-spending",
@@ -3654,7 +3670,7 @@
                   "E3": "Operations",
                   "F3": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A3:F3"
+                "locator": "'Budget'!A3,B3,C3,D3,E3,F3"
               }
             ]
           },
@@ -3701,336 +3717,6 @@
               "subject": "catering",
               "planned_allocation": "115000.0",
               "approval_limit": "135000.0",
-              "committed": "0.0",
-              "unit": "TWD",
-              "authorization": "required-for-all-spending",
-              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
-              "approval_limit_role": "explicit-owner-exception-threshold",
-              "exception": "explicit-owner-approval-required"
-            },
-            "source_values": [
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 636,
-                "line_end": 636,
-                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              },
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 644,
-                "line_end": 644,
-                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              }
-            ]
-          },
-          {
-            "id": "unknown-budget-reallocation",
-            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
-            "evidence_ids": [
-              "source-group-budget-allocations"
-            ],
-            "basis": "unresolved-information",
-            "owner": null,
-            "provenance": [],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "resolution": "unresolved"
-          }
-        ],
-        "units": {
-          "planned_amount_twd": "TWD",
-          "approval_limit_twd": "TWD",
-          "committed_amount_twd": "TWD"
-        },
-        "authorization_status": "pending"
-      },
-      {
-        "id": "baseline-budget-category-accessibility",
-        "summary": "Separate source allocation, approval limit and recorded commitment.",
-        "evidence_ids": [
-          "fact-budget-accessibility",
-          "hc-budget-authorization-accessibility",
-          "unknown-budget-reallocation"
-        ],
-        "basis": "source-statement",
-        "values": {
-          "category": "accessibility",
-          "planned_amount_twd": "65000.0",
-          "approval_limit_twd": "80000.0",
-          "committed_amount_twd": "0.0",
-          "owner": "Learner Experience",
-          "record_version": "budget-2026-08-26"
-        },
-        "depends_on_record_ids": [],
-        "verification": "inherits-upstream-limitations",
-        "fulfillment": "not-evaluated",
-        "source_records": [
-          {
-            "id": "fact-budget-accessibility",
-            "summary": "Source fields for accessibility.",
-            "evidence_ids": [
-              "obs-budget-row-4"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "accessibility",
-              "planned_amount_twd": "65000.0",
-              "approval_limit_twd": "80000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Learner Experience",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "original_cell_values": {
-                  "A4": "accessibility",
-                  "B4": "65000.0",
-                  "C4": "80000.0",
-                  "D4": "0.0",
-                  "E4": "Learner Experience",
-                  "F4": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A4:F4"
-              }
-            ]
-          },
-          {
-            "id": "hc-budget-authorization-accessibility",
-            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
-            "evidence_ids": [
-              "obs-budget-row-4",
-              "obs-brief-text-approvals"
-            ],
-            "basis": "stakeholder-rule",
-            "owner": "Learner Experience",
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              },
-              {
-                "evidence_id": "obs-brief-text-approvals",
-                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
-                "path": "evidence/originals/event-brief-manually-completed.txt",
-                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
-                "locator": {
-                  "kind": "section",
-                  "value": "Lines 19 and 34"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [
-              "fact-budget-accessibility",
-              "hc-budget-total"
-            ],
-            "rule": {
-              "subject": "accessibility",
-              "planned_allocation": "65000.0",
-              "approval_limit": "80000.0",
-              "committed": "0.0",
-              "unit": "TWD",
-              "authorization": "required-for-all-spending",
-              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
-              "approval_limit_role": "explicit-owner-exception-threshold",
-              "exception": "explicit-owner-approval-required"
-            },
-            "source_values": [
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 636,
-                "line_end": 636,
-                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              },
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 644,
-                "line_end": 644,
-                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              }
-            ]
-          },
-          {
-            "id": "unknown-budget-reallocation",
-            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
-            "evidence_ids": [
-              "source-group-budget-allocations"
-            ],
-            "basis": "unresolved-information",
-            "owner": null,
-            "provenance": [],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "resolution": "unresolved"
-          }
-        ],
-        "units": {
-          "planned_amount_twd": "TWD",
-          "approval_limit_twd": "TWD",
-          "committed_amount_twd": "TWD"
-        },
-        "authorization_status": "pending"
-      },
-      {
-        "id": "baseline-budget-category-production",
-        "summary": "Separate source allocation, approval limit and recorded commitment.",
-        "evidence_ids": [
-          "fact-budget-production",
-          "hc-budget-authorization-production",
-          "unknown-budget-reallocation"
-        ],
-        "basis": "source-statement",
-        "values": {
-          "category": "production",
-          "planned_amount_twd": "85000.0",
-          "approval_limit_twd": "100000.0",
-          "committed_amount_twd": "0.0",
-          "owner": "Programme",
-          "record_version": "budget-2026-08-26"
-        },
-        "depends_on_record_ids": [],
-        "verification": "inherits-upstream-limitations",
-        "fulfillment": "not-evaluated",
-        "source_records": [
-          {
-            "id": "fact-budget-production",
-            "summary": "Source fields for production.",
-            "evidence_ids": [
-              "obs-budget-row-5"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "production",
-              "planned_amount_twd": "85000.0",
-              "approval_limit_twd": "100000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Programme",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "original_cell_values": {
-                  "A5": "production",
-                  "B5": "85000.0",
-                  "C5": "100000.0",
-                  "D5": "0.0",
-                  "E5": "Programme",
-                  "F5": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A5:F5"
-              }
-            ]
-          },
-          {
-            "id": "hc-budget-authorization-production",
-            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
-            "evidence_ids": [
-              "obs-budget-row-5",
-              "obs-brief-text-approvals"
-            ],
-            "basis": "stakeholder-rule",
-            "owner": "Programme",
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              },
-              {
-                "evidence_id": "obs-brief-text-approvals",
-                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
-                "path": "evidence/originals/event-brief-manually-completed.txt",
-                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
-                "locator": {
-                  "kind": "section",
-                  "value": "Lines 19 and 34"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [
-              "fact-budget-production",
-              "hc-budget-total"
-            ],
-            "rule": {
-              "subject": "production",
-              "planned_allocation": "85000.0",
-              "approval_limit": "100000.0",
               "committed": "0.0",
               "unit": "TWD",
               "authorization": "required-for-all-spending",
@@ -4149,7 +3835,7 @@
                   "E6": "Communications",
                   "F6": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A6:F6"
+                "locator": "'Budget'!A6,B6,C6,D6,E6,F6"
               }
             ]
           },
@@ -4196,171 +3882,6 @@
               "subject": "communications",
               "planned_allocation": "25000.0",
               "approval_limit": "30000.0",
-              "committed": "0.0",
-              "unit": "TWD",
-              "authorization": "required-for-all-spending",
-              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
-              "approval_limit_role": "explicit-owner-exception-threshold",
-              "exception": "explicit-owner-approval-required"
-            },
-            "source_values": [
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 636,
-                "line_end": 636,
-                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              },
-              {
-                "path": "interviews/project-c-event-coordination-20261016-1954.md",
-                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
-                "line_start": 644,
-                "line_end": 644,
-                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
-                "provenance": "Supplementary local source inspection; online equivalence unverified."
-              }
-            ]
-          },
-          {
-            "id": "unknown-budget-reallocation",
-            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
-            "evidence_ids": [
-              "source-group-budget-allocations"
-            ],
-            "basis": "unresolved-information",
-            "owner": null,
-            "provenance": [],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "resolution": "unresolved"
-          }
-        ],
-        "units": {
-          "planned_amount_twd": "TWD",
-          "approval_limit_twd": "TWD",
-          "committed_amount_twd": "TWD"
-        },
-        "authorization_status": "pending"
-      },
-      {
-        "id": "baseline-budget-category-security",
-        "summary": "Separate source allocation, approval limit and recorded commitment.",
-        "evidence_ids": [
-          "fact-budget-security",
-          "hc-budget-authorization-security",
-          "unknown-budget-reallocation"
-        ],
-        "basis": "source-statement",
-        "values": {
-          "category": "security",
-          "planned_amount_twd": "25000.0",
-          "approval_limit_twd": "35000.0",
-          "committed_amount_twd": "0.0",
-          "owner": "Operations",
-          "record_version": "budget-2026-08-26"
-        },
-        "depends_on_record_ids": [],
-        "verification": "inherits-upstream-limitations",
-        "fulfillment": "not-evaluated",
-        "source_records": [
-          {
-            "id": "fact-budget-security",
-            "summary": "Source fields for security.",
-            "evidence_ids": [
-              "obs-budget-row-7"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "security",
-              "planned_amount_twd": "25000.0",
-              "approval_limit_twd": "35000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Operations",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "original_cell_values": {
-                  "A7": "security",
-                  "B7": "25000.0",
-                  "C7": "35000.0",
-                  "D7": "0.0",
-                  "E7": "Operations",
-                  "F7": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A7:F7"
-              }
-            ]
-          },
-          {
-            "id": "hc-budget-authorization-security",
-            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
-            "evidence_ids": [
-              "obs-budget-row-7",
-              "obs-brief-text-approvals"
-            ],
-            "basis": "stakeholder-rule",
-            "owner": "Operations",
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              },
-              {
-                "evidence_id": "obs-brief-text-approvals",
-                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
-                "path": "evidence/originals/event-brief-manually-completed.txt",
-                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
-                "locator": {
-                  "kind": "section",
-                  "value": "Lines 19 and 34"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [
-              "fact-budget-security",
-              "hc-budget-total"
-            ],
-            "rule": {
-              "subject": "security",
-              "planned_allocation": "25000.0",
-              "approval_limit": "35000.0",
               "committed": "0.0",
               "unit": "TWD",
               "authorization": "required-for-all-spending",
@@ -4479,7 +4000,7 @@
                   "E8": "Operations",
                   "F8": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A8:F8"
+                "locator": "'Budget'!A8,B8,C8,D8,E8,F8"
               }
             ]
           },
@@ -4575,16 +4096,511 @@
         "authorization_status": "pending"
       },
       {
+        "id": "baseline-budget-category-production",
+        "summary": "Separate source allocation, approval limit and recorded commitment.",
+        "evidence_ids": [
+          "fact-budget-production",
+          "hc-budget-authorization-production",
+          "unknown-budget-reallocation"
+        ],
+        "basis": "source-statement",
+        "values": {
+          "category": "production",
+          "planned_amount_twd": "85000.0",
+          "approval_limit_twd": "100000.0",
+          "committed_amount_twd": "0.0",
+          "owner": "Programme",
+          "record_version": "budget-2026-08-26"
+        },
+        "depends_on_record_ids": [],
+        "verification": "inherits-upstream-limitations",
+        "fulfillment": "not-evaluated",
+        "source_records": [
+          {
+            "id": "fact-budget-production",
+            "summary": "Source fields for production.",
+            "evidence_ids": [
+              "obs-budget-row-5"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "production",
+              "planned_amount_twd": "85000.0",
+              "approval_limit_twd": "100000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Programme",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "original_cell_values": {
+                  "A5": "production",
+                  "B5": "85000.0",
+                  "C5": "100000.0",
+                  "D5": "0.0",
+                  "E5": "Programme",
+                  "F5": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A5,B5,C5,D5,E5,F5"
+              }
+            ]
+          },
+          {
+            "id": "hc-budget-authorization-production",
+            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
+            "evidence_ids": [
+              "obs-budget-row-5",
+              "obs-brief-text-approvals"
+            ],
+            "basis": "stakeholder-rule",
+            "owner": "Programme",
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              },
+              {
+                "evidence_id": "obs-brief-text-approvals",
+                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+                "path": "evidence/originals/event-brief-manually-completed.txt",
+                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+                "locator": {
+                  "kind": "section",
+                  "value": "Lines 19 and 34"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [
+              "fact-budget-production",
+              "hc-budget-total"
+            ],
+            "rule": {
+              "subject": "production",
+              "planned_allocation": "85000.0",
+              "approval_limit": "100000.0",
+              "committed": "0.0",
+              "unit": "TWD",
+              "authorization": "required-for-all-spending",
+              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
+              "approval_limit_role": "explicit-owner-exception-threshold",
+              "exception": "explicit-owner-approval-required"
+            },
+            "source_values": [
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 636,
+                "line_end": 636,
+                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              },
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 644,
+                "line_end": 644,
+                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              }
+            ]
+          },
+          {
+            "id": "unknown-budget-reallocation",
+            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
+            "evidence_ids": [
+              "source-group-budget-allocations"
+            ],
+            "basis": "unresolved-information",
+            "owner": null,
+            "provenance": [],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "resolution": "unresolved"
+          }
+        ],
+        "units": {
+          "planned_amount_twd": "TWD",
+          "approval_limit_twd": "TWD",
+          "committed_amount_twd": "TWD"
+        },
+        "authorization_status": "pending"
+      },
+      {
+        "id": "baseline-budget-category-security",
+        "summary": "Separate source allocation, approval limit and recorded commitment.",
+        "evidence_ids": [
+          "fact-budget-security",
+          "hc-budget-authorization-security",
+          "unknown-budget-reallocation"
+        ],
+        "basis": "source-statement",
+        "values": {
+          "category": "security",
+          "planned_amount_twd": "25000.0",
+          "approval_limit_twd": "35000.0",
+          "committed_amount_twd": "0.0",
+          "owner": "Operations",
+          "record_version": "budget-2026-08-26"
+        },
+        "depends_on_record_ids": [],
+        "verification": "inherits-upstream-limitations",
+        "fulfillment": "not-evaluated",
+        "source_records": [
+          {
+            "id": "fact-budget-security",
+            "summary": "Source fields for security.",
+            "evidence_ids": [
+              "obs-budget-row-7"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "security",
+              "planned_amount_twd": "25000.0",
+              "approval_limit_twd": "35000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "original_cell_values": {
+                  "A7": "security",
+                  "B7": "25000.0",
+                  "C7": "35000.0",
+                  "D7": "0.0",
+                  "E7": "Operations",
+                  "F7": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A7,B7,C7,D7,E7,F7"
+              }
+            ]
+          },
+          {
+            "id": "hc-budget-authorization-security",
+            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
+            "evidence_ids": [
+              "obs-budget-row-7",
+              "obs-brief-text-approvals"
+            ],
+            "basis": "stakeholder-rule",
+            "owner": "Operations",
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              },
+              {
+                "evidence_id": "obs-brief-text-approvals",
+                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+                "path": "evidence/originals/event-brief-manually-completed.txt",
+                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+                "locator": {
+                  "kind": "section",
+                  "value": "Lines 19 and 34"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [
+              "fact-budget-security",
+              "hc-budget-total"
+            ],
+            "rule": {
+              "subject": "security",
+              "planned_allocation": "25000.0",
+              "approval_limit": "35000.0",
+              "committed": "0.0",
+              "unit": "TWD",
+              "authorization": "required-for-all-spending",
+              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
+              "approval_limit_role": "explicit-owner-exception-threshold",
+              "exception": "explicit-owner-approval-required"
+            },
+            "source_values": [
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 636,
+                "line_end": 636,
+                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              },
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 644,
+                "line_end": 644,
+                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              }
+            ]
+          },
+          {
+            "id": "unknown-budget-reallocation",
+            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
+            "evidence_ids": [
+              "source-group-budget-allocations"
+            ],
+            "basis": "unresolved-information",
+            "owner": null,
+            "provenance": [],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "resolution": "unresolved"
+          }
+        ],
+        "units": {
+          "planned_amount_twd": "TWD",
+          "approval_limit_twd": "TWD",
+          "committed_amount_twd": "TWD"
+        },
+        "authorization_status": "pending"
+      },
+      {
+        "id": "baseline-budget-category-venue",
+        "summary": "Separate source allocation, approval limit and recorded commitment.",
+        "evidence_ids": [
+          "fact-budget-venue",
+          "hc-budget-authorization-venue",
+          "unknown-budget-reallocation"
+        ],
+        "basis": "source-statement",
+        "values": {
+          "category": "venue",
+          "planned_amount_twd": "155000.0",
+          "approval_limit_twd": "180000.0",
+          "committed_amount_twd": "0.0",
+          "owner": "Operations",
+          "record_version": "budget-2026-08-26"
+        },
+        "depends_on_record_ids": [],
+        "verification": "inherits-upstream-limitations",
+        "fulfillment": "not-evaluated",
+        "source_records": [
+          {
+            "id": "fact-budget-venue",
+            "summary": "Source fields for venue.",
+            "evidence_ids": [
+              "obs-budget-row-2"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "venue",
+              "planned_amount_twd": "155000.0",
+              "approval_limit_twd": "180000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "original_cell_values": {
+                  "A2": "venue",
+                  "B2": "155000.0",
+                  "C2": "180000.0",
+                  "D2": "0.0",
+                  "E2": "Operations",
+                  "F2": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A2,B2,C2,D2,E2,F2"
+              }
+            ]
+          },
+          {
+            "id": "hc-budget-authorization-venue",
+            "summary": "Spending requires category-owner authorization; above-limit exceptions require explicit amount/plan approval and cannot exceed the overall ceiling.",
+            "evidence_ids": [
+              "obs-budget-row-2",
+              "obs-brief-text-approvals"
+            ],
+            "basis": "stakeholder-rule",
+            "owner": "Operations",
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              },
+              {
+                "evidence_id": "obs-brief-text-approvals",
+                "capture_id": "capture-event-brief-manual-text-5a37437c-cd46-4239-9759-a5f4bb32c5e3",
+                "path": "evidence/originals/event-brief-manually-completed.txt",
+                "sha256": "sha256:cee2cb55c521ff3316d61b526f92d22cf4de81f88742e04a2193b5ca06df7fb7",
+                "locator": {
+                  "kind": "section",
+                  "value": "Lines 19 and 34"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [
+              "fact-budget-venue",
+              "hc-budget-total"
+            ],
+            "rule": {
+              "subject": "venue",
+              "planned_allocation": "155000.0",
+              "approval_limit": "180000.0",
+              "committed": "0.0",
+              "unit": "TWD",
+              "authorization": "required-for-all-spending",
+              "planned_amount_role": "baseline-allocation; reallocation-policy-unresolved",
+              "approval_limit_role": "explicit-owner-exception-threshold",
+              "exception": "explicit-owner-approval-required"
+            },
+            "source_values": [
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 636,
+                "line_end": 636,
+                "excerpt": "Operations owns the overall event plan, date, and venue approval. Category budget owners must approve all spending within their specific categories, including any proposed amounts that exceed their established approval limits.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              },
+              {
+                "path": "interviews/project-c-event-coordination-20261016-1954.md",
+                "sha256": "sha256:9f80489a28c4bf717ba15d362f14f825b0f43e6c0054681073963d8e32a5eb63",
+                "line_start": 644,
+                "line_end": 644,
+                "excerpt": "An exception allows a category amount to exceed its approval limit if the category owner provides explicit approval for the amount and plan. However, this cannot exceed the overall budget ceiling.",
+                "provenance": "Supplementary local source inspection; online equivalence unverified."
+              }
+            ]
+          },
+          {
+            "id": "unknown-budget-reallocation",
+            "summary": "Allocation transfer policy and whether planned amounts are fixed allocations are not explicitly established.",
+            "evidence_ids": [
+              "source-group-budget-allocations"
+            ],
+            "basis": "unresolved-information",
+            "owner": null,
+            "provenance": [],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "resolution": "unresolved"
+          }
+        ],
+        "units": {
+          "planned_amount_twd": "TWD",
+          "approval_limit_twd": "TWD",
+          "committed_amount_twd": "TWD"
+        },
+        "authorization_status": "pending"
+      },
+      {
         "id": "baseline-budget-planned-total",
         "summary": "Sum of explicit source amounts; not spending authority.",
         "evidence_ids": [
-          "fact-budget-venue",
-          "fact-budget-catering",
           "fact-budget-accessibility",
-          "fact-budget-production",
+          "fact-budget-catering",
           "fact-budget-communications",
+          "fact-budget-contingency",
+          "fact-budget-production",
           "fact-budget-security",
-          "fact-budget-contingency"
+          "fact-budget-venue"
         ],
         "basis": "derived",
         "values": {
@@ -4595,22 +4611,22 @@
         "fulfillment": "not-evaluated",
         "source_records": [
           {
-            "id": "fact-budget-venue",
-            "summary": "Source fields for venue.",
+            "id": "fact-budget-accessibility",
+            "summary": "Source fields for accessibility.",
             "evidence_ids": [
-              "obs-budget-row-2"
+              "obs-budget-row-4"
             ],
             "basis": "source-fact",
             "owner": null,
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               }
@@ -4619,11 +4635,11 @@
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [],
             "values": {
-              "category": "venue",
-              "planned_amount_twd": "155000.0",
-              "approval_limit_twd": "180000.0",
+              "category": "accessibility",
+              "planned_amount_twd": "65000.0",
+              "approval_limit_twd": "80000.0",
               "committed_amount_twd": "0.0",
-              "owner": "Operations",
+              "owner": "Learner Experience",
               "record_version": "budget-2026-08-26"
             },
             "units": {
@@ -4634,16 +4650,16 @@
             "interpretation": "source-statement",
             "source_values": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "original_cell_values": {
-                  "A2": "venue",
-                  "B2": "155000.0",
-                  "C2": "180000.0",
-                  "D2": "0.0",
-                  "E2": "Operations",
-                  "F2": "budget-2026-08-26"
+                  "A4": "accessibility",
+                  "B4": "65000.0",
+                  "C4": "80000.0",
+                  "D4": "0.0",
+                  "E4": "Learner Experience",
+                  "F4": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A2:F2"
+                "locator": "'Budget'!A4,B4,C4,D4,E4,F4"
               }
             ]
           },
@@ -4696,113 +4712,7 @@
                   "E3": "Operations",
                   "F3": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A3:F3"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-accessibility",
-            "summary": "Source fields for accessibility.",
-            "evidence_ids": [
-              "obs-budget-row-4"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "accessibility",
-              "planned_amount_twd": "65000.0",
-              "approval_limit_twd": "80000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Learner Experience",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "original_cell_values": {
-                  "A4": "accessibility",
-                  "B4": "65000.0",
-                  "C4": "80000.0",
-                  "D4": "0.0",
-                  "E4": "Learner Experience",
-                  "F4": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A4:F4"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-production",
-            "summary": "Source fields for production.",
-            "evidence_ids": [
-              "obs-budget-row-5"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "production",
-              "planned_amount_twd": "85000.0",
-              "approval_limit_twd": "100000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Programme",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "original_cell_values": {
-                  "A5": "production",
-                  "B5": "85000.0",
-                  "C5": "100000.0",
-                  "D5": "0.0",
-                  "E5": "Programme",
-                  "F5": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A5:F5"
+                "locator": "'Budget'!A3,B3,C3,D3,E3,F3"
               }
             ]
           },
@@ -4855,60 +4765,7 @@
                   "E6": "Communications",
                   "F6": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A6:F6"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-security",
-            "summary": "Source fields for security.",
-            "evidence_ids": [
-              "obs-budget-row-7"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "security",
-              "planned_amount_twd": "25000.0",
-              "approval_limit_twd": "35000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Operations",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "original_cell_values": {
-                  "A7": "security",
-                  "B7": "25000.0",
-                  "C7": "35000.0",
-                  "D7": "0.0",
-                  "E7": "Operations",
-                  "F7": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A7:F7"
+                "locator": "'Budget'!A6,B6,C6,D6,E6,F6"
               }
             ]
           },
@@ -4961,7 +4818,166 @@
                   "E8": "Operations",
                   "F8": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A8:F8"
+                "locator": "'Budget'!A8,B8,C8,D8,E8,F8"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-production",
+            "summary": "Source fields for production.",
+            "evidence_ids": [
+              "obs-budget-row-5"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "production",
+              "planned_amount_twd": "85000.0",
+              "approval_limit_twd": "100000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Programme",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "original_cell_values": {
+                  "A5": "production",
+                  "B5": "85000.0",
+                  "C5": "100000.0",
+                  "D5": "0.0",
+                  "E5": "Programme",
+                  "F5": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A5,B5,C5,D5,E5,F5"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-security",
+            "summary": "Source fields for security.",
+            "evidence_ids": [
+              "obs-budget-row-7"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "security",
+              "planned_amount_twd": "25000.0",
+              "approval_limit_twd": "35000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "original_cell_values": {
+                  "A7": "security",
+                  "B7": "25000.0",
+                  "C7": "35000.0",
+                  "D7": "0.0",
+                  "E7": "Operations",
+                  "F7": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A7,B7,C7,D7,E7,F7"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-venue",
+            "summary": "Source fields for venue.",
+            "evidence_ids": [
+              "obs-budget-row-2"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "venue",
+              "planned_amount_twd": "155000.0",
+              "approval_limit_twd": "180000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "original_cell_values": {
+                  "A2": "venue",
+                  "B2": "155000.0",
+                  "C2": "180000.0",
+                  "D2": "0.0",
+                  "E2": "Operations",
+                  "F2": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A2,B2,C2,D2,E2,F2"
               }
             ]
           }
@@ -4973,7 +4989,7 @@
           "operation": "weighted-sum",
           "inputs": [
             {
-              "record_id": "fact-budget-venue",
+              "record_id": "fact-budget-accessibility",
               "field": "values.planned_amount_twd",
               "coefficient": 1
             },
@@ -4983,7 +4999,12 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-accessibility",
+              "record_id": "fact-budget-communications",
+              "field": "values.planned_amount_twd",
+              "coefficient": 1
+            },
+            {
+              "record_id": "fact-budget-contingency",
               "field": "values.planned_amount_twd",
               "coefficient": 1
             },
@@ -4993,17 +5014,12 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-communications",
-              "field": "values.planned_amount_twd",
-              "coefficient": 1
-            },
-            {
               "record_id": "fact-budget-security",
               "field": "values.planned_amount_twd",
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-contingency",
+              "record_id": "fact-budget-venue",
               "field": "values.planned_amount_twd",
               "coefficient": 1
             }
@@ -5014,13 +5030,13 @@
         "id": "baseline-budget-committed-total",
         "summary": "Sum of explicit source amounts; not spending authority.",
         "evidence_ids": [
-          "fact-budget-venue",
-          "fact-budget-catering",
           "fact-budget-accessibility",
-          "fact-budget-production",
+          "fact-budget-catering",
           "fact-budget-communications",
+          "fact-budget-contingency",
+          "fact-budget-production",
           "fact-budget-security",
-          "fact-budget-contingency"
+          "fact-budget-venue"
         ],
         "basis": "derived",
         "values": {
@@ -5031,22 +5047,22 @@
         "fulfillment": "not-evaluated",
         "source_records": [
           {
-            "id": "fact-budget-venue",
-            "summary": "Source fields for venue.",
+            "id": "fact-budget-accessibility",
+            "summary": "Source fields for accessibility.",
             "evidence_ids": [
-              "obs-budget-row-2"
+              "obs-budget-row-4"
             ],
             "basis": "source-fact",
             "owner": null,
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               }
@@ -5055,11 +5071,11 @@
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [],
             "values": {
-              "category": "venue",
-              "planned_amount_twd": "155000.0",
-              "approval_limit_twd": "180000.0",
+              "category": "accessibility",
+              "planned_amount_twd": "65000.0",
+              "approval_limit_twd": "80000.0",
               "committed_amount_twd": "0.0",
-              "owner": "Operations",
+              "owner": "Learner Experience",
               "record_version": "budget-2026-08-26"
             },
             "units": {
@@ -5070,16 +5086,16 @@
             "interpretation": "source-statement",
             "source_values": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "original_cell_values": {
-                  "A2": "venue",
-                  "B2": "155000.0",
-                  "C2": "180000.0",
-                  "D2": "0.0",
-                  "E2": "Operations",
-                  "F2": "budget-2026-08-26"
+                  "A4": "accessibility",
+                  "B4": "65000.0",
+                  "C4": "80000.0",
+                  "D4": "0.0",
+                  "E4": "Learner Experience",
+                  "F4": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A2:F2"
+                "locator": "'Budget'!A4,B4,C4,D4,E4,F4"
               }
             ]
           },
@@ -5132,113 +5148,7 @@
                   "E3": "Operations",
                   "F3": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A3:F3"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-accessibility",
-            "summary": "Source fields for accessibility.",
-            "evidence_ids": [
-              "obs-budget-row-4"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "accessibility",
-              "planned_amount_twd": "65000.0",
-              "approval_limit_twd": "80000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Learner Experience",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "original_cell_values": {
-                  "A4": "accessibility",
-                  "B4": "65000.0",
-                  "C4": "80000.0",
-                  "D4": "0.0",
-                  "E4": "Learner Experience",
-                  "F4": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A4:F4"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-production",
-            "summary": "Source fields for production.",
-            "evidence_ids": [
-              "obs-budget-row-5"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "production",
-              "planned_amount_twd": "85000.0",
-              "approval_limit_twd": "100000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Programme",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "original_cell_values": {
-                  "A5": "production",
-                  "B5": "85000.0",
-                  "C5": "100000.0",
-                  "D5": "0.0",
-                  "E5": "Programme",
-                  "F5": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A5:F5"
+                "locator": "'Budget'!A3,B3,C3,D3,E3,F3"
               }
             ]
           },
@@ -5291,60 +5201,7 @@
                   "E6": "Communications",
                   "F6": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A6:F6"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-security",
-            "summary": "Source fields for security.",
-            "evidence_ids": [
-              "obs-budget-row-7"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "security",
-              "planned_amount_twd": "25000.0",
-              "approval_limit_twd": "35000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Operations",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "original_cell_values": {
-                  "A7": "security",
-                  "B7": "25000.0",
-                  "C7": "35000.0",
-                  "D7": "0.0",
-                  "E7": "Operations",
-                  "F7": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A7:F7"
+                "locator": "'Budget'!A6,B6,C6,D6,E6,F6"
               }
             ]
           },
@@ -5397,7 +5254,166 @@
                   "E8": "Operations",
                   "F8": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A8:F8"
+                "locator": "'Budget'!A8,B8,C8,D8,E8,F8"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-production",
+            "summary": "Source fields for production.",
+            "evidence_ids": [
+              "obs-budget-row-5"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "production",
+              "planned_amount_twd": "85000.0",
+              "approval_limit_twd": "100000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Programme",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "original_cell_values": {
+                  "A5": "production",
+                  "B5": "85000.0",
+                  "C5": "100000.0",
+                  "D5": "0.0",
+                  "E5": "Programme",
+                  "F5": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A5,B5,C5,D5,E5,F5"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-security",
+            "summary": "Source fields for security.",
+            "evidence_ids": [
+              "obs-budget-row-7"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "security",
+              "planned_amount_twd": "25000.0",
+              "approval_limit_twd": "35000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "original_cell_values": {
+                  "A7": "security",
+                  "B7": "25000.0",
+                  "C7": "35000.0",
+                  "D7": "0.0",
+                  "E7": "Operations",
+                  "F7": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A7,B7,C7,D7,E7,F7"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-venue",
+            "summary": "Source fields for venue.",
+            "evidence_ids": [
+              "obs-budget-row-2"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "venue",
+              "planned_amount_twd": "155000.0",
+              "approval_limit_twd": "180000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "original_cell_values": {
+                  "A2": "venue",
+                  "B2": "155000.0",
+                  "C2": "180000.0",
+                  "D2": "0.0",
+                  "E2": "Operations",
+                  "F2": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A2,B2,C2,D2,E2,F2"
               }
             ]
           }
@@ -5409,7 +5425,7 @@
           "operation": "weighted-sum",
           "inputs": [
             {
-              "record_id": "fact-budget-venue",
+              "record_id": "fact-budget-accessibility",
               "field": "values.committed_amount_twd",
               "coefficient": 1
             },
@@ -5419,7 +5435,12 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-accessibility",
+              "record_id": "fact-budget-communications",
+              "field": "values.committed_amount_twd",
+              "coefficient": 1
+            },
+            {
+              "record_id": "fact-budget-contingency",
               "field": "values.committed_amount_twd",
               "coefficient": 1
             },
@@ -5429,17 +5450,12 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-communications",
-              "field": "values.committed_amount_twd",
-              "coefficient": 1
-            },
-            {
               "record_id": "fact-budget-security",
               "field": "values.committed_amount_twd",
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-contingency",
+              "record_id": "fact-budget-venue",
               "field": "values.committed_amount_twd",
               "coefficient": 1
             }
@@ -5451,13 +5467,13 @@
         "summary": "Ceiling less recorded amounts; not authorized spending.",
         "evidence_ids": [
           "fact-budget-total",
-          "fact-budget-venue",
-          "fact-budget-catering",
           "fact-budget-accessibility",
-          "fact-budget-production",
+          "fact-budget-catering",
           "fact-budget-communications",
+          "fact-budget-contingency",
+          "fact-budget-production",
           "fact-budget-security",
-          "fact-budget-contingency"
+          "fact-budget-venue"
         ],
         "basis": "derived",
         "values": {
@@ -5506,22 +5522,22 @@
             ]
           },
           {
-            "id": "fact-budget-venue",
-            "summary": "Source fields for venue.",
+            "id": "fact-budget-accessibility",
+            "summary": "Source fields for accessibility.",
             "evidence_ids": [
-              "obs-budget-row-2"
+              "obs-budget-row-4"
             ],
             "basis": "source-fact",
             "owner": null,
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               }
@@ -5530,11 +5546,11 @@
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [],
             "values": {
-              "category": "venue",
-              "planned_amount_twd": "155000.0",
-              "approval_limit_twd": "180000.0",
+              "category": "accessibility",
+              "planned_amount_twd": "65000.0",
+              "approval_limit_twd": "80000.0",
               "committed_amount_twd": "0.0",
-              "owner": "Operations",
+              "owner": "Learner Experience",
               "record_version": "budget-2026-08-26"
             },
             "units": {
@@ -5545,16 +5561,16 @@
             "interpretation": "source-statement",
             "source_values": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "original_cell_values": {
-                  "A2": "venue",
-                  "B2": "155000.0",
-                  "C2": "180000.0",
-                  "D2": "0.0",
-                  "E2": "Operations",
-                  "F2": "budget-2026-08-26"
+                  "A4": "accessibility",
+                  "B4": "65000.0",
+                  "C4": "80000.0",
+                  "D4": "0.0",
+                  "E4": "Learner Experience",
+                  "F4": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A2:F2"
+                "locator": "'Budget'!A4,B4,C4,D4,E4,F4"
               }
             ]
           },
@@ -5607,113 +5623,7 @@
                   "E3": "Operations",
                   "F3": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A3:F3"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-accessibility",
-            "summary": "Source fields for accessibility.",
-            "evidence_ids": [
-              "obs-budget-row-4"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "accessibility",
-              "planned_amount_twd": "65000.0",
-              "approval_limit_twd": "80000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Learner Experience",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "original_cell_values": {
-                  "A4": "accessibility",
-                  "B4": "65000.0",
-                  "C4": "80000.0",
-                  "D4": "0.0",
-                  "E4": "Learner Experience",
-                  "F4": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A4:F4"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-production",
-            "summary": "Source fields for production.",
-            "evidence_ids": [
-              "obs-budget-row-5"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "production",
-              "planned_amount_twd": "85000.0",
-              "approval_limit_twd": "100000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Programme",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "original_cell_values": {
-                  "A5": "production",
-                  "B5": "85000.0",
-                  "C5": "100000.0",
-                  "D5": "0.0",
-                  "E5": "Programme",
-                  "F5": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A5:F5"
+                "locator": "'Budget'!A3,B3,C3,D3,E3,F3"
               }
             ]
           },
@@ -5766,60 +5676,7 @@
                   "E6": "Communications",
                   "F6": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A6:F6"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-security",
-            "summary": "Source fields for security.",
-            "evidence_ids": [
-              "obs-budget-row-7"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "security",
-              "planned_amount_twd": "25000.0",
-              "approval_limit_twd": "35000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Operations",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "original_cell_values": {
-                  "A7": "security",
-                  "B7": "25000.0",
-                  "C7": "35000.0",
-                  "D7": "0.0",
-                  "E7": "Operations",
-                  "F7": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A7:F7"
+                "locator": "'Budget'!A6,B6,C6,D6,E6,F6"
               }
             ]
           },
@@ -5872,7 +5729,166 @@
                   "E8": "Operations",
                   "F8": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A8:F8"
+                "locator": "'Budget'!A8,B8,C8,D8,E8,F8"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-production",
+            "summary": "Source fields for production.",
+            "evidence_ids": [
+              "obs-budget-row-5"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "production",
+              "planned_amount_twd": "85000.0",
+              "approval_limit_twd": "100000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Programme",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "original_cell_values": {
+                  "A5": "production",
+                  "B5": "85000.0",
+                  "C5": "100000.0",
+                  "D5": "0.0",
+                  "E5": "Programme",
+                  "F5": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A5,B5,C5,D5,E5,F5"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-security",
+            "summary": "Source fields for security.",
+            "evidence_ids": [
+              "obs-budget-row-7"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "security",
+              "planned_amount_twd": "25000.0",
+              "approval_limit_twd": "35000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "original_cell_values": {
+                  "A7": "security",
+                  "B7": "25000.0",
+                  "C7": "35000.0",
+                  "D7": "0.0",
+                  "E7": "Operations",
+                  "F7": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A7,B7,C7,D7,E7,F7"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-venue",
+            "summary": "Source fields for venue.",
+            "evidence_ids": [
+              "obs-budget-row-2"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "venue",
+              "planned_amount_twd": "155000.0",
+              "approval_limit_twd": "180000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "original_cell_values": {
+                  "A2": "venue",
+                  "B2": "155000.0",
+                  "C2": "180000.0",
+                  "D2": "0.0",
+                  "E2": "Operations",
+                  "F2": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A2,B2,C2,D2,E2,F2"
               }
             ]
           }
@@ -5889,7 +5905,7 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-venue",
+              "record_id": "fact-budget-accessibility",
               "field": "values.planned_amount_twd",
               "coefficient": -1
             },
@@ -5899,7 +5915,12 @@
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-accessibility",
+              "record_id": "fact-budget-communications",
+              "field": "values.planned_amount_twd",
+              "coefficient": -1
+            },
+            {
+              "record_id": "fact-budget-contingency",
               "field": "values.planned_amount_twd",
               "coefficient": -1
             },
@@ -5909,17 +5930,12 @@
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-communications",
-              "field": "values.planned_amount_twd",
-              "coefficient": -1
-            },
-            {
               "record_id": "fact-budget-security",
               "field": "values.planned_amount_twd",
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-contingency",
+              "record_id": "fact-budget-venue",
               "field": "values.planned_amount_twd",
               "coefficient": -1
             }
@@ -5931,13 +5947,13 @@
         "summary": "Ceiling less recorded amounts; not authorized spending.",
         "evidence_ids": [
           "fact-budget-total",
-          "fact-budget-venue",
-          "fact-budget-catering",
           "fact-budget-accessibility",
-          "fact-budget-production",
+          "fact-budget-catering",
           "fact-budget-communications",
+          "fact-budget-contingency",
+          "fact-budget-production",
           "fact-budget-security",
-          "fact-budget-contingency"
+          "fact-budget-venue"
         ],
         "basis": "derived",
         "values": {
@@ -5986,22 +6002,22 @@
             ]
           },
           {
-            "id": "fact-budget-venue",
-            "summary": "Source fields for venue.",
+            "id": "fact-budget-accessibility",
+            "summary": "Source fields for accessibility.",
             "evidence_ids": [
-              "obs-budget-row-2"
+              "obs-budget-row-4"
             ],
             "basis": "source-fact",
             "owner": null,
             "provenance": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
                 "path": "evidence/originals/Project C — Budget.xlsx",
                 "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
                 "locator": {
                   "kind": "cell-range",
-                  "value": "'Budget'!A2:F2"
+                  "value": "'Budget'!A4:F4"
                 },
                 "retrieval_status": "unverified"
               }
@@ -6010,11 +6026,11 @@
             "fulfillment": "not-evaluated",
             "depends_on_record_ids": [],
             "values": {
-              "category": "venue",
-              "planned_amount_twd": "155000.0",
-              "approval_limit_twd": "180000.0",
+              "category": "accessibility",
+              "planned_amount_twd": "65000.0",
+              "approval_limit_twd": "80000.0",
               "committed_amount_twd": "0.0",
-              "owner": "Operations",
+              "owner": "Learner Experience",
               "record_version": "budget-2026-08-26"
             },
             "units": {
@@ -6025,16 +6041,16 @@
             "interpretation": "source-statement",
             "source_values": [
               {
-                "evidence_id": "obs-budget-row-2",
+                "evidence_id": "obs-budget-row-4",
                 "original_cell_values": {
-                  "A2": "venue",
-                  "B2": "155000.0",
-                  "C2": "180000.0",
-                  "D2": "0.0",
-                  "E2": "Operations",
-                  "F2": "budget-2026-08-26"
+                  "A4": "accessibility",
+                  "B4": "65000.0",
+                  "C4": "80000.0",
+                  "D4": "0.0",
+                  "E4": "Learner Experience",
+                  "F4": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A2:F2"
+                "locator": "'Budget'!A4,B4,C4,D4,E4,F4"
               }
             ]
           },
@@ -6087,113 +6103,7 @@
                   "E3": "Operations",
                   "F3": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A3:F3"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-accessibility",
-            "summary": "Source fields for accessibility.",
-            "evidence_ids": [
-              "obs-budget-row-4"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A4:F4"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "accessibility",
-              "planned_amount_twd": "65000.0",
-              "approval_limit_twd": "80000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Learner Experience",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-4",
-                "original_cell_values": {
-                  "A4": "accessibility",
-                  "B4": "65000.0",
-                  "C4": "80000.0",
-                  "D4": "0.0",
-                  "E4": "Learner Experience",
-                  "F4": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A4:F4"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-production",
-            "summary": "Source fields for production.",
-            "evidence_ids": [
-              "obs-budget-row-5"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A5:F5"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "production",
-              "planned_amount_twd": "85000.0",
-              "approval_limit_twd": "100000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Programme",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-5",
-                "original_cell_values": {
-                  "A5": "production",
-                  "B5": "85000.0",
-                  "C5": "100000.0",
-                  "D5": "0.0",
-                  "E5": "Programme",
-                  "F5": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A5:F5"
+                "locator": "'Budget'!A3,B3,C3,D3,E3,F3"
               }
             ]
           },
@@ -6246,60 +6156,7 @@
                   "E6": "Communications",
                   "F6": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A6:F6"
-              }
-            ]
-          },
-          {
-            "id": "fact-budget-security",
-            "summary": "Source fields for security.",
-            "evidence_ids": [
-              "obs-budget-row-7"
-            ],
-            "basis": "source-fact",
-            "owner": null,
-            "provenance": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
-                "path": "evidence/originals/Project C — Budget.xlsx",
-                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
-                "locator": {
-                  "kind": "cell-range",
-                  "value": "'Budget'!A7:F7"
-                },
-                "retrieval_status": "unverified"
-              }
-            ],
-            "verification": "inherits-upstream-limitations",
-            "fulfillment": "not-evaluated",
-            "depends_on_record_ids": [],
-            "values": {
-              "category": "security",
-              "planned_amount_twd": "25000.0",
-              "approval_limit_twd": "35000.0",
-              "committed_amount_twd": "0.0",
-              "owner": "Operations",
-              "record_version": "budget-2026-08-26"
-            },
-            "units": {
-              "planned_amount_twd": "TWD",
-              "approval_limit_twd": "TWD",
-              "committed_amount_twd": "TWD"
-            },
-            "interpretation": "source-statement",
-            "source_values": [
-              {
-                "evidence_id": "obs-budget-row-7",
-                "original_cell_values": {
-                  "A7": "security",
-                  "B7": "25000.0",
-                  "C7": "35000.0",
-                  "D7": "0.0",
-                  "E7": "Operations",
-                  "F7": "budget-2026-08-26"
-                },
-                "locator": "'Budget'!A7:F7"
+                "locator": "'Budget'!A6,B6,C6,D6,E6,F6"
               }
             ]
           },
@@ -6352,7 +6209,166 @@
                   "E8": "Operations",
                   "F8": "budget-2026-08-26"
                 },
-                "locator": "'Budget'!A8:F8"
+                "locator": "'Budget'!A8,B8,C8,D8,E8,F8"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-production",
+            "summary": "Source fields for production.",
+            "evidence_ids": [
+              "obs-budget-row-5"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A5:F5"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "production",
+              "planned_amount_twd": "85000.0",
+              "approval_limit_twd": "100000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Programme",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-5",
+                "original_cell_values": {
+                  "A5": "production",
+                  "B5": "85000.0",
+                  "C5": "100000.0",
+                  "D5": "0.0",
+                  "E5": "Programme",
+                  "F5": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A5,B5,C5,D5,E5,F5"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-security",
+            "summary": "Source fields for security.",
+            "evidence_ids": [
+              "obs-budget-row-7"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A7:F7"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "security",
+              "planned_amount_twd": "25000.0",
+              "approval_limit_twd": "35000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-7",
+                "original_cell_values": {
+                  "A7": "security",
+                  "B7": "25000.0",
+                  "C7": "35000.0",
+                  "D7": "0.0",
+                  "E7": "Operations",
+                  "F7": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A7,B7,C7,D7,E7,F7"
+              }
+            ]
+          },
+          {
+            "id": "fact-budget-venue",
+            "summary": "Source fields for venue.",
+            "evidence_ids": [
+              "obs-budget-row-2"
+            ],
+            "basis": "source-fact",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "capture_id": "capture-budget-allocations-local-d1c28d02-f38c-43ca-9045-015ee6e3af88",
+                "path": "evidence/originals/Project C — Budget.xlsx",
+                "sha256": "sha256:18de4ea102df67415e3e02016203ac834027aee7c08bbf56ecdd25774fd16b2c",
+                "locator": {
+                  "kind": "cell-range",
+                  "value": "'Budget'!A2:F2"
+                },
+                "retrieval_status": "unverified"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [],
+            "values": {
+              "category": "venue",
+              "planned_amount_twd": "155000.0",
+              "approval_limit_twd": "180000.0",
+              "committed_amount_twd": "0.0",
+              "owner": "Operations",
+              "record_version": "budget-2026-08-26"
+            },
+            "units": {
+              "planned_amount_twd": "TWD",
+              "approval_limit_twd": "TWD",
+              "committed_amount_twd": "TWD"
+            },
+            "interpretation": "source-statement",
+            "source_values": [
+              {
+                "evidence_id": "obs-budget-row-2",
+                "original_cell_values": {
+                  "A2": "venue",
+                  "B2": "155000.0",
+                  "C2": "180000.0",
+                  "D2": "0.0",
+                  "E2": "Operations",
+                  "F2": "budget-2026-08-26"
+                },
+                "locator": "'Budget'!A2,B2,C2,D2,E2,F2"
               }
             ]
           }
@@ -6369,7 +6385,7 @@
               "coefficient": 1
             },
             {
-              "record_id": "fact-budget-venue",
+              "record_id": "fact-budget-accessibility",
               "field": "values.committed_amount_twd",
               "coefficient": -1
             },
@@ -6379,7 +6395,12 @@
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-accessibility",
+              "record_id": "fact-budget-communications",
+              "field": "values.committed_amount_twd",
+              "coefficient": -1
+            },
+            {
+              "record_id": "fact-budget-contingency",
               "field": "values.committed_amount_twd",
               "coefficient": -1
             },
@@ -6389,17 +6410,12 @@
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-communications",
-              "field": "values.committed_amount_twd",
-              "coefficient": -1
-            },
-            {
               "record_id": "fact-budget-security",
               "field": "values.committed_amount_twd",
               "coefficient": -1
             },
             {
-              "record_id": "fact-budget-contingency",
+              "record_id": "fact-budget-venue",
               "field": "values.committed_amount_twd",
               "coefficient": -1
             }
@@ -6940,7 +6956,7 @@
                   "G7": "46258.0",
                   "H7": "high"
                 },
-                "locator": "'Attendee Signals'!A7:H7"
+                "locator": "'Attendee Signals'!A7,B7,C7,D7,E7,F7,G7,H7"
               }
             ]
           },
@@ -7142,7 +7158,7 @@
                   "G8": "46258.0",
                   "H8": "high"
                 },
-                "locator": "'Attendee Signals'!A8:H8"
+                "locator": "'Attendee Signals'!A8,B8,C8,D8,E8,F8,G8,H8"
               }
             ]
           },
@@ -7344,7 +7360,7 @@
                   "G9": "46258.0",
                   "H9": "high"
                 },
-                "locator": "'Attendee Signals'!A9:H9"
+                "locator": "'Attendee Signals'!A9,B9,C9,D9,E9,F9,G9,H9"
               }
             ]
           },
@@ -7546,7 +7562,7 @@
                   "G10": "46258.0",
                   "H10": "medium"
                 },
-                "locator": "'Attendee Signals'!A10:H10"
+                "locator": "'Attendee Signals'!A10,B10,C10,D10,E10,F10,G10,H10"
               }
             ]
           },
@@ -7748,7 +7764,7 @@
                   "G11": "46258.0",
                   "H11": "high"
                 },
-                "locator": "'Attendee Signals'!A11:H11"
+                "locator": "'Attendee Signals'!A11,B11,C11,D11,E11,F11,G11,H11"
               }
             ]
           },
@@ -7950,7 +7966,7 @@
                   "G12": "46258.0",
                   "H12": "high"
                 },
-                "locator": "'Attendee Signals'!A12:H12"
+                "locator": "'Attendee Signals'!A12,B12,C12,D12,E12,F12,G12,H12"
               }
             ]
           },
@@ -8152,7 +8168,7 @@
                   "G13": "46258.0",
                   "H13": "high"
                 },
-                "locator": "'Attendee Signals'!A13:H13"
+                "locator": "'Attendee Signals'!A13,B13,C13,D13,E13,F13,G13,H13"
               }
             ]
           },
@@ -8354,7 +8370,7 @@
                   "G14": "46258.0",
                   "H14": "high"
                 },
-                "locator": "'Attendee Signals'!A14:H14"
+                "locator": "'Attendee Signals'!A14,B14,C14,D14,E14,F14,G14,H14"
               }
             ]
           },
@@ -8963,7 +8979,7 @@
                   "I10": "available",
                   "J10": "Includes first aid lead"
                 },
-                "locator": "'Vendor Quotes'!A10:J10"
+                "locator": "'Vendor Quotes'!A10,B10,C10,D10,E10,F10,G10,H10,I10,J10"
               }
             ]
           }
@@ -9219,6 +9235,137 @@
             }
           }
         ]
+      },
+      {
+        "id": "baseline-official-plenary-policy",
+        "summary": "Official supplier restrictions and pre-event technical/safety briefing need operational verification; public tariffs and full-hall capacity are different source quantities.",
+        "evidence_ids": [
+          "hc-official-plenary-policy",
+          "unknown-official-plenary-policy-review"
+        ],
+        "basis": "official-publication",
+        "values": {
+          "applies_to": "real-operational-use",
+          "permission_or_completion_verified": null,
+          "historical_business_clock_applicability": "unverified",
+          "cost_or_allocation_override": false
+        },
+        "depends_on_record_ids": [],
+        "verification": "inherits-upstream-limitations",
+        "fulfillment": "not-evaluated",
+        "source_records": [
+          {
+            "id": "hc-official-plenary-policy",
+            "summary": "Real venue supplier restrictions and mandatory pre-event technical/safety briefing remain applicable; exercise coordination is not permission.",
+            "evidence_ids": [
+              "obs-plenary-food-av",
+              "obs-plenary-livestream",
+              "obs-plenary-safety"
+            ],
+            "basis": "official-publication",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-plenary-food-av",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 items 1 and 5"
+                },
+                "retrieval_status": "retrieved"
+              },
+              {
+                "evidence_id": "obs-plenary-livestream",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 item 9"
+                },
+                "retrieval_status": "retrieved"
+              },
+              {
+                "evidence_id": "obs-plenary-safety",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 item 10"
+                },
+                "retrieval_status": "retrieved"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [
+              "fact-evidence-obs-plenary-food-av",
+              "fact-evidence-obs-plenary-livestream",
+              "fact-evidence-obs-plenary-safety"
+            ],
+            "rule": {
+              "applies_to": "real-operational-use",
+              "permission_or_completion_verified": null,
+              "historical_business_clock_applicability": "unverified",
+              "cost_or_allocation_override": false
+            }
+          },
+          {
+            "id": "unknown-official-plenary-policy-review",
+            "summary": "Confirm real venue supplier permissions, livestream eligibility and technical/evacuation briefing arrangements before operational use; no completion or timing is evidenced.",
+            "evidence_ids": [
+              "obs-plenary-food-av",
+              "obs-plenary-livestream",
+              "obs-plenary-safety"
+            ],
+            "basis": "unresolved-information",
+            "owner": null,
+            "provenance": [
+              {
+                "evidence_id": "obs-plenary-food-av",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 items 1 and 5"
+                },
+                "retrieval_status": "retrieved"
+              },
+              {
+                "evidence_id": "obs-plenary-livestream",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 item 9"
+                },
+                "retrieval_status": "retrieved"
+              },
+              {
+                "evidence_id": "obs-plenary-safety",
+                "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+                "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+                "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+                "locator": {
+                  "kind": "section",
+                  "value": "注意事項 item 10"
+                },
+                "retrieval_status": "retrieved"
+              }
+            ],
+            "verification": "inherits-upstream-limitations",
+            "fulfillment": "not-evaluated",
+            "depends_on_record_ids": [
+              "hc-official-plenary-policy"
+            ],
+            "resolution": "unresolved"
+          }
+        ]
       }
     ],
     "approval_requirements": [
@@ -9380,6 +9527,7 @@
     "assumptions": [],
     "planning_choices": [],
     "inherited_record_ids": [
+      "unknown-official-plenary-policy-review",
       "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
       "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-status",
       "unknown-inherited-stage2-capture-attendee-signals-local-2c72665c-8039-4ac9-a900-3545bfabb90f-historical-time",
@@ -9435,6 +9583,12 @@
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-historical-time",
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-online_equivalence-0",
       "unknown-inherited-stage2-capture-official-floor-plan-local-71b1e56d-0e13-44d6-a14d-ce9c52f4f77c-verification_limit-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-status",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-historical-time",
       "unknown-inherited-stage2-capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259-online_equivalence-0",
@@ -9467,6 +9621,58 @@
     ]
   },
   "unresolved": [
+    {
+      "id": "unknown-official-plenary-policy-review",
+      "summary": "Confirm real venue supplier permissions, livestream eligibility and technical/evacuation briefing arrangements before operational use; no completion or timing is evidenced.",
+      "evidence_ids": [
+        "obs-plenary-food-av",
+        "obs-plenary-livestream",
+        "obs-plenary-safety"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [
+        {
+          "evidence_id": "obs-plenary-food-av",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 items 1 and 5"
+          },
+          "retrieval_status": "retrieved"
+        },
+        {
+          "evidence_id": "obs-plenary-livestream",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 item 9"
+          },
+          "retrieval_status": "retrieved"
+        },
+        {
+          "evidence_id": "obs-plenary-safety",
+          "capture_id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+          "path": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+          "sha256": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+          "locator": {
+            "kind": "section",
+            "value": "注意事項 item 10"
+          },
+          "retrieval_status": "retrieved"
+        }
+      ],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [
+        "hc-official-plenary-policy"
+      ],
+      "resolution": "unresolved"
+    },
     {
       "id": "unknown-inherited-stage2-inherited-unknown-category-owner-identities",
       "summary": "Individual category budget owner identities and assignments have not been established from the selected evidence; confirm during source capture.",
@@ -10925,6 +11131,167 @@
         "owner": null,
         "metadata_field": "verification_limit",
         "original_detail": "Depicted identity verified, not present-day accessibility operation, route clearance, capacity, or approval."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "summary": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-0",
+        "summary": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Public venue rules retrieved on 2026-10-18 are not proof of their exact content at the fixed 2026-08-26 business clock."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "summary": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-1",
+        "summary": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Full-hall capacity and per-period public tariffs must not replace the fictional allocation or all-inclusive package price."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "summary": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-limitations-2",
+        "summary": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced.",
+        "category": "limitations",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "limitations",
+        "original_detail": "Before real use, confirm venue-controlled catering/AV, approved livestream providers and required technical/evacuation briefing; no permission, training completion, reservation or approval is evidenced."
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "summary": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3-verification_limit-0",
+        "summary": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+        "category": "verification_limit",
+        "evidence_ids": [
+          "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3"
+        ],
+        "owner": null,
+        "metadata_field": "verification_limit",
+        "original_detail": "Retrieved bytes only; source completeness, observations and historical applicability require review"
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-status",
+        "summary": "Capture status remains unavailable; no upgrade in verification is inferred.",
+        "category": "capture-status",
+        "evidence_ids": [
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ],
+        "owner": null,
+        "original_status": "unavailable"
+      },
+      "resolution": "unresolved",
+      "conflict_kind": null
+    },
+    {
+      "id": "unknown-inherited-stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+      "summary": "ConnectError",
+      "evidence_ids": [
+        "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0"
+      ],
+      "basis": "unresolved-information",
+      "owner": null,
+      "provenance": [],
+      "verification": "inherits-upstream-limitations",
+      "fulfillment": "not-evaluated",
+      "depends_on_record_ids": [],
+      "origin_record_id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+      "original_detail": {
+        "id": "stage2-capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93-reason-0",
+        "summary": "ConnectError",
+        "category": "reason",
+        "evidence_ids": [
+          "capture-official-plenary-hall-c22acd2f-6c1c-4e61-a269-84576d658c93"
+        ],
+        "owner": null,
+        "metadata_field": "reason",
+        "original_detail": "ConnectError"
       },
       "resolution": "unresolved",
       "conflict_kind": null

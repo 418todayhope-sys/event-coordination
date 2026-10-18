@@ -22,10 +22,10 @@ Success target: 80% of registered attendees check in, all demos run, and accessi
 
 | Candidate | Quoted subtotal TWD | Planning total TWD | Catering capacity | Headroom TWD | Feasibility |
 |---|---:|---:|---:|---:|---|
-| option-oct17-green-table | 429000.0 | 494000.0 | 260.0 | 26000.0 | conditional |
-| option-oct17-city-pantry | 447000.0 | 512000.0 | 300.0 | 8000.0 | conditional |
+| option-oct17-green-table | 429000 | 494000 | 260.0 | 26000 | conditional |
+| option-oct17-city-pantry | 447000 | 512000 | 300.0 | 8000 | conditional |
 
-Provisionally recommend option-oct17-green-table for human review. option-oct17-city-pantry: conditional, planning cost TWD 512000.0, budget headroom TWD 8000.0, catering capacity 300.0 people for planning demand 245.0 (nominal margin 55.0); option-oct17-green-table: conditional, planning cost TWD 494000.0, budget headroom TWD 26000.0, catering capacity 260.0 people for planning demand 245.0 (nominal margin 15.0). Both cover the stated demand with comparable hard dependencies and no additional unresolved requirement types for the recommended candidate. option-oct17-green-table costs TWD 18000.0 less and leaves TWD 18000.0 more budget headroom than option-oct17-city-pantry. option-oct17-city-pantry offers 40.0 more catering places than option-oct17-green-table. Capacity beyond the stated demand is a disclosed trade-off, not an invented required buffer or attendance probability. This is not selection or authorization.
+Provisionally recommend option-oct17-green-table for human review. option-oct17-city-pantry: conditional, planning cost TWD 512000, budget headroom TWD 8000, catering capacity 300.0 people for planning demand 245.0 (nominal margin 55.0); option-oct17-green-table: conditional, planning cost TWD 494000, budget headroom TWD 26000, catering capacity 260.0 people for planning demand 245.0 (nominal margin 15.0). Both cover the stated demand with comparable hard dependencies and no additional unresolved requirement types for the recommended candidate. option-oct17-green-table costs TWD 18000 less and leaves TWD 18000 more budget headroom than option-oct17-city-pantry. option-oct17-city-pantry offers 40.0 more catering places than option-oct17-green-table. Capacity beyond the stated demand is a disclosed trade-off, not an invented required buffer or attendance probability. This is not selection or authorization.
 
 Evidence: decision-policy-initial-review; both decision-review records.
 
@@ -35,15 +35,15 @@ Quoted subtotals plus communications 25000 and contingency 40000 yield the plann
 
 | Category | Planned allocation TWD | Green Table proposal TWD | City Pantry proposal TWD | Approval limit TWD | Recorded commitment TWD | Owner role |
 |---|---:|---:|---:|---:|---:|---|
-| venue | 155000.0 | 155000.0 | 155000.0 | 180000.0 | 0.0 | Operations |
-| catering | 115000.0 | 108000.0 | 126000.0 | 135000.0 | 0.0 | Operations |
-| accessibility | 65000.0 | 60000.0 | 60000.0 | 80000.0 | 0.0 | Learner Experience |
-| production | 85000.0 | 78000.0 | 78000.0 | 100000.0 | 0.0 | Programme |
-| communications | 25000.0 | 25000.0 | 25000.0 | 30000.0 | 0.0 | Communications |
-| security | 25000.0 | 28000.0 | 28000.0 | 35000.0 | 0.0 | Operations |
-| contingency | 40000.0 | 40000.0 | 40000.0 | 50000.0 | 0.0 | Operations |
+| accessibility | 65000 | 60000 | 60000 | 80000 | 0 | Learner Experience |
+| catering | 115000 | 108000 | 126000 | 135000 | 0 | Operations |
+| communications | 25000 | 25000 | 25000 | 30000 | 0 | Communications |
+| contingency | 40000 | 40000 | 40000 | 50000 | 0 | Operations |
+| production | 85000 | 78000 | 78000 | 100000 | 0 | Programme |
+| security | 25000 | 28000 | 28000 | 35000 | 0 | Operations |
+| venue | 155000 | 155000 | 155000 | 180000 | 0 | Operations |
 
-Overall ceiling: TWD 520000; planned allocations: TWD 510000.0. Neither is spending authorization.
+Overall ceiling: TWD 520000; planned allocations: TWD 510000. Neither is spending authorization.
 Category allocation variances remain review matters; transfers are not authorized. Both have a security variance; City Pantry also has a catering variance.
 
 ## Proposed programme and calendar constraints
@@ -109,11 +109,11 @@ Proposed quiet room: V.I.P. Room, from the fictional venue allocation [baseline-
 
 ## Candidate hard-constraint coverage
 
-These are preserved Stage 6 fictional-exercise assessments, not fulfillment or approvals. Both candidates remain conditional. Venue confirmation before CAL-006 remains required. All five approval gates and each candidate's remaining conditions apply even where an individual check passes.
+These are preserved Stage 6 fictional-exercise assessments, not fulfillment or approvals. Candidate classifications: option-oct17-green-table=conditional; option-oct17-city-pantry=conditional. Venue confirmation before CAL-006 remains required. All five approval gates and each candidate's remaining conditions apply even where an individual check passes.
 
 ### option-oct17-green-table
 
-Candidate-level open conditions: condition-check-oct17-green-table-allocation-policy-security; condition-check-oct17-green-table-walkthrough-prerequisite; condition-check-oct17-green-table-live-verification; condition-check-oct17-green-table-authorization
+Candidate-level open conditions: condition-check-oct17-green-table-allocation-policy-security; condition-check-oct17-green-table-walkthrough-prerequisite; condition-check-oct17-green-table-live-verification; condition-check-oct17-green-table-official-plenary-policy; condition-check-oct17-green-table-authorization
 
 | Requirement | Proposed provision | Exercise assessment | Remaining dependencies | Live-verification limitations | Evidence |
 |---|---|---|---|---|---|
@@ -166,10 +166,11 @@ Candidate-level open conditions: condition-check-oct17-green-table-allocation-po
 | safety | Q-009 security and first-aid staffing | pass | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-green-table-safety; option-oct17-green-table; option-baseline-context; option-source-Q-009 |
 | provenance-integrity | Proposed constituent offers: Q-001; Q-003; Q-005; Q-006; Q-009; Q-010; no live operational verification | pass | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-green-table-provenance-integrity; option-oct17-green-table; option-baseline-context; ancestor-stage3-quote-Q-001; ancestor-stage3-rule-Q-001; ancestor-stage2-observation-Q-001; ancestor-stage3-quote-Q-002; ancestor-stage3-rule-Q-002; ancestor-stage2-observation-Q-002; ancestor-stage3-quote-Q-003; ancestor-stage3-rule-Q-003; ancestor-stage2-observation-Q-003; ancestor-stage3-quote-Q-004; ancestor-stage3-rule-Q-004; ancestor-stage2-observation-Q-004; ancestor-stage3-quote-Q-005; ancestor-stage3-rule-Q-005; ancestor-stage2-observation-Q-005; ancestor-stage3-quote-Q-006; ancestor-stage3-rule-Q-006; ancestor-stage2-observation-Q-006; ancestor-stage3-quote-Q-007; ancestor-stage3-rule-Q-007; ancestor-stage2-observation-Q-007; ancestor-stage3-quote-Q-008; ancestor-stage3-rule-Q-008; ancestor-stage2-observation-Q-008; ancestor-stage3-quote-Q-009; ancestor-stage3-rule-Q-009; ancestor-stage2-observation-Q-009; ancestor-stage3-quote-Q-010; ancestor-stage3-rule-Q-010; ancestor-stage2-observation-Q-010; ancestor-stage2-vendor-capture; ancestor-stage3-supported-alternatives |
 | livestream-prerequisites | Proposed constituent offers: Q-001; Q-003; Q-005; Q-006; Q-009; Q-010; no live operational verification | not-applicable | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-green-table-livestream-prerequisites; option-oct17-green-table; option-baseline-context |
+| official-plenary-policy | Proposed constituent offers: Q-001; Q-003; Q-005; Q-006; Q-009; Q-010; no live operational verification | conditional | condition-check-oct17-green-table-official-plenary-policy | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-green-table-official-plenary-policy; option-oct17-green-table; option-baseline-context |
 
 ### option-oct17-city-pantry
 
-Candidate-level open conditions: condition-check-oct17-city-pantry-allocation-policy-catering; condition-check-oct17-city-pantry-allocation-policy-security; condition-check-oct17-city-pantry-walkthrough-prerequisite; condition-check-oct17-city-pantry-live-verification; condition-check-oct17-city-pantry-authorization
+Candidate-level open conditions: condition-check-oct17-city-pantry-allocation-policy-catering; condition-check-oct17-city-pantry-allocation-policy-security; condition-check-oct17-city-pantry-walkthrough-prerequisite; condition-check-oct17-city-pantry-live-verification; condition-check-oct17-city-pantry-official-plenary-policy; condition-check-oct17-city-pantry-authorization
 
 | Requirement | Proposed provision | Exercise assessment | Remaining dependencies | Live-verification limitations | Evidence |
 |---|---|---|---|---|---|
@@ -222,6 +223,7 @@ Candidate-level open conditions: condition-check-oct17-city-pantry-allocation-po
 | safety | Q-009 security and first-aid staffing | pass | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-city-pantry-safety; option-oct17-city-pantry; option-baseline-context; option-source-Q-009 |
 | provenance-integrity | Proposed constituent offers: Q-001; Q-004; Q-005; Q-006; Q-009; Q-010; no live operational verification | pass | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-city-pantry-provenance-integrity; option-oct17-city-pantry; option-baseline-context; ancestor-stage3-quote-Q-001; ancestor-stage3-rule-Q-001; ancestor-stage2-observation-Q-001; ancestor-stage3-quote-Q-002; ancestor-stage3-rule-Q-002; ancestor-stage2-observation-Q-002; ancestor-stage3-quote-Q-003; ancestor-stage3-rule-Q-003; ancestor-stage2-observation-Q-003; ancestor-stage3-quote-Q-004; ancestor-stage3-rule-Q-004; ancestor-stage2-observation-Q-004; ancestor-stage3-quote-Q-005; ancestor-stage3-rule-Q-005; ancestor-stage2-observation-Q-005; ancestor-stage3-quote-Q-006; ancestor-stage3-rule-Q-006; ancestor-stage2-observation-Q-006; ancestor-stage3-quote-Q-007; ancestor-stage3-rule-Q-007; ancestor-stage2-observation-Q-007; ancestor-stage3-quote-Q-008; ancestor-stage3-rule-Q-008; ancestor-stage2-observation-Q-008; ancestor-stage3-quote-Q-009; ancestor-stage3-rule-Q-009; ancestor-stage2-observation-Q-009; ancestor-stage3-quote-Q-010; ancestor-stage3-rule-Q-010; ancestor-stage2-observation-Q-010; ancestor-stage2-vendor-capture; ancestor-stage3-supported-alternatives |
 | livestream-prerequisites | Proposed constituent offers: Q-001; Q-004; Q-005; Q-006; Q-009; Q-010; no live operational verification | not-applicable | No additional check-specific condition; candidate conditions and pending gates still apply | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-city-pantry-livestream-prerequisites; option-oct17-city-pantry; option-baseline-context |
+| official-plenary-policy | Proposed constituent offers: Q-001; Q-004; Q-005; Q-006; Q-009; Q-010; no live operational verification | conditional | condition-check-oct17-city-pantry-official-plenary-policy | Local copies remain unverified against online sources.; Exercise confirmation is not live operational verification. | check-oct17-city-pantry-official-plenary-policy; option-oct17-city-pantry; option-baseline-context |
 
 ## Registered floor-plan observations
 
@@ -235,8 +237,19 @@ The preserved PDF identifies the floor/venue; it does not certify current access
 
 ## Unresolved conditions and review requests
 
-All 88 inherited unresolved records remain in the internal snapshot. Public drafts summarize impact without reproducing private attendee details.
+All 97 inherited unresolved records remain in the internal snapshot. Public drafts summarize impact without reproducing private attendee details.
 Venue confirmation must precede the accessibility walkthrough. Allocation reviews, quote expiry precision, forecast uncertainty, unverified local copies and live-service verification remain open.
+
+## Official Plenary Hall webpage — current public rules
+
+Retrieved 2026-10-18T11:17:51.955691+00:00; https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp; sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.
+- Official page describes the full Plenary Hall with 3,122 fixed seats; this is not the fictional front-500 allocation. [obs-plenary-identity; 空間簡介 / fixed seating]
+- Public weekend tariff is TWD 170000 per stated rental period; it is not the synthetic TWD 155000 negotiated all-inclusive package. [obs-plenary-tariff; 每時段租金 / 週六～週日]
+- Public rules prohibit self-supplied AV equipment and outside meeting refreshments/meal boxes. Fictional TICC-coordinated offers do not establish real supplier permission. [obs-plenary-food-av; 注意事項 items 1 and 5]
+- Public livestream rules require informing the venue and restrict providers to its contracted suppliers; Q-008 is not permission. [obs-plenary-livestream; 注意事項 item 9]
+- Plenary Hall clients must attend a technical-coordination meeting and safety/evacuation briefing before the event; no completion or scheduled time is evidenced. [obs-plenary-safety; 注意事項 item 10]
+Venue-policy review remains pending before real use; no permission, briefing completion or new calendar time is invented. The current page does not establish its contents at the simulated business clock.
+
 - gate-operations: pending; Operations approval of the plan, date and venue. Applicability: before-final-plan-commitments; owner role: Operations; deadline: 2026-09-04T17:00:00+08:00.
 - gate-spending: pending; Category-owner authorization of spending and exceptions within the overall ceiling. Applicability: before-spending; owner role: Category budget owners; deadline: not established.
 - gate-programme: pending; Programme owns roster or duration changes; ordering within the source brief is a planning choice. Applicability: if-roster-or-duration-changes; owner role: Programme; deadline: not established.

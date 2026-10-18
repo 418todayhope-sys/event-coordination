@@ -1,0 +1,270 @@
+{
+  "id": "capture-vendor-register-local-2b362101-8c3e-4a3c-841e-399236c00259",
+  "summary": "Registered local Vendor Quotes Excel export; all ten quote rows inspected with cell references.",
+  "evidence_ids": [],
+  "source_identity": "vendor-register",
+  "source_role": "vendor-record",
+  "locator": "https://docs.google.com/spreadsheets/d/1cULbGrOQS-vuj862nV2EWND4oe0H5kf-smJ85VZegko",
+  "retrieved_at": "2026-10-16T23:33:57.687718+00:00",
+  "retrieval_status": "unverified",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "content_hash": "sha256:726d1a7a9f77d5e9aaeafc09fab91ee9e45ebd2cb6ef33503014183164302cf0",
+  "local_reference": "evidence/originals/Project C — Vendor Quotes.xlsx",
+  "version_metadata": {
+    "method": "manual-google-sheets-xlsx-export-local-registration",
+    "publication_kind": "fictional-exercise-record",
+    "provenance": "User reports manually exporting the disclosed Google Sheets workbook as Microsoft Excel (.xlsx), then copying through WSL.",
+    "original_path": "evidence/originals/Project C — Vendor Quotes.xlsx",
+    "size_bytes": 6628,
+    "registration_at": "2026-10-16T23:33:57.687718+00:00",
+    "timestamp_basis": "actual local registration, not historical browser download time",
+    "original_retrieved_at": null,
+    "original_retrieval_time_status": "unverified",
+    "response_status": null,
+    "online_equivalence": "Unverified; no live workbook or provider version history accessed.",
+    "disclosure": {
+      "path": "interviews/project-c-event-coordination-20261016-1954.md",
+      "line": 203
+    },
+    "hash_verification": "Independently calculated with sha256sum and Python hashlib; matches supplied SHA-256.",
+    "worksheets": [
+      {
+        "name": "Vendor Quotes",
+        "state": "visible",
+        "part": "xl/worksheets/sheet1.xml",
+        "populated_range": "A1:J11"
+      }
+    ],
+    "inspection_method": "Read-only standard-library ZIP/XML inspection of workbook, relationships, shared strings, all worksheet cells, styles and empty drawing. ZIP integrity passed; no formulas found in populated cells.",
+    "date_interpretation": "G2:H11 use style 2, custom number format 164 yyyy-mm-dd. Workbook does not enable date1904. Excel 1900-system serials decoded using 1899-12-30 for these modern dates; raw serials retained per observation.",
+    "business_clock": "2026-08-26T12:00:00+08:00",
+    "business_timezone": "Asia/Taipei",
+    "expiry_inspection": "All valid_until dates fall September 5–15, 2026; none precedes the fixed August 26 business clock. This is not confirmation of present-day validity or complete feasibility.",
+    "conditions": [
+      "Q-001 status held; venue package is synthetic and explicitly no real reservation.",
+      "Q-002 status available for 2026-10-24; keynote unavailable on that date; synthetic package is no real reservation.",
+      "Q-004 allergy process requires named contacts; contacts not provided in this workbook.",
+      "Q-007 basic AV explicitly excludes hearing loop.",
+      "Q-008 status conditional; network test required; no test result provided.",
+      "Q-010 room supplied by venue; capacity 20 applies to the quiet-room offer rather than overall event capacity."
+    ],
+    "limitations": [
+      "No quote issue timestamps, expiry times/timezones, record_version column, named approval actors, or approvals supplied. A date-only valid_until does not establish an exact time cutoff.",
+      "All ten rows contain the listed ten fields; provider completeness and export fidelity remain unverified.",
+      "No independently itemized tax/fee/payment/cancellation terms or comprehensive capacity-unit definitions supplied by these columns; do not invent them.",
+      "openpyxl/pandas unavailable; XML inspection does not reproduce visual layout or recalculate formulas.",
+      "Source statuses are preserved as source statements, not independently confirmed availability or authorization.",
+      "No vendors selected and no final event cost or feasibility calculation performed."
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs-vendors-headers",
+      "summary": "One visible worksheet Vendor Quotes; ten columns quote_id, vendor, category, option, quote_amount_twd, capacity, available_date, valid_until, status, notes.",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A1:J1"
+      }
+    },
+    {
+      "id": "obs-quote-q-001",
+      "summary": "quote_id: Q-001; vendor: TICC; category: venue; option: 4F Plenary Hall front-500 allocation plus V.I.P. Room; quote_amount_twd: 155000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-05; status: held; notes: Synthetic full-day package; see venue coordination note; no real reservation",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A2:J2"
+      },
+      "raw_cell_values": {
+        "A2": "Q-001",
+        "B2": "TICC",
+        "C2": "venue",
+        "D2": "4F Plenary Hall front-500 allocation plus V.I.P. Room",
+        "E2": "155000.0",
+        "F2": "500.0",
+        "G2": "46312.0",
+        "H2": "46270.0",
+        "I2": "held",
+        "J2": "Synthetic full-day package; see venue coordination note; no real reservation"
+      }
+    },
+    {
+      "id": "obs-quote-q-002",
+      "summary": "quote_id: Q-002; vendor: TICC; category: venue; option: 4F Plenary Hall front-500 allocation plus V.I.P. Room; quote_amount_twd: 155000.0; capacity: 500.0; available_date: 2026-10-24; valid_until: 2026-09-05; status: available; notes: Keynote is unavailable on this date; Synthetic full-day package; see venue coordination note; no real reservation",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A3:J3"
+      },
+      "raw_cell_values": {
+        "A3": "Q-002",
+        "B3": "TICC",
+        "C3": "venue",
+        "D3": "4F Plenary Hall front-500 allocation plus V.I.P. Room",
+        "E3": "155000.0",
+        "F3": "500.0",
+        "G3": "46319.0",
+        "H3": "46270.0",
+        "I3": "available",
+        "J3": "Keynote is unavailable on this date; Synthetic full-day package; see venue coordination note; no real reservation"
+      }
+    },
+    {
+      "id": "obs-quote-q-003",
+      "summary": "quote_id: Q-003; vendor: Green Table; category: catering; option: lunch and two breaks; quote_amount_twd: 108000.0; capacity: 260.0; available_date: 2026-10-17; valid_until: 2026-09-07; status: available; notes: Supports listed vegetarian and halal meals; supplied through TICC coordination in this synthetic case",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A4:J4"
+      },
+      "raw_cell_values": {
+        "A4": "Q-003",
+        "B4": "Green Table",
+        "C4": "catering",
+        "D4": "lunch and two breaks",
+        "E4": "108000.0",
+        "F4": "260.0",
+        "G4": "46312.0",
+        "H4": "46272.0",
+        "I4": "available",
+        "J4": "Supports listed vegetarian and halal meals; supplied through TICC coordination in this synthetic case"
+      }
+    },
+    {
+      "id": "obs-quote-q-004",
+      "summary": "quote_id: Q-004; vendor: City Pantry; category: catering; option: lunch and two breaks; quote_amount_twd: 126000.0; capacity: 300.0; available_date: 2026-10-17; valid_until: 2026-09-12; status: available; notes: Allergy process requires named contacts; supplied through TICC coordination in this synthetic case",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A5:J5"
+      },
+      "raw_cell_values": {
+        "A5": "Q-004",
+        "B5": "City Pantry",
+        "C5": "catering",
+        "D5": "lunch and two breaks",
+        "E5": "126000.0",
+        "F5": "300.0",
+        "G5": "46312.0",
+        "H5": "46277.0",
+        "I5": "available",
+        "J5": "Allergy process requires named contacts; supplied through TICC coordination in this synthetic case"
+      }
+    },
+    {
+      "id": "obs-quote-q-005",
+      "summary": "quote_id: Q-005; vendor: ClearText; category: accessibility; option: live captions and transcript; quote_amount_twd: 42000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-10; status: available; notes: Two captioners included",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A6:J6"
+      },
+      "raw_cell_values": {
+        "A6": "Q-005",
+        "B6": "ClearText",
+        "C6": "accessibility",
+        "D6": "live captions and transcript",
+        "E6": "42000.0",
+        "F6": "500.0",
+        "G6": "46312.0",
+        "H6": "46275.0",
+        "I6": "available",
+        "J6": "Two captioners included"
+      }
+    },
+    {
+      "id": "obs-quote-q-006",
+      "summary": "quote_id: Q-006; vendor: SoundArc; category: production; option: AV package with hearing loop; quote_amount_twd: 78000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-08; status: available; notes: Setup starts at 07:30; supplied through TICC coordination in this synthetic case",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A7:J7"
+      },
+      "raw_cell_values": {
+        "A7": "Q-006",
+        "B7": "SoundArc",
+        "C7": "production",
+        "D7": "AV package with hearing loop",
+        "E7": "78000.0",
+        "F7": "500.0",
+        "G7": "46312.0",
+        "H7": "46273.0",
+        "I7": "available",
+        "J7": "Setup starts at 07:30; supplied through TICC coordination in this synthetic case"
+      }
+    },
+    {
+      "id": "obs-quote-q-007",
+      "summary": "quote_id: Q-007; vendor: LiteStage; category: production; option: basic AV package; quote_amount_twd: 52000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-08; status: available; notes: No hearing loop included; supplied through TICC coordination in this synthetic case",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A8:J8"
+      },
+      "raw_cell_values": {
+        "A8": "Q-007",
+        "B8": "LiteStage",
+        "C8": "production",
+        "D8": "basic AV package",
+        "E8": "52000.0",
+        "F8": "500.0",
+        "G8": "46312.0",
+        "H8": "46273.0",
+        "I8": "available",
+        "J8": "No hearing loop included; supplied through TICC coordination in this synthetic case"
+      }
+    },
+    {
+      "id": "obs-quote-q-008",
+      "summary": "quote_id: Q-008; vendor: StreamNorth; category: production; option: livestream add-on; quote_amount_twd: 55000.0; capacity: 1000.0; available_date: 2026-10-17; valid_until: 2026-09-11; status: conditional; notes: Network test required; supplied through TICC coordination in this synthetic case",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A9:J9"
+      },
+      "raw_cell_values": {
+        "A9": "Q-008",
+        "B9": "StreamNorth",
+        "C9": "production",
+        "D9": "livestream add-on",
+        "E9": "55000.0",
+        "F9": "1000.0",
+        "G9": "46312.0",
+        "H9": "46276.0",
+        "I9": "conditional",
+        "J9": "Network test required; supplied through TICC coordination in this synthetic case"
+      }
+    },
+    {
+      "id": "obs-quote-q-009",
+      "summary": "quote_id: Q-009; vendor: SafeVenue; category: security; option: four staff; quote_amount_twd: 28000.0; capacity: 500.0; available_date: 2026-10-17; valid_until: 2026-09-15; status: available; notes: Includes first aid lead",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A10:J10"
+      },
+      "raw_cell_values": {
+        "A10": "Q-009",
+        "B10": "SafeVenue",
+        "C10": "security",
+        "D10": "four staff",
+        "E10": "28000.0",
+        "F10": "500.0",
+        "G10": "46312.0",
+        "H10": "46280.0",
+        "I10": "available",
+        "J10": "Includes first aid lead"
+      }
+    },
+    {
+      "id": "obs-quote-q-010",
+      "summary": "quote_id: Q-010; vendor: QuietWorks; category: accessibility; option: quiet room staffing; quote_amount_twd: 18000.0; capacity: 20.0; available_date: 2026-10-17; valid_until: 2026-09-10; status: available; notes: Room itself supplied by venue",
+      "locator": {
+        "kind": "cell-range",
+        "value": "'Vendor Quotes'!A11:J11"
+      },
+      "raw_cell_values": {
+        "A11": "Q-010",
+        "B11": "QuietWorks",
+        "C11": "accessibility",
+        "D11": "quiet room staffing",
+        "E11": "18000.0",
+        "F11": "20.0",
+        "G11": "46312.0",
+        "H11": "46275.0",
+        "I11": "available",
+        "J11": "Room itself supplied by venue"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "affected_stage": 9,
+  "attempt_id": "6fe92c8c-4119-48a2-bd31-6cfe84c4c3df",
+  "candidate": ".attempts/6fe92c8c-4119-48a2-bd31-6cfe84c4c3df/candidate",
+  "observed_at": "2026-10-18T11:22:57.573462+00:00",
+  "run_id": "44cbc4c7-c453-4363-8287-4254f3b85ce9",
+  "status": "running"
+}

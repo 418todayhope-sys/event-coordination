@@ -13,6 +13,7 @@ from uuid import uuid4
 
 from event_coordination.constraint_sources import source_line, validate_dependencies, workbook_rows
 from event_coordination.sources import hash_bytes
+from event_coordination.run_contract import read_predecessor
 from event_coordination.stages.capture import OUTPUT as PREDECESSOR_PATH
 from event_coordination.stages.scope import BRIEF, ORIGINAL, FOLLOWUP
 
@@ -24,9 +25,8 @@ CATEGORIES = ("hard_constraints", "preferences", "assumptions", "unknowns", "con
 def _inputs(root: Path) -> dict:
     from event_coordination.validation import validate_snapshot
 
-    content = (root / PREDECESSOR_PATH).read_bytes()
-    if hash_bytes(content) != PREDECESSOR_HASH:
-        raise ValueError("Stage 2 predecessor hash differs from approved snapshot")
+    content = read_predecessor(root, PREDECESSOR_PATH, PREDECESSOR_HASH)
+    predecessor_hash = hash_bytes(content)
     upstream = json.loads(content)
     validate_snapshot(upstream, root)
     captures = upstream["state"]["sources"]
@@ -87,6 +87,15 @@ def _inputs(root: Path) -> dict:
             basis="source-fact", source_values=[deepcopy(observation)],
             publication_kind=capture["version_metadata"]["publication_kind"])
 
+    official_ids = ["obs-plenary-food-av", "obs-plenary-livestream", "obs-plenary-safety"]
+    if all(i in observations for i in official_ids):
+        add("hard_constraints", "hc-official-plenary-policy", "Real venue supplier restrictions and mandatory pre-event technical/safety briefing remain applicable; exercise coordination is not permission.",
+            official_ids, basis="official-publication", dependencies=["fact-evidence-"+i for i in official_ids],
+            rule={"applies_to":"real-operational-use", "permission_or_completion_verified":None,
+                  "historical_business_clock_applicability":"unverified", "cost_or_allocation_override":False})
+        add("unknowns", "unknown-official-plenary-policy-review", "Confirm real venue supplier permissions, livestream eligibility and technical/evacuation briefing arrangements before operational use; no completion or timing is evidenced.",
+            official_ids, basis="unresolved-information", dependencies=["hc-official-plenary-policy"], resolution="unresolved")
+
     tables = {}
     specs = [
         ("budget-allocations", "Budget", "obs-budget-row-", "fact-budget-", "category",
@@ -100,16 +109,30 @@ def _inputs(root: Path) -> dict:
     ]
     for identity, sheet, obs_prefix, fact_prefix, key, headers in specs:
         capture = next(c for c in captures if c["source_identity"] == identity and c["local_reference"])
-        rows = workbook_rows(root, capture, sheet)
-        if list(rows[0]["values"].values()) != headers:
-            raise ValueError("Unexpected source headers")
+        from event_coordination.run_contract import current_run
+        normalized = current_run(root) is not None
+        if normalized:
+            from event_coordination.input_changes import table_records
+            extracted = table_records(root, capture)
+            entries = [(r['row_number'], {'raw':r['raw'], 'values':r['values'], 'locator':r['locator']}) for r in extracted]
+        else:
+            rows = workbook_rows(root, capture, sheet)
+            if list(rows[0]["values"].values()) != headers:
+                raise ValueError("Unexpected source headers")
+            entries = [(n, {'raw':r['raw'], 'values':dict(zip(headers,r['values'].values(),strict=True))}) for n,r in enumerate(rows[1:],2)]
         tables[identity] = []
-        for number, row in enumerate(rows[1:], 2):
-            values = dict(zip(headers, row["values"].values(), strict=True))
+        for number, row in entries:
+            values = row['values']
             if any(v is None for v in values.values()):
                 raise ValueError("Required source cell missing; do not invent a value")
             semantic = values[key]
-            eid = obs_prefix + (str(number) if identity == "budget-allocations" else semantic.lower())
+            if identity == 'budget-allocations' and normalized:
+                matches = [eid for eid, (_, o) in observations.items()
+                           if eid.startswith(obs_prefix) and o['summary'].startswith('Category '+semantic+';')]
+                if len(matches)!=1: raise ValueError('Budget observation identity ambiguous')
+                eid=matches[0]
+            else:
+                eid = obs_prefix + (str(number) if identity == "budget-allocations" else semantic.lower())
             if eid not in observations:
                 raise ValueError("Worksheet row lacks an upstream observation")
             units = {field: "TWD" for field in values if field.endswith("_twd")}
@@ -123,7 +146,7 @@ def _inputs(root: Path) -> dict:
             fact = add("source_facts", fact_prefix + semantic, f"Source fields for {semantic}.", [eid],
                        basis="source-fact", values=values, units=units, interpretation=classification,
                        source_values=[{"evidence_id": eid, "original_cell_values": row["raw"],
-                                       "locator": f"'{sheet}'!A{number}:{chr(64 + len(headers))}{number}"}])
+                                       "locator": row.get("locator", f"'{sheet}'!A{number}:{chr(64 + len(headers))}{number}")}])
             tables[identity].append(fact)
 
     brief_fact("fact-brief-objective", 16, "The event should let fellows present work",
@@ -301,7 +324,11 @@ def _inputs(root: Path) -> dict:
     add("unknowns", "unknown-approvals", "No genuine approval outcomes have been supplied; gate requirements remain pending.",
         ["obs-brief-text-approvals"], basis="unresolved-information", resolution="unresolved",
         dependencies=[r["id"] for r in state["approval_requirements"]])
-    add("conflicts", "conflict-Q007-hearing-loop", "Q-007 excludes a hearing loop while a hearing-loop response is needed; conflict applies only if no adequate alternative is provided.",
+    q007 = next(r['values'] for r in tables['vendor-register'] if r['values']['quote_id']=='Q-007')
+    add("conflicts", "conflict-Q007-hearing-loop",
+        ("Q-007 excludes a hearing loop while a hearing-loop response is needed; conflict applies only if no adequate alternative is provided."
+         if 'no hearing loop' in q007['notes'].casefold() else
+         "Current Q-007 scope requires renewed coverage review; hearing-loop provision and quote applicability remain unverified."),
         ["obs-quote-q-007", "obs-attendee-sig-009"], basis="unresolved-information",
         dependencies=["fact-quote-Q-007", "hc-response-SIG-009"],
         conflict_kind="conditional", applies_if="Q-007 proposed without adequate alternative hearing-loop response", resolution="unresolved")
@@ -332,7 +359,7 @@ def _inputs(root: Path) -> dict:
                  business_timezone=upstream["state"]["business_timezone"], output_status="draft",
                  audience="internal-evidence-review", coverage=coverage)
     return {"run_id": upstream["run_id"], "predecessor": {
-        "snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": PREDECESSOR_HASH},
+        "snapshot_id": upstream["snapshot_id"], "path": PREDECESSOR_PATH, "sha256": predecessor_hash},
         "consumed_record_ids": sorted({eid for r in records for eid in r["evidence_ids"]}),
         "produced_record_ids": identifiers, "status": "partial", "state": state,
         "unresolved": deepcopy(state["unknowns"] + state["conflicts"]), "decisions": []}

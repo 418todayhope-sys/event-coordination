@@ -1,0 +1,29 @@
+{
+  "id": "capture-official-plenary-hall-8aa0459d-fc47-4882-a9dc-fca9c0fb56a3",
+  "summary": "Capture attempt for official-plenary-hall",
+  "evidence_ids": [],
+  "source_identity": "official-plenary-hall",
+  "source_role": "venue-page",
+  "locator": "https://www.ticc.com.tw/wSite/sp?BaseDSD=7&CtUnit=99&ctNode=322&mp=2&roomId=PH&xdUrl=%2FwSite%2Fap%2Fcp_VenueSearch.jsp",
+  "retrieved_at": "2026-10-18T11:17:51.955691+00:00",
+  "retrieval_status": "retrieved",
+  "content_type": "text/html",
+  "version_metadata": {
+    "method": "http-get",
+    "publication_kind": "real-publication",
+    "disclosure": {
+      "path": "evidence/source-disclosures/project-c-assignment-c724104.md",
+      "line": 85
+    },
+    "response_status": 200,
+    "byte_representation": "HTTP body without content encoding; transfer framing removed",
+    "verification_limit": "Retrieved bytes only; source completeness, observations and historical applicability require review",
+    "completed_at": "2026-10-18T11:17:53.941863+00:00",
+    "timestamp_basis": "Actual HTTP attempt start; not the simulated business clock",
+    "execution_environment": "Approved retry outside sandbox after sandbox ConnectError",
+    "disclosure_basis": "Published assignment c724104:README.md line 85; exact URL absent from preserved interview exports; repeated by learner in current request"
+  },
+  "content_hash": "sha256:49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5",
+  "local_reference": "evidence/originals/captures/49ca307c2f91355ffa2ac6fac4c32da8277b7284cc53f3d5a53d374d439c4cd5.bin",
+  "observations": []
+}

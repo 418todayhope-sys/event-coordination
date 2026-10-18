@@ -10,6 +10,20 @@ from event_coordination.stages.scope import BUSINESS_CLOCK, DEADLINE, GATES, OWN
 
 
 def validate_snapshot(snapshot: dict, root: Path) -> None:
+    from event_coordination.run_contract import current_run, validate_run_metadata
+    session = current_run(root)
+    if session is not None:
+        if type(snapshot) is not dict or snapshot.get("run_id") != session.run_id:
+            raise ValueError("Snapshot is outside the active run")
+        if snapshot.get("sequence") == 1:
+            metadata = snapshot.get("state", {}).get("run_metadata")
+            validate_run_metadata(metadata)
+            if metadata != session.metadata:
+                raise ValueError("Stage 1 run metadata differs from the active run")
+    if isinstance(snapshot, dict) and snapshot.get("stage") == "publication-validation":
+        from event_coordination.stages.publication import validate_stage9
+        validate_stage9(snapshot, root)
+        return
     if isinstance(snapshot, dict) and snapshot.get("stage") == "draft-propagation":
         from event_coordination.stages.drafts import validate_stage8
         validate_stage8(snapshot, root)
@@ -47,7 +61,7 @@ def validate_snapshot(snapshot: dict, root: Path) -> None:
         if not condition:
             raise ValueError(message)
     require(snapshot["stage"] == "scope-and-approval-gates" and snapshot["sequence"] == 1,
-            "Only Stages 1 through 8 validation are implemented")
+            "Only Stages 1 through 9 validation are implemented")
     require(snapshot["predecessor"] is None and snapshot["consumed_record_ids"] == [],
             "Invalid Stage 1 lineage")
     state = snapshot["state"]
@@ -59,6 +73,16 @@ def validate_snapshot(snapshot: dict, root: Path) -> None:
     require(state["evidence_records"] == expected, "Evidence hash, location, excerpt, or provenance mismatch")
     records = (state["evidence_records"] + state["scope_records"]
                + state["approval_requirements"] + snapshot["unresolved"])
+    if session is not None:
+        from event_coordination.input_changes import request_records, DECISION_PATH
+        from event_coordination.sources import hash_bytes
+        requests = request_records(root)
+        if requests:
+            expected_requests = [dict(r, evidence_ids=["scope-gates"], path=DECISION_PATH,
+                sha256=hash_bytes((root / DECISION_PATH).read_bytes())) for r in requests]
+            if state.get("decision_requests") != expected_requests:
+                raise ValueError("Decision requests differ from preserved advisory inputs")
+            records += [dict(r, evidence_ids=["scope-gates"]) for r in requests]
     ids = [r["id"] for r in records]
     require(len(ids) == len(set(ids)), "Duplicate record IDs")
     require(set(snapshot["produced_record_ids"]) == set(ids), "Produced record lineage mismatch")
